@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+
+<Course>
+    <Semester>1</Semester>
+    <Class>X</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>ASF</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Y</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>DSF</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Z</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>OIU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>DK</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>JHG</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>X</Class>
+    <CourseName>RWD</CourseName>
+    <Teacher1>QWE</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Y</Class>
+    <CourseName>RWD</CourseName>
+    <Teacher1>VBN</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Z</Class>
+    <CourseName>RWD</CourseName>
+    <Teacher1>NVBV</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>DK</Class>
+    <CourseName>RWD</CourseName>
+    <Teacher1>NVCC</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>X</Class>
+    <CourseName>DMA</CourseName>
+    <Teacher1>RIB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Y</Class>
+    <CourseName>DMA</CourseName>
+    <Teacher1>SDA</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Z</Class>
+    <CourseName>DMA</CourseName>
+    <Teacher1>SLF</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>DK</Class>
+    <CourseName>DMA</CourseName>
+    <Teacher1>KJH</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>X</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>DSF</Teacher1>
+    <Teacher2>ETWE</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Y</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>CNB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>Z</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>ACSL</Teacher1>
+    <Teacher2>LKJ</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>1</Semester>
+    <Class>DK</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>MNBXC</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>X</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>GDSF</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Y</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>GFD</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Z</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>QWE</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>DK</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>YRT</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>X</Class>
+    <CourseName>SWE</CourseName>
+    <Teacher1>SHAJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Y</Class>
+    <CourseName>SWE</CourseName>
+    <Teacher1>SFH</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Z</Class>
+    <CourseName>SWE</CourseName>
+    <Teacher1>SDG</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>DK</Class>
+    <CourseName>SWE</CourseName>
+    <Teacher1>SHA</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>X</Class>
+    <CourseName>DBS</CourseName>
+    <Teacher1>BNM</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Y</Class>
+    <CourseName>DBS</CourseName>
+    <Teacher1>CVB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class></Class>
+    <CourseName>DBS</CourseName>
+    <Teacher1>ZBVX</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>DK</Class>
+    <CourseName>DBS</CourseName>
+    <Teacher1>XCVB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>X</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>CVB</Teacher1>
+    <Teacher2>HFD</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Y</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>AGFD</Teacher1>
+    <Teacher2>SADG</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>Z</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>SADF</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>2</Semester>
+    <Class>DK</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>IYU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>X</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>YUO</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>Y</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>YUIK</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>DK</Class>
+    <CourseName>SDJ</CourseName>
+    <Teacher1>GHKJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>X</Class>
+    <CourseName>CAO</CourseName>
+    <Teacher1>VNB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>Y</Class>
+    <CourseName>CAO</CourseName>
+    <Teacher1>DFG</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>DK</Class>
+    <CourseName>CAO</CourseName>
+    <Teacher1>KJH</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>X</Class>
+    <CourseName>DNP</CourseName>
+    <Teacher1>YUT</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>Y</Class>
+    <CourseName>DNP</CourseName>
+    <Teacher1>TYU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>DK</Class>
+    <CourseName>DNP</CourseName>
+    <Teacher1>GFHJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>X</Class>
+    <CourseName>NES</CourseName>
+    <Teacher1>SDG</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>Y</Class>
+    <CourseName>NES</CourseName>
+    <Teacher1>WER</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>DK</Class>
+    <CourseName>NES</CourseName>
+    <Teacher1>IYU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>X</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>GFH</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>Y</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>RDHD</Teacher1>
+    <Teacher2>DSFG</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>3</Semester>
+    <Class>DK</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>RET</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>X</Class>
+    <CourseName>AND</CourseName>
+    <Teacher1>YUYT</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>Y</Class>
+    <CourseName>AND</CourseName>
+    <Teacher1>TYU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>DK</Class>
+    <CourseName>AND</CourseName>
+    <Teacher1>POI</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>X</Class>
+    <CourseName>ESW</CourseName>
+    <Teacher1>GHJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>Y</Class>
+    <CourseName>ESW</CourseName>
+    <Teacher1>ASD</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>DK</Class>
+    <CourseName>ESW</CourseName>
+    <Teacher1>BCV</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>X</Class>
+    <CourseName>DAI</CourseName>
+    <Teacher1>CVB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>Y</Class>
+    <CourseName>DAI</CourseName>
+    <Teacher1>VBB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>DK</Class>
+    <CourseName>DAI</CourseName>
+    <Teacher1>JGHJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>X</Class>
+    <CourseName>DOC</CourseName>
+    <Teacher1>GHJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>Y</Class>
+    <CourseName>DOC</CourseName>
+    <Teacher1>TYU</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>DK</Class>
+    <CourseName>DOC</CourseName>
+    <Teacher1>GFHJ</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>5</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>X</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>IYUI</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>Y</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>BNM</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>4</Semester>
+    <Class>DK</Class>
+    <CourseName>SEP</CourseName>
+    <Teacher1>DFG</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>10</ECTS>
+</Course>
+<Course>
+    <Semester>5</Semester>
+    <Class>X</Class>
+    <CourseName>INP</CourseName>
+    <Teacher1>ACVB</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>30</ECTS>
+</Course>
+<Course>
+    <Semester>5</Semester>
+    <Class>Y</Class>
+    <CourseName>INP</CourseName>
+    <Teacher1>LXC</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>30</ECTS>
+</Course>
+<Course>
+    <Semester>5</Semester>
+    <Class>DK</Class>
+    <CourseName>INP</CourseName>
+    <Teacher1>QWK</Teacher1>
+    <Teacher2>null</Teacher2>
+    <ECTS>30</ECTS>
+</Course>

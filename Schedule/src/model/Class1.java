@@ -35,14 +35,12 @@ public class Class1
   }
 
   public String toString(){
-    String str = "Class: " + semester + className +"\nCourses: \n";
+    String str = semester + className;
 
 
     for (int i = 0; i < courses.size(); i++){
       str += courses.get(i).toString();
     }
-
-    str +="\nStudents: \n";
 
     for (int i = 0; i < students.size(); i++){
       str += students.get(i).toString();

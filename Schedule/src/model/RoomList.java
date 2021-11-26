@@ -53,13 +53,15 @@ public class RoomList
 
     RoomList other = (RoomList)obj;
 
-    boolean equals = true;
-
-    for (int i = 0; i < rooms.size(); i++){
-      if (!(rooms.get(i).equals(other.getRoomByIndex(i)))){
-        equals = false;
+    if (rooms.size() == other.size()){
+      for (int i = 0; i < rooms.size(); i++){
+        if (!(rooms.get(i).equals(other.getRoomByIndex(i)))){
+          return false;
+        }
       }
+      return true;
     }
-    return equals;
+
+    return false;
   }
 }

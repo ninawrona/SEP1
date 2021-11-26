@@ -61,7 +61,6 @@ public class RoomList
       }
       return true;
     }
-
     return false;
   }
 }

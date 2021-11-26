@@ -6,13 +6,13 @@ public class Teacher
 {
   private String name;
   private String viaId;
-  private ArrayList<Course> courseList;
+  private CourseList courseList;
 //  private SessionList sessionList;
 
   public Teacher(String viaId){
     this.viaId = viaId;
     this.name = "";
-    courseList = new ArrayList<>();
+    courseList = new CourseList();
  //   sessionList = new SessionList();
   }
 
@@ -24,16 +24,16 @@ public class Teacher
     return viaId;
   }
 
-  public ArrayList<Course> getCourses(){
+  public CourseList getCourses(){
     return courseList;
   }
 
   public void assignToCourse(Course course){
-    courseList.add(course);
+    courseList.addCourse(course);
   }
 
   public void removeFromCourse(Course course){
-    courseList.remove(course);
+    courseList.removeCourse(course);
   }
 
  /* public boolean isAvailable(TimeInterval timeDate){

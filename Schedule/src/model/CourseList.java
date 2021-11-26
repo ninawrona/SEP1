@@ -24,6 +24,11 @@ public class CourseList
     return null;
   }
 
+  public Course getCourseByIndex(int index)
+  {
+    return courses.get(index);
+  }
+
   public void addCourse(Course course){
     courses.add(course);
   }

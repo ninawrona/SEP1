@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Class1
 {
   private ArrayList<Student> students;
-  private ArrayList<Course> courses;
+  private CourseList courses;
   private String className;
   private int semester;
 
@@ -13,7 +13,7 @@ public class Class1
     this.semester = semester;
     this.className = className;
     students = new ArrayList<>();
-    courses = new ArrayList<>();
+    courses = new CourseList();
   }
 
   public ArrayList<Student> getStudents(){
@@ -29,7 +29,7 @@ public class Class1
     return semester;
   }
 
-  public ArrayList<Course> getCourses()
+  public CourseList getCourses()
   {
     return courses;
   }
@@ -39,7 +39,7 @@ public class Class1
 
 
     for (int i = 0; i < courses.size(); i++){
-      str += courses.get(i).toString();
+      str += courses.getCourseByIndex(i).toString();
     }
 
     for (int i = 0; i < students.size(); i++){

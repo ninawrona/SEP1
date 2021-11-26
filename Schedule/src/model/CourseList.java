@@ -29,7 +29,7 @@ public class CourseList
     return null;
   }
 
-  public Course getCourseByIndex(int index)
+  public Course get(int index)
   {
     return courses.get(index);
   }

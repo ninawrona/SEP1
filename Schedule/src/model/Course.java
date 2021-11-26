@@ -12,7 +12,7 @@ public class Course
   private int ECTS;
   private Class1 class1;
   private ArrayList<Student> students;
-  private ArrayList<Teacher> teachers;
+  private TeacherList teachers;
   private Teacher teach1;
   private Teacher teach2;
 
@@ -29,8 +29,8 @@ public class Course
     teach1 = new Teacher(teacher1);
     teach2 = null;
     students = new ArrayList<>();
-    teachers = new ArrayList<>();
-    teachers.add(teach1);
+    teachers = new TeacherList();
+    teachers.addTeacher(teach1);
   }
 
   public Course(int semester, String classString, String courseName,
@@ -45,15 +45,15 @@ public class Course
     class1 = new Class1(semester, classString);
     teach2 = new Teacher(teacher2);
     students = new ArrayList<>();
-    teachers = new ArrayList<>();
-    teachers.add(teach1);
-    teachers.add(teach2);
+    teachers = new TeacherList();
+    teachers.addTeacher(teach1);
+    teachers.addTeacher(teach2);
   }
 
   public void addTeacher(Teacher teacher)
   {
     if (teachers.size()<4){
-      teachers.add(teacher);
+      teachers.addTeacher(teacher);
     } else {
       throw new ArrayStoreException("Max Number of Teachers Reached");
     }
@@ -61,7 +61,7 @@ public class Course
 
   public void removeTeacher(Teacher teacher)
   {
-    teachers.remove(teacher);
+    teachers.removeTeacher(teacher);
   }
 
   public void addStudent(Student student)
@@ -78,7 +78,7 @@ public class Course
     return class1;
   }
 
-  public ArrayList<Teacher> getTeachers(){
+  public TeacherList getTeachers(){
     return teachers;
   }
 

@@ -44,9 +44,17 @@ public class Teacher
     }
     return true;
   }
-  
+
   public String toString(){
     return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courseList;
   }
 
+  public boolean equals(Object obj){
+    if (!(obj instanceof Teacher)){
+      return false;
+    }
+    Teacher other = (Teacher)obj;
+
+    return name.equals(other.name) && viaId.equals(other.viaId);
+  }
 }

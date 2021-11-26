@@ -42,6 +42,10 @@ public class TeacherList
     return null;
   }
 
+  public Teacher getTeacherByIndex(int index){
+    return teachers.get(index);
+  }
+
   public String toString(){
     String str = "";
     for (int i = 0; i < teachers.size(); i++){

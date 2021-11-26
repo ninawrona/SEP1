@@ -5,11 +5,10 @@ import java.util.ArrayList;
 public class RoomList
 {
   private ArrayList<Room> rooms;
-  private RoomList roomList;
 
   public RoomList(){
     rooms = new ArrayList<>();
-    roomList = new RoomList();
+
   }
 
   public int size(){
@@ -24,11 +23,13 @@ public class RoomList
     rooms.remove(room);
   }
 
-  public Room getRoomByIndex(int index){
+  public Room get(int index){
     return rooms.get(index);
   }
 
   public RoomList getRoomsOnFloor(int floor){
+    RoomList roomList = new RoomList();
+
     for (int i = 0; i < rooms.size(); i++){
       if (rooms.get(i).getFloor() == floor){
         roomList.addRoom(rooms.get(i));
@@ -55,7 +56,7 @@ public class RoomList
 
     if (rooms.size() == other.size()){
       for (int i = 0; i < rooms.size(); i++){
-        if (!(rooms.get(i).equals(other.getRoomByIndex(i)))){
+        if (!(rooms.get(i).equals(other.get(i)))){
           return false;
         }
       }

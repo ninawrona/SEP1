@@ -6,14 +6,14 @@ public class Teacher
 {
   private String name;
   private String viaId;
-  private ArrayList<Course> courseList;
-  private SessionList sessionList;
+  private CourseList courseList;
+//  private SessionList sessionList;
 
   public Teacher(String viaId){
     this.viaId = viaId;
     this.name = "";
-    courseList = new ArrayList<>();
-    sessionList = new SessionList();
+    courseList = new CourseList();
+ //   sessionList = new SessionList();
   }
 
   public String getName(){
@@ -24,19 +24,19 @@ public class Teacher
     return viaId;
   }
 
-  public ArrayList<Course> getCourses(){
+  public CourseList getCourses(){
     return courseList;
   }
 
   public void assignToCourse(Course course){
-    courseList.add(course);
+    courseList.addCourse(course);
   }
 
   public void removeFromCourse(Course course){
-    courseList.remove(course);
+    courseList.removeCourse(course);
   }
 
-  public boolean isAvailable(TimeInterval timeDate){
+ /* public boolean isAvailable(TimeInterval timeDate){
     for (int i = 0; i < sessionList.size(); i++){
       if (sessionList.get(i).getTimeInterval.isOverlap(timeDate)){
         return false;
@@ -44,6 +44,8 @@ public class Teacher
     }
     return true;
   }
+
+  */
 
   public String toString(){
     return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courseList;

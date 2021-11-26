@@ -48,6 +48,42 @@ public class ReadWrite
     }
   }
 
+
+  public static void manualWriteCourse(ArrayList<Course> courses)
+  {
+    File file = new File("Courses.xml");
+    try
+
+    {
+      PrintWriter out = new PrintWriter(file);
+
+      String xml = "";
+      xml +=
+          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+      for (int i = 0; i < courses.size(); i++)
+      {
+        xml += "\n<Course>";
+        xml +=
+            "\n    <Semester>" + courses.get(i).getSemester() + "</Semester>";
+        xml += "\n    <Class>" + courses.get(i).getClassString() + "</Class>";
+        xml += "\n    <CourseName>" + courses.get(i).getCourseName() + "</CourseName>";
+        xml += "\n    <Teacher1>" + courses.get(i).getTeacher1() + "</Teacher1>";
+        xml += "\n    <Teacher2>" + courses.get(i).getTeacher2() + "</Teacher2>";
+        xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
+
+        xml += "\n</Course>";
+      }
+      out.println(xml);
+      out.close();
+
+    }
+    catch (FileNotFoundException e)
+
+    {
+      e.printStackTrace();
+    }
+  }
+
   public static ArrayList<Student> manualReadStudent()
   {
     File file = new File("students.txt");
@@ -161,39 +197,5 @@ public class ReadWrite
   }
 
 
-  public static void manualWriteCourse(ArrayList<Course> courses)
-  {
-    File file = new File("Courses.xml");
-    try
-
-    {
-      PrintWriter out = new PrintWriter(file);
-
-      String xml = "";
-      xml +=
-          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
-      for (int i = 0; i < courses.size(); i++)
-      {
-        xml += "\n<Course>";
-        xml +=
-            "\n    <Semester>" + courses.get(i).getSemester() + "</Semester>";
-        xml += "\n    <Class>" + courses.get(i).getClassString() + "</Class>";
-        xml += "\n    <CourseName>" + courses.get(i).getCourseName() + "</CourseName>";
-        xml += "\n    <Teacher1>" + courses.get(i).getTeacher1() + "</Teacher1>";
-        xml += "\n    <Teacher2>" + courses.get(i).getTeacher2() + "</Teacher2>";
-        xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
-
-        xml += "\n</Course>";
-      }
-      out.println(xml);
-      out.close();
-
-    }
-    catch (FileNotFoundException e)
-
-    {
-      e.printStackTrace();
-    }
-  }
 
 }

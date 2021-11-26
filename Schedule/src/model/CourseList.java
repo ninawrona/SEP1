@@ -6,17 +6,22 @@ public class CourseList
 {
   private ArrayList<Course> courses;
 
-  public CourseList(){
+  public CourseList()
+  {
     courses = new ArrayList<>();
   }
 
-  public int size(){
+  public int size()
+  {
     return courses.size();
   }
 
-  public Course getCourseByName(String name){
-    for (int i = 0; i < courses.size(); i++){
-      if (courses.get(i).getCourseName().equals(name)){
+  public Course getCourseByName(String name)
+  {
+    for (int i = 0; i < courses.size(); i++)
+    {
+      if (courses.get(i).getCourseName().equals(name))
+      {
         return courses.get(i);
       }
     }
@@ -29,36 +34,46 @@ public class CourseList
     return courses.get(index);
   }
 
-  public void addCourse(Course course){
+  public void addCourse(Course course)
+  {
     courses.add(course);
   }
 
-  public void removeCourse(Course course){
+  public void removeCourse(Course course)
+  {
     courses.remove(course);
   }
 
-  public String toString(){
+  public String toString()
+  {
     String str = "";
-    for (int i = 0; i < courses.size(); i++){
+    for (int i = 0; i < courses.size(); i++)
+    {
       str += courses.get(i).toString();
     }
     return str;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof CourseList)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof CourseList))
+    {
       return false;
     }
 
-    CourseList other = (CourseList)obj;
+    CourseList other = (CourseList) obj;
 
-    boolean equals = true;
-
-    for (int i = 0; i < courses.size(); i++){
-      if (!(courses.get(i).equals(other.courses.get(i)))){
-        equals = false;
+    if (courses.size() == other.size())
+    {
+      for (int i = 0; i < courses.size(); i++)
+      {
+        if (!(courses.get(i).equals(other.courses.get(i))))
+        {
+          return false;
+        }
       }
+      return true;
     }
-    return equals;
+    return false;
   }
 }

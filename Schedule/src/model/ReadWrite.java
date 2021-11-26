@@ -15,7 +15,7 @@ public class ReadWrite
     manualWriteCourse(manualReadCourse());
   }
 
-  public static void manualWriteStudent(ArrayList<Student> students)
+  public static void manualWriteStudent(StudentList students)
   {
     File file = new File("Students.xml");
     try
@@ -49,7 +49,7 @@ public class ReadWrite
   }
 
 
-  public static void manualWriteCourse(ArrayList<Course> courses)
+  public static void manualWriteCourse(CourseList courses)
   {
     File file = new File("Courses.xml");
     try
@@ -84,10 +84,10 @@ public class ReadWrite
     }
   }
 
-  public static ArrayList<Student> manualReadStudent()
+  public static StudentList manualReadStudent()
   {
     File file = new File("students.txt");
-    ArrayList<Student> students = new ArrayList<>();
+    StudentList students = new StudentList();
     try
     {
       Scanner in = new Scanner(file);
@@ -112,7 +112,7 @@ public class ReadWrite
             name = parts[2];
             viaId = Integer.parseInt(parts[3]);
             student = new Student(semester, classString, name, viaId);
-            students.add(student);
+            students.addStudent(student);
           }
           else
           {
@@ -133,10 +133,10 @@ public class ReadWrite
     return students;
   }
 
-  public static ArrayList<Course> manualReadCourse()
+  public static CourseList manualReadCourse()
   {
     File file = new File("courses.txt");
-    ArrayList<Course> courses = new ArrayList<>();
+    CourseList courses = new CourseList();
     try
     {
       Scanner in = new Scanner(file);
@@ -164,7 +164,7 @@ public class ReadWrite
             teacher1 = parts[3];
             ECTS = Integer.parseInt(parts[4]);
             course = new Course(semester, classString, courseName, teacher1, ECTS);
-            courses.add(course);
+            courses.addCourse(course);
           }
           else if (parts.length == 6)
           {
@@ -175,7 +175,7 @@ public class ReadWrite
             teacher2 = parts[4];
             ECTS = Integer.parseInt(parts[5]);
             course = new Course(semester, classString, courseName, teacher1,teacher2, ECTS);
-            courses.add(course);
+            courses.addCourse(course);
           }
           else
           {

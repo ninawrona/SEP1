@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Class1
 {
-  private ArrayList<Student> students;
+  private StudentList students;
   private CourseList courses;
   private String className;
   private int semester;
@@ -12,11 +12,11 @@ public class Class1
   public Class1(int semester, String className){
     this.semester = semester;
     this.className = className;
-    students = new ArrayList<>();
+    students = new StudentList();
     courses = new CourseList();
   }
 
-  public ArrayList<Student> getStudents(){
+  public StudentList getStudents(){
     return students;
   }
 
@@ -39,7 +39,7 @@ public class Class1
 
 
     for (int i = 0; i < courses.size(); i++){
-      str += courses.getCourseByIndex(i).toString();
+      str += courses.get(i).toString();
     }
 
     for (int i = 0; i < students.size(); i++){

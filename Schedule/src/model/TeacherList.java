@@ -28,6 +28,10 @@ public class TeacherList
 
   public Teacher getTeacherByName(String name)
   {
+    if(name == null)
+    {
+      throw new IllegalArgumentException("Name cannot be null!");
+    }
     for (int i = 0; i < teachers.size(); i++)
     {
       if (teachers.get(i).getName().equals(name))
@@ -41,6 +45,8 @@ public class TeacherList
 
   public Teacher getTeacherByViaId(String viaId)
   {
+    //There might be an exception if there more than 4 characters or so
+    //but we are not sure
     for (int i = 0; i < teachers.size(); i++)
     {
       if (teachers.get(i).getViaId().equals(viaId))
@@ -52,7 +58,7 @@ public class TeacherList
     return null;
   }
 
-  public Teacher getTeacherByIndex(int index)
+  public Teacher get(int index)
   {
     return teachers.get(index);
   }
@@ -76,17 +82,15 @@ public class TeacherList
 
     TeacherList other = (TeacherList) obj;
 
-    if (teachers.size() == other.size())
+    boolean equals = true;
+
+    for (int i = 0; i < teachers.size(); i++)
     {
-      for (int i = 0; i < teachers.size(); i++)
+      if (!(teachers.get(i).equals(other.get(i))))
       {
-        if (!(teachers.get(i).equals(other.teachers.get(i))))
-        {
-          return false;
-        }
+        equals = false;
       }
-      return true;
     }
-    return false;
+    return equals;
   }
 }

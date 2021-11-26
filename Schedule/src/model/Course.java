@@ -11,7 +11,7 @@ public class Course
   private String teacher2;
   private int ECTS;
   private Class1 class1;
-  private ArrayList<Student> students;
+  private StudentList students;
   private TeacherList teachers;
   private Teacher teach1;
   private Teacher teach2;
@@ -28,7 +28,7 @@ public class Course
     class1 = new Class1(semester, classString);
     teach1 = new Teacher(teacher1);
     teach2 = null;
-    students = new ArrayList<>();
+    students = new StudentList();
     teachers = new TeacherList();
     teachers.addTeacher(teach1);
   }
@@ -44,7 +44,7 @@ public class Course
     this.ECTS = ECTS;
     class1 = new Class1(semester, classString);
     teach2 = new Teacher(teacher2);
-    students = new ArrayList<>();
+    students = new StudentList();
     teachers = new TeacherList();
     teachers.addTeacher(teach1);
     teachers.addTeacher(teach2);
@@ -66,12 +66,12 @@ public class Course
 
   public void addStudent(Student student)
   {
-    students.add(student);
+    students.addStudent(student);
   }
 
   public void removeStudent(Student student)
   {
-    students.remove(student);
+    students.removeStudent(student);
   }
 
   public Class1 getClass1(){
@@ -82,7 +82,7 @@ public class Course
     return teachers;
   }
 
-  public ArrayList<Student> getStudents(){
+  public StudentList getStudents(){
     return students;
   }
 

@@ -52,7 +52,11 @@ public class Course
 
   public void addTeacher(Teacher teacher)
   {
-    teachers.add(teacher);
+    if (teachers.size()<4){
+      teachers.add(teacher);
+    } else {
+      throw new ArrayStoreException("Max Number of Teachers Reached");
+    }
   }
 
   public void removeTeacher(Teacher teacher)

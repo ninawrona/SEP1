@@ -7,13 +7,13 @@ public class Teacher
   private String name;
   private String viaId;
   private ArrayList<Course> courseList;
-  private SessionList sessionList;
+//  private SessionList sessionList;
 
   public Teacher(String viaId){
     this.viaId = viaId;
     this.name = "";
     courseList = new ArrayList<>();
-    sessionList = new SessionList();
+ //   sessionList = new SessionList();
   }
 
   public String getName(){
@@ -36,7 +36,7 @@ public class Teacher
     courseList.remove(course);
   }
 
-  public boolean isAvailable(TimeInterval timeDate){
+ /* public boolean isAvailable(TimeInterval timeDate){
     for (int i = 0; i < sessionList.size(); i++){
       if (sessionList.get(i).getTimeInterval.isOverlap(timeDate)){
         return false;
@@ -44,6 +44,8 @@ public class Teacher
     }
     return true;
   }
+
+  */
 
   public String toString(){
     return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courseList;

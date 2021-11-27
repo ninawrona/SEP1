@@ -1,15 +1,16 @@
-package model;
+package model.basic;
 
-import java.util.ArrayList;
+import model.list.CourseList;
+import model.list.StudentList;
 
-public class Class1
+public class ClassGroup
 {
   private StudentList students;
   private CourseList courses;
   private String className;
   private int semester;
 
-  public Class1(int semester, String className){
+  public ClassGroup(int semester, String className){
     this.semester = semester;
     this.className = className;
     students = new StudentList();
@@ -49,10 +50,10 @@ public class Class1
   }
 
   public boolean equals(Object obj){
-    if (!(obj instanceof Class1)){
+    if (!(obj instanceof ClassGroup)){
       return false;
     }
-    Class1 other = (Class1)obj;
+    ClassGroup other = (ClassGroup)obj;
 
     return className.equals(other.className) && semester == other.semester && students.equals(other.students) && courses.equals(other.courses);
   }

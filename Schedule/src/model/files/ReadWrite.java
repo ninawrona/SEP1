@@ -1,4 +1,4 @@
-package model;
+package model.files;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ReadWrite
 {
-
+/*
   public static void main(String[] args)
   {
     manualWriteStudent(manualReadStudent());
@@ -64,11 +64,13 @@ public class ReadWrite
       {
         xml += "\n<Course>";
         xml +=
-            "\n    <Semester>" + courses.get(i).getSemester() + "</Semester>";
-        xml += "\n    <Class>" + courses.get(i).getClassString() + "</Class>";
-        xml += "\n    <CourseName>" + courses.get(i).getCourseName() + "</CourseName>";
-        xml += "\n    <Teacher1>" + courses.get(i).getTeacher1() + "</Teacher1>";
-        xml += "\n    <Teacher2>" + courses.get(i).getTeacher2() + "</Teacher2>";
+            "\n    <Semester>" + courses.get(i).getSemesterTaught() + "</Semester>";
+        xml += "\n    <Class>" + courses.get(i).getClassGroup().getClassName() + "</Class>";
+        xml += "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
+                      for(int j = 0; j<courses.get(i).getTeachers().size(); j++)
+                      {
+                        xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j) + "</Teacher>";
+                      }
         xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
 
         xml += "\n</Course>";
@@ -197,5 +199,5 @@ public class ReadWrite
   }
 
 
-
+*/
 }

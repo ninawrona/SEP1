@@ -1,6 +1,7 @@
-package model;
+package model.basic;
 
-import java.util.ArrayList;
+import model.list.CourseList;
+import model.list.SessionList;
 
 public class Teacher
 {
@@ -35,7 +36,7 @@ public class Teacher
   public void removeFromCourse(Course course){
     courseList.removeCourse(course);
   }
-
+/*
   public boolean isAvailable(TimeInterval timeDate){
     for (int i = 0; i < sessionList.size(); i++){
       if (sessionList.get(i).getTimeInterval().isOverlapped(timeDate)){
@@ -44,7 +45,7 @@ public class Teacher
     }
     return true;
   }
-
+*/
 
 
   public String toString(){

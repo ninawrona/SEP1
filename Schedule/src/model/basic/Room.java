@@ -1,4 +1,4 @@
-package model;
+package model.basic;
 
 public class Room
 {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Course>
+  <semesterTaught>2</semesterTaught>
+  <teachers/>
+  <name>RWD</name>
+  <classGroup>
+    <courses/>
+    <students/>
+    <className>Y</className>
+    <semester>2</semester>
+  </classGroup>
+  <ECTS>10</ECTS>
+</Course>

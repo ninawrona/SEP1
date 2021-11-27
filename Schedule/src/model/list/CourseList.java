@@ -1,4 +1,6 @@
-package model;
+package model.list;
+
+import model.basic.Course;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class CourseList
   {
     for (int i = 0; i < courses.size(); i++)
     {
-      if (courses.get(i).getCourseName().equals(name))
+      if (courses.get(i).getName().equals(name))
       {
         return courses.get(i);
       }

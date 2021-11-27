@@ -1,4 +1,6 @@
-package model;
+package model.list;
+
+import model.basic.Teacher;
 
 import java.util.ArrayList;
 

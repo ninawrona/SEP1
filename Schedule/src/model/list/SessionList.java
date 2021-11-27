@@ -1,4 +1,9 @@
-package model;
+package model.list;
+
+import model.basic.Course;
+import model.basic.Room;
+import model.basic.Session;
+import model.basic.TimeInterval;
 
 import java.util.ArrayList;
 
@@ -76,7 +81,7 @@ public class SessionList
     return null;
   }
 
-  public Session forAllTheAbove(TimeInterval timeInterval,Room room, Course course){
+  public Session forAllTheAbove(TimeInterval timeInterval,Room room, Course course){//
     if (timeInterval == null || room == null || course == null){
       throw new IllegalArgumentException("Parameters can not be null");
     }

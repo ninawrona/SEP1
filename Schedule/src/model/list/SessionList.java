@@ -81,7 +81,7 @@ public class SessionList
     return null;
   }
 
-  public Session forAllTheAbove(TimeInterval timeInterval,Room room, Course course){//
+  public Session addSession(TimeInterval timeInterval,Room room, Course course){//
     if (timeInterval == null || room == null || course == null){
       throw new IllegalArgumentException("Parameters can not be null");
     }

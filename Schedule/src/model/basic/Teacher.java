@@ -9,8 +9,9 @@ public class Teacher
   private String viaId;
   private CourseList courseList;
   private SessionList sessionList;
+  private boolean available;
 
-  public Teacher(String viaId){
+  public Teacher(String viaId, String name, ){
     this.viaId = viaId;
     this.name = "";
     courseList = new CourseList();

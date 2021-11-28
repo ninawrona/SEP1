@@ -11,6 +11,10 @@ public class Date
   public Date(int day, int month, int year)
   {
     set(day, month, year);
+    if(!isValid())
+    {
+      throw new IllegalArgumentException("Date has to be today or after today.");
+    }
   }
 
   public Date()
@@ -62,6 +66,11 @@ public class Date
     this.day = day;
     this.month = month;
     this.year = year;
+  }
+
+  public boolean isValid()
+  {
+    return !isBefore(new Date());
   }
 
   public int getDay()
@@ -161,7 +170,7 @@ public class Date
     {
       return false;
     }
-    else if (years == 0)
+    else
     {
       if (months < 0)
       {
@@ -171,7 +180,7 @@ public class Date
       {
         return false;
       }
-      else if (months == 0)
+      else
       {
         if (days < 0)
         {
@@ -181,82 +190,17 @@ public class Date
         {
           return false;
         }
-        else if (days == 0)
+        else
         {
           return false;
         }
       }
     }
-
-    return false;
-
   }
   public int daysBefore(Date date)
   {
     return 42;
     //idk how to do it, is it relevant?
-  }
-  public int yearsBetween(Date date)
-  {
-    int yearsbtw = this.year - date.year;
-    int months = this.month - date.month;
-    int days = this.day - date.day;
-
-    if (this.isBefore(date))
-    {
-      if (months < 0)
-      {
-        yearsbtw = yearsbtw;
-      }
-      else if (months > 0)
-      {
-        yearsbtw = yearsbtw + 1;
-      }
-      else if (months == 0)
-      {
-        if (days < 0)
-        {
-          yearsbtw = yearsbtw;
-        }
-        else if (days > 0)
-        {
-          yearsbtw = yearsbtw + 1;
-        }
-        else if (days == 0)
-        {
-          yearsbtw = yearsbtw;
-        }
-
-      }
-      yearsbtw = yearsbtw * (-1);
-    }
-    else
-    {
-      if (months < 0)
-      {
-        yearsbtw = yearsbtw - 1;
-      }
-      else if (months > 0)
-      {
-        yearsbtw = yearsbtw;
-      }
-      else if (months == 0)
-      {
-        if (days < 0)
-        {
-          yearsbtw = yearsbtw - 1;
-        }
-        else if (days > 0)
-        {
-          yearsbtw = yearsbtw;
-        }
-        else if (days == 0)
-        {
-          yearsbtw = yearsbtw;
-        }
-      }
-    }
-    return yearsbtw;
   }
 
   public void stepForwardOneDay()
@@ -286,7 +230,8 @@ public class Date
 
   public Date copy()
   {
-
+    Date other = new Date(this.day, this.month, this.year);
+    return other;
   }
 
   public String toString()
@@ -309,7 +254,14 @@ public class Date
 
   public boolean equals(Object obj)
   {
+    if(!(obj instanceof Date))
+    {
+      return false;
+    }
 
+    Date other = (Date)obj;
+
+    return day== other.day && month== other.month && year==other.year;
   }
 
 }

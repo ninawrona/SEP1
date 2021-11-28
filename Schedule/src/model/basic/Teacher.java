@@ -7,15 +7,13 @@ public class Teacher
 {
   private String name;
   private String viaId;
-  private CourseList courseList;
-  private SessionList sessionList;
+  private CourseList courses;
+  private SessionList sessions;
   private boolean available;
 
-  public Teacher(String viaId, String name, ){
+  public Teacher(String viaId, String name){
     this.viaId = viaId;
-    this.name = "";
-    courseList = new CourseList();
-    sessionList = new SessionList();
+    this.name = name;
   }
 
   public String getName(){
@@ -27,20 +25,36 @@ public class Teacher
   }
 
   public CourseList getCourses(){
-    return courseList;
+    return courses;
   }
 
   public void assignToCourse(Course course){
-    courseList.addCourse(course);
+    courses.addCourse(course);
   }
 
   public void removeFromCourse(Course course){
-    courseList.removeCourse(course);
+    courses.removeCourse(course);
   }
+
+  public SessionList getSessions()
+  {
+    return sessions;
+  }
+
+  public void addSession(Session session)
+  {
+    sessions.addSession(session);
+  }
+
+  public void removeSession(Session session)
+  {
+    sessions.removeSession(session);
+  }
+
 /*
   public boolean isAvailable(TimeInterval timeDate){
-    for (int i = 0; i < sessionList.size(); i++){
-      if (sessionList.get(i).getTimeInterval().isOverlapped(timeDate)){
+    for (int i = 0; i < sessions.size(); i++){
+      if (sessions.get(i).getTimeInterval().isOverlapped(timeDate)){
         return false;
       }
     }
@@ -50,7 +64,7 @@ public class Teacher
 
 
   public String toString(){
-    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courseList;
+    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courses;
   }
 
   public boolean equals(Object obj){

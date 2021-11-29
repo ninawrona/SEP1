@@ -81,9 +81,6 @@ public class TimeInterval
   public boolean isOverlapped(
       TimeInterval timeInterval)//Also some hard methods here idk how to do it
   {
-
-
-
     double startTime = 0;
     double startOtherTime = 0;
     double startMinuteTime = 0;
@@ -178,15 +175,12 @@ public class TimeInterval
 
   public void setNumberOfLessons(int numberOfLessons)
   {
-    //Exceptions needed
+    if(getHour()==8 && getMinute()==20 && numberOfLessons>10)
+    {
+      throw new IllegalArgumentException("There cannot be more than 10 lessons from 08:20.");
+    }
     this.numberOfLessons = numberOfLessons;
   }
-
-  public void setDate(Date date)
-  {
-    // Can we set date if there is composition? I don't think so
-  }
-
   public TimeInterval copy()
   {
     TimeInterval other = new TimeInterval(getHour(), getMinute(),

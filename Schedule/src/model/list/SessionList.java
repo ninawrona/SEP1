@@ -11,102 +11,131 @@ public class SessionList
 {
   private ArrayList<Session> sessions;
 
-  public SessionList(){
+  public SessionList()
+  {
     sessions = new ArrayList<>();
   }
 
-  public int size(){
+  public int size()
+  {
     return sessions.size();
   }
 
-  public Session get(int index){
+  public Session get(int index)
+  {
     return sessions.get(index);
   }
 
-  public void addSession(Session session){
-    if(session == null)
+  public void addSession(Session session)
+  {
+    if (session == null)
     {
       throw new IllegalArgumentException("Session cannot be null!");
     }
     sessions.add(session);
   }
 
-  public void removeSession(Session session){
-    if(session == null)
+  public void removeSession(Session session)
+  {
+    if (session == null)
     {
       throw new IllegalArgumentException("Session cannot be null!");
     }
     sessions.remove(session);
   }
 
-  public SessionList getSessionByTimeInterval(TimeInterval timeInterval){
+  public SessionList getSessionByTimeInterval(TimeInterval timeInterval)
+  {
     SessionList list = new SessionList();
 
-    if (timeInterval == null){
+    if (timeInterval == null)
+    {
       throw new IllegalArgumentException("Time Interval Can Not Be Null");
     }
 
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getTimeInterval().equals(timeInterval)){
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getTimeDate().equals(timeInterval))
+      {
         list.addSession(sessions.get(i));
       }
     }
-    if (list.size() > 0){
+    if (list.size() > 0)
+    {
       return list;
-    } else {
+    }
+    else
+    {
       throw new NullPointerException("No sessions at this time interval");
     }
   }
 
-  public SessionList getSessionsByRoom(Room room){
+  public SessionList getSessionsByRoom(Room room)
+  {
     SessionList list = new SessionList();
 
-    if (room == null){
+    if (room == null)
+    {
       throw new IllegalArgumentException("Room can not be null");
     }
 
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getRoom().equals(room)){
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getRoom().equals(room))
+      {
         list.addSession(sessions.get(i));
       }
     }
-    if (list.size() > 0){
+    if (list.size() > 0)
+    {
       return list;
-    } else {
+    }
+    else
+    {
       throw new NullPointerException("There are no sessions in that room");
     }
   }
 
-  public SessionList getSessionByCourse(Course course){
+  public SessionList getSessionByCourse(Course course)
+  {
     SessionList list = new SessionList();
 
-    if (course == null){
+    if (course == null)
+    {
       throw new IllegalArgumentException("Course can not be null");
     }
 
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getCourse().equals(course)){
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getCourse().equals(course))
+      {
         list.addSession(sessions.get(i));
       }
     }
-    if (list.size() > 0 ){
+    if (list.size() > 0)
+    {
       return list;
-    } else {
+    }
+    else
+    {
       throw new NullPointerException("There are no sessions for that course");
     }
   }
 
-  public Session getExactSession(TimeInterval timeInterval,Room room, Course course){//
-    if (timeInterval == null || room == null || course == null){
+  public Session getExactSession(TimeInterval timeInterval, Room room)
+  {//
+    if (timeInterval == null || room == null)
+    {
       throw new IllegalArgumentException("Parameters can not be null");
     }
 
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getTimeInterval().equals(timeInterval)){
-        if (sessions.get(i).getRoom().equals(room)){
-          if (sessions.get(i).getCourse().equals(course)){
-            return sessions.get(i);
-          }
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getTimeDate().equals(timeInterval))
+      {
+        if (sessions.get(i).getRoom().equals(room))
+        {
+          return sessions.get(i);
         }
       }
     }
@@ -114,24 +143,31 @@ public class SessionList
     return null;
   }
 
-  public String toString(){
+  public String toString()
+  {
     String str = "";
-    for (int i = 0; i < sessions.size(); i++){
+    for (int i = 0; i < sessions.size(); i++)
+    {
       str += sessions.get(i);
     }
     return str;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof SessionList)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof SessionList))
+    {
       return false;
     }
 
-    SessionList other = (SessionList)obj;
+    SessionList other = (SessionList) obj;
 
-    if (sessions.size() == other.size()){
-      for (int i = 0; i < sessions.size(); i++){
-        if (!(sessions.get(i).equals(other.get(i)))){
+    if (sessions.size() == other.size())
+    {
+      for (int i = 0; i < sessions.size(); i++)
+      {
+        if (!(sessions.get(i).equals(other.get(i))))
+        {
           return false;
         }
       }
@@ -139,11 +175,4 @@ public class SessionList
     }
     return false;
   }
-
-
-
-
-
-
-
 }

@@ -56,8 +56,4 @@ public class Session
     return course.equals(other.course) && timeDate.equals(other.timeDate)
         && room.equals(other.room);
   }
-
-  public TimeInterval getTimeInterval(){
-    return timeDate;
-  }
 }

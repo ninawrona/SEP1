@@ -8,7 +8,6 @@ public class Course
   private String name;
   private ClassGroup classGroup;
   private TeacherList teachers;
-  private StudentList students;
   private int semesterTaught;
   private int ECTS;
 

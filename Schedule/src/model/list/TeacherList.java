@@ -21,7 +21,8 @@ public class TeacherList
 
   public void addTeacher(Teacher teacher)
   {
-    if (teacher == null){
+    if (teacher == null)
+    {
       throw new IllegalArgumentException("Teacher can not be null");
     }
     teachers.add(teacher);
@@ -29,7 +30,8 @@ public class TeacherList
 
   public void removeTeacher(Teacher teacher)
   {
-    if (teacher == null){
+    if (teacher == null)
+    {
       throw new IllegalArgumentException("Teacher can not be null");
     }
     teachers.remove(teacher);
@@ -37,7 +39,7 @@ public class TeacherList
 
   public Teacher getTeacherByName(String name)
   {
-    if(name == null)
+    if (name == null)
     {
       throw new IllegalArgumentException("Name cannot be null!");
     }
@@ -55,7 +57,8 @@ public class TeacherList
   public Teacher getTeacherByViaId(String viaId)
   {
 
-    if (viaId  == null){
+    if (viaId == null)
+    {
       throw new IllegalArgumentException("Via ID can not be null");
     }
     //There might be an exception if there more than 4 characters or so
@@ -70,15 +73,32 @@ public class TeacherList
     System.out.println("There is no teacher with that Via Id");
     return null;
   }
- /*
-  public TeacherList getTeachersByCourse(Course course){
-    for (int i = 0; i < teachers.size(); i++){
-      if (teachers.get(i).g)
+
+  public TeacherList getTeachersByCourse(Course course)
+  {
+    TeacherList list = new TeacherList();
+
+    for (int i = 0; i < teachers.size(); i++)
+    {
+      for (int j = 0; i < teachers.get(i).getCourses().size(); j++)
+      {
+        if (teachers.get(i).getCourses().get(i).equals(course))
+        {
+          list.addTeacher(teachers.get(i));
+        }
+      }
+    }
+    if (list.size() > 0)
+    {
+      return list;
+    }
+    else
+    {
+      System.out.println("No teachers have that course");
+      return null;
     }
   }
 
-
-  */
   public Teacher get(int index)
   {
     return teachers.get(index);
@@ -89,7 +109,7 @@ public class TeacherList
     String str = "";
     for (int i = 0; i < teachers.size(); i++)
     {
-      str += i+1 + ". "+teachers.get(i).toString();
+      str += i + 1 + ". " + teachers.get(i).toString();
     }
     return str;
   }

@@ -9,8 +9,8 @@ public class TimeInterval
 
   public static void main(String[] args)
   {
-    TimeInterval timeInterval = new TimeInterval(8, 20, 10,
-        new Date(28, 11, 2021));
+    TimeInterval timeInterval = new TimeInterval(8, 20, 5,
+        new Date(30, 11, 2021));
     System.out.println(timeInterval.getEndTime());
   }
 
@@ -68,9 +68,22 @@ public class TimeInterval
     return date.copy();
   }
 
+  public boolean isBefore(TimeInterval timeInterval)
+  {
+    return this.getTimeInSeconds() < timeInterval.getTimeInSeconds();
+  }
+
+  public int getTimeInSeconds()
+  {
+    return hour * 3600 + minute * 60;
+  }
+
   public boolean isOverlapped(
       TimeInterval timeInterval)//Also some hard methods here idk how to do it
   {
+
+
+
     double startTime = 0;
     double startOtherTime = 0;
     double startMinuteTime = 0;

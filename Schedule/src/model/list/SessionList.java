@@ -39,49 +39,64 @@ public class SessionList
     sessions.remove(session);
   }
 
-  public Session getSessionByTimeInterval(TimeInterval timeInterval){
+  public SessionList getSessionByTimeInterval(TimeInterval timeInterval){
+    SessionList list = new SessionList();
+
     if (timeInterval == null){
       throw new IllegalArgumentException("Time Interval Can Not Be Null");
     }
 
     for (int i = 0; i < sessions.size(); i++){
       if (sessions.get(i).getTimeInterval().equals(timeInterval)){
-        return sessions.get(i);
+        list.addSession(sessions.get(i));
       }
     }
-    System.out.println("There is no session at that time interval");
-    return null;
+    if (list.size() > 0){
+      return list;
+    } else {
+      throw new NullPointerException("No sessions at this time interval");
+    }
   }
 
-  public Session getSessionByRoom(Room room){
+  public SessionList getSessionsByRoom(Room room){
+    SessionList list = new SessionList();
+
     if (room == null){
       throw new IllegalArgumentException("Room can not be null");
     }
 
     for (int i = 0; i < sessions.size(); i++){
       if (sessions.get(i).getRoom().equals(room)){
-        return sessions.get(i);
+        list.addSession(sessions.get(i));
       }
     }
-    System.out.println("There is no session in that room");
-    return null;
+    if (list.size() > 0){
+      return list;
+    } else {
+      throw new NullPointerException("There are no sessions in that room");
+    }
   }
 
-  public Session getSessionByCourse(Course course){
+  public SessionList getSessionByCourse(Course course){
+    SessionList list = new SessionList();
+
     if (course == null){
       throw new IllegalArgumentException("Course can not be null");
     }
 
     for (int i = 0; i < sessions.size(); i++){
       if (sessions.get(i).getCourse().equals(course)){
-        return sessions.get(i);
+        list.addSession(sessions.get(i));
       }
     }
-    System.out.println("There is no session for that course");
-    return null;
+    if (list.size() > 0 ){
+      return list;
+    } else {
+      throw new NullPointerException("There are no sessions for that course");
+    }
   }
 
-  public Session addSession(TimeInterval timeInterval,Room room, Course course){//
+  public Session getExactSession(TimeInterval timeInterval,Room room, Course course){//
     if (timeInterval == null || room == null || course == null){
       throw new IllegalArgumentException("Parameters can not be null");
     }

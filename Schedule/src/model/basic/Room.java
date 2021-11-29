@@ -43,4 +43,15 @@ public class Room
   public String toString(){
     return "Room: " + block + floor + number + "\nCapacity: " + capacity + "\nAvailable: " + available;
   }
+
+  public boolean equals(Object obj){
+    if (!(obj instanceof Room))
+    {
+      return false;
+    }
+
+    Room other = (Room)obj;
+
+    return floor == other.floor && block == other.block && capacity == other.capacity && available == other.available;
+  }
 }

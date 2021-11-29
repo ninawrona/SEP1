@@ -197,11 +197,6 @@ public class Date
       }
     }
   }
-  public int daysBefore(Date date)
-  {
-    return 42;
-    //idk how to do it, is it relevant?
-  }
 
   public void stepForwardOneDay()
   {

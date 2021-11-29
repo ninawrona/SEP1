@@ -9,43 +9,16 @@ public class TimeInterval
 
   public static void main(String[] args)
   {
-    TimeInterval timeInterval = new TimeInterval(8, 20, 10,
-        new Date(28, 11, 2021));
+    TimeInterval timeInterval = new TimeInterval(8, 20, 5,
+        new Date(30, 11, 2021));
     System.out.println(timeInterval.getEndTime());
   }
 
   public TimeInterval(int hour, int minute, int numberOfLessons, Date date)
   {
-    set(hour, minute, numberOfLessons);
+    setStartTime(hour, minute);
+    setNumberOfLessons(numberOfLessons);
     this.date = date.copy();
-  }
-
-  public void set(int hour, int minute, int numberOfLessons)
-  {
-    if (hour < 8
-        || hour > 17)// if it has to end at 18, 17 is the last hour possible
-    {
-      throw new IllegalArgumentException(
-          "The lesson has to start between 08 and 20.");
-    }
-    if (hour == 8 && minute != 20)
-    {
-      throw new IllegalArgumentException("The lesson starts at 08:20");
-    }
-    else if (hour == 9 && minute != 15)
-    {
-      throw new IllegalArgumentException("The lesson starts at 09:15");
-    }
-    else if (hour == 10 && minute != 10)
-    {
-      throw new IllegalArgumentException("The lesson starts at 10:10");
-    }
-
-    // not finished, not sure which conditions should be checked
-
-    this.hour = hour;
-    this.minute = minute;
-    this.numberOfLessons = numberOfLessons;
   }
 
   public int getHour()
@@ -68,37 +41,19 @@ public class TimeInterval
     return date.copy();
   }
 
+  public boolean isBefore(TimeInterval timeInterval)
+  {
+    return this.getTimeInSeconds() < timeInterval.getTimeInSeconds();
+  }
+
+  public int getTimeInSeconds()
+  {
+    return hour * 3600 + minute * 60;
+  }
+
   public boolean isOverlapped(
       TimeInterval timeInterval)//Also some hard methods here idk how to do it
   {
-    double startTime = 0;
-    double startOtherTime = 0;
-    double startMinuteTime = 0;
-    double startMinuteOtherTime = 0;
-
-    if (getMinute() < 10)
-    {
-      startMinuteTime = getMinute() * 0.01;
-    }
-    else
-    {
-      startMinuteTime = getMinute() * 0.1;
-    }
-
-    if (timeInterval.getMinute() < 10)
-    {
-      startMinuteOtherTime = getMinute() * 0.01;
-    }
-    else
-    {
-      startMinuteOtherTime = getMinute() * 0.1;
-    }
-
-    if (getDate() == timeInterval.getDate())
-    {
-
-    }
-
     return true;
   }
 
@@ -158,20 +113,109 @@ public class TimeInterval
 
   public void setStartTime(int hour, int minute)
   {
-    //Exceptions needed
+    if (hour == 8 && minute != 20)
+    {
+      throw new IllegalArgumentException("The lesson start from 08:20.");
+    }
+    else if (hour == 9 && minute != 15)
+    {
+      throw new IllegalArgumentException("The lesson start from 09:15.");
+    }
+    else if (hour == 10 && minute != 10)
+    {
+      throw new IllegalArgumentException("The lesson start from 10:10.");
+    }
+    else if (hour == 11 && minute != 5)
+    {
+      throw new IllegalArgumentException("The lesson start from 11:05.");
+    }
+    else if (hour == 12 && minute != 45)
+    {
+      throw new IllegalArgumentException("The lesson start from 12:45.");
+    }
+    else if (hour == 13 && minute != 40)
+    {
+      throw new IllegalArgumentException("The lesson start from 13:40.");
+    }
+    else if (hour == 14 && minute != 35)
+    {
+      throw new IllegalArgumentException("The lesson start from 14:35.");
+    }
+    else if (hour == 15 && minute != 30)
+    {
+      throw new IllegalArgumentException("The lesson start from 15:30.");
+    }
+    else if (hour == 16 && minute != 25)
+    {
+      throw new IllegalArgumentException("The lesson start from 16:25.");
+    }
+    else if (hour == 17 && minute != 20)
+    {
+      throw new IllegalArgumentException("The lesson start from 17:20.");
+    }
+    else if (hour < 8 || hour > 17)
+    {
+      throw new IllegalArgumentException(
+          "The lessons start from 8:20 and finish at 18:05.");
+    }
     this.hour = hour;
     this.minute = minute;
   }
 
   public void setNumberOfLessons(int numberOfLessons)
   {
-    //Exceptions needed
-    this.numberOfLessons = numberOfLessons;
-  }
+    if (getHour() == 8 && getMinute() == 20 && numberOfLessons > 10)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 10 lessons from 08:20.");
+    }
+    else if (getHour() == 9 && getMinute() == 15 && numberOfLessons > 9)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 9 lessons from 09:15.");
+    }
+    else if (getHour() == 10 && getMinute() == 10 && numberOfLessons > 8)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 8 lessons from 10:10.");
+    }
+    else if (getHour() == 11 && getMinute() == 5 && numberOfLessons > 7)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 7 lessons from 11:05.");
+    }
+    else if (getHour() == 12 && getMinute() == 45 && numberOfLessons > 6)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 6 lessons from 12:45.");
+    }
+    else if (getHour() == 13 && getMinute() == 40 && numberOfLessons > 5)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 5 lessons from 13:40.");
+    }
+    else if (getHour() == 14 && getMinute() == 35 && numberOfLessons > 4)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 4 lessons from 14:35.");
+    }
+    else if (getHour() == 15 && getMinute() == 30 && numberOfLessons > 3)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 3 lessons from 15:30.");
+    }
+    else if (getHour() == 16 && getMinute() == 25 && numberOfLessons > 2)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 2 lessons from 16:25.");
+    }
+    else if (getHour() == 17 && getMinute() == 20 && numberOfLessons > 1)
+    {
+      throw new IllegalArgumentException(
+          "There cannot be more than 1 lessons from 17:20.");
+    }
 
-  public void setDate(Date date)
-  {
-    // Can we set date if there is composition? I don't think so
+    this.numberOfLessons = numberOfLessons;
   }
 
   public TimeInterval copy()

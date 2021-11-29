@@ -12,6 +12,13 @@ public class Teacher
   private boolean available;
 
   public Teacher(String viaId, String name){
+    if (name.equals(null)){
+      throw new IllegalArgumentException("Name can not be null");
+    }
+    if (viaId.equals(null)){
+      throw new IllegalArgumentException("Via ID can not be null");
+    }
+
     this.viaId = viaId;
     this.name = name;
   }
@@ -51,7 +58,7 @@ public class Teacher
     sessions.removeSession(session);
   }
 
-/*
+
   public boolean isAvailable(TimeInterval timeDate){
     for (int i = 0; i < sessions.size(); i++){
       if (sessions.get(i).getTimeInterval().isOverlapped(timeDate)){
@@ -60,7 +67,6 @@ public class Teacher
     }
     return true;
   }
-*/
 
 
   public String toString(){

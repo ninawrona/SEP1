@@ -12,7 +12,7 @@ public class XMLParser
 {
   public static void main(String[] args)
   {
-    Course course = new Course("RWD", new ClassGroup(2, "Y"), new TeacherList(),
+  //  Course course = new Course("RWD", new ClassGroup(2, "Y"), new TeacherList(),
         2, 10);
     toXML(course, "CourseTest.xml");
     //Course course2 = new Course();

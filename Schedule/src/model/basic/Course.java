@@ -113,4 +113,14 @@ public class Course
     s+="\n ECTS: " +ECTS;
     return s;
   }
+
+  public boolean equals(Object obj){
+    if (!(obj instanceof Course)){
+      return false;
+    }
+
+    Course other = (Course)obj;
+
+    return name.equals(other.name) && semesterTaught == other.semesterTaught && ECTS == other.ECTS;
+  }
 }

@@ -25,7 +25,7 @@ public class ViewHandler
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
-    openview("schedule");
+    //openview("schedule");
     addSessionViewController.reset();
     // More controllers here
   }

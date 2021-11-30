@@ -96,7 +96,7 @@ public class SessionList
 
     if (room == null)
     {
-      throw new IllegalArgumentException("Room can not be null");
+      throw new IllegalArgumentException("Room cannot be null");
     }
 
     for (int i = 0; i < sessions.size(); i++)

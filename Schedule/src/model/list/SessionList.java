@@ -41,7 +41,8 @@ public class SessionList
     sessions.remove(session);
   }
 
-  public SessionList getSessionsByDate( Date date,Time startTime, int numberOfLessons)
+  public SessionList getSessionsByDate(Date date, Time startTime,
+      int numberOfLessons)
   {
     SessionList list = new SessionList();
 
@@ -52,7 +53,9 @@ public class SessionList
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getStartTime().equals(startTime) &&sessions.get(i).getNumberOfLessons() == numberOfLessons)
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i)
+          .getStartTime().equals(startTime)
+          && sessions.get(i).getNumberOfLessons() == numberOfLessons)
       {
         list.addSession(sessions.get(i));
       }
@@ -67,15 +70,19 @@ public class SessionList
     }
   }
 
-  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons){
+  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons)
+  {
     SessionList list = new SessionList();
 
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getRoom().equals(room)){
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getRoom().equals(room))
+      {
         list.addSession(sessions.get(i));
       }
     }
-    for (int i = 0; i < list.size(); i++){
+    for (int i = 0; i < list.size(); i++)
+    {
       if (list.get(i).isOverlapped())
     }
   }

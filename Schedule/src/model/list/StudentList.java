@@ -79,6 +79,15 @@ public class StudentList
     return null;
   }
 
+  public StudentList copy(){
+    StudentList list = new StudentList();
+    for (int i = 0; i < students.size(); i++){
+      list.addStudent(students.get(i));
+    }
+    return list;
+
+  }
+
   public String toString()
   {
 

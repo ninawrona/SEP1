@@ -18,7 +18,11 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <ChoiceBox prefHeight="26.0" prefWidth="131.0" />
+                        <Label prefHeight="17.0" prefWidth="146.0" text="Course Name">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                   <VBox prefHeight="190.0" prefWidth="100.0">

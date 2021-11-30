@@ -10,18 +10,21 @@ public class ClassGroup
   private String className;
   private int semester;
 
-  public ClassGroup(int semester, String className, StudentList students){
+  public ClassGroup(int semester, String className, StudentList students)
+  {
     this.semester = semester;
     this.className = className;
     this.students = students;
     courses = new CourseList();
   }
 
-  public StudentList getStudents(){
+  public StudentList getStudents()
+  {
     return students;
   }
 
-  public String getClassName(){
+  public String getClassName()
+  {
     return className;
   }
 
@@ -35,27 +38,38 @@ public class ClassGroup
     return courses;
   }
 
+  public ClassGroup copy()
+  {
+    ClassGroup copy = new ClassGroup(this.semester, this.className,
+        this.students);
+    return copy;
+  }
 
-  public String toString(){
+  public String toString()
+  {
     String str = semester + className;
 
-
-    for (int i = 0; i < courses.size(); i++){
+    for (int i = 0; i < courses.size(); i++)
+    {
       str += courses.get(i).toString();
     }
 
-    for (int i = 0; i < students.size(); i++){
+    for (int i = 0; i < students.size(); i++)
+    {
       str += students.get(i).toString();
     }
     return str;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof ClassGroup)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof ClassGroup))
+    {
       return false;
     }
-    ClassGroup other = (ClassGroup)obj;
+    ClassGroup other = (ClassGroup) obj;
 
-    return className.equals(other.className) && semester == other.semester && students.equals(other.students) && courses.equals(other.courses);
+    return className.equals(other.className) && semester == other.semester
+        && students.equals(other.students) && courses.equals(other.courses);
   }
 }

@@ -9,7 +9,6 @@ public class Teacher
   private String viaId;
   private CourseList courses;
   private SessionList sessions;
-  private boolean available;
 
   public Teacher(String viaId, String name){
     if (name.equals(null)){

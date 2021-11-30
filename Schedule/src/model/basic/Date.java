@@ -11,9 +11,10 @@ public class Date
   public Date(int day, int month, int year)
   {
     set(day, month, year);
-    if(!isValid())
+    if (!isValid())
     {
-      throw new IllegalArgumentException("Date has to be today or after today.");
+      throw new IllegalArgumentException(
+          "Date has to be today or after today.");
     }
   }
 
@@ -21,51 +22,6 @@ public class Date
   {
     LocalDate today = LocalDate.now();
     set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
-  }
-
-  public void set(int day, int month, int year)
-  {
-    if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1)
-    {
-      throw new IllegalArgumentException("Entered values are illegal.");
-    }
-    if (month == 2)
-    {
-      if (isLeapYear())
-      {
-        if (day > 29)
-        {
-          throw new IllegalArgumentException(
-              "In a leap year there are 29 days in February.");
-        }
-        else
-        {
-          if (day > 28)
-          {
-            throw new IllegalArgumentException("There are 28 days in February.");
-          }
-        }
-      }
-      else if (month == 4 || month == 6 || month == 9 || month == 11)
-      {
-        if (day > 30)
-        {
-          throw new IllegalArgumentException(
-              "There are 30 days in chosen month.");
-        }
-      }
-      else
-      {
-        if (day > 31)
-        {
-          throw new IllegalArgumentException(
-              "There are 31 days in chosen month.");
-        }
-      }
-    }
-    this.day = day;
-    this.month = month;
-    this.year = year;
   }
 
   public boolean isValid()
@@ -118,6 +74,52 @@ public class Date
         return "December";
     }
     return "null";
+  }
+
+  public void set(int day, int month, int year)
+  {
+    if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1)
+    {
+      throw new IllegalArgumentException("Entered values are illegal.");
+    }
+    if (month == 2)
+    {
+      if (isLeapYear())
+      {
+        if (day > 29)
+        {
+          throw new IllegalArgumentException(
+              "In a leap year there are 29 days in February.");
+        }
+        else
+        {
+          if (day > 28)
+          {
+            throw new IllegalArgumentException(
+                "There are 28 days in February.");
+          }
+        }
+      }
+      else if (month == 4 || month == 6 || month == 9 || month == 11)
+      {
+        if (day > 30)
+        {
+          throw new IllegalArgumentException(
+              "There are 30 days in chosen month.");
+        }
+      }
+      else
+      {
+        if (day > 31)
+        {
+          throw new IllegalArgumentException(
+              "There are 31 days in chosen month.");
+        }
+      }
+    }
+    this.day = day;
+    this.month = month;
+    this.year = year;
   }
 
   public int numberOfDaysInMonth()
@@ -249,14 +251,14 @@ public class Date
 
   public boolean equals(Object obj)
   {
-    if(!(obj instanceof Date))
+    if (!(obj instanceof Date))
     {
       return false;
     }
 
-    Date other = (Date)obj;
+    Date other = (Date) obj;
 
-    return day== other.day && month== other.month && year==other.year;
+    return day == other.day && month == other.month && year == other.year;
   }
 
 }

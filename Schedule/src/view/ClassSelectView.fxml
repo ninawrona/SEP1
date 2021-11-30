@@ -9,7 +9,7 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="104.0" prefWidth="633.0" text="Choose class" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="104.0" prefWidth="633.0" text="Choose Class or Teacher" textAlignment="CENTER">
                <font>
                   <Font name="Bell MT" size="21.0" />
                </font>
@@ -29,7 +29,7 @@
             <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Cancel" />
          </children>
       </HBox>
-      <Label prefHeight="39.0" prefWidth="435.0" text="Error label" textFill="#dd0c0c">
+      <Label fx:id="errorLabel" prefHeight="39.0" prefWidth="435.0" text="Error label" textFill="#dd0c0c">
          <font>
             <Font size="14.0" />
          </font>

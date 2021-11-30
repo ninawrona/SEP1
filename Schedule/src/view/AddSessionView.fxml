@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSessionController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSessionController">
     <children>
-        <Label alignment="CENTER" prefHeight="37.0" prefWidth="399.0" text="Add a session" textAlignment="CENTER">
+        <Label alignment="CENTER" prefHeight="37.0" prefWidth="399.0" text="Add a Session" textAlignment="CENTER">
             <font>
                 <Font name="Tahoma" size="31.0" />
             </font>
@@ -16,7 +16,10 @@
         <HBox prefHeight="46.0" prefWidth="388.0">
             <children>
                 <Label prefHeight="85.0" prefWidth="105.0" text="Course" />
-                <ChoiceBox prefHeight="37.0" prefWidth="169.0" />
+                <ChoiceBox prefHeight="37.0" prefWidth="169.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin></ChoiceBox>
             </children>
          <padding>
             <Insets left="10.0" />
@@ -24,31 +27,46 @@
         </HBox>
         <HBox prefHeight="45.0" prefWidth="388.0">
             <children>
-                <Label prefHeight="101.0" prefWidth="105.0" text="Pick a date" />
-                <DatePicker prefHeight="36.0" prefWidth="168.0" />
+                <Label prefHeight="101.0" prefWidth="105.0" text="Pick a Date" />
+                <DatePicker prefHeight="36.0" prefWidth="168.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin></DatePicker>
             </children>
          <padding>
             <Insets left="10.0" />
          </padding>
         </HBox>
-        <HBox prefHeight="50.0" prefWidth="388.0">
-            <children>
-                <Label prefHeight="85.0" prefWidth="105.0" text="Lessons" />
-                <TextField prefHeight="41.0" prefWidth="54.0" text="how many..." />
-                <Label alignment="CENTER" prefHeight="44.0" prefWidth="100.0" text="Start time" />
-            <ChoiceBox prefHeight="44.0" prefWidth="111.0" />
-            </children>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-        </HBox>
-        <HBox prefHeight="50.0" prefWidth="388.0">
+      <VBox alignment="CENTER" prefHeight="88.0" prefWidth="388.0">
+         <children>
+              <HBox prefHeight="50.0" prefWidth="388.0">
+                  <children>
+                      <Label prefHeight="44.0" prefWidth="114.0" text="Start Time" />
+                  <ChoiceBox prefHeight="44.0" prefWidth="89.0" />
+                      <Label alignment="CENTER" prefHeight="44.0" prefWidth="100.0" text="Lessons" />
+                  <ChoiceBox layoutX="125.0" layoutY="10.0" prefHeight="44.0" prefWidth="111.0" />
+                  </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+              </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Find rooms">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+        <HBox prefHeight="62.0" prefWidth="388.0">
             <children>
                 <Label prefHeight="85.0" prefWidth="105.0" text="Room" />
                 <ChoiceBox prefHeight="42.0" prefWidth="171.0">
                     <opaqueInsets>
                         <Insets right="15.0" />
                     </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
                 </ChoiceBox>
             </children>
          <padding>
@@ -56,18 +74,14 @@
          </padding>
         </HBox>
         <Separator prefWidth="200.0" />
-        <HBox prefHeight="163.0" prefWidth="388.0">
-            <children>
-                <Label prefHeight="191.0" prefWidth="161.0" text="Details" />
-                <TextArea prefHeight="202.0" prefWidth="302.0" />
-            </children>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-        </HBox>
+      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="388.0">
+         <children>
+            <Button mnemonicParsing="false" text="Add Session" />
+         </children>
+      </HBox>
       <Label fx:id="errorLabel" prefHeight="21.0" prefWidth="393.0" text="Error Label" textFill="#d31515">
          <font>
-            <Font size="15.0" />
+            <Font size="14.0" />
          </font>
       </Label>
     </children>

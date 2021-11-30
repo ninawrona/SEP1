@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label alignment="CENTER" prefHeight="119.0" prefWidth="600.0" text="Select text file">
+            <Label alignment="CENTER" prefHeight="119.0" prefWidth="600.0" text="Select a Text File">
                <font>
                   <Font name="Bell MT" size="23.0" />
                </font>
@@ -39,5 +39,10 @@
          <padding>
             <Insets bottom="5.0" top="5.0" />
          </padding></HBox>
+      <Label fx:id="errorLabel" prefHeight="53.0" prefWidth="579.0" text="Error Label" textFill="#d31d1d">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </VBox>

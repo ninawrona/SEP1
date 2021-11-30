@@ -48,6 +48,44 @@ public class Session
   {
     return startTime;
   }
+  public Time getEndTime(Time startTime, int numberOfLessons)
+  {
+
+    int totalMinutes = numberOfLessons * LENGTHOFLESSON;
+    int hours = totalMinutes / 60;
+    int minutes = totalMinutes % 60;
+
+    int endHour = startTime.getHour() + hours;
+    int endMinute = startTime.getMinute() + minutes;
+
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+    if ((startTime.getHour() <= 11 && endHour > 11))
+    {
+      endMinute = endMinute + 45;
+    }
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+
+    if (endHour == 12)
+    {
+      endHour = 11;
+      endMinute = 50;
+    }
+    else if (endHour == 18 && endMinute == 5)
+    {
+      endHour = 17;
+      endMinute = 55;
+    }
+
+    return new Time(endHour, endMinute);
+  }
 
   public Time getEndTime()
   {
@@ -87,23 +125,55 @@ public class Session
 
     return new Time(endHour, endMinute);
   }
-/*
-  public boolean isOverlapped(Session other)
+
+  public boolean isOverlapped(Time timeStart, int numberOfLessons)
   {
-    if (startTime.getHour() < other.startTime.getHour() && startTime.getMinute() < other.startTime.getMinute()){
-      if (getEndTime().getHour() > other.getEndTime().getHour() && getEndTime().getMinute() > other.getEndTime().getMinute()){
-        return true;
-      }
+    Time endTime2 = getEndTime(timeStart, numberOfLessons);
+
+
+
+    if ((startTime.isBefore(timeStart) && (startTime.isBefore(
+        endTime2)) && getEndTime().isBefore(timeStart)
+        && getEndTime().isBefore(
+        endTime2))) //Session 1 ends before Session 2 begins
+    {
+      return false;
     }
-    if (other.getEndTime().getHour() < startTime.getHour() && other.getEndTime().getMinute() < startTime.getMinute()){
-      if (other.getEndTime().getHour() > getEndTime().getHour() && other.getEndTime().getMinute() > getEndTime().getMinute()){
-        return true;
-      }
+    else if ((startTime.isBefore(timeStart) && (startTime.isBefore(
+        endTime2)) && !(getEndTime().isBefore(timeStart))
+        && getEndTime().isBefore(
+        endTime2))) // Session 1 extends into Session 2
+    {
+      return true;
     }
-    return false;
+    else if ((startTime.isBefore(startTime) && (startTime.isBefore(
+        endTime2)) && !(getEndTime().isBefore(timeStart))
+        && !(getEndTime().isBefore(
+        endTime2)))) // Session 2 begins and ends inside Session 1
+    {
+      return true;
+    }
+    else if (timeStart.isBefore(startTime) && timeStart.isBefore(
+        getEndTime()) && endTime2.isBefore(startTime)
+        && endTime2.isBefore(getEndTime())) // Session 2 ends before Session 1 begins
+    {
+      return false;
+    }
+    else
+    if (timeStart.isBefore(startTime) && timeStart.isBefore(
+        getEndTime()) && !(endTime2.isBefore(startTime))
+        && endTime2
+        .isBefore(getEndTime())) //Session 2 extends into Session 1
+    {
+      return true;
+    }
+
+    else
+      return timeStart.isBefore(startTime) && timeStart.isBefore(
+          getEndTime()) && !(endTime2.isBefore(startTime))
+          && !(endTime2.isBefore(getEndTime())); //Session 1 begins and ends inside Session 2
   }
 
- */
 
   public boolean isOverlapped(Session other)
   {

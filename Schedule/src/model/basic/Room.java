@@ -32,7 +32,7 @@ public class Room
   }
 
   public String toString(){
-    return "Room: " + block + floor + number + "\nCapacity: " + capacity
+    return "Room: " + block + floor + number + "\nCapacity: " + capacity;
   }
 
   public boolean equals(Object obj){

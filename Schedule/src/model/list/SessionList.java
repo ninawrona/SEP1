@@ -83,8 +83,11 @@ public class SessionList
     }
     for (int i = 0; i < list.size(); i++)
     {
-      if (list.get(i).isOverlapped())
+      if (list.get(i).isOverlapped(timeStart,numberOfLessons)){
+        return false;
+      }
     }
+    return true;
   }
 
   public SessionList getSessionsByRoom(Room room)

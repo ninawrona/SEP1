@@ -12,5 +12,23 @@ public class ViewHandler
   private Stage primaryStage;
   // private ScheduleModel model;
   private AddSessionViewController addSessionViewController;
-  // more controller here
+  // more controllers here
+
+  /* public ViewHandler(ScheduleModel model)
+  {
+    this.currentScene = new Scene(new Region());
+    this.model = model;
+  }
+
+   */
+
+  public void start(Stage primaryStage)
+  {
+    this.primaryStage = primaryStage;
+    openview("schedule");
+    addSessionViewController.reset();
+    // More controllers here
+  }
+
+  // View strings: schedule, add,
 }

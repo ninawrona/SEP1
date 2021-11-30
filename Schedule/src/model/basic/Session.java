@@ -20,6 +20,10 @@ public class Session
     this.numberOfLessons = numberOfLessons;
   }
 
+  public void freeRoom(){
+    this.room = null;
+  }
+
   public void bookRoom(Room room)
   {
     this.room = room;
@@ -83,7 +87,7 @@ public class Session
     return endTime;
   }
 /*
-  public boolean isOverlapped(Session other)
+  public boolean isOverlapped(Time timeStart)
   {
     if (startTime.getHour() < other.startTime.getHour() && startTime.getMinute() < other.startTime.getMinute()){
       if (getEndTime().getHour() > other.getEndTime().getHour() && getEndTime().getMinute() > other.getEndTime().getMinute()){
@@ -99,6 +103,12 @@ public class Session
   }
 
  */
+
+  public boolean isOverlapped(Time startTime, int numberOfLessons){
+    if (this.startTime.getHour() < startTime.getHour() && this.startTime.getMinute() < startTime.getMinute()){
+      if (endOne)
+    }
+  }
 
   public void setStartTime(Time startTime)
   {
@@ -206,8 +216,6 @@ public class Session
 
     this.numberOfLessons = numberOfLessons;
   }
-
-
 
   @Override public String toString()
   {

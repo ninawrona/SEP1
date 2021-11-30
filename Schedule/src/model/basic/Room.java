@@ -6,22 +6,13 @@ public class Room
   private char block;
   private int number;
   private int capacity;
-  private boolean available;
+
 
   public Room(int floor, char block, int number, int capacity){
     this.floor = floor;
     this.block = block;
     this.number = number;
     this.capacity = capacity;
-    available = true;
-  }
-
-  public void book(){
-    available = false;
-  }
-
-  public boolean isAvailable(){
-    return available;
   }
 
   public int getFloor(){
@@ -41,7 +32,7 @@ public class Room
   }
 
   public String toString(){
-    return "Room: " + block + floor + number + "\nCapacity: " + capacity + "\nAvailable: " + available;
+    return "Room: " + block + floor + number + "\nCapacity: " + capacity
   }
 
   public boolean equals(Object obj){
@@ -52,6 +43,6 @@ public class Room
 
     Room other = (Room)obj;
 
-    return floor == other.floor && block == other.block && capacity == other.capacity && available == other.available;
+    return floor == other.floor && block == other.block && capacity == other.capacity;
   }
 }

@@ -67,6 +67,19 @@ public class SessionList
     }
   }
 
+  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons){
+    SessionList list = new SessionList();
+
+    for (int i = 0; i < sessions.size(); i++){
+      if (sessions.get(i).getRoom().equals(room)){
+        list.addSession(sessions.get(i));
+      }
+    }
+    for (int i = 0; i < list.size(); i++){
+      if (list.get(i).isOverlapped())
+    }
+  }
+
   public SessionList getSessionsByRoom(Room room)
   {
     SessionList list = new SessionList();

@@ -3,7 +3,7 @@ package model.list;
 import model.basic.Course;
 import model.basic.Room;
 import model.basic.Session;
-import model.basic.TimeInterval;
+import model.basic.Time;
 
 import java.util.ArrayList;
 
@@ -44,18 +44,18 @@ public class SessionList
     sessions.remove(session);
   }
 
-  public SessionList getSessionByTimeInterval(TimeInterval timeInterval)
+  public SessionList getSessionByTimeInterval(Time time)
   {
     SessionList list = new SessionList();
 
-    if (timeInterval == null)
+    if (time == null)
     {
       throw new IllegalArgumentException("Time Interval Can Not Be Null");
     }
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getTimeDate().equals(timeInterval))
+      if (sessions.get(i).getTimeDate().equals(time))
       {
         list.addSession(sessions.get(i));
       }
@@ -122,16 +122,16 @@ public class SessionList
     }
   }
 
-  public Session getExactSession(TimeInterval timeInterval, Room room)
+  public Session getExactSession(Time time, Room room)
   {//
-    if (timeInterval == null || room == null)
+    if (time == null || room == null)
     {
       throw new IllegalArgumentException("Parameters can not be null");
     }
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getTimeDate().equals(timeInterval))
+      if (sessions.get(i).getTimeDate().equals(time))
       {
         if (sessions.get(i).getRoom().equals(room))
         {

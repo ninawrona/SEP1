@@ -1,24 +1,13 @@
 package model.basic;
 
-public class TimeInterval
+public class Time
 {
   private int hour;
   private int minute;
-  private int numberOfLessons;
-  private Date date;
 
-  public static void main(String[] args)
-  {
-    TimeInterval timeInterval = new TimeInterval(8, 20, 5,
-        new Date(30, 11, 2021));
-    System.out.println(timeInterval.getEndTime());
-  }
-
-  public TimeInterval(int hour, int minute, int numberOfLessons, Date date)
+  public Time(int hour, int minute)
   {
     setStartTime(hour, minute);
-    setNumberOfLessons(numberOfLessons);
-    this.date = date.copy();
   }
 
   public int getHour()
@@ -31,19 +20,11 @@ public class TimeInterval
     return minute;
   }
 
-  public int getNumberOfLessons()
-  {
-    return numberOfLessons;
-  }
 
-  public Date getDate()
-  {
-    return date.copy();
-  }
 
-  public boolean isBefore(TimeInterval timeInterval)
+  public boolean isBefore(Time time)
   {
-    return this.getTimeInSeconds() < timeInterval.getTimeInSeconds();
+    return this.getTimeInSeconds() < time.getTimeInSeconds();
   }
 
   public int getTimeInSeconds()
@@ -51,8 +32,7 @@ public class TimeInterval
     return hour * 3600 + minute * 60;
   }
 
-  public boolean isOverlapped(
-      TimeInterval timeInterval)//Also some hard methods here idk how to do it
+  public boolean isOverlapped()
   {
     return true;
   }
@@ -218,9 +198,9 @@ public class TimeInterval
     this.numberOfLessons = numberOfLessons;
   }
 
-  public TimeInterval copy()
+  public Time copy()
   {
-    TimeInterval other = new TimeInterval(getHour(), getMinute(),
+    Time other = new Time(getHour(), getMinute(),
         getNumberOfLessons(), getDate());
     return other;
   }
@@ -235,12 +215,12 @@ public class TimeInterval
 
   public boolean equals(Object obj)
   {
-    if (!(obj instanceof TimeInterval))
+    if (!(obj instanceof Time))
     {
       return false;
     }
 
-    TimeInterval other = (TimeInterval) obj;
+    Time other = (Time) obj;
     return getHour() == other.getHour() && getMinute() == other.getMinute()
         && getDate().equals(other.getDate()) && getNumberOfLessons() == other
         .getNumberOfLessons();

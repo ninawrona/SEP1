@@ -3,10 +3,10 @@ package model.basic;
 public class Session
 {
   private Course course;
-  private TimeInterval timeDate;
+  private Time timeDate;
   private Room room;
 
-  public Session(Course course, TimeInterval timeDate)
+  public Session(Course course, Time timeDate)
   {
     this.course = course;
     this.timeDate = timeDate;
@@ -24,12 +24,12 @@ public class Session
     return room;
   }
 
-  public TimeInterval getTimeDate()
+  public Time getTimeDate()
   {
     return timeDate;
   }
 
-  public void setTimeDate(TimeInterval timeDate)
+  public void setTimeDate(Time timeDate)
   {
     this.timeDate = timeDate;
   }

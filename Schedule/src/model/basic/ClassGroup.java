@@ -35,6 +35,7 @@ public class ClassGroup
     return courses;
   }
 
+
   public String toString(){
     String str = semester + className;
 

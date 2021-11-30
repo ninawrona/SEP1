@@ -8,6 +8,7 @@ public class Course
   private String name;
   private ClassGroup classGroup;
   private TeacherList teachers;
+  private StudentList students;
   private int semesterTaught;
   private int ECTS;
 
@@ -33,6 +34,7 @@ public class Course
     this.teachers = teachers;
     this.semesterTaught = semesterTaught;
     this.ECTS = ECTS;
+    students = classGroup.getStudents().copy();
   }
   public Course ()
   {
@@ -41,6 +43,7 @@ public class Course
     this.teachers = null;
     this.semesterTaught = 0;
     this.ECTS = 0;
+    students = classGroup.getStudents().copy();
   }
 
   public void addTeacher(Teacher teacher)

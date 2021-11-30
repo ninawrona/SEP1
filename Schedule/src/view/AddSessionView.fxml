@@ -67,7 +67,7 @@
         </HBox>
       <Label fx:id="errorLabel" prefHeight="21.0" prefWidth="393.0" text="Error Label" textFill="#d31515">
          <font>
-            <Font size="15.0" />
+            <Font size="14.0" />
          </font>
       </Label>
     </children>

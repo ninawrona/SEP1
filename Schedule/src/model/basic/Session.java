@@ -52,7 +52,7 @@ public class Session
   public Time getEndTime()
   {
 
-    int totalMinutes = getNumberOfLessons() * 55;
+    int totalMinutes = getNumberOfLessons() * LENGTHOFLESSON;
     int hours = totalMinutes / 60;
     int minutes = totalMinutes % 60;
 
@@ -85,8 +85,7 @@ public class Session
       endMinute = 55;
     }
 
-    Time endTime = new Time(endHour, endMinute);
-    return endTime;
+    return new Time(endHour, endMinute);
   }
 /*
   public boolean isOverlapped(Session other)

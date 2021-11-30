@@ -70,13 +70,13 @@ public class SessionList
     }
   }
 
-  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons)
+  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons, Date date)
   {
     SessionList list = new SessionList();
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getRoom().equals(room))
+      if (sessions.get(i).getRoom().equals(room)&&sessions.get(i).getDate().equals(date))
       {
         list.addSession(sessions.get(i));
       }

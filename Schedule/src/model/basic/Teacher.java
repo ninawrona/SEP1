@@ -59,9 +59,9 @@ public class Teacher
   }
 
 
-  public boolean isAvailable(Time timeDate){
+  public boolean isAvailable(Session session){
     for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).getTimeDate().isOverlapped(timeDate)){
+      if (sessions.get(i).isOverlapped(session)){
         return false;
       }
     }

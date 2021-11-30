@@ -9,7 +9,6 @@ public class Time
   {
     this.hour = hour;
     this.minute = minute;
-  //  setStartTime(hour, minute);
   }
 
   public int getHour()
@@ -20,6 +19,14 @@ public class Time
   public int getMinute()
   {
     return minute;
+  }
+
+  public void setHour(int hour){
+    this.hour = hour;
+  }
+
+  public void setMinute(int minute){
+    this.minute = minute;
   }
 
 
@@ -46,6 +53,16 @@ public class Time
   public String toString()
   {
     return "Hour: " + hour + "\nMinute: " + minute;
+  }
+
+  public boolean equals(Object obj){
+    if (!(obj instanceof Time)){
+      return false;
+    }
+
+    Time other = (Time)obj;
+
+    return hour == other.hour && minute == other.minute;
   }
 
 

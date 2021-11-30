@@ -9,8 +9,7 @@ public class Session
   private int numberOfLessons;
   public final static int LENGTHOFLESSON = 55;
 
-
-  public Session(Course course,Date date, Time startTime,int numberOfLessons )
+  public Session(Course course, Date date, Time startTime, int numberOfLessons)
   {
     this.course = course;
     this.date = date.copy();
@@ -25,7 +24,8 @@ public class Session
     this.room = room;
   }
 
-  public Date getDate(){
+  public Date getDate()
+  {
     return date;
   }
 
@@ -33,23 +33,26 @@ public class Session
   {
     return room;
   }
+
   public Course getCourse()
   {
     return course;
   }
 
-  public int getNumberOfLessons(){
+  public int getNumberOfLessons()
+  {
     return numberOfLessons;
-}
+  }
 
   public Time getStartTime()
   {
     return startTime;
   }
 
-  public Time getEndTime(){
+  public Time getEndTime()
+  {
 
-    int totalMinutes = getNumberOfLessons() * 55;
+    int totalMinutes = getNumberOfLessons() * LENGTHOFLESSON;
     int hours = totalMinutes / 60;
     int minutes = totalMinutes % 60;
 
@@ -71,16 +74,18 @@ public class Session
       endHour++;
     }
 
-    if (endHour == 12){
+    if (endHour == 12)
+    {
       endHour = 11;
       endMinute = 50;
-    } else if (endHour == 18 && endMinute == 5){
+    }
+    else if (endHour == 18 && endMinute == 5)
+    {
       endHour = 17;
       endMinute = 55;
     }
 
-    Time endTime = new Time(endHour,endMinute);
-    return endTime;
+    return new Time(endHour, endMinute);
   }
 /*
   public boolean isOverlapped(Session other)
@@ -197,52 +202,62 @@ public class Session
 
   public void setNumberOfLessons(int numberOfLessons)
   {
-    if (startTime.getHour() == 8 && startTime.getMinute() == 20 && numberOfLessons > 10)
+    if (startTime.getHour() == 8 && startTime.getMinute() == 20
+        && numberOfLessons > 10)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 10 lessons from 08:20.");
     }
-    else if (startTime.getHour() == 9 && startTime.getMinute() == 15 && numberOfLessons > 9)
+    else if (startTime.getHour() == 9 && startTime.getMinute() == 15
+        && numberOfLessons > 9)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 9 lessons from 09:15.");
     }
-    else if (startTime.getHour() == 10 && startTime.getMinute() == 10 && numberOfLessons > 8)
+    else if (startTime.getHour() == 10 && startTime.getMinute() == 10
+        && numberOfLessons > 8)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 8 lessons from 10:10.");
     }
-    else if (startTime.getHour() == 11 && startTime.getMinute() == 5 && numberOfLessons > 7)
+    else if (startTime.getHour() == 11 && startTime.getMinute() == 5
+        && numberOfLessons > 7)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 7 lessons from 11:05.");
     }
-    else if (startTime.getHour() == 12 && startTime.getMinute() == 45 && numberOfLessons > 6)
+    else if (startTime.getHour() == 12 && startTime.getMinute() == 45
+        && numberOfLessons > 6)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 6 lessons from 12:45.");
     }
-    else if (startTime.getHour() == 13 && startTime.getMinute() == 40 && numberOfLessons > 5)
+    else if (startTime.getHour() == 13 && startTime.getMinute() == 40
+        && numberOfLessons > 5)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 5 lessons from 13:40.");
     }
-    else if (startTime.getHour() == 14 && startTime.getMinute() == 35 && numberOfLessons > 4)
+    else if (startTime.getHour() == 14 && startTime.getMinute() == 35
+        && numberOfLessons > 4)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 4 lessons from 14:35.");
     }
-    else if (startTime.getHour() == 15 && startTime.getMinute() == 30 && numberOfLessons > 3)
+    else if (startTime.getHour() == 15 && startTime.getMinute() == 30
+        && numberOfLessons > 3)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 3 lessons from 15:30.");
     }
-    else if (startTime.getHour() == 16 && startTime.getMinute() == 25 && numberOfLessons > 2)
+    else if (startTime.getHour() == 16 && startTime.getMinute() == 25
+        && numberOfLessons > 2)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 2 lessons from 16:25.");
     }
-    else if (startTime.getHour() == 17 && startTime.getMinute() == 20 && numberOfLessons > 1)
+    else if (startTime.getHour() == 17 && startTime.getMinute() == 20
+        && numberOfLessons > 1)
     {
       throw new IllegalArgumentException(
           "There cannot be more than 1 lessons from 17:20.");
@@ -250,8 +265,6 @@ public class Session
 
     this.numberOfLessons = numberOfLessons;
   }
-
-
 
   @Override public String toString()
   {
@@ -268,20 +281,9 @@ public class Session
 
     Session other = (Session) obj;
     return course.equals(other.course) && startTime.equals(other.startTime)
-        && room.equals(other.room) && date.equals(other.date) && numberOfLessons == other.numberOfLessons;
+        && room.equals(other.room) && date.equals(other.date)
+        && numberOfLessons == other.numberOfLessons;
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
   public String getStartTimeString()
   {

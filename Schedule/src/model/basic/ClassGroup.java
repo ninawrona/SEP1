@@ -9,6 +9,7 @@ public class ClassGroup
   private CourseList courses;
   private String className;
   private int semester;
+  private StudentList studentList;
 
   public ClassGroup(int semester, String className, StudentList students)
   {
@@ -16,7 +17,10 @@ public class ClassGroup
     this.className = className;
     this.students = students;
     courses = new CourseList();
+    this.students = students;
   }
+
+
 
   public StudentList getStudents()
   {
@@ -36,6 +40,14 @@ public class ClassGroup
   public CourseList getCourses()
   {
     return courses;
+  }
+
+  public void addStudent(Student student){
+    students.addStudent(student);
+  }
+
+  public void removeStudent(Student student){
+    students.removeStudent(student);
   }
 
   public ClassGroup copy()

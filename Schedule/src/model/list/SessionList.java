@@ -93,6 +93,15 @@ public class SessionList
     return true;
   }
 
+  public boolean isTeacherAvailable(Session session){
+    for (int i = 0; i < sessions.size(); i++){
+      if (sessions.get(i).isOverlapped(session)){
+        return false;
+      }
+    }
+    return true;
+  }
+
   public SessionList getSessionsByRoom(Room room)
   {
     SessionList list = new SessionList();
@@ -166,7 +175,7 @@ public class SessionList
       }
     }
     throw new NullPointerException("There is no such session");
-    
+
   }
 
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)

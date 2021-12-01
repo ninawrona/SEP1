@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class SessionList {
     private ArrayList<Session> sessions;
 
+
     public SessionList() {
         sessions = new ArrayList<>();
     }
@@ -19,10 +20,15 @@ public class SessionList {
         return sessions.get(index);
     }
 
-    public void addSession(Session session) {
+    public void addSession(Session session, Room room) {
         if (session == null) {
             throw new IllegalArgumentException("Session cannot be null!");
         }
+        if (!(isTeacherAvailable(session)))
+        {
+            throw new IllegalCallerException("Teacher not available!");
+        }
+        bookRoomForASession(room, session);//Exceptions inside this method
         sessions.add(session);
     }
 
@@ -38,14 +44,14 @@ public class SessionList {
         SessionList list = new SessionList();
 
         if (startTime == null || date == null || numberOfLessons == 0) {
-            throw new IllegalArgumentException("None of the variables Can Be Null");
+            throw new IllegalArgumentException("None of the variables can be null");
         }
 
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getDate().equals(date) && sessions.get(i)
                     .getStartTime().equals(startTime)
                     && sessions.get(i).getNumberOfLessons() == numberOfLessons) {
-                list.addSession(sessions.get(i));
+                list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
         if (list.size() > 0) {
@@ -65,6 +71,10 @@ public class SessionList {
        {
            session.bookRoom(room);
        }
+       else
+       {
+           throw new IllegalCallerException("Booking not possible!");
+       }
     }
     public boolean isRoomAvailable(Room room, Time timeStart, int numberOfLessons,
                                    Date date) {
@@ -73,7 +83,7 @@ public class SessionList {
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
                     .equals(date)) {
-                list.addSession(sessions.get(i));
+                list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
         for (int i = 0; i < list.size(); i++) {
@@ -108,7 +118,7 @@ public class SessionList {
 
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getRoom().equals(room)) {
-                list.addSession(sessions.get(i));
+                list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
         if (list.size() > 0) {
@@ -127,7 +137,7 @@ public class SessionList {
 
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getCourse().equals(course)) {
-                list.addSession(sessions.get(i));
+                list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
         if (list.size() > 0) {
@@ -160,7 +170,7 @@ public class SessionList {
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getDate().equals(date)) {
                 if (sessions.get(i).getCourse().getTeachers().contains(teacher)) {
-                    sessionsByTeacher.addSession(sessions.get(i));
+                    sessionsByTeacher.addSession(sessions.get(i), sessions.get(i).getRoom());
                 }
             }
         }

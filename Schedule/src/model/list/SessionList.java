@@ -39,6 +39,15 @@ public class SessionList
     sessions.add(session);
   }
 
+  public void removeSession(Session session)
+  {
+    if (session == null)
+    {
+      throw new IllegalArgumentException("Session cannot be null!");
+    }
+    sessions.remove(session);
+  }
+
   public void setRoomList(RoomList roomList)
   {
     if (roomList == null)
@@ -74,44 +83,6 @@ public class SessionList
     }
     throw new NullPointerException("There no rooms found fulfilling given values!");
 
-  }
-
-  public void removeSession(Session session)
-  {
-    if (session == null)
-    {
-      throw new IllegalArgumentException("Session cannot be null!");
-    }
-    sessions.remove(session);
-  }
-
-  public SessionList getSessionsByTimeDate(Date date, Time startTime,
-      int numberOfLessons)
-  {
-    SessionList list = new SessionList();
-
-    if (startTime == null || date == null || numberOfLessons == 0)
-    {
-      throw new IllegalArgumentException("None of the variables can be null");
-    }
-
-    for (int i = 0; i < sessions.size(); i++)
-    {
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i)
-          .getStartTime().equals(startTime)
-          && sessions.get(i).getNumberOfLessons() == numberOfLessons)
-      {
-        list.addSession(sessions.get(i), sessions.get(i).getRoom());
-      }
-    }
-    if (list.size() > 0)
-    {
-      return list;
-    }
-    else
-    {
-      throw new NullPointerException("No sessions at this time interval");
-    }
   }
 
   public void bookRoomForASession(Room room, Session session)
@@ -174,6 +145,35 @@ public class SessionList
       }
     }
     return false;
+  }
+
+  public SessionList getSessionsByTimeDate(Date date, Time startTime,
+      int numberOfLessons)
+  {
+    SessionList list = new SessionList();
+
+    if (startTime == null || date == null || numberOfLessons == 0)
+    {
+      throw new IllegalArgumentException("None of the variables can be null");
+    }
+
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i)
+          .getStartTime().equals(startTime)
+          && sessions.get(i).getNumberOfLessons() == numberOfLessons)
+      {
+        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+    }
+    if (list.size() > 0)
+    {
+      return list;
+    }
+    else
+    {
+      throw new NullPointerException("No sessions at this time interval");
+    }
   }
 
   public SessionList getSessionsByRoom(Room room)

@@ -78,7 +78,7 @@ public class StudentList
     }
     return null;
   }
-
+/*
   public StudentList copy(){
     StudentList list = new StudentList();
     for (int i = 0; i < students.size(); i++){
@@ -87,6 +87,8 @@ public class StudentList
     return list;
 
   }
+
+ */
 
   public String toString()
   {
@@ -118,10 +120,5 @@ public class StudentList
       return true;
     }
     return false;
-
   }
-
-
-
-
 }

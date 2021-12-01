@@ -1,5 +1,7 @@
 package model.basic;
 
+import model.list.TeacherList;
+
 public class Session
 {
   private Course course;
@@ -42,6 +44,10 @@ public class Session
   public int getNumberOfLessons()
   {
     return numberOfLessons;
+  }
+
+  public TeacherList getTeachers(){
+    return course.getTeachers();
   }
 
   public Time getStartTime()

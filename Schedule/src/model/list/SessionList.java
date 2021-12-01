@@ -41,7 +41,7 @@ public class SessionList
     sessions.remove(session);
   }
 
-  public SessionList getSessionsByDate(Date date, Time startTime,
+  public SessionList getSessionsByTimeDate(Date date, Time startTime,
       int numberOfLessons)
   {
     SessionList list = new SessionList();
@@ -116,7 +116,7 @@ public class SessionList
     }
   }
 
-  public SessionList getSessionByCourse(Course course)
+  public SessionList getSessionsByCourse(Course course)
   {
     SessionList list = new SessionList();
 
@@ -142,7 +142,7 @@ public class SessionList
     }
   }
 
-  public Session getExactSession(Time time, Room room)
+  public Session getExactSession(Time time, Room room, Date date)
   {//
     if (time == null || room == null)
     {
@@ -151,16 +151,24 @@ public class SessionList
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getStartTime().equals(time))
-      {
-        if (sessions.get(i).getRoom().equals(room))
+      if (sessions.get(i).getDate().equals(date)){
+        if (sessions.get(i).getStartTime().equals(time))
         {
-          return sessions.get(i);
+          if (sessions.get(i).getRoom().equals(room))
+          {
+            return sessions.get(i);
+          }
         }
       }
     }
     System.out.println("There is no such session");
     return null;
+  }
+
+  public SessionList getSessionsByTeacher(Teacher teacher, Date date){
+    for (int i = 0; i < sessions.size(); i++){
+        if (sessions.get(i).getTeachers)
+    }
   }
 
   public String toString()

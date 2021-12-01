@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" prefHeight="55.0" prefWidth="621.0" text="Session Details View">
+      <Label alignment="CENTER" prefHeight="48.0" prefWidth="621.0" text="Session Details View">
          <font>
             <Font name="Bell MT" size="23.0" />
          </font>
@@ -25,6 +25,9 @@
                         </Label>
                         <TextArea prefHeight="100.0" prefWidth="478.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="511.0">
                      <children>
@@ -35,6 +38,9 @@
                         </Label>
                         <TextArea prefHeight="100.0" prefWidth="478.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="511.0">
                      <children>
@@ -45,6 +51,9 @@
                         </Label>
                         <TextArea prefHeight="100.0" prefWidth="478.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="144.0" prefHeight="100.0" prefWidth="511.0">
                      <children>
@@ -55,6 +64,9 @@
                         </Label>
                         <TextArea prefHeight="100.0" prefWidth="478.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="160.0" prefHeight="100.0" prefWidth="511.0">
                      <children>
@@ -65,6 +77,9 @@
                         </Label>
                         <TextArea prefHeight="100.0" prefWidth="478.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="206.0" prefHeight="100.0" prefWidth="511.0">
                      <children>
@@ -75,6 +90,9 @@
                         </Label>
                         <TextArea prefHeight="41.0" prefWidth="444.0" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>

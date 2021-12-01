@@ -23,7 +23,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="100.0" prefWidth="478.0" />
+                        <TextArea fx:id="courseDetailsField" prefHeight="100.0" prefWidth="478.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -36,7 +36,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="100.0" prefWidth="478.0" />
+                        <TextArea fx:id="classDetailsField" prefHeight="100.0" prefWidth="478.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -49,7 +49,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="100.0" prefWidth="478.0" />
+                        <TextArea fx:id="teachersDetailsField" prefHeight="100.0" prefWidth="478.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -62,7 +62,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="100.0" prefWidth="478.0" />
+                        <TextArea fx:id="studentsDetailsField" prefHeight="100.0" prefWidth="478.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -75,7 +75,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="100.0" prefWidth="478.0" />
+                        <TextArea fx:id="startTimeField" prefHeight="100.0" prefWidth="478.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -88,7 +88,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="41.0" prefWidth="444.0" />
+                        <TextArea fx:id="roomDetailsField" prefHeight="41.0" prefWidth="444.0" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />

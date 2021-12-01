@@ -1,10 +1,15 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class ClassSelectViewController
 {
     //@FXML private methods here
+    @FXML
+    Label errorLabel;
     private Region root;
     private ViewHandler viewHandler;
     //private ScheduleModel model;

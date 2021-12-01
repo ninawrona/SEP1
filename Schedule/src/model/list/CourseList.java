@@ -1,6 +1,7 @@
 package model.list;
 
 import model.basic.Course;
+import model.basic.Teacher;
 
 import java.util.ArrayList;
 
@@ -42,8 +43,22 @@ public class CourseList
         return courses.get(i);
       }
     }
-    System.out.println("There is no course by that name");
-    return null;
+    throw new NullPointerException("There is no course by that name");
+  }
+
+  public CourseList getCoursesByTeacher(Teacher teacher){
+    CourseList list = new CourseList();
+
+    for ( int i = 0 ; i < courses.size(); i++){
+      if (courses.get(i).getTeachers().contains(teacher)){
+        list.addCourse(courses.get(i));
+      }
+    }
+    if (list.size() > 0){
+      return list;
+    } else {
+      throw new NullPointerException("No courses are taught by this teacher");
+    }
   }
 
   public String toString()

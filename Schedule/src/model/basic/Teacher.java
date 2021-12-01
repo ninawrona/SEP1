@@ -8,7 +8,6 @@ public class Teacher
   private String name;
   private String viaId;
   private CourseList coursesTaught;
-  private SessionList sessions;
 
   public Teacher(String viaId, String name){
     if (name.equals(null)){
@@ -42,30 +41,8 @@ public class Teacher
     coursesTaught.removeCourse(course);
   }
 
-  public SessionList getSessions()
-  {
-    return sessions;
-  }
-
-  public void addSession(Session session)
-  {
-    sessions.addSession(session);
-  }
-
-  public void removeSession(Session session)
-  {
-    sessions.removeSession(session);
-  }
 
 
-  public boolean isAvailable(Session session){
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).isOverlapped(session)){
-        return false;
-      }
-    }
-    return true;
-  }
 
 
   public String toString(){

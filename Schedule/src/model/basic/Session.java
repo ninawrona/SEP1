@@ -220,6 +220,7 @@ public class Session
           .isBefore(getEndTime())); //Session 1 begins and ends inside Session 2
   }
 
+
   public void setStartTime(Time startTime)
   {
     if (startTime.getHour() == 8 && startTime.getMinute() != 20)

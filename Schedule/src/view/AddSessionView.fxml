@@ -76,7 +76,14 @@
         <Separator prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="56.0" prefWidth="388.0">
          <children>
-            <Button mnemonicParsing="false" text="Add Session" />
+            <Button mnemonicParsing="false" text="Add Session">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
       <Label fx:id="errorLabel" prefHeight="21.0" prefWidth="393.0" text="Error Label" textFill="#d31515">

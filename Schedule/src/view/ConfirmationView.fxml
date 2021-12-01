@@ -15,8 +15,14 @@
       <TextArea prefHeight="200.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="572.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Confirm" />
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Cancel" />
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Confirm">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
          </children>
          <VBox.margin>
             <Insets bottom="5.0" />

@@ -23,16 +23,13 @@
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Confirm">
-               <padding>
-                  <Insets bottom="5.0" top="5.0" />
-               </padding>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
             </Button>
             <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Cancel">
-               <padding>
-                  <Insets bottom="5.0" top="5.0" />
-               </padding>
                <HBox.margin>
-                  <Insets />
+                  <Insets right="5.0" />
                </HBox.margin>
             </Button>
          </children>

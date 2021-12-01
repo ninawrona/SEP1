@@ -1,9 +1,13 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class AddTeacherViewController {
     //@FXML private methods here
+    @FXML TextField teachersNameField;
+    @FXML TextField teachersViaIdField;
     private Region root;
     private ViewHandler viewHandler;
     //private ScheduleModel model;

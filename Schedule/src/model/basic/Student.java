@@ -5,19 +5,12 @@ public class Student
   private String name;
   private int viaId;
   private int semester;
-  private ClassGroup classGroup;
 
-  public Student(int semester, ClassGroup classGroup, String name, int viaId)
+  public Student(int semester, String name, int viaId)
   {
     this.semester = semester;
     this.name = name;
     this.viaId = viaId;
-    this.classGroup = classGroup;
-  }
-
-  public ClassGroup getClassGroup()
-  {
-    return classGroup;
   }
 
   public String getName()
@@ -42,7 +35,7 @@ public class Student
 
   public String toString()
   {
-    return "\nName:" + name + "\nVia ID:" + viaId + "\nClass:" + classGroup
+    return "\nName:" + name + "\nVia ID:" + viaId + "\nSemester:" + semester
         + "\n";
   }
 
@@ -55,7 +48,6 @@ public class Student
 
     Student other = (Student) obj;
 
-    return name.equals(other.name) && viaId == other.viaId && classGroup.equals(
-        other.classGroup);
+    return name.equals(other.name) && viaId == other.viaId && semester == other.semester;
   }
 }

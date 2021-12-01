@@ -36,7 +36,8 @@ public class Course
     this.ECTS = ECTS;
     students = classGroup.getStudents().copy();
   }
-  public Course ()
+
+  public Course()
   {
     this.name = "";
     this.classGroup = null;
@@ -73,6 +74,11 @@ public class Course
     students.removeStudent(student);
   }
 
+  public String getName()
+  {
+    return name;
+  }
+
   public ClassGroup getClassGroup()
   {
     return classGroup;
@@ -93,11 +99,6 @@ public class Course
     return semesterTaught;
   }
 
-  public String getName()
-  {
-    return name;
-  }
-
   public int getECTS()
   {
     return ECTS;
@@ -105,24 +106,27 @@ public class Course
 
   public String toString()
   {
-    String s="";
+    String s = "";
 
-    s+= "\nClass: " + classGroup + "\nCourseName:" + name;
-    for(int j = 0; j<teachers.size(); j++)
+    s += "\nClass: " + classGroup + "\nCourseName:" + name;
+    for (int j = 0; j < teachers.size(); j++)
     {
       s += "\n Teacher: " + teachers.get(j);
     }
-    s+="\n ECTS: " +ECTS;
+    s += "\n ECTS: " + ECTS;
     return s;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof Course)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Course))
+    {
       return false;
     }
 
-    Course other = (Course)obj;
+    Course other = (Course) obj;
 
-    return name.equals(other.name) && semesterTaught == other.semesterTaught && ECTS == other.ECTS;
+    return name.equals(other.name) && semesterTaught == other.semesterTaught
+        && ECTS == other.ECTS;
   }
 }

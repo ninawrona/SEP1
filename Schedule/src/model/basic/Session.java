@@ -24,14 +24,14 @@ public class Session
     this.room = room;
   }
 
-  public Date getDate()
-  {
-    return date;
-  }
-
   public Room getRoom()
   {
     return room;
+  }
+
+  public Date getDate()
+  {
+    return date;
   }
 
   public Course getCourse()
@@ -49,10 +49,10 @@ public class Session
     return startTime;
   }
 
-  public Time getEndTime()
+  public Time getEndTime(Time startTime, int numberOfLessons)
   {
 
-    int totalMinutes = getNumberOfLessons() * 55;
+    int totalMinutes = numberOfLessons * LENGTHOFLESSON;
     int hours = totalMinutes / 60;
     int minutes = totalMinutes % 60;
 
@@ -85,26 +85,88 @@ public class Session
       endMinute = 55;
     }
 
-    Time endTime = new Time(endHour, endMinute);
-    return endTime;
-  }
-/*
-  public boolean isOverlapped(Session other)
-  {
-    if (startTime.getHour() < other.startTime.getHour() && startTime.getMinute() < other.startTime.getMinute()){
-      if (getEndTime().getHour() > other.getEndTime().getHour() && getEndTime().getMinute() > other.getEndTime().getMinute()){
-        return true;
-      }
-    }
-    if (other.getEndTime().getHour() < startTime.getHour() && other.getEndTime().getMinute() < startTime.getMinute()){
-      if (other.getEndTime().getHour() > getEndTime().getHour() && other.getEndTime().getMinute() > getEndTime().getMinute()){
-        return true;
-      }
-    }
-    return false;
+    return new Time(endHour, endMinute);
   }
 
- */
+  public Time getEndTime()
+  {
+
+    int totalMinutes = getNumberOfLessons() * LENGTHOFLESSON;
+    int hours = totalMinutes / 60;
+    int minutes = totalMinutes % 60;
+
+    int endHour = startTime.getHour() + hours;
+    int endMinute = startTime.getMinute() + minutes;
+
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+    if ((startTime.getHour() <= 11 && endHour > 11))
+    {
+      endMinute = endMinute + 45;
+    }
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+
+    if (endHour == 12)
+    {
+      endHour = 11;
+      endMinute = 50;
+    }
+    else if (endHour == 18 && endMinute == 5)
+    {
+      endHour = 17;
+      endMinute = 55;
+    }
+
+    return new Time(endHour, endMinute);
+  }
+
+  public boolean isOverlapped(Time timeStart, int numberOfLessons)
+  {
+    Time endTime2 = getEndTime(timeStart, numberOfLessons);
+
+    if ((startTime.isBefore(timeStart) && (startTime.isBefore(endTime2))
+        && getEndTime().isBefore(timeStart) && getEndTime().isBefore(
+        endTime2))) //Session 1 ends before Session 2 begins
+    {
+      return false;
+    }
+    else if ((startTime.isBefore(timeStart) && (startTime.isBefore(endTime2))
+        && !(getEndTime().isBefore(timeStart)) && getEndTime().isBefore(
+        endTime2))) // Session 1 extends into Session 2
+    {
+      return true;
+    }
+    else if ((startTime.isBefore(startTime) && (startTime.isBefore(endTime2))
+        && !(getEndTime().isBefore(timeStart)) && !(getEndTime().isBefore(
+        endTime2)))) // Session 2 begins and ends inside Session 1
+    {
+      return true;
+    }
+    else if (timeStart.isBefore(startTime) && timeStart.isBefore(getEndTime())
+        && endTime2.isBefore(startTime) && endTime2.isBefore(
+        getEndTime())) // Session 2 ends before Session 1 begins
+    {
+      return false;
+    }
+    else if (timeStart.isBefore(startTime) && timeStart.isBefore(getEndTime())
+        && !(endTime2.isBefore(startTime)) && endTime2.isBefore(
+        getEndTime())) //Session 2 extends into Session 1
+    {
+      return true;
+    }
+
+    else
+      return timeStart.isBefore(startTime) && timeStart.isBefore(getEndTime())
+          && !(endTime2.isBefore(startTime)) && !(endTime2.isBefore(
+          getEndTime())); //Session 1 begins and ends inside Session 2
+  }
 
   public boolean isOverlapped(Session other)
   {
@@ -131,12 +193,12 @@ public class Session
     }
     else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
         getEndTime()) && other.getEndTime().isBefore(startTime)
-        && other.getEndTime().isBefore(getEndTime())) // Session 2 ends before Session 1 begins
+        && other.getEndTime()
+        .isBefore(getEndTime())) // Session 2 ends before Session 1 begins
     {
       return false;
     }
-    else
-      if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
+    else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
         getEndTime()) && !(other.getEndTime().isBefore(startTime))
         && other.getEndTime()
         .isBefore(getEndTime())) //Session 2 extends into Session 1
@@ -145,9 +207,10 @@ public class Session
     }
 
     else
-        return other.startTime.isBefore(startTime) && other.startTime.isBefore(
-            getEndTime()) && !(other.getEndTime().isBefore(startTime))
-            && !(other.getEndTime().isBefore(getEndTime())); //Session 1 begins and ends inside Session 2
+      return other.startTime.isBefore(startTime) && other.startTime.isBefore(
+          getEndTime()) && !(other.getEndTime().isBefore(startTime))
+          && !(other.getEndTime()
+          .isBefore(getEndTime())); //Session 1 begins and ends inside Session 2
   }
 
   public void setStartTime(Time startTime)
@@ -267,25 +330,6 @@ public class Session
     this.numberOfLessons = numberOfLessons;
   }
 
-  @Override public String toString()
-  {
-    return "Session{" + "course=" + course + ", startTime=" + startTime
-        + ", room=" + room + '}';
-  }
-
-  public boolean equals(Object obj)
-  {
-    if (!(obj instanceof Session))
-    {
-      return false;
-    }
-
-    Session other = (Session) obj;
-    return course.equals(other.course) && startTime.equals(other.startTime)
-        && room.equals(other.room) && date.equals(other.date)
-        && numberOfLessons == other.numberOfLessons;
-  }
-
   public String getStartTimeString()
   {
     String s = "";
@@ -338,6 +382,64 @@ public class Session
     }
     s += endMinute;
     return s;
+  }
+
+  public String getEndTimeString(Time timeStart, int numberOfLessons)
+  {
+    int totalMinutes = numberOfLessons * 55 - 10;
+    int hours = totalMinutes / 60;
+    int minutes = totalMinutes % 60;
+
+    int endHour = timeStart.getHour() + hours;
+    int endMinute = timeStart.getMinute() + minutes;
+
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+    if ((timeStart.getHour() <= 11 && endHour > 11))
+    {
+      endMinute = endMinute + 45;
+    }
+    if (endMinute > 60)
+    {
+      endMinute = endMinute % 60;
+      endHour++;
+    }
+
+    String s = "";
+    if (endHour < 10)
+    {
+      s += "0";
+    }
+    s += endHour + ":";
+    if (endMinute < 10)
+    {
+      s += "0";
+    }
+    s += endMinute;
+    return s;
+  }
+
+  public String toString()
+  {
+    return "Session{" + "course=" + course + ", startTime=" + startTime
+        + ", Number of Lessons= " + numberOfLessons + " , End Time = "
+        + getEndTime() + ", room=" + room + '}';
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Session))
+    {
+      return false;
+    }
+
+    Session other = (Session) obj;
+    return course.equals(other.course) && startTime.equals(other.startTime)
+        && room.equals(other.room) && date.equals(other.date)
+        && numberOfLessons == other.numberOfLessons;
   }
 
 }

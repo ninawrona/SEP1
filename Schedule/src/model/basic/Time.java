@@ -21,15 +21,15 @@ public class Time
     return minute;
   }
 
-  public void setHour(int hour){
+  public void setHour(int hour)
+  {
     this.hour = hour;
   }
 
-  public void setMinute(int minute){
+  public void setMinute(int minute)
+  {
     this.minute = minute;
   }
-
-
 
   public boolean isBefore(Time time)
   {
@@ -41,39 +41,15 @@ public class Time
     return hour * 3600 + minute * 60;
   }
 
-
-
   public Time copy()
   {
     Time other = new Time(getHour(), getMinute());
     return other;
   }
 
-
   public String toString()
   {
     return "Hour: " + hour + "\nMinute: " + minute;
-  }
-
-  public boolean equals(Object obj){
-    if (!(obj instanceof Time)){
-      return false;
-    }
-
-    Time other = (Time)obj;
-
-    return hour == other.hour && minute == other.minute;
-  }
-
-
-
-/*
-  public String toString()
-  {
-    String s = "";
-    s += getStartTime() + "-" + getEndTime() + ", "
-        + getDate();//Do we need a numberOfLessons?
-    return s;
   }
 
   public boolean equals(Object obj)
@@ -84,10 +60,7 @@ public class Time
     }
 
     Time other = (Time) obj;
-    return getHour() == other.getHour() && getMinute() == other.getMinute()
-        && getDate().equals(other.getDate()) && getNumberOfLessons() == other
-        .getNumberOfLessons();
 
+    return hour == other.hour && minute == other.minute;
   }
- */
 }

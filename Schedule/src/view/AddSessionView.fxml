@@ -76,11 +76,11 @@
         <Separator prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="56.0" prefWidth="388.0">
          <children>
-            <Button mnemonicParsing="false" text="Add Session">
+            <Button mnemonicParsing="false" onAction="#addSessionButton" text="Add Session">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelInAddSessionButton" text="Cancel">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>

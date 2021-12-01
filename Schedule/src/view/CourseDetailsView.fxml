@@ -70,35 +70,35 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add teacher">
+                  <Button mnemonicParsing="false" onAction="#addTeacherButton" prefHeight="25.0" prefWidth="100.0" text="Add teacher">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="11.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Remove teacher">
+                  <Button mnemonicParsing="false" onAction="#removeTeacherButton" prefHeight="25.0" prefWidth="100.0" text="Remove teacher">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="11.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add student">
+                  <Button mnemonicParsing="false" onAction="#addStudentButton" prefHeight="25.0" prefWidth="100.0" text="Add student">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="11.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Remove student">
+                  <Button mnemonicParsing="false" onAction="#removeStudentButton" prefHeight="25.0" prefWidth="100.0" text="Remove student">
                      <font>
                         <Font size="11.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin></Button>
-                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cancel">
+                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" onAction="#cancelInCourseDetailsButton" prefHeight="25.0" prefWidth="100.0" text="Cancel">
                      <font>
                         <Font size="11.0" />
                      </font>

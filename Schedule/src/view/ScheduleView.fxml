@@ -27,7 +27,7 @@
                   </VBox>
                   <VBox prefHeight="190.0" prefWidth="100.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="132.0" text="Add session">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addSessionButton" prefHeight="29.0" prefWidth="132.0" text="Add session">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -35,7 +35,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="126.0" text="Remove session">
+                        <Button mnemonicParsing="false" onAction="#removeSessionButton" prefHeight="28.0" prefWidth="126.0" text="Remove session">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -43,7 +43,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" text="Session details">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sessionDetailsButton" prefHeight="28.0" prefWidth="125.0" text="Session details">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -51,7 +51,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Exit">
+                        <Button mnemonicParsing="false" onAction="#exitButton" prefHeight="27.0" prefWidth="125.0" text="Exit">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>

@@ -80,14 +80,14 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Course details">
+                  <Button fx:id="courseDetailsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Course details">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="11.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cancel">
+                  <Button fx:id="cancelInSessionDetailsViewButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cancel">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>

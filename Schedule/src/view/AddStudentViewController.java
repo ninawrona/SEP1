@@ -1,10 +1,17 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class AddStudentViewController {
 
         //@FXML private methods here
+        @FXML Label errorLabel;
+        @FXML TextField studentsNameField;
+        @FXML TextField studentsViaIdField;
+        @FXML TextField courseField;
         private Region root;
         private ViewHandler viewHandler;
         //private ScheduleModel model;

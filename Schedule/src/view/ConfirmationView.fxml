@@ -12,7 +12,7 @@
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <TextArea prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="detailsTextArea" prefHeight="200.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="59.0" prefWidth="572.0">
          <children>
             <Button fx:id="confirmInConfirmationViewButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Confirm">

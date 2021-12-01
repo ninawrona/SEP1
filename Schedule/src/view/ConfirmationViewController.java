@@ -1,10 +1,15 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
 
 public class ConfirmationViewController
 {
     //@FXML private methods here
+    @FXML Label errorLabel;
+    @FXML TextArea detailsTextArea;
     private Region root;
     private ViewHandler viewHandler;
     //private ScheduleModel model;

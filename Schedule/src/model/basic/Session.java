@@ -46,7 +46,8 @@ public class Session
     return numberOfLessons;
   }
 
-  public TeacherList getTeachers(){
+  public TeacherList getTeachers()
+  {
     return course.getTeachers();
   }
 

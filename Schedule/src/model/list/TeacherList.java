@@ -104,6 +104,22 @@ public class TeacherList
     return teachers.get(index);
   }
 
+  public boolean contains(Teacher teacher)
+  {
+    if(teacher==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
+    for (int i = 0; i < teachers.size(); i++)
+    {
+      if(teachers.get(i).equals(teacher))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public String toString()
   {
     String str = "";

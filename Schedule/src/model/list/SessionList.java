@@ -70,20 +70,23 @@ public class SessionList
     }
   }
 
-  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons, Date date)
+  public boolean isAvailable(Room room, Time timeStart, int numberOfLessons,
+      Date date)
   {
     SessionList list = new SessionList();
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getRoom().equals(room)&&sessions.get(i).getDate().equals(date))
+      if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
+          .equals(date))
       {
         list.addSession(sessions.get(i));
       }
     }
     for (int i = 0; i < list.size(); i++)
     {
-      if (list.get(i).isOverlapped(timeStart,numberOfLessons)){
+      if (list.get(i).isOverlapped(timeStart, numberOfLessons))
+      {
         return false;
       }
     }
@@ -151,7 +154,8 @@ public class SessionList
 
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getDate().equals(date)){
+      if (sessions.get(i).getDate().equals(date))
+      {
         if (sessions.get(i).getStartTime().equals(time))
         {
           if (sessions.get(i).getRoom().equals(room))
@@ -161,14 +165,33 @@ public class SessionList
         }
       }
     }
-    System.out.println("There is no such session");
-    return null;
+    throw new NullPointerException("There is no such session");
+    
   }
 
-  public SessionList getSessionsByTeacher(Teacher teacher, Date date){
-    for (int i = 0; i < sessions.size(); i++){
-        if (sessions.get(i).getTeachers)
+  public SessionList getSessionsByTeacher(Teacher teacher, Date date)
+  {
+    SessionList sessionsByTeacher = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date))
+      {
+        if (sessions.get(i).getCourse().getTeachers().contains(teacher))
+        {
+          sessionsByTeacher.addSession(sessions.get(i));
+        }
+      }
     }
+    if (sessionsByTeacher.size() > 0)
+    {
+      return sessionsByTeacher;
+    }
+    else
+    {
+      throw new NullPointerException(
+          "There are no sessions for that teacher during this day.");
+    }
+
   }
 
   public String toString()

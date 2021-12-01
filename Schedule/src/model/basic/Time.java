@@ -43,8 +43,7 @@ public class Time
 
   public Time copy()
   {
-    Time other = new Time(getHour(), getMinute());
-    return other;
+    return new Time(getHour(), getMinute());
   }
 
   public String toString()

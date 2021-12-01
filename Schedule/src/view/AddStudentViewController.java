@@ -15,7 +15,6 @@ public class AddStudentViewController {
         private Region root;
         private ViewHandler viewHandler;
         //private ScheduleModel model;
-
         public AddStudentViewController()
         {
             // Called by FXMLLoader

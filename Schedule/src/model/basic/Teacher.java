@@ -7,7 +7,7 @@ public class Teacher
 {
   private String name;
   private String viaId;
-  private CourseList courses;
+  private CourseList coursesTaught;
   private SessionList sessions;
 
   public Teacher(String viaId, String name){
@@ -30,16 +30,16 @@ public class Teacher
     return viaId;
   }
 
-  public CourseList getCourses(){
-    return courses;
+  public CourseList getCoursesTaught(){
+    return coursesTaught;
   }
 
   public void assignToCourse(Course course){
-    courses.addCourse(course);
+    coursesTaught.addCourse(course);
   }
 
   public void removeFromCourse(Course course){
-    courses.removeCourse(course);
+    coursesTaught.removeCourse(course);
   }
 
   public SessionList getSessions()
@@ -69,7 +69,7 @@ public class Teacher
 
 
   public String toString(){
-    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + courses;
+    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses: " + coursesTaught;
   }
 
   public boolean equals(Object obj){

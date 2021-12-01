@@ -19,6 +19,11 @@ public class TeacherList
     return teachers.size();
   }
 
+  public Teacher get(int index)
+  {
+    return teachers.get(index);
+  }
+
   public void addTeacher(Teacher teacher)
   {
     if (teacher == null)
@@ -41,7 +46,7 @@ public class TeacherList
   {
     if (name == null)
     {
-      throw new IllegalArgumentException("Name cannot be null!");
+      throw new NullPointerException("Name cannot be null!");
     }
     for (int i = 0; i < teachers.size(); i++)
     {
@@ -50,8 +55,7 @@ public class TeacherList
         return teachers.get(i);
       }
     }
-    System.out.println("There is no such teacher");
-    return null;
+    throw new IllegalArgumentException("There is no such teacher");
   }
 
   public Teacher getTeacherByViaId(String viaId)
@@ -59,7 +63,7 @@ public class TeacherList
 
     if (viaId == null)
     {
-      throw new IllegalArgumentException("Via ID can not be null");
+      throw new NullPointerException("Via ID can not be null");
     }
     //There might be an exception if there more than 4 characters or so
     //but we are not sure
@@ -70,8 +74,7 @@ public class TeacherList
         return teachers.get(i);
       }
     }
-    System.out.println("There is no teacher with that Via Id");
-    return null;
+    throw new IllegalArgumentException("There is no teacher with that via id");
   }
 
   public TeacherList getTeachersByCourse(Course course)
@@ -80,9 +83,9 @@ public class TeacherList
 
     for (int i = 0; i < teachers.size(); i++)
     {
-      for (int j = 0; i < teachers.get(i).getCourses().size(); j++)
+      for (int j = 0; i < teachers.get(i).getCoursesTaught().size(); j++)
       {
-        if (teachers.get(i).getCourses().get(i).equals(course))
+        if (teachers.get(i).getCoursesTaught().get(i).equals(course))
         {
           list.addTeacher(teachers.get(i));
         }
@@ -94,21 +97,17 @@ public class TeacherList
     }
     else
     {
-      System.out.println("No teachers have that course");
-      return null;
+      throw new NullPointerException("That course is not taught");
     }
   }
 
-  public Teacher get(int index)
-  {
-    return teachers.get(index);
-  }
+
 
   public boolean contains(Teacher teacher)
   {
     if(teacher==null)
     {
-      throw new IllegalArgumentException("Parameter cannot be null!");
+      throw new NullPointerException("Parameter cannot be null!");
     }
     for (int i = 0; i < teachers.size(); i++)
     {

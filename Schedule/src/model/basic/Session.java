@@ -16,7 +16,7 @@ public class Session
     this.course = course;
     this.date = date.copy();
     this.startTime = startTime.copy();
-    // You can make a session before booking the room
+    // You can(YOU HAVE TO?) make a session before booking the room
     room = null;
     this.numberOfLessons = numberOfLessons;
   }

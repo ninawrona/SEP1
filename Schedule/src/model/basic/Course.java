@@ -8,7 +8,6 @@ public class Course
   private String name;
   private ClassGroup classGroup;
   private TeacherList teachers;
-  private StudentList students;
   private int semesterTaught;
   private int ECTS;
 
@@ -30,21 +29,10 @@ public class Course
           "Legal values for ECTS are 5, 10 or 15.");
     }
     this.name = name;
-    this.classGroup = classGroup;
+    this.classGroup = classGroup.copy();
     this.teachers = teachers;
     this.semesterTaught = semesterTaught;
     this.ECTS = ECTS;
-    students = classGroup.getStudents().copy();
-  }
-
-  public Course()
-  {
-    this.name = "";
-    this.classGroup = null;
-    this.teachers = null;
-    this.semesterTaught = 0;
-    this.ECTS = 0;
-    students = classGroup.getStudents().copy();
   }
 
   public void addTeacher(Teacher teacher)
@@ -66,12 +54,12 @@ public class Course
 
   public void addStudent(Student student)
   {
-    students.addStudent(student);
+    classGroup.addStudent(student);
   }
 
   public void removeStudent(Student student)
   {
-    students.removeStudent(student);
+    classGroup.removeStudent(student);
   }
 
   public String getName()
@@ -91,7 +79,7 @@ public class Course
 
   public StudentList getStudents()
   {
-    return students;
+    return classGroup.getStudents();
   }
 
   public int getSemesterTaught()

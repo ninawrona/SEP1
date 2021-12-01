@@ -16,7 +16,7 @@
         <HBox prefHeight="46.0" prefWidth="388.0">
             <children>
                 <Label prefHeight="85.0" prefWidth="105.0" text="Course" />
-                <ChoiceBox prefHeight="37.0" prefWidth="169.0">
+                <ChoiceBox fx:id="courseChoiceBoxInAddSession" prefHeight="37.0" prefWidth="169.0">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin></ChoiceBox>
@@ -42,15 +42,15 @@
               <HBox prefHeight="50.0" prefWidth="388.0">
                   <children>
                       <Label prefHeight="44.0" prefWidth="114.0" text="Start Time" />
-                  <ChoiceBox prefHeight="44.0" prefWidth="89.0" />
+                  <ChoiceBox fx:id="startTimeChoiceBox" prefHeight="44.0" prefWidth="89.0" />
                       <Label alignment="CENTER" prefHeight="44.0" prefWidth="100.0" text="Lessons" />
-                  <ChoiceBox layoutX="125.0" layoutY="10.0" prefHeight="44.0" prefWidth="111.0" />
+                  <ChoiceBox fx:id="numberOfLessonsChoiceBox" layoutX="125.0" layoutY="10.0" prefHeight="44.0" prefWidth="111.0" />
                   </children>
                <padding>
                   <Insets left="10.0" />
                </padding>
               </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Find rooms">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#findRoomsButton" prefHeight="25.0" prefWidth="98.0" text="Find rooms">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -60,7 +60,7 @@
         <HBox prefHeight="62.0" prefWidth="388.0">
             <children>
                 <Label prefHeight="85.0" prefWidth="105.0" text="Room" />
-                <ChoiceBox prefHeight="42.0" prefWidth="171.0">
+                <ChoiceBox fx:id="roomsChoiceBox" prefHeight="42.0" prefWidth="171.0">
                     <opaqueInsets>
                         <Insets right="15.0" />
                     </opaqueInsets>

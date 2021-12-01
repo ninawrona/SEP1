@@ -9,13 +9,11 @@ public class ClassGroup
   private CourseList courses;
   private String className;
   private int semester;
-  private StudentList studentList;
 
   public ClassGroup(int semester, String className, StudentList students)
   {
     this.semester = semester;
     this.className = className;
-    this.students = students;
     courses = new CourseList();
     this.students = students;
   }

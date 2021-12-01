@@ -30,11 +30,11 @@ public class Course
           "Legal values for ECTS are 5, 10 or 15.");
     }
     this.name = name;
-    this.classGroup = classGroup;
+    this.classGroup = classGroup.copy();
     this.teachers = teachers;
     this.semesterTaught = semesterTaught;
     this.ECTS = ECTS;
-    students = classGroup.getStudents().copy();
+    students = this.classGroup.getStudents();
   }
 
   public Course()
@@ -44,7 +44,7 @@ public class Course
     this.teachers = null;
     this.semesterTaught = 0;
     this.ECTS = 0;
-    students = classGroup.getStudents().copy();
+    students = classGroup.getStudents();
   }
 
   public void addTeacher(Teacher teacher)

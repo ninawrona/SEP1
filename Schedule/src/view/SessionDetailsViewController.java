@@ -1,10 +1,21 @@
 package view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class SessionDetailsViewController
 {
     //@FXML private methods here
+    @FXML
+    Label errorLabel;
+    @FXML TextField courseDetailsField;
+    @FXML TextField classDetailsField;
+    @FXML TextField teachersDetailsField;
+    @FXML TextField studentsDetailsField;
+    @FXML TextField startTimeField;
+    @FXML TextField roomDetailsField;
     private Region root;
     private ViewHandler viewHandler;
     //private ScheduleModel model;

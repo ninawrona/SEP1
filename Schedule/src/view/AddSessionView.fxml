@@ -74,7 +74,7 @@
          </padding>
         </HBox>
         <Separator prefWidth="200.0" />
-      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="388.0">
+      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="388.0">
          <children>
             <Button mnemonicParsing="false" onAction="#addSessionButton" text="Add Session">
                <HBox.margin>
@@ -86,7 +86,7 @@
                </HBox.margin></Button>
          </children>
       </HBox>
-      <Label fx:id="errorLabel" prefHeight="21.0" prefWidth="393.0" text="Error Label" textFill="#d31515">
+      <Label fx:id="errorLabel" prefHeight="36.0" prefWidth="388.0" text="Error Label" textFill="#d31515">
          <font>
             <Font size="14.0" />
          </font>

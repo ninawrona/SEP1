@@ -18,7 +18,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0">
          <children>
-            <TextArea prefHeight="53.0" prefWidth="439.0" />
+            <TextArea fx:id="filePathField" prefHeight="53.0" prefWidth="439.0" />
          </children></HBox>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
          <children>

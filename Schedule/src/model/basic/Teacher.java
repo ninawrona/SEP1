@@ -30,7 +30,7 @@ public class Teacher
     return viaId;
   }
 
-  public CourseList getCourses(){
+  public CourseList getCoursesTaught(){
     return courses;
   }
 
@@ -40,30 +40,6 @@ public class Teacher
 
   public void removeFromCourse(Course course){
     courses.removeCourse(course);
-  }
-
-  public SessionList getSessions()
-  {
-    return sessions;
-  }
-
-  public void addSession(Session session)
-  {
-    sessions.addSession(session);
-  }
-
-  public void removeSession(Session session)
-  {
-    sessions.removeSession(session);
-  }
-
-  public boolean isAvailable(Session session){
-    for (int i = 0; i < sessions.size(); i++){
-      if (sessions.get(i).isOverlapped(session)){
-        return false;
-      }
-    }
-    return true;
   }
 
 

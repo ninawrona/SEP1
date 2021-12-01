@@ -57,7 +57,6 @@ public class Teacher
     sessions.removeSession(session);
   }
 
-
   public boolean isAvailable(Session session){
     for (int i = 0; i < sessions.size(); i++){
       if (sessions.get(i).isOverlapped(session)){

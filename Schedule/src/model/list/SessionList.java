@@ -166,7 +166,7 @@ public class SessionList
       }
     }
     throw new NullPointerException("There is no such session");
-    
+
   }
 
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)

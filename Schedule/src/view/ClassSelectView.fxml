@@ -21,7 +21,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ChoiceBox prefHeight="33.0" prefWidth="264.0" />
+            <ChoiceBox fx:id="classChoiceBox" prefHeight="33.0" prefWidth="264.0" />
          </children></HBox>
       <HBox alignment="CENTER" prefHeight="238.0" prefWidth="414.0">
          <children>

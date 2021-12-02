@@ -1,5 +1,6 @@
 package model.files;
 
+import model.list.StudentList;
 import model.list.TeacherList;
 import model.basic.ClassGroup;
 import model.basic.Course;
@@ -12,14 +13,14 @@ public class XMLParser
 {
   public static void main(String[] args)
   {
-  //  Course course = new Course("RWD", new ClassGroup(2, "Y"), new TeacherList(),
+    Course course = new Course("RWD", new ClassGroup(2, "Y", new StudentList()), new TeacherList(),
         2, 10);
-    toXML(course, "CourseTest.xml");
+    toXML(course, "CourseTest2.xml");
     //Course course2 = new Course();
     //fromXML(course2, "CourseTest.xml");
   }
 
-  public static void toXML(Object obj, String fileName)
+  public static void toXML(Object obj, String fileName)//with .xml
   {
     XmlJsonParser parser = new XmlJsonParser();
     File file = null;

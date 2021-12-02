@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="104.0" prefWidth="633.0" text="Choose Class or Teacher" textAlignment="CENTER">
+               <font>
+                  <Font name="Bell MT" size="21.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ChoiceBox fx:id="classChoiceBox" prefHeight="33.0" prefWidth="264.0" />
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="238.0" prefWidth="414.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#confirmInChooseClassButton" prefHeight="35.0" prefWidth="100.0" text="Confirm">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#cancelInChooseClassButton" prefHeight="35.0" prefWidth="100.0" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <Label fx:id="errorLabel" prefHeight="39.0" prefWidth="435.0" text="Error label" textFill="#dd0c0c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

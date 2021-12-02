@@ -10,12 +10,12 @@ public class ClassGroup
   private String className;
   private int semester;
 
-  public ClassGroup(int semester, String className, StudentList students)
+  public ClassGroup(int semester, String className, StudentList studentList)
   {
     this.semester = semester;
     this.className = className;
     courses = new CourseList();
-    this.students = students;
+    this.students = studentList;
   }
 
 

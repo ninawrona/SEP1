@@ -1,0 +1,95 @@
+html, body{
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(  grey, rgb(194, 92, 92));
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+.gif img{
+    width: 400px;
+    height: auto;
+    margin: 5px;
+}
+
+.navigationBar{
+    margin-bottom: 15px;
+}
+
+/* Scale nav bar to viewport */
+.nav-item {
+    font-size: 3vw;
+}
+
+.carousel-inner img{
+    width: 250px;
+    height: 350px;
+}
+
+/* Stop scaling nav bar */
+@media screen and (min-width: 950px){
+    .nav-item {
+        font-size: 1.8em;
+    }
+}
+/* Styling for the campus section of the front page */
+div#campus {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div#campus img {
+    max-width: 100%;
+}
+
+li.active{
+    text-shadow: -1px 1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0 0 10px white,
+    0 0 10px rgb(172, 162, 162);
+    color: white;
+}
+
+h2#hall_sub {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the carousel */
+.carousel-inner img {
+    margin: auto;
+    max-width: 100%;
+  }
+
+  /* Vertically align the title within the grid */
+.pageTitle {
+    display: flex;
+    align-items: center;
+}
+
+/* Stop title from clipping off the left side */
+#frontTitle {
+    position: relative;
+    left: 15px;
+}
+
+#footer1 img {
+    position: relative;
+    max-height: 50px;
+}
+
+.text-justify
+{
+    text-align: justify;
+}
+
+.bg-nav
+{
+    background-color: rgb(185, 182, 182);
+}
+

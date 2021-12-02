@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSessionController">
+    <children>
+        <Label alignment="CENTER" prefHeight="37.0" prefWidth="399.0" text="Add a Session" textAlignment="CENTER">
+            <font>
+                <Font name="Tahoma" size="31.0" />
+            </font>
+        </Label>
+        <Separator prefWidth="200.0" />
+        <HBox prefHeight="46.0" prefWidth="388.0">
+            <children>
+                <Label prefHeight="85.0" prefWidth="105.0" text="Course" />
+                <ChoiceBox fx:id="courseChoiceBoxInAddSession" prefHeight="37.0" prefWidth="169.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin></ChoiceBox>
+            </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+        </HBox>
+        <HBox prefHeight="45.0" prefWidth="388.0">
+            <children>
+                <Label prefHeight="101.0" prefWidth="105.0" text="Pick a Date" />
+                <DatePicker prefHeight="36.0" prefWidth="168.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin></DatePicker>
+            </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+        </HBox>
+      <VBox alignment="CENTER" prefHeight="88.0" prefWidth="388.0">
+         <children>
+              <HBox prefHeight="50.0" prefWidth="388.0">
+                  <children>
+                      <Label prefHeight="44.0" prefWidth="114.0" text="Start Time" />
+                  <ChoiceBox fx:id="startTimeChoiceBox" prefHeight="44.0" prefWidth="89.0" />
+                      <Label alignment="CENTER" prefHeight="44.0" prefWidth="100.0" text="Lessons" />
+                  <ChoiceBox fx:id="numberOfLessonsChoiceBox" layoutX="125.0" layoutY="10.0" prefHeight="44.0" prefWidth="111.0" />
+                  </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+              </HBox>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#findRoomsButton" prefHeight="25.0" prefWidth="98.0" text="Find rooms">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+        <HBox prefHeight="62.0" prefWidth="388.0">
+            <children>
+                <Label prefHeight="85.0" prefWidth="105.0" text="Room" />
+                <ChoiceBox fx:id="roomsChoiceBox" prefHeight="42.0" prefWidth="171.0">
+                    <opaqueInsets>
+                        <Insets right="15.0" />
+                    </opaqueInsets>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+                </ChoiceBox>
+            </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+        </HBox>
+        <Separator prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="388.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addSessionButton" text="Add Session">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#cancelInAddSessionButton" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <Label fx:id="errorLabel" prefHeight="36.0" prefWidth="388.0" text="Error Label" textFill="#d31515">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</VBox>

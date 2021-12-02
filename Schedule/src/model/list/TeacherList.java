@@ -109,12 +109,9 @@ public class TeacherList
     {
       throw new NullPointerException("Parameter cannot be null!");
     }
-    for (int i = 0; i < teachers.size(); i++)
+    if(teachers.contains(teacher))
     {
-      if(teachers.get(i).equals(teacher))
-      {
-        return true;
-      }
+      return true;
     }
     return false;
   }

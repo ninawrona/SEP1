@@ -78,17 +78,15 @@ public class StudentList
     }
     return null;
   }
-/*
-  public StudentList copy(){
-    StudentList list = new StudentList();
-    for (int i = 0; i < students.size(); i++){
-      list.addStudent(students.get(i));
+
+  public boolean contains(Student student)
+  {
+    if(students.contains(student))
+    {
+      return true;
     }
-    return list;
-
+    return false;
   }
-
- */
 
   public String toString()
   {

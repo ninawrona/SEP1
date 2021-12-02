@@ -65,6 +65,7 @@ public class SessionList
     }
 
     RoomList suggestedRoomList = new RoomList();
+
     for (int i = 0; i < roomList.size(); i++)
     {
       if (isRoomAvailable(roomList.get(i), session.getStartTime(),
@@ -129,7 +130,7 @@ public class SessionList
   {
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getDate().equals(session.getDate()))
+      if (sessions.get(i).getDate().equals(session.getDate()))//Another isOverlapped method possible to use
       {
         if (!(sessions.get(i).isOverlapped(session)))
         {

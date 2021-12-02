@@ -32,15 +32,25 @@ public class ViewHandler {
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        //openview("schedule");
-        addSessionViewController.reset();
+        openView("schedule");
+
         Image icon = new Image("gingerbread.png");
         //Icon made By jocularityart
         primaryStage.getIcons().add(icon);
-        // More controllers here
+        //controllers here
+
+        addSessionViewController.reset();
+        addStudentViewController.reset();
+        addTeacherViewController.reset();
+        classSelectViewController.reset();
+        confirmationViewController.reset();
+        courseDetailsViewController.reset();
+        fileViewController.reset();
+        scheduleViewController.reset();
+        sessionDetailsViewController.reset();
     }
 
-    // View strings: add, classSelect, confirmation, courseDetails, fileView, schedule, sessionDetails
+    // View strings: addSession, addStudent, addTeacher, classSelect, confirmation, courseDetails, fileView, schedule, sessionDetails
     public void openView(String id) {
         Region root = null;
         switch (id) {
@@ -92,7 +102,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addSessionViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // addSessionViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -109,7 +119,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 sessionDetailsViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // sessionDetailsViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -126,7 +136,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 scheduleViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // scheduleViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -143,7 +153,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 fileViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // fileViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -160,7 +170,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 courseDetailsViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // courseDetailsViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -183,7 +193,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 confirmationViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // confirmationViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -200,7 +210,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 classSelectViewController = loader.getController();
-                // loadClassSelectViewController.init(this, model, root);
+                // classSelectViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }

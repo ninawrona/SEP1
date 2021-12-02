@@ -18,13 +18,15 @@ public class StudentList
     return students.size();
   }
 
-  public Student get(int index) //This methods overrides a get in ArrayList class
+  public Student get(
+      int index) //This methods overrides a get in ArrayList class
   {
     return students.get(index);
   }
+
   public void addStudent(Student student)
   {
-    if(student == null)
+    if (student == null)
     {
       throw new IllegalArgumentException("Student cannot be null!");
     }
@@ -33,13 +35,19 @@ public class StudentList
 
   public void removeStudent(Student student)
   {
-    if(student == null)
+    if (size() == 0)
+    {
+      throw new NullPointerException(
+          "The list is empty! You cannot remove anything!");
+    }
+
+    if (student == null)
     {
       throw new IllegalArgumentException("Student cannot be null!");
     }
-    for(int i =0; i<size(); i++)
+    for (int i = 0; i < size(); i++)
     {
-      if(student.equals(students.get(i)))
+      if (student.equals(students.get(i)))
       {
         students.remove(student);
         break;
@@ -49,13 +57,13 @@ public class StudentList
 
   public Student getStudentByName(String name)
   {
-    if(name == null)
+    if (name == null)
     {
       throw new IllegalArgumentException("Name cannot be null!");
     }
-    for(int i =0; i<size(); i++)
+    for (int i = 0; i < size(); i++)
     {
-      if(name.equals(students.get(i).getName()))
+      if (name.equals(students.get(i).getName()))
       {
         return students.get(i);
       }
@@ -65,52 +73,50 @@ public class StudentList
 
   public Student getStudentByViaId(int ViaId)
   {
-    if(!(String.valueOf(ViaId).length() == 6))
+    if (!(String.valueOf(ViaId).length() == 6))
     {
       throw new IllegalArgumentException("The VIA ID has to have 6 digits!");
     }
-    for(int i =0; i<size(); i++)
+    for (int i = 0; i < size(); i++)
     {
-      if(ViaId == (students.get(i).getViaId()))
+      if (ViaId == (students.get(i).getViaId()))
       {
         return students.get(i);
       }
     }
     return null;
   }
-/*
-  public StudentList copy(){
-    StudentList list = new StudentList();
-    for (int i = 0; i < students.size(); i++){
-      list.addStudent(students.get(i));
+
+  public boolean contains(Student student)
+  {
+    if (students.contains(student))
+    {
+      return true;
     }
-    return list;
-
+    return false;
   }
-
- */
 
   public String toString()
   {
 
-    String s ="";
-    for(int i =0; i<size(); i++)
+    String s = "";
+    for (int i = 0; i < size(); i++)
     {
-      s+= i+1 +"." + students.get(i).toString();
+      s += i + 1 + "." + students.get(i).toString();
     }
     return s;
   }
 
   public boolean equals(Object obj)
   {
-    if(!(obj instanceof StudentList))
+    if (!(obj instanceof StudentList))
     {
       return false;
     }
-    StudentList other = (StudentList)obj;
-    if(size() == other.size())
+    StudentList other = (StudentList) obj;
+    if (size() == other.size())
     {
-      for(int i=0; i<size(); i++)
+      for (int i = 0; i < size(); i++)
       {
         if (!(students.get(i).equals(other.get(i))))
         {

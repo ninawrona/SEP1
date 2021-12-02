@@ -286,8 +286,48 @@ public class SessionList
 
   public SessionList getSessionsByClassGroup(ClassGroup classGroup)
   {
-    
+    if (classGroup == null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
+    SessionList sessionListClassGroup = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getCourse().getClassGroup().getClassName().equals(classGroup.getClassName())
+          && sessions.get(i).getCourse().getClassGroup().getSemester() == classGroup.getSemester())
+      {
+        sessionListClassGroup.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+    }
+    if(sessionListClassGroup.size()>0)
+    {
+      return sessionListClassGroup;
+    }
+    throw new NullPointerException("There no sessions for this class.");
   }
+
+  public SessionList getSessionsByStudent(Student student)
+  {
+    if(student==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
+    SessionList sessionListOfStudent = new SessionList();
+
+    for(int i = 0; i<sessions.size(); i++)
+    {
+      if(sessions.get(i).getCourse().getClassGroup().getStudents().contains(student))
+      {
+        sessionListOfStudent.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+    }
+    if(sessionListOfStudent.size()>0)
+    {
+      return sessionListOfStudent;
+    }
+    throw new NullPointerException("There are no sessions for this student.");
+  }
+
 
   public String toString()
   {

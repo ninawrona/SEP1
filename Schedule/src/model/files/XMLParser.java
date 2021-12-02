@@ -54,6 +54,14 @@ public class XMLParser
 
     System.out.println(obj);
   }
+
+  public static void toJson(Object obj, String filename) throws ParserException
+
+  {
+    XmlJsonParser parser= new XmlJsonParser();
+    File file1=parser.toJson(obj, filename);
+    System.out.println("JSon file: "+file1.getAbsolutePath());
+  }
 }
 
 

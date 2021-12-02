@@ -1,62 +1,158 @@
-<?xml version="1.0" encoding="UTF-8"standalone="no"?>
-
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Abraham Jackson</Name>
-    <ViaID>667345</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Brian Nielsen</Name>
-    <ViaID>667346</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Christina Lana</Name>
-    <ViaID>667347</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Dennis Kolin</Name>
-    <ViaID>667465</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Eric Lynn</Name>
-    <ViaID>667469</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Franck Thomson</Name>
-    <ViaID>667554</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Gregor Gori</Name>
-    <ViaID>667555</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Helly Hansen</Name>
-    <ViaID>667556</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Ion Brick</Name>
-    <ViaID>667578</ViaID>
-</Student>
-<Student>
-    <Semester>1</Semester>
-    <ClassGroup>class model.basic.Student</ClassGroup>
-    <Name>Julia Schwartz </Name>
-    <ViaID>667590</ViaID>
-</Student>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ClassGroupList>
+  <classes>
+    <courses/>
+    <studentList>
+      <students>
+        <name>Abraham Jackson</name>
+        <viaId>667345</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Brian Nielsen</name>
+        <viaId>667346</viaId>
+        <semester>1</semester>
+      </students>
+    </studentList>
+    <className>X</className>
+    <semester>1</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>X</className>
+    <semester>1</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList>
+      <students>
+        <name>Christina Lana</name>
+        <viaId>667347</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Dennis Kolin</name>
+        <viaId>667465</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Eric Lynn</name>
+        <viaId>667469</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Franck Thomson</name>
+        <viaId>667554</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Gregor Gori</name>
+        <viaId>667555</viaId>
+        <semester>1</semester>
+      </students>
+    </studentList>
+    <className>Y</className>
+    <semester>1</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList>
+      <students>
+        <name>Helly Hansen</name>
+        <viaId>667556</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Ion Brick</name>
+        <viaId>667578</viaId>
+        <semester>1</semester>
+      </students>
+      <students>
+        <name>Julia Schwartz </name>
+        <viaId>667590</viaId>
+        <semester>1</semester>
+      </students>
+    </studentList>
+    <className>Z</className>
+    <semester>1</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>DK</className>
+    <semester>1</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>X</className>
+    <semester>2</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Y</className>
+    <semester>2</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Z</className>
+    <semester>2</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>DK</className>
+    <semester>2</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>X</className>
+    <semester>3</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Y</className>
+    <semester>3</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Z</className>
+    <semester>3</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>DK</className>
+    <semester>3</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>X</className>
+    <semester>4</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Y</className>
+    <semester>4</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>Z</className>
+    <semester>4</semester>
+  </classes>
+  <classes>
+    <courses/>
+    <studentList/>
+    <className>DK</className>
+    <semester>4</semester>
+  </classes>
+</ClassGroupList>

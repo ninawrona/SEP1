@@ -5,7 +5,7 @@ import model.list.StudentList;
 
 public class ClassGroup
 {
-  private StudentList students;
+  private StudentList studentList;
   private CourseList courses;
   private String className;
   private int semester;
@@ -15,21 +15,21 @@ public class ClassGroup
     this.semester = semester;
     this.className = className;
     courses = new CourseList();
-    this.students = studentList;
+    this.studentList = studentList;
   }
 
   public ClassGroup(int semester, String className){
     this.semester = semester;
     this.className = className;
     courses = new CourseList();
-    students = new StudentList();
+    studentList = new StudentList();
   }
 
 
 
   public StudentList getStudents()
   {
-    return students;
+    return studentList;
   }
 
   public String getClassName()
@@ -48,17 +48,17 @@ public class ClassGroup
   }
 
   public void addStudent(Student student){
-    students.addStudent(student);
+    studentList.addStudent(student);
   }
 
   public void removeStudent(Student student){
-    students.removeStudent(student);
+    studentList.removeStudent(student);
   }
 
   public ClassGroup copy()
   {
     ClassGroup copy = new ClassGroup(this.semester, this.className,
-        this.students);
+        this.studentList);
     return copy;
   }
 
@@ -71,9 +71,9 @@ public class ClassGroup
       str += courses.get(i).toString();
     }
 
-    for (int i = 0; i < students.size(); i++)
+    for (int i = 0; i < studentList.size(); i++)
     {
-      str += students.get(i).toString();
+      str += studentList.get(i).toString();
     }
     return str;
   }
@@ -87,6 +87,6 @@ public class ClassGroup
     ClassGroup other = (ClassGroup) obj;
 
     return className.equals(other.className) && semester == other.semester
-        && students.equals(other.students) && courses.equals(other.courses);
+        && studentList.equals(other.studentList) && courses.equals(other.courses);
   }
 }

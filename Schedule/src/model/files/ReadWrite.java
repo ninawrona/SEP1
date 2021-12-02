@@ -18,6 +18,7 @@ public class ReadWrite
   public static void main(String[] args)
   {
     System.out.println(manualReadStudent());
+    XMLParser.toXML(manualReadStudent(),"students.xml");
     //   manualWriteStudent(manualReadStudent());
     //   manualWriteCourse(manualReadCourse());
   }

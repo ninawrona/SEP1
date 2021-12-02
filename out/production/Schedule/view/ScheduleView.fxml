@@ -73,7 +73,7 @@
             </VBox>
             <TableView prefHeight="350.0" prefWidth="587.0">
               <columns>
-                <TableColumn prefWidth="75.0" />
+                <TableColumn fx:id="scheduleTable" prefWidth="75.0" />
                 <TableColumn prefWidth="75.0" text="Monday" />
                   <TableColumn prefWidth="75.0" text="Tuesday" />
                   <TableColumn prefWidth="75.0" text="Wednesday" />

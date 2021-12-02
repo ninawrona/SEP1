@@ -1,4 +1,4 @@
-/*
+
 package view;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -70,6 +70,4 @@ public class ScheduleListViewModel {
         }
 
     }
-
-
- */
+}

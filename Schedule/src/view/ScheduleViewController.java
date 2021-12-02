@@ -12,21 +12,22 @@ public class ScheduleViewController
     @FXML Label errorLabel;
     @FXML Label courseNameLabel;
     @FXML
-    private TableView<GradeViewModel> scheduleTable;
+    private TableView<ScheduleViewModel> scheduleTable;
     @FXML
-    private TableColumn<GradeViewModel, Number> timeColumn;
+    private TableColumn<ScheduleViewModel, String> timeColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> mondayColumn;
+    private TableColumn<ScheduleViewModel, String> mondayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> tuesdayColumn;
+    private TableColumn<ScheduleViewModel, String> tuesdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> wednesdayColumn;
+    private TableColumn<ScheduleViewModel, String> wednesdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> thursdayColumn;
+    private TableColumn<ScheduleViewModel, String> thursdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> fridayColumn;
+    private TableColumn<ScheduleViewModel, String> fridayColumn;
     private Region root;
     private ViewHandler viewHandler;
+    private ScheduleViewModel viewModel;
     //private ScheduleModel model;
 
 
@@ -51,7 +52,7 @@ public class ScheduleViewController
         wednesdayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getWednesdayProperty());
         thursdayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getThusdayProperty());
+                cellData -> cellData.getValue().getThursdayProperty());
         fridayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getFridayProperty());
 

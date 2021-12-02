@@ -1,6 +1,9 @@
 package model.files;
 
+import model.basic.ClassGroup;
+import model.basic.Course;
 import model.basic.Student;
+import model.basic.Teacher;
 import model.list.ClassGroupList;
 import model.list.StudentList;
 
@@ -11,14 +14,16 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.list.CourseList;
+import model.list.TeacherList;
 
 public class ReadWrite
 {
 
   public static void main(String[] args)
   {
-    System.out.println(manualReadStudent());
-    XMLParser.toXML(manualReadStudent(),"students.xml");
+    //    System.out.println(manualReadStudent());
+    //   XMLParser.toXML(manualReadStudent(),"students.xml");
+    System.out.println(manualReadCourse());
     //   manualWriteStudent(manualReadStudent());
     //   manualWriteCourse(manualReadCourse());
   }
@@ -376,25 +381,26 @@ public class ReadWrite
     }
     return classGroupList;
   }
-/*
+
   public static CourseList manualReadCourse()
   {
     File file = new File("courses.txt");
     CourseList courses = new CourseList();
+    TeacherList masterTeacherList = new TeacherList();
     try
     {
       Scanner in = new Scanner(file);
       Course course;
       int semesterTaught = 0;
-      String classGroup = "";
+      ClassGroup classGroup;
       String courseName = null;
-      String teacher1 = "";
-      String teacher2 = "";
+      TeacherList teacherList = new TeacherList();
       int ECTS = 0;
       String[] parts;
 
       while (in.hasNext())
       {
+        teacherList.clear();
         String line = in.nextLine();
         if (line.contains(","))
         {
@@ -403,43 +409,89 @@ public class ReadWrite
           if (parts.length == 5)
           {
             semesterTaught = Integer.parseInt(parts[0]);
-            classGroup = parts[1];
+            classGroup = new ClassGroup(semesterTaught, parts[1]);
             courseName = parts[2];
-            teacher1 = parts[3];
+            teacherList.addTeacher(new Teacher(parts[3]));
+            masterTeacherList.addTeacher(new Teacher(parts[3]));
             ECTS = Integer.parseInt(parts[4]);
-            course = new Course(courseName, classGroup,  teacher1, semesterTaught, ECTS);
-            courses.addCourse(course);
+
+            if (courses.size() >= 1)
+            {
+              for (int i = 0; i < courses.size(); i++)
+              {
+                if (courses.get(i).getClassGroup().equals(classGroup)
+                    && courses.get(i).getName().equals(courseName))
+                {
+                  courses.get(i).addTeacher(new Teacher(parts[3]));
+                  System.out.println("I added a teacher to an existing course");
+
+                }
+                else
+                {
+                  course = new Course(courseName, classGroup, teacherList,
+                      semesterTaught, ECTS);
+                  System.out.println("New Course being printed: \n" + course);
+                  for (int j = 0; j < teacherList.size(); j++)
+                  {
+                    if (!(teacherList.get(j) == null))
+                    {
+                      teacherList.get(j).assignToCourseTaught(course);
+                    }
+                    courses.addCourse(course);
+                  }
+                }
+              }
+            }
+            else
+            {
+              course = new Course(courseName, classGroup, teacherList,
+                  semesterTaught, ECTS);
+              System.out.println("New Course Made:\n" + course);
+              for (int j = 0; j < teacherList.size(); j++)
+              {
+                if (!(teacherList.get(j) == null))
+                {
+                  teacherList.get(j).assignToCourseTaught(course);
+                }
+                courses.addCourse(course);
+              }
+
+            }
+
           }
+
+          //           courses.addCourse(course);
+
+        }
+          /*
           else if (parts.length == 6)
           {
             semesterTaught = Integer.parseInt(parts[0]);
-            classGroup = parts[1];
+            classGroup = new ClassGroup(semesterTaught,parts[1]);
             courseName = parts[2];
-            teacher1 = parts[3];
-            teacher2 = parts[4];
+            teacherList.addTeacher(new Teacher(parts[3]));
+            teacherList.addTeacher(new Teacher(parts[4]));
             ECTS = Integer.parseInt(parts[5]);
-            course = new Course(semesterTaught, classGroup, courseName, teacher1,teacher2, ECTS);
+            course = new Course(courseName, classGroup, teacherList, semesterTaught,  ECTS);
+            course.addTeacher(course.getTeachers().get(0));
+            course.addTeacher(course.getTeachers().get(1));
             courses.addCourse(course);
           }
-          else
-          {
-            throw new IllegalArgumentException("Unable to read line" + line);
-          }
-        }
+
+           */
         else
         {
-          throw new IllegalArgumentException("Error reading line: " + line);
+          throw new IllegalArgumentException("Unable to read line" + line);
         }
       }
-      System.out.println(courses.toString());
     }
+    //    System.out.println(courses.toString());
+
     catch (FileNotFoundException e)
     {
       e.printStackTrace();
     }
     return courses;
   }
-
- */
-
 }
+

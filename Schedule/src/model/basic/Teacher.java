@@ -17,6 +17,8 @@ public class Teacher
     }
 
     this.viaId = viaId;
+    coursesTaught = new CourseList();
+    sessions = new SessionList();
   }
 
   public String getName(){
@@ -41,7 +43,7 @@ public class Teacher
 
 
   public String toString(){
-    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses Taught: " + coursesTaught;
+    return "Name: " + name + "\nVia ID: " + viaId ;
   }
 
   public boolean equals(Object obj){

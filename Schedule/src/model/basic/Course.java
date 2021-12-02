@@ -99,7 +99,7 @@ public class Course
     s += "\nClass: " + classGroup + "\nCourseName:" + name;
     for (int j = 0; j < teachers.size(); j++)
     {
-      s += "\n Teacher: " + teachers.get(j);
+      s += "\nTeacher " + teachers.get(j).getViaId();
     }
     s += "\n ECTS: " + ECTS;
     return s;

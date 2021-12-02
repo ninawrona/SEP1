@@ -71,14 +71,14 @@
                   </VBox>
                </children>
             </VBox>
-            <TableView prefHeight="350.0" prefWidth="587.0">
+            <TableView prefHeight="350.0" prefWidth="587.0" fx:id="scheduleTable">
               <columns>
-                <TableColumn fx:id="scheduleTable" prefWidth="75.0" />
-                <TableColumn prefWidth="75.0" text="Monday" />
-                  <TableColumn prefWidth="75.0" text="Tuesday" />
-                  <TableColumn prefWidth="75.0" text="Wednesday" />
-                  <TableColumn prefWidth="75.0" text="Thursday" />
-                  <TableColumn prefWidth="75.0" text="Friday" />
+                <TableColumn prefWidth="75.0" fx:id="timeColumn"/>
+                <TableColumn prefWidth="75.0" text="Monday" fx:id="mondayColumn"/>
+                  <TableColumn prefWidth="75.0" text="Tuesday" fx:id="tuesdayColumn" />
+                  <TableColumn prefWidth="75.0" text="Wednesday" fx:id="wednesdayColumn"/>
+                  <TableColumn prefWidth="75.0" text="Thursday" fx:id="thursdayColumn"/>
+                  <TableColumn prefWidth="75.0" text="Friday" fx:id="fridayColumn"/>
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

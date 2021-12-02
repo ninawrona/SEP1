@@ -37,7 +37,7 @@ public class ScheduleViewController
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, Region root) // add model when made
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
         this.viewHandler = viewHandler;
         this.root = root;
@@ -72,4 +72,23 @@ public class ScheduleViewController
     }
 
     // @FXML methods here
+    @FXML private void exitButton()
+    {
+
+    }
+
+    @FXML private void addSessionButton()
+    {
+
+    }
+
+    @FXML private void removeSessionButton()
+    {
+
+    }
+
+    @FXML private void sessionDetailsButton()
+    {
+
+    }
 }

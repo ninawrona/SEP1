@@ -1,23 +1,60 @@
 package model.basic;
+/**
+ * A subclass representing the foldable rooms by adding the letter 'a' or 'b' to the end of the room's identifier.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 
 public class FoldableRoom extends Room
 {
   private char letter;
 
-  public FoldableRoom(int floor, char block, int number, int capaciity, char letter)
+  /**
+   * Five-argument constructor with the same exceptions as its superclass for the same instance variables. The letter must be either 'a' or 'b'.
+   * @param floor
+   *              the floor on which the room is
+   * @param block
+   *              the block in which the room is
+   * @param number
+   *              the number of the room
+   * @param capacity
+   *              the capacity of the room
+   * @param letter
+   *              the identifier of the room's halves
+   */
+  public FoldableRoom(int floor, char block, int number, int capacity, char letter)
   {
-    super(floor, block, number, capaciity);
-    this.letter = letter;
+    super(floor, block, number, capacity);
+    if (Character.compare(letter, 'a') == 0){
+      this.letter=letter;
+  }else if(Character.compare(letter,'b')==0){
+      this.letter=letter;
+    }else throw new IllegalArgumentException ("The letter must be 'a' or 'b'!");
   }
 
+  /**
+   * A getter method.
+   * @return the letter of the room.
+   */
   public char getLetter(){
     return letter;
   }
 
+  /**
+   * A method returning the String representation of a FoldableRoom object.
+   * @return A string containing the block, the floor, the number, the capacity and the letter of one half of the foldable room.
+   */
   public String toString(){
     return "FoldableRoom: " + super.getBlock() + super.getFloor() + super.getNumber() + "\nCapacity: " + super.getCapacity() + "\n Letter: " + letter;
   }
 
+  /**
+   * A method comparing two FoldableRoom objects.
+   * @param obj
+   *            an object representing the other object to be compared.
+   * @return "True" if the compared FoldableRoom objects are the same, or "False" if they are different.
+   */
   public boolean equals(Object obj){
     if (!(obj instanceof  FoldableRoom)){
       return false;

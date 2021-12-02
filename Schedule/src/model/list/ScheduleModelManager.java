@@ -1,6 +1,107 @@
 package model.list;
 
+import model.basic.*;
+
 public class ScheduleModelManager implements ScheduleModel
 {
-  
+  private TeacherList teacherList;
+  private CourseList courseList;
+  private SessionList sessionList;
+  private ClassList classList;
+  private StudentList studentList;
+  private RoomList roomList;
+
+  public ScheduleModelManager()
+  {
+    this.teacherList=new TeacherList();
+    this.courseList=new CourseList();
+    this.sessionList= new SessionList();
+    this.classList= new ClassList();
+    this.studentList=new StudentList();
+    this.roomList=new RoomList();
+  }
+  public void addTeacher(Teacher teacher)
+  {
+    teacherList.addTeacher(teacher);
+  }
+  public void removeTeacher(Teacher teacher)
+  {
+    teacherList.removeTeacher(teacher);
+  }
+  public void addCourse(Course course)
+  {
+    courseList.addCourse(course);
+  }
+  public void removeCourse(Course course)
+  {
+    courseList.removeCourse(course);
+  }
+  public CourseList getCoursesByClassGroup(ClassGroup classGroup)
+  {
+    if (classGroup == null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
+    CourseList courseListClassGroup = new CourseList();
+    for (int i = 0; i < sessionList.size(); i++)
+    {
+      if (sessionList.get(i).getCourse().getClassGroup().getClassName().equals(classGroup.getClassName())
+          && sessionList.get(i).getCourse().getClassGroup().getSemester() == classGroup.getSemester())
+      {
+        courseListClassGroup.addCourse(sessionList.get(i).getCourse());
+      }
+    }
+    if (courseListClassGroup.size() > 0)
+    {
+      return courseListClassGroup;
+    }
+    throw new NullPointerException("No courses found for this class.");
+  }
+
+  public void addSession(Session session, Room room)
+  {
+    sessionList.addSession(session, room);
+  }
+  public void removeSession(Session session)
+  {
+    sessionList.removeSession(session);
+  }
+  public void setRoomList(RoomList roomList)
+  {
+    sessionList.setRoomList(roomList);
+  }
+  public boolean isTeacherAvailable(Session session)
+  {
+    return sessionList.isTeacherAvailable(session);
+  }
+  public SessionList getSessionsByTimeDate(Date date, Time startTime, int numberOfLessons)
+  {
+    return sessionList.getSessionsByTimeDate(date, startTime, numberOfLessons);
+  }
+  public SessionList getSessionsByRoom(Room room)
+  {
+    return sessionList.getSessionsByRoom(room);
+  }
+  public SessionList getSessionsByTeacher(Teacher teacher, Date date)
+  {
+    return sessionList.getSessionsByTeacher(teacher, date);
+  }
+  public SessionList getSessionsByClassGroup(ClassGroup classGroup)
+  {
+    return sessionList.getSessionsByClassGroup(classGroup);
+  }
+  public SessionList getSessionsByStudent(Student student)
+  {
+    return sessionList;//todo
+  }
+  public void addStudentToCourse(Student student)
+  {
+
+  }
+  public void removeStudentFromCourse(Student student)
+  {
+    // todo
+  }
+  public Student getStudentByViaId(int viaId);
+
 }

@@ -35,6 +35,10 @@ public class TeacherList
 
   public void removeTeacher(Teacher teacher)
   {
+    if(size()==0)
+    {
+      throw new NullPointerException("The list is empty! You cannot remove anything!");
+    }
     if (teacher == null)
     {
       throw new IllegalArgumentException("Teacher can not be null");

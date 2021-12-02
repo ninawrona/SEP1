@@ -26,11 +26,23 @@ public class CourseList
 
   public void addCourse(Course course)
   {
+    if(course==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
     courses.add(course);
   }
 
   public void removeCourse(Course course)
   {
+    if(size()==0)
+    {
+      throw new NullPointerException("The list is empty! You cannot remove anything!");
+    }
+    if(course==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
     courses.remove(course);
   }
 

@@ -41,10 +41,15 @@ public class SessionList
 
   public void removeSession(Session session)
   {
+    if(size()==0)
+    {
+      throw new NullPointerException("The list is empty! You cannot remove anything!");
+    }
     if (session == null)
     {
       throw new IllegalArgumentException("Session cannot be null!");
     }
+
     sessions.remove(session);
   }
 
@@ -277,6 +282,11 @@ public class SessionList
           "There are no sessions for that teacher during this day.");
     }
 
+  }
+
+  public SessionList getSessionsByClassGroup(ClassGroup classGroup)
+  {
+    
   }
 
   public String toString()

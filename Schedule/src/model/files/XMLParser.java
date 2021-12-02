@@ -18,6 +18,8 @@ public class XMLParser
     toXML(course, "CourseTest2.xml");
     //Course course2 = new Course();
     //fromXML(course2, "CourseTest.xml");
+
+
   }
 
   public static void toXML(Object obj, String fileName)//with .xml

@@ -5,12 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-// import model.ScheduleModel;
+import model.list.ScheduleModel;
+
 
 public class ViewHandler {
     private Scene currentScene;
     private Stage primaryStage;
-    // private ScheduleModel model;
+    private ScheduleModel model;
     private AddSessionViewController addSessionViewController;
     private AddStudentViewController addStudentViewController;
     private AddTeacherViewController addTeacherViewController;
@@ -22,13 +23,11 @@ public class ViewHandler {
     private SessionDetailsViewController sessionDetailsViewController;
     // more controllers here
 
-  /* public ViewHandler(ScheduleModel model)
+  public ViewHandler(ScheduleModel model)
   {
     this.currentScene = new Scene(new Region());
     this.model = model;
   }
-
-   */
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -76,10 +75,10 @@ public class ViewHandler {
                 root = loadSessionDetailsView("SessionDetailsView.fxml");
                 break;
             case "addStudent":
-                root = loadSessionDetailsView("AddStudent.fxml");
+                root = loadAddStudentView("AddStudent.fxml");
                 break;
             case "addTeacher":
-                root = loadSessionDetailsView("AddTeacher.fxml");
+                root = loadAddTeacherView("AddTeacher.fxml");
                 break;
         }
 
@@ -218,6 +217,42 @@ public class ViewHandler {
             classSelectViewController.reset();
         }
         return classSelectViewController.getRoot();
+    }
+
+    private Region loadAddStudentView(String fxmlFile)
+    {
+        if (addStudentViewController == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                addStudentViewController = loader.getController();
+                // classSelectViewController.init(this, model, root);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            addStudentViewController.reset();
+        }
+        return addStudentViewController.getRoot();
+    }
+
+    private Region loadAddTeacherView(String fxmlFile)
+    {
+        if (addTeacherViewController == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                addTeacherViewController = loader.getController();
+                // classSelectViewController.init(this, model, root);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            addTeacherViewController.reset();
+        }
+        return addTeacherViewController.getRoot();
     }
 
 

@@ -23,21 +23,24 @@ public class ViewHandler {
     private SessionDetailsViewController sessionDetailsViewController;
     // more controllers here
 
-  public ViewHandler(ScheduleModel model)
-  {
-    this.currentScene = new Scene(new Region());
-    this.model = model;
-  }
+    public ViewHandler(ScheduleModel model) {
+        this.currentScene = new Scene(new Region());
+        this.model = model;
+    }
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         openView("schedule");
 
+        // !!! Image currently not working
         Image icon = new Image("gingerbread.png");
         //Icon made By jocularityart
-        primaryStage.getIcons().add(icon);
+        primaryStage.getIcons().add(new Image("gingerbread.png"));
         //controllers here
 
+        scheduleViewController.reset();
+        // Only above should be reset
+        /*
         addSessionViewController.reset();
         addStudentViewController.reset();
         addTeacherViewController.reset();
@@ -47,6 +50,8 @@ public class ViewHandler {
         fileViewController.reset();
         scheduleViewController.reset();
         sessionDetailsViewController.reset();
+
+         */
     }
 
     // View strings: addSession, addStudent, addTeacher, classSelect, confirmation, courseDetails, fileView, schedule, sessionDetails
@@ -101,7 +106,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addSessionViewController = loader.getController();
-                // addSessionViewController.init(this, model, root);
+                addSessionViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -118,7 +123,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 sessionDetailsViewController = loader.getController();
-                // sessionDetailsViewController.init(this, model, root);
+                sessionDetailsViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -135,7 +140,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 scheduleViewController = loader.getController();
-                // scheduleViewController.init(this, model, root);
+                scheduleViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -152,7 +157,8 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 fileViewController = loader.getController();
-                // fileViewController.init(this, model, root);
+                fileViewController.init(this, model, root);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -169,7 +175,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 courseDetailsViewController = loader.getController();
-                // courseDetailsViewController.init(this, model, root);
+                courseDetailsViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -192,7 +198,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 confirmationViewController = loader.getController();
-                // confirmationViewController.init(this, model, root);
+                confirmationViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -209,7 +215,7 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 classSelectViewController = loader.getController();
-                // classSelectViewController.init(this, model, root);
+                classSelectViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -219,15 +225,14 @@ public class ViewHandler {
         return classSelectViewController.getRoot();
     }
 
-    private Region loadAddStudentView(String fxmlFile)
-    {
+    private Region loadAddStudentView(String fxmlFile) {
         if (addStudentViewController == null) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addStudentViewController = loader.getController();
-                // classSelectViewController.init(this, model, root);
+                classSelectViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -237,15 +242,14 @@ public class ViewHandler {
         return addStudentViewController.getRoot();
     }
 
-    private Region loadAddTeacherView(String fxmlFile)
-    {
+    private Region loadAddTeacherView(String fxmlFile) {
         if (addTeacherViewController == null) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addTeacherViewController = loader.getController();
-                // classSelectViewController.init(this, model, root);
+                classSelectViewController.init(this, model, root);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -8,6 +8,7 @@ public interface ScheduleModel
     public void removeTeacher(Teacher teacher);
     public void addCourse(Course course);
     public void removeCourse(Course course);
+    public ClassGroupList getAllClasses();
     public CourseList getCourseListByClassGroup(ClassGroup classGroup);
     public void addSession(Session session, Room room);
     public void removeSession(Session session);

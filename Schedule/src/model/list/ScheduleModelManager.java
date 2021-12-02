@@ -16,7 +16,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.teacherList = new TeacherList();
     this.courseList = new CourseList();
     this.sessionList = new SessionList();
-    this.classList = new ClassList();
+    this.classList = new ClassGroupList();
     this.studentList = new StudentList();
     this.roomList = new RoomList();
   }

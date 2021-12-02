@@ -22,6 +22,14 @@ public class ClassList
   }
 
   public void removeClass(ClassGroup classGroup){
+    if(size()==0)
+    {
+      throw new NullPointerException("The list is empty! You cannot remove anything!");
+    }
+    if(classes==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
     classes.remove(classGroup);
   }
 

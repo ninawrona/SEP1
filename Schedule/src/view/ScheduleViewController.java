@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
+import model.list.*;
 
 public class ScheduleViewController
 {
@@ -28,7 +29,7 @@ public class ScheduleViewController
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleViewModel viewModel;
-    //private ScheduleModel model;
+    private ScheduleModel model;
 
 
     public ScheduleViewController()
@@ -40,7 +41,7 @@ public class ScheduleViewController
     {
         this.viewHandler = viewHandler;
         this.root = root;
-        // this.model = model;
+        this.model = model;
         reset();
 
         timeColumn.setCellValueFactory(
@@ -56,7 +57,8 @@ public class ScheduleViewController
         fridayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getFridayProperty());
 
-        scheduleTable.setItems(viewModel.getList());
+        // The method below should fetch all the session to display
+        // scheduleTable.setItems(viewModel.getList());
     }
 
     public Region getRoot()

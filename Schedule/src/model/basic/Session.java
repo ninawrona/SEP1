@@ -1,7 +1,12 @@
 package model.basic;
 
 import model.list.TeacherList;
-
+/**
+ * A class representing a session. A session is a block of one or more consecutive lessons with the same teacher(s), students in the same room on the same day. The length of a lesson is 45 minutes and the length of a break is 10 minutes.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class Session
 {
   private Course course;
@@ -11,46 +16,86 @@ public class Session
   private int numberOfLessons;
   public final static int LENGTHOFLESSON = 55;
 
+  /**
+   * Four-argument constructor taking a course object representing what course is taught in the given session, a copy of a date object displaying the date on which the session will be held, the start time, and the number of lessons.
+   * @param course
+   *              name of the taught course
+   * @param date
+   *              the date on which the session takes place
+   * @param startTime
+   *              the time at which the session begins
+   * @param numberOfLessons
+   *              the number of lessons in the session
+   */
   public Session(Course course, Date date, Time startTime, int numberOfLessons)
   {
     this.course = course;
     this.date = date.copy();
     this.startTime = startTime.copy();
-    // You can(YOU HAVE TO?) make a session before booking the room
     room = null;
     this.numberOfLessons = numberOfLessons;
   }
 
+  /**
+   * A void method that books a room for the session.
+   * @param room
+   *            The preferred room to be booked for the session.
+   */
   public void bookRoom(Room room)
   {
     this.room = room;
   }
 
+  /**
+   * A getter method returning a Room object representing the location in which the session is/will be held.
+   * @return Room
+   *
+   */
   public Room getRoom()
   {
     return room;
   }
 
+  /**
+   * A getter method returning (a copy of) a Date object representing the date on which the session is/will be held.
+   * @return Date
+   */
   public Date getDate()
   {
     return date;
   }
 
+  /**
+   * A getter method returning a Course object representing the course which is/will be taught at the session.
+   * @return Course
+   */
   public Course getCourse()
   {
     return course;
   }
 
+  /**
+   * A getter method returning the number of lessons in the chosen session.
+   * @return numberOfLessons
+   */
   public int getNumberOfLessons()
   {
     return numberOfLessons;
   }
 
+  /**
+   * A getter method returning an ArrayList of Teacher objects representing the teacher(s) who are/will be teaching at the session.
+   * @return TeacherList
+   */
   public TeacherList getTeachers()
   {
     return course.getTeachers();
   }
 
+  /**
+   * A getter method returning a Time object representing the time at which the session begins.
+   * @return startTime
+   */
   public Time getStartTime()
   {
     return startTime;
@@ -98,7 +143,7 @@ public class Session
   public Time getEndTime()
   {
 
-    int totalMinutes = getNumberOfLessons() * LENGTHOFLESSON;
+    int totalMinutes = getNumberOfLessons() * LENGTHOFLESSON -10;
     int hours = totalMinutes / 60;
     int minutes = totalMinutes % 60;
 
@@ -118,17 +163,6 @@ public class Session
     {
       endMinute = endMinute % 60;
       endHour++;
-    }
-
-    if (endHour == 12)
-    {
-      endHour = 11;
-      endMinute = 50;
-    }
-    else if (endHour == 18 && endMinute == 5)
-    {
-      endHour = 17;
-      endMinute = 55;
     }
 
     return new Time(endHour, endMinute);

@@ -12,7 +12,7 @@ public class ClassSelectViewController
     @FXML
     Label errorLabel;
     @FXML
-    ChoiceBox<> classChoiceBox;
+    //ChoiceBox<> classChoiceBox;
     private Region root;
     private ViewHandler viewHandler;
     //private ScheduleModel model;

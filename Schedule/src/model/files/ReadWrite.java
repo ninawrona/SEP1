@@ -1,18 +1,24 @@
 package model.files;
 
+import model.basic.Course;
+import model.basic.Student;
+import model.list.StudentList;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.list.CourseList;
 
 public class ReadWrite
 {
-/*
+
   public static void main(String[] args)
   {
+
     manualWriteStudent(manualReadStudent());
-    manualWriteCourse(manualReadCourse());
+ //   manualWriteCourse(manualReadCourse());
   }
 
   public static void manualWriteStudent(StudentList students)
@@ -31,7 +37,8 @@ public class ReadWrite
         xml += "\n<Student>";
         xml +=
             "\n    <Semester>" + students.get(i).getSemester() + "</Semester>";
-        xml += "\n    <Class>" + students.get(i).getClassString() + "</Class>";
+        xml +=
+            "\n    <ClassGroup>" + students.get(i).getClass() + "</ClassGroup>";
         xml += "\n    <Name>" + students.get(i).getName() + "</Name>";
         xml += "\n    <ViaID>" + students.get(i).getViaId() + "</ViaID>";
 
@@ -95,7 +102,7 @@ public class ReadWrite
       Scanner in = new Scanner(file);
       Student student;
       int semester = 0;
-      String classString = "";
+      String classGroup = "";
       String name = null;
       int viaId = 0;
       String[] parts;
@@ -110,10 +117,11 @@ public class ReadWrite
           if (parts.length == 4)
           {
             semester = Integer.parseInt(parts[0]);
-            classString = parts[1];
-            name = parts[2];
-            viaId = Integer.parseInt(parts[3]);
-            student = new Student(semester, classString, name, viaId);
+            classGroup = parts[1];
+            viaId = Integer.parseInt(parts[2]);
+            name = parts[3];
+
+            student = new Student(semester, name, viaId);
             students.addStudent(student);
           }
           else
@@ -134,7 +142,7 @@ public class ReadWrite
     }
     return students;
   }
-
+/*
   public static CourseList manualReadCourse()
   {
     File file = new File("courses.txt");
@@ -143,8 +151,8 @@ public class ReadWrite
     {
       Scanner in = new Scanner(file);
       Course course;
-      int semester = 0;
-      String classString = "";
+      int semesterTaught = 0;
+      String classGroup = "";
       String courseName = null;
       String teacher1 = "";
       String teacher2 = "";
@@ -160,23 +168,23 @@ public class ReadWrite
           parts = line.split(",");
           if (parts.length == 5)
           {
-            semester = Integer.parseInt(parts[0]);
-            classString = parts[1];
+            semesterTaught = Integer.parseInt(parts[0]);
+            classGroup = parts[1];
             courseName = parts[2];
             teacher1 = parts[3];
             ECTS = Integer.parseInt(parts[4]);
-            course = new Course(semester, classString, courseName, teacher1, ECTS);
+            course = new Course(courseName, classGroup,  teacher1, semesterTaught, ECTS);
             courses.addCourse(course);
           }
           else if (parts.length == 6)
           {
-            semester = Integer.parseInt(parts[0]);
-            classString = parts[1];
+            semesterTaught = Integer.parseInt(parts[0]);
+            classGroup = parts[1];
             courseName = parts[2];
             teacher1 = parts[3];
             teacher2 = parts[4];
             ECTS = Integer.parseInt(parts[5]);
-            course = new Course(semester, classString, courseName, teacher1,teacher2, ECTS);
+            course = new Course(semesterTaught, classGroup, courseName, teacher1,teacher2, ECTS);
             courses.addCourse(course);
           }
           else
@@ -198,6 +206,8 @@ public class ReadWrite
     return courses;
   }
 
+ */
 
-*/
+
+
 }

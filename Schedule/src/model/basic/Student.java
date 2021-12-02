@@ -10,6 +10,10 @@ public class Student
   {
     this.semester = semester;
     this.name = name;
+    if(String.valueOf(viaId).length()<6)
+    {
+      throw new IllegalArgumentException("VIA ID has to have 6 digits!");
+    }
     this.viaId = viaId;
   }
 

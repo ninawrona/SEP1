@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddSessionController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddSessionViewController">
     <children>
         <Label alignment="CENTER" prefHeight="37.0" prefWidth="399.0" text="Add a Session" textAlignment="CENTER">
             <font>
@@ -28,7 +28,7 @@
         <HBox prefHeight="45.0" prefWidth="388.0">
             <children>
                 <Label prefHeight="101.0" prefWidth="105.0" text="Pick a Date" />
-                <DatePicker prefHeight="36.0" prefWidth="168.0">
+                <DatePicker prefHeight="36.0" prefWidth="168.0" fx:id="datePicker">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin></DatePicker>

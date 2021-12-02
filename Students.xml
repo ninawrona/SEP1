@@ -2,51 +2,61 @@
 
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Abraham Jackson</Name>
     <ViaID>667345</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Brian Nielsen</Name>
     <ViaID>667346</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Christina Lana</Name>
     <ViaID>667347</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Dennis Kolin</Name>
     <ViaID>667465</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Eric Lynn</Name>
     <ViaID>667469</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Franck Thomson</Name>
     <ViaID>667554</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Gregor Gori</Name>
     <ViaID>667555</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Helly Hansen</Name>
     <ViaID>667556</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Ion Brick</Name>
     <ViaID>667578</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
+    <ClassGroup>class model.basic.Student</ClassGroup>
     <Name>Julia Schwartz </Name>
     <ViaID>667590</ViaID>
 </Student>

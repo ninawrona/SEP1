@@ -116,7 +116,7 @@ public class AddSessionViewController implements Initializable {
         roomsChoiceBox.getItems().addAll(roomsArray);
     }
 
-    public 
+  //  public
 
     // @FXML methods here
 }

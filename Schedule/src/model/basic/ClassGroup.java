@@ -18,6 +18,13 @@ public class ClassGroup
     this.students = studentList;
   }
 
+  public ClassGroup(int semester, String className){
+    this.semester = semester;
+    this.className = className;
+    courses = new CourseList();
+    students = new StudentList();
+  }
+
 
 
   public StudentList getStudents()
@@ -57,7 +64,7 @@ public class ClassGroup
 
   public String toString()
   {
-    String str = semester + className;
+    String str = "\n" +semester + className +"\n";
 
     for (int i = 0; i < courses.size(); i++)
     {

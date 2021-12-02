@@ -35,7 +35,7 @@ public class Student
 
   public String toString()
   {
-    return "\nName:" + name + "\nVia ID:" + viaId + "\nSemester:" + semester
+    return "\nName:" + name + "\nVia ID:" + viaId
         + "\n";
   }
 

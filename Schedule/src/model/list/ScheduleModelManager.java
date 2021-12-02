@@ -1,3 +1,4 @@
+/*
 package model.list;
 
 import model.basic.*;
@@ -105,3 +106,6 @@ public class ScheduleModelManager implements ScheduleModel
   public Student getStudentByViaId(int viaId);
 
 }
+
+
+ */

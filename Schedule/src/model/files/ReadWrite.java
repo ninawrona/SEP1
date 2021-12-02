@@ -1,14 +1,15 @@
 package model.files;
 
-import model.basic.Course;
 import model.basic.Student;
+import model.list.ClassGroupList;
 import model.list.StudentList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
+
 import model.list.CourseList;
 
 public class ReadWrite
@@ -16,87 +17,93 @@ public class ReadWrite
 
   public static void main(String[] args)
   {
-
-    manualWriteStudent(manualReadStudent());
- //   manualWriteCourse(manualReadCourse());
+    System.out.println(manualReadStudent());
+    //   manualWriteStudent(manualReadStudent());
+    //   manualWriteCourse(manualReadCourse());
   }
 
-  public static void manualWriteStudent(StudentList students)
-  {
-    File file = new File("Students.xml");
-    try
-
+  /*
+    public static void manualWriteStudent(ClassGroupList students)
     {
-      PrintWriter out = new PrintWriter(file);
+      File file = new File("Students.xml");
+      try
 
-      String xml = "";
-      xml +=
-          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
-      for (int i = 0; i < students.size(); i++)
       {
-        xml += "\n<Student>";
-        xml +=
-            "\n    <Semester>" + students.get(i).getSemester() + "</Semester>";
-        xml +=
-            "\n    <ClassGroup>" + students.get(i).getClass() + "</ClassGroup>";
-        xml += "\n    <Name>" + students.get(i).getName() + "</Name>";
-        xml += "\n    <ViaID>" + students.get(i).getViaId() + "</ViaID>";
+        PrintWriter out = new PrintWriter(file);
 
-        xml += "\n</Student>";
+        String xml = "";
+        xml +=
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+        for (int i = 0; i < students.size(); i++)
+        {
+          xml += "\n<Student>";
+          xml +=
+              "\n    <Semester>" + students.get(i).getSemester() + "</Semester>";
+          xml +=
+              "\n    <ClassGroup>" + students.get(i).getClassName() + "</ClassGroup>";
+          xml += "\n    <Name>" + students.get(i).getName() + "</Name>";
+          xml += "\n    <ViaID>" + students.get(i).getViaId() + "</ViaID>";
+
+          xml += "\n</Student>";
+        }
+        out.println(xml);
+        out.close();
+
       }
-      out.println(xml);
-      out.close();
+      catch (FileNotFoundException e)
 
-    }
-    catch (FileNotFoundException e)
-
-    {
-      e.printStackTrace();
-    }
-  }
-
-
-  public static void manualWriteCourse(CourseList courses)
-  {
-    File file = new File("Courses.xml");
-    try
-
-    {
-      PrintWriter out = new PrintWriter(file);
-
-      String xml = "";
-      xml +=
-          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
-      for (int i = 0; i < courses.size(); i++)
       {
-        xml += "\n<Course>";
-        xml +=
-            "\n    <Semester>" + courses.get(i).getSemesterTaught() + "</Semester>";
-        xml += "\n    <Class>" + courses.get(i).getClassGroup().getClassName() + "</Class>";
-        xml += "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
-                      for(int j = 0; j<courses.get(i).getTeachers().size(); j++)
-                      {
-                        xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j) + "</Teacher>";
-                      }
-        xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
-
-        xml += "\n</Course>";
+        e.printStackTrace();
       }
-      out.println(xml);
-      out.close();
-
     }
-    catch (FileNotFoundException e)
 
+    public static void manualWriteCourse(CourseList courses)
     {
-      e.printStackTrace();
-    }
-  }
+      File file = new File("Courses.xml");
+      try
 
-  public static StudentList manualReadStudent()
+      {
+        PrintWriter out = new PrintWriter(file);
+
+        String xml = "";
+        xml +=
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+        for (int i = 0; i < courses.size(); i++)
+        {
+          xml += "\n<Course>";
+          xml += "\n    <Semester>" + courses.get(i).getSemesterTaught()
+              + "</Semester>";
+          xml += "\n    <Class>" + courses.get(i).getClassGroup().getClassName()
+              + "</Class>";
+          xml +=
+              "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
+          for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
+          {
+            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j)
+                + "</Teacher>";
+          }
+          xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
+
+          xml += "\n</Course>";
+        }
+        out.println(xml);
+        out.close();
+
+      }
+      catch (FileNotFoundException e)
+
+      {
+        e.printStackTrace();
+      }
+    }
+
+
+   */
+  public static ClassGroupList manualReadStudent()
   {
     File file = new File("students.txt");
-    StudentList students = new StudentList();
+    ClassGroupList classGroupList = new ClassGroupList();
+
     try
     {
       Scanner in = new Scanner(file);
@@ -117,30 +124,256 @@ public class ReadWrite
           if (parts.length == 4)
           {
             semester = Integer.parseInt(parts[0]);
-            classGroup = parts[1];
+            classGroup = parts[1].toUpperCase();
             viaId = Integer.parseInt(parts[2]);
             name = parts[3];
 
             student = new Student(semester, name, viaId);
-            students.addStudent(student);
+
+            String classGroupString = "";
+            classGroupString += semester;
+
+            classGroupString += classGroup;
+            switch (classGroupString)
+            {
+              case "1X":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 1
+                      && classGroupList.get(i).getClassName().equals("X"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "1Y":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 1
+                      && classGroupList.get(i).getClassName().equals("Y"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "1Z":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 1
+                      && classGroupList.get(i).getClassName().equals("Z"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "1DK":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 1
+                      && classGroupList.get(i).getClassName().equals("DK"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "2X":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 2
+                      && classGroupList.get(i).getClassName().equals("X"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "2Y":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 2
+                      && classGroupList.get(i).getClassName().equals("Y"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "2Z":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 2
+                      && classGroupList.get(i).getClassName().equals("Z"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "2DK":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 2
+                      && classGroupList.get(i).getClassName().equals("DK"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "3X":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 3
+                      && classGroupList.get(i).getClassName().equals("X"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "3Y":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 3
+                      && classGroupList.get(i).getClassName().equals("Y"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "3Z":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 3
+                      && classGroupList.get(i).getClassName().equals("Z"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "3DK":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 3
+                      && classGroupList.get(i).getClassName().equals("DK"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "4X":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 4
+                      && classGroupList.get(i).getClassName().equals("X"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "4Y":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 4
+                      && classGroupList.get(i).getClassName().equals("Y"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "4Z":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 4
+                      && classGroupList.get(i).getClassName().equals("Z"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+              case "4DK":
+              {
+                for (int i = 0; i < classGroupList.size(); i++)
+                {
+                  if (classGroupList.get(i).getSemester() == 4
+                      && classGroupList.get(i).getClassName().equals("Dk"))
+                  {
+                    classGroupList.get(i).addStudent(student);
+                    break;
+                  }
+                }
+                break;
+              }
+
+            }
           }
           else
           {
-            throw new IllegalArgumentException("Unable to line" + line);
+            throw new IllegalArgumentException("Error reading line: " + line);
           }
         }
-        else
-        {
-          throw new IllegalArgumentException("Error reading line: " + line);
-        }
       }
-      System.out.println(students.toString());
     }
     catch (FileNotFoundException e)
     {
       e.printStackTrace();
     }
-    return students;
+    return classGroupList;
   }
 /*
   public static CourseList manualReadCourse()
@@ -207,7 +440,5 @@ public class ReadWrite
   }
 
  */
-
-
 
 }

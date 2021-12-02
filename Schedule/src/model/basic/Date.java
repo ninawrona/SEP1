@@ -1,6 +1,8 @@
 package model.basic;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
 
 public class Date
 {
@@ -22,6 +24,29 @@ public class Date
   {
     LocalDate today = LocalDate.now();
     set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
+  }
+
+  public String getWeekday(){
+    LocalDate date = LocalDate.of(year, month, day);
+    int weekdayNumber = date.get(ChronoField.DAY_OF_WEEK);
+    String weekdayName = "";
+    switch (weekdayNumber) {
+      case 1:
+        weekdayName = "MONDAY";
+      case 2:
+        weekdayName = "TUESDAY";
+      case 3:
+        weekdayName = "WEDNESDAY";
+      case 4:
+        weekdayName = "THURSDAY";
+      case 5:
+        weekdayName = "FRIDAY";
+      case 6:
+        weekdayName ="SATURDAY";
+      case 7:
+        weekdayName = "SUNDAY";
+    }
+    return weekdayName;
   }
 
 

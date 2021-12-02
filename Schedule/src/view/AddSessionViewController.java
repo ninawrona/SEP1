@@ -16,18 +16,12 @@ import java.util.ResourceBundle;
 
 public class AddSessionViewController implements Initializable {
     //@FXML private methods here
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private ChoiceBox<Course> courseChoiceBoxInAddSession;
-    @FXML
-    DatePicker datePicker;
-    @FXML
-    private ChoiceBox<Time> startTimeChoiceBox;
-    @FXML
-    private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML
-    private ChoiceBox<Room> roomsChoiceBox;
+    @FXML private Label errorLabel;
+    @FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
+    @FXML private DatePicker datePicker;
+    @FXML private ChoiceBox<Time> startTimeChoiceBox;
+    @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
+    @FXML private ChoiceBox<Room> roomsChoiceBox;
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
@@ -43,11 +37,11 @@ public class AddSessionViewController implements Initializable {
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, Region root) // add model when made
+    public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
     {
         this.viewHandler = viewHandler;
         this.root = root;
-        // this.model = model;
+        this.model = model;
         reset();
     }
 

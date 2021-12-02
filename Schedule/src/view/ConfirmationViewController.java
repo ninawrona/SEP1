@@ -4,26 +4,27 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
+import model.list.ScheduleModel;
 
 public class ConfirmationViewController
 {
     //@FXML private methods here
-    @FXML Label errorLabel;
-    @FXML TextArea detailsTextArea;
+    @FXML private Label errorLabel;
+    @FXML private TextArea detailsTextArea;
     private Region root;
     private ViewHandler viewHandler;
-    //private ScheduleModel model;
+    private ScheduleModel model;
 
     public ConfirmationViewController()
     {
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, Region root) // add model when made
+    public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
     {
         this.viewHandler = viewHandler;
         this.root = root;
-        // this.model = model;
+        this.model = model;
         reset();
     }
 
@@ -34,7 +35,7 @@ public class ConfirmationViewController
 
     public void reset()
     {
-        // set text to ""
+        errorLabel.setText("");
     }
 
     // @FXML methods here

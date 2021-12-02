@@ -4,27 +4,28 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import model.list.ScheduleModel;
 
 public class AddStudentViewController {
 
         //@FXML private methods here
-        @FXML Label errorLabel;
-        @FXML TextField studentsNameField;
-        @FXML TextField studentsViaIdField;
-        @FXML TextField courseField;
+        @FXML private Label errorLabel;
+        @FXML private TextField studentsNameField;
+        @FXML private TextField studentsViaIdField;
+        @FXML private TextField courseField;
         private Region root;
         private ViewHandler viewHandler;
-        //private ScheduleModel model;
+        private ScheduleModel model;
         public AddStudentViewController()
         {
             // Called by FXMLLoader
         }
 
-        public void init(ViewHandler viewHandler, Region root) // add model when made
+        public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
         {
             this.viewHandler = viewHandler;
             this.root = root;
-            // this.model = model;
+            this.model = model;
             reset();
         }
 
@@ -35,7 +36,7 @@ public class AddStudentViewController {
 
         public void reset()
         {
-            // set text to ""
+            errorLabel.setText("");
         }
 
         // @FXML methods here

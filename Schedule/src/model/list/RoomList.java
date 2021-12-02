@@ -22,6 +22,14 @@ public class RoomList
   }
 
   public void removeRoom(Room room){
+    if(size()==0)
+    {
+      throw new NullPointerException("The list is empty! You cannot remove anything!");
+    }
+    if(rooms==null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
     rooms.remove(room);
   }
 

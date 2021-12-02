@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="85.0" prefWidth="623.0" text="Do you want to confirm?">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="detailsTextArea" prefHeight="200.0" prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="59.0" prefWidth="572.0">
+         <children>
+            <Button fx:id="confirmInConfirmationViewButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Confirm">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+            <Button fx:id="cancelInConfirmationViewButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </HBox>
+      <Label prefHeight="20.0" prefWidth="644.0" text="Error Label" textFill="#e80c0c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

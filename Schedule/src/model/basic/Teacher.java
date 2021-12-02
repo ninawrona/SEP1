@@ -10,16 +10,13 @@ public class Teacher
   private CourseList coursesTaught;
   private SessionList sessions;
 
-  public Teacher(String viaId, String name){
-    if (name.equals(null)){
-      throw new IllegalArgumentException("Name can not be null");
-    }
+  public Teacher(String viaId){
+    name = null;
     if (viaId.equals(null)){
       throw new IllegalArgumentException("Via ID can not be null");
     }
 
     this.viaId = viaId;
-    this.name = name;
   }
 
   public String getName(){

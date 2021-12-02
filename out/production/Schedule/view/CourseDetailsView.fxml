@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="55.0" prefWidth="621.0" text="Course Details View">
+         <font>
+            <Font name="Bell MT" size="23.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="262.0" prefWidth="621.0">
+         <children>
+            <VBox prefHeight="363.0" prefWidth="481.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="511.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="219.0" text="Course">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="courseNameField" prefHeight="100.0" prefWidth="478.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="511.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="219.0" text="Semester">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="semesterField" prefHeight="100.0" prefWidth="478.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="511.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="219.0" text="Teachers">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="teachersField" prefHeight="100.0" prefWidth="478.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="144.0" prefHeight="100.0" prefWidth="511.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="219.0" text="Students">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="studentsField" prefHeight="100.0" prefWidth="478.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="160.0" prefHeight="100.0" prefWidth="511.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="110.0" prefWidth="219.0" text="ECTS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="ectsPointsField" prefHeight="100.0" prefWidth="478.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addTeacherButton" prefHeight="25.0" prefWidth="100.0" text="Add teacher">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#removeTeacherButton" prefHeight="25.0" prefWidth="100.0" text="Remove teacher">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#addStudentButton" prefHeight="25.0" prefWidth="100.0" text="Add student">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#removeStudentButton" prefHeight="25.0" prefWidth="100.0" text="Remove student">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin></Button>
+                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" onAction="#cancelInCourseDetailsButton" prefHeight="25.0" prefWidth="100.0" text="Cancel">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children></VBox>
+         </children>
+      </HBox>
+      <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="702.0" text="Error Label" textFill="#f21111">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+   </children>
+</VBox>

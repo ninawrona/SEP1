@@ -2,181 +2,51 @@
 
 <Student>
     <Semester>1</Semester>
-    <Class>X</Class>
-    <Name>Danyal Benton</Name>
-    <ViaID>234843</ViaID>
+    <Name>Abraham Jackson</Name>
+    <ViaID>667345</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>X</Class>
-    <Name>Miriam O'Quinn</Name>
-    <ViaID>782439</ViaID>
+    <Name>Brian Nielsen</Name>
+    <ViaID>667346</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>Y</Class>
-    <Name>Rabia Reid</Name>
-    <ViaID>894798</ViaID>
+    <Name>Christina Lana</Name>
+    <ViaID>667347</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>Y</Class>
-    <Name>Mali Shepard</Name>
-    <ViaID>725020</ViaID>
+    <Name>Dennis Kolin</Name>
+    <ViaID>667465</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>X</Class>
-    <Name>Bertie House</Name>
-    <ViaID>729525</ViaID>
+    <Name>Eric Lynn</Name>
+    <ViaID>667469</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>Z</Class>
-    <Name>Ignacy Knott</Name>
-    <ViaID>235309</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>X</Class>
-    <Name>Rosie Warren</Name>
-    <ViaID>674952</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>X</Class>
-    <Name>Patience Kramer</Name>
-    <ViaID>72620</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>Y</Class>
-    <Name>Aqeel Heath</Name>
-    <ViaID>259201</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>Y</Class>
-    <Name>Jacque Wilson</Name>
-    <ViaID>249234</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>Z</Class>
-    <Name>Kobie Tierney</Name>
-    <ViaID>654621</ViaID>
+    <Name>Franck Thomson</Name>
+    <ViaID>667554</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>Z</Class>
-    <Name>Anees Aguilar</Name>
-    <ViaID>132456</ViaID>
-</Student>
-<Student>
-    <Semester>2</Semester>
-    <Class>Z</Class>
-    <Name>Clara Knights</Name>
-    <ViaID>374132</ViaID>
-</Student>
-<Student>
-    <Semester>3</Semester>
-    <Class>X</Class>
-    <Name>Flora Conner</Name>
-    <ViaID>26396</ViaID>
-</Student>
-<Student>
-    <Semester>3</Semester>
-    <Class>X</Class>
-    <Name>Sullivan Jarvis</Name>
-    <ViaID>345399</ViaID>
-</Student>
-<Student>
-    <Semester>3</Semester>
-    <Class>X</Class>
-    <Name>Krish Anderson</Name>
-    <ViaID>345742</ViaID>
-</Student>
-<Student>
-    <Semester>3</Semester>
-    <Class>Y</Class>
-    <Name>Valerie Turner</Name>
-    <ViaID>785482</ViaID>
-</Student>
-<Student>
-    <Semester>3</Semester>
-    <Class>Y</Class>
-    <Name>Maximillian Travers</Name>
-    <ViaID>321342</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>X</Class>
-    <Name>Paris Beach</Name>
-    <ViaID>352870</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>X</Class>
-    <Name>Jaydn Mcfarlane</Name>
-    <ViaID>234632</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>X</Class>
-    <Name>Macauley Mathis</Name>
-    <ViaID>234535</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>Y</Class>
-    <Name>Raymond Tate</Name>
-    <ViaID>354345</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>Y</Class>
-    <Name>Olive Heath</Name>
-    <ViaID>897232</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>Y</Class>
-    <Name>Chase Horn</Name>
-    <ViaID>253523</ViaID>
-</Student>
-<Student>
-    <Semester>5</Semester>
-    <Class>X</Class>
-    <Name>Aman Mckeown</Name>
-    <ViaID>231579</ViaID>
-</Student>
-<Student>
-    <Semester>5</Semester>
-    <Class>X</Class>
-    <Name>Solomon Mcguire</Name>
-    <ViaID>235235</ViaID>
+    <Name>Gregor Gori</Name>
+    <ViaID>667555</ViaID>
 </Student>
 <Student>
     <Semester>1</Semester>
-    <Class>DK</Class>
-    <Name>Sunil Naylor</Name>
-    <ViaID>235892</ViaID>
+    <Name>Helly Hansen</Name>
+    <ViaID>667556</ViaID>
 </Student>
 <Student>
-    <Semester>2</Semester>
-    <Class>DK</Class>
-    <Name>Dillan Frame</Name>
-    <ViaID>265433</ViaID>
+    <Semester>1</Semester>
+    <Name>Ion Brick</Name>
+    <ViaID>667578</ViaID>
 </Student>
 <Student>
-    <Semester>3</Semester>
-    <Class>DK</Class>
-    <Name>Akash Lam</Name>
-    <ViaID>352264</ViaID>
-</Student>
-<Student>
-    <Semester>4</Semester>
-    <Class>DK</Class>
-    <Name>Gavin Mcgowan</Name>
-    <ViaID>3245234</ViaID>
+    <Semester>1</Semester>
+    <Name>Julia Schwartz </Name>
+    <ViaID>667590</ViaID>
 </Student>

@@ -8,19 +8,20 @@ import java.time.LocalDate;
 
 public class SessionViewModel {
     private StringProperty courseProperty;
-    private StringProperty dayOfWeekProperty;
+    private IntegerProperty dayOfWeekProperty;
 
     public SessionViewModel(Session session) {
         courseProperty = new SimpleStringProperty(session.getCourse().getName());
         LocalDate localDate = LocalDate.of(session.getDate().getYear(), session.getDate().getMonth(), session.getDate().getDay());
-        dayOfWeekProperty = new SimpleStringProperty(localDate.getDayOfWeek().toString());
+        // Set day of week as an int. 1 is Monday, 7 is Sunday
+        dayOfWeekProperty = new SimpleIntegerProperty(localDate.getDayOfWeek().getValue());
     }
 
     public String getCourseProperty() {
         return courseProperty.get();
     }
 
-    public String getDayOfWeekProperty() {
+    public int getDayOfWeekProperty() {
         return dayOfWeekProperty.get();
     }
 }

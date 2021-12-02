@@ -24,6 +24,7 @@ public class Date
     set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
   }
 
+
   public boolean isValid()
   {
     return !isBefore(new Date());

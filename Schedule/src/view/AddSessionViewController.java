@@ -142,7 +142,7 @@ public class AddSessionViewController implements Initializable {
         model.addSession(session, roomsChoiceBox.getValue());
     }
 
-    @FXML private void cancelInAddSession()
+    @FXML private void cancelInAddSessionButton()
     {
         viewHandler.openView("schedule");
     }

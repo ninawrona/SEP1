@@ -38,8 +38,26 @@ public class ScheduleModelManager implements ScheduleModel
   }
   public CourseList getCoursesByClassGroup(ClassGroup classGroup)
   {
-
+    if (classGroup == null)
+    {
+      throw new IllegalArgumentException("Parameter cannot be null!");
+    }
+    CourseList courseListClassGroup = new CourseList();
+    for (int i = 0; i < sessionList.size(); i++)
+    {
+      if (sessionList.get(i).getCourse().getClassGroup().getClassName().equals(classGroup.getClassName())
+          && sessionList.get(i).getCourse().getClassGroup().getSemester() == classGroup.getSemester())
+      {
+        courseListClassGroup.addCourse(sessionList.get(i).getCourse());
+      }
+    }
+    if (courseListClassGroup.size() > 0)
+    {
+      return courseListClassGroup;
+    }
+    throw new NullPointerException("No courses found for this class.");
   }
+
   public void addSession(Session session, Room room)
   {
     sessionList.addSession(session, room);

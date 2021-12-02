@@ -284,6 +284,11 @@ public class SessionList
 
   }
 
+  public SessionList getSessionsByClassGroup(ClassGroup classGroup)
+  {
+    
+  }
+
   public String toString()
   {
     String str = "";

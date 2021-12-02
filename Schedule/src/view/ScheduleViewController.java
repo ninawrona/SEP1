@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
+import model.list.*;
 
 public class ScheduleViewController
 {
@@ -12,22 +13,23 @@ public class ScheduleViewController
     @FXML Label errorLabel;
     @FXML Label courseNameLabel;
     @FXML
-    private TableView<GradeViewModel> scheduleTable;
+    private TableView<ScheduleViewModel> scheduleTable;
     @FXML
-    private TableColumn<GradeViewModel, Number> timeColumn;
+    private TableColumn<ScheduleViewModel, String> timeColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> mondayColumn;
+    private TableColumn<ScheduleViewModel, String> mondayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> tuesdayColumn;
+    private TableColumn<ScheduleViewModel, String> tuesdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> wednesdayColumn;
+    private TableColumn<ScheduleViewModel, String> wednesdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> thursdayColumn;
+    private TableColumn<ScheduleViewModel, String> thursdayColumn;
     @FXML
-    private TableColumn<GradeViewModel, String> fridayColumn;
+    private TableColumn<ScheduleViewModel, String> fridayColumn;
     private Region root;
     private ViewHandler viewHandler;
-    //private ScheduleModel model;
+    private ScheduleViewModel viewModel;
+    private ScheduleModel model;
 
 
     public ScheduleViewController()
@@ -35,11 +37,12 @@ public class ScheduleViewController
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, Region root) // add model when made
+
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
         this.viewHandler = viewHandler;
         this.root = root;
-        // this.model = model;
+        this.model = this.model;
         reset();
 
         timeColumn.setCellValueFactory(
@@ -51,11 +54,12 @@ public class ScheduleViewController
         wednesdayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getWednesdayProperty());
         thursdayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getThusdayProperty());
+                cellData -> cellData.getValue().getThursdayProperty());
         fridayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getFridayProperty());
 
-        scheduleTable.setItems(viewModel.getList());
+        // The method below should fetch all the session to display
+        // scheduleTable.setItems(viewModel.getList());
     }
 
     public Region getRoot()
@@ -66,7 +70,32 @@ public class ScheduleViewController
     public void reset()
     {
         // set text to ""
+        errorLabel.setText("");
     }
 
     // @FXML methods here
+    @FXML private void uploadFilesButton()
+    {
+        viewHandler.openView("fileView");
+    }
+
+    @FXML private void addSessionButton()
+    {
+        viewHandler.openView("addSession");
+    }
+
+    @FXML private void removeSessionButton()
+    {
+        viewHandler.openView("removeSession");
+    }
+
+    @FXML private void sessionDetailsButton()
+    {
+        viewHandler.openView("courseDetails");
+    }
+
+    @FXML private void exitButton()
+    {
+        viewHandler.closeView();
+    }
 }

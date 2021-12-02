@@ -69,26 +69,32 @@ public class ScheduleViewController
     public void reset()
     {
         // set text to ""
+        errorLabel.setText("");
     }
 
     // @FXML methods here
-    @FXML private void exitButton()
+    @FXML private void uploadFilesButton()
     {
-
+        viewHandler.openView("fileView");
     }
 
     @FXML private void addSessionButton()
     {
-
+        viewHandler.openView("addSession");
     }
 
     @FXML private void removeSessionButton()
     {
-
+        viewHandler.openView("removeSession");
     }
 
     @FXML private void sessionDetailsButton()
     {
+        viewHandler.openView("courseDetails");
+    }
 
+    @FXML private void exitButton()
+    {
+        viewHandler.closeView();
     }
 }

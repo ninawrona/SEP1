@@ -2,6 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.list.ScheduleModel;
@@ -10,7 +11,7 @@ public class FileViewController
 {
   //@FXML private methods here
   @FXML private Label errorLabel;
-  @FXML private TextField filePathField;
+  @FXML private TextArea filePathField;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
@@ -39,5 +40,17 @@ public class FileViewController
   }
 
   // @FXML methods here
+
+  @FXML void confirmInSelectATextFileButton()
+  {
+    // Do something with this button to open the file at the path
+    filePathField.getText();
+    viewHandler.openView("schedule");
+  }
+
+  @FXML void cancelInSelectATextFileButton()
+  {
+    viewHandler.openView("schedule");
+  }
 }
 

@@ -37,11 +37,12 @@ public class ScheduleViewController
         // Called by FXMLLoader
     }
 
+
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
         this.viewHandler = viewHandler;
         this.root = root;
-        this.model = model;
+        this.model = this.model;
         reset();
 
         timeColumn.setCellValueFactory(

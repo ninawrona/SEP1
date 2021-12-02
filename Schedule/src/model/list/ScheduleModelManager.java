@@ -21,6 +21,11 @@ public class ScheduleModelManager implements ScheduleModel
     this.roomList = new RoomList();
   }
 
+  public ClassGroupList getAllClasses(){
+    return classList;
+  }
+
+
   public void addTeacher(Teacher teacher)
   {
     teacherList.addTeacher(teacher);

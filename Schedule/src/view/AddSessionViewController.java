@@ -37,7 +37,7 @@ public class AddSessionViewController implements Initializable {
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
         this.viewHandler = viewHandler;
         this.root = root;

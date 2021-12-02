@@ -1,14 +1,15 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
 // import model and manager
+import model.list.*;
 import view.ViewHandler;
 
-public class MyApplication
+public class MyApplication extends Application
 {
-  public void start(Stage primaryStage)
-  {
-    // ScheduleModel model = new ScheduleModelManager();
-    ViewHandler view = new ViewHandler(); // put model into ViewHandler
-    // view.start(primaryStage);
-  }
+    public void start(Stage primaryStage)
+    {
+        ScheduleModel model = new ScheduleModelManager();
+        ViewHandler view = new ViewHandler(model); // put model into ViewHandler
+        view.start(primaryStage);
+    }
 }

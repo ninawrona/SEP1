@@ -1,4 +1,3 @@
-/*
 package model.list;
 
 import model.basic.*;
@@ -8,7 +7,7 @@ public class ScheduleModelManager implements ScheduleModel
   private TeacherList teacherList;
   private CourseList courseList;
   private SessionList sessionList;
-  private ClassList classList;
+  private ClassGroupList classList;
   private StudentList studentList;
   private RoomList roomList;
 
@@ -175,6 +174,3 @@ public class ScheduleModelManager implements ScheduleModel
     throw new NullPointerException("There are no students with this VIA ID.");
   }
 }
-
-
- */

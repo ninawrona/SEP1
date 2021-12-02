@@ -17,6 +17,7 @@ public interface ScheduleModel
     public SessionList getSessionsByTimeDate(Date date, Time startTime, int numberOfLessons);
     public SessionList getSessionsByRoom(Room room);
     public SessionList getSessionsByTeacher(Teacher teacher, Date date);
+    public SessionList getSessionsByCourse
     public SessionList getSessionsByClassGroup(ClassGroup classGroup);
     public SessionList getSessionsByStudent(Student student);
     public void addStudentToCourse(Student student, Course course);

@@ -3,12 +3,14 @@ package view;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import model.basic.*;
 import model.list.*;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -19,6 +21,8 @@ public class AddSessionViewController implements Initializable {
     @FXML
     private ChoiceBox<Course> courseChoiceBoxInAddSession;
     @FXML
+    DatePicker datePicker;
+    @FXML
     private ChoiceBox<Time> startTimeChoiceBox;
     @FXML
     private ChoiceBox<Integer> numberOfLessonsChoiceBox;
@@ -28,6 +32,7 @@ public class AddSessionViewController implements Initializable {
     private ViewHandler viewHandler;
     private ScheduleModel model;
     private ClassGroup classGroup;
+    private Session session;
 
     ArrayList<Course> allCoursesArray = new ArrayList<>();
     ArrayList<Time> timeArray = new ArrayList<>();
@@ -52,6 +57,8 @@ public class AddSessionViewController implements Initializable {
 
     public void reset() {
         // set text to ""
+        errorLabel.setText("");
+        session = null;
     }
 
     //here we add our list of choices from an arrayList
@@ -105,18 +112,38 @@ public class AddSessionViewController implements Initializable {
         numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
     }
 
+    // Load rooms based on the session above
     private void loadRoomArray() {
         roomsArray.removeAll(roomsArray);
-    /* waiting for model
-    for (int i = 0; i < model.suggestRooms().size(); i++)
+    for (int i = 0; i < model.suggestRooms(session).size(); i++)
     {
-      roomsArray.add(model.suggestRooms().get(i));
+      roomsArray.add(model.suggestRooms(session).get(i));
     }
-     */
         roomsChoiceBox.getItems().addAll(roomsArray);
     }
 
-    public 
+    // Convert the date picker into our date class
+    public Date getDateFromDatePicker() {
+        LocalDate localDate = datePicker.getValue();
+        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
+    }
 
     // @FXML methods here
+    // Create a session using the information above, then load rooms
+    @FXML
+    private void findRoomsButton() {
+        session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
+                startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
+        loadRoomArray();
+    }
+
+    @FXML private void addSessionButton()
+    {
+        model.addSession(session, roomsChoiceBox.getValue());
+    }
+
+    @FXML private void cancelInAddSession()
+    {
+        viewHandler.openView("schedule");
+    }
 }

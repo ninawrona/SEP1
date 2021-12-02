@@ -33,9 +33,9 @@ public class ViewHandler {
         openView("schedule");
 
         // !!! Image currently not working
-        // Image icon = new Image("gingerbread.png");
+        Image icon = new Image("gingerbread.png");
         //Icon made By jocularityart
-        // primaryStage.getIcons().add(icon);
+        primaryStage.getIcons().add(new Image("gingerbread.png"));
         //controllers here
 
         scheduleViewController.reset();

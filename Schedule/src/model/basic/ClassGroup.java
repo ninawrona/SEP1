@@ -47,6 +47,11 @@ public class ClassGroup
     return courses;
   }
 
+  public void addCourse(Course course)
+  {
+    courses.addCourse(course);
+  }
+
   public void addStudent(Student student){
     students.addStudent(student);
   }

@@ -37,7 +37,7 @@ public class Date
   }
 
   /**
-   * Zero-argument constructor creating a date object with today's date.
+   * Overloaded zero-argument constructor creating a date object with today's date.
    */
 
   public Date()
@@ -47,7 +47,7 @@ public class Date
   }
 
   /**
-   * A String method returning a name of the week day for this Date object.
+   * A method returning a string representing the name of the week day for this Date object.
    *
    * @return A String object.
    */
@@ -86,7 +86,7 @@ public class Date
   }
 
   /**
-   * A getter method returning a day object.
+   * A getter method returning the day.
    *
    * @return a day int
    */
@@ -119,7 +119,7 @@ public class Date
   /**
    * A String method returning a name of the month of this Date object.
    *
-   * @return a monthName String
+   * @return a monthName String.
    */
   public String getMonthName()
   {

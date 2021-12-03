@@ -2,9 +2,11 @@ package model.list;
 
 import model.basic.ClassGroup;
 import model.basic.*;
-
 import java.util.ArrayList;
 
+/**
+ * A class representing a collection of classes
+ */
 public class ClassGroupList
 {
   private ArrayList<ClassGroup> classes;

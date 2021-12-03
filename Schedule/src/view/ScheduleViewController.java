@@ -12,7 +12,7 @@ public class ScheduleViewController {
     @FXML
     Label errorLabel;
     @FXML
-    Label courseNameLabel;
+    Label classNameLabel;
     @FXML
     private TableView<ScheduleViewModel> scheduleTable;
     @FXML
@@ -41,7 +41,9 @@ public class ScheduleViewController {
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
         this.viewHandler = viewHandler;
         this.root = root;
-        this.model = this.model;
+        this.model = model;
+
+        errorLabel.setText("");
         reset();
 
         timeColumn.setCellValueFactory(
@@ -68,6 +70,14 @@ public class ScheduleViewController {
     public void reset() {
         // set text to ""
         errorLabel.setText("");
+        if(model.getChosenClassGroup() != null){
+            System.out.println("Tried");
+            classNameLabel.setText(model.getChosenClassGroup().toString());
+        }
+        else{
+            System.out.println("Failed");
+            classNameLabel.setText("Class name");
+        }
     }
 
     // @FXML methods here
@@ -84,6 +94,8 @@ public class ScheduleViewController {
 
     @FXML
     private void addSessionButton() {
+        model.setChosenClassGroup(model.getChosenClassGroup());
+        System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
         viewHandler.openView("addSession");
     }
 

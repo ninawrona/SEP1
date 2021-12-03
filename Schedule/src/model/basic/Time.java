@@ -104,7 +104,15 @@ public class Time
    */
   public String toString()
   {
-    return + hour + ":" + minute;
+    String str = "";
+    str += hour + ":";
+    if(minute<10){
+      str += "0" + minute;
+    }
+    else{
+      str += minute;
+    }
+    return str;
   }
 
   /**

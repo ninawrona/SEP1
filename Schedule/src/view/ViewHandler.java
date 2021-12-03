@@ -259,8 +259,4 @@ public class ViewHandler {
         return addTeacherViewController.getRoot();
     }
 
-    public ClassGroup getChosenClass(){
-        return classSelectViewController.getChosenClassFromController();
-    }
-
 }

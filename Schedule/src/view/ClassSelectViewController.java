@@ -74,18 +74,13 @@ public class ClassSelectViewController
     private void confirmInChooseClassButton(){
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
         chosenClass = classChoiceBox.getValue();
-        errorLabel.setText(chosenClass.toString());
-
-        System.out.println(chosenClass);
+        model.setChosenClassGroup(chosenClass);
+        System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
     }
 
     @FXML
     private void cancelInChooseClassButton(){
         reset();
         viewHandler.openView("schedule");
-    }
-
-    public ClassGroup getChosenClassFromController(){
-        return chosenClass;
     }
 }

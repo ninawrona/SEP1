@@ -1,5 +1,6 @@
 package model.files;
 
+import model.basic.Course;
 import model.basic.Student;
 import model.list.ClassGroupList;
 import model.list.StudentList;
@@ -376,10 +377,9 @@ public class ReadWrite
     }
     return classGroupList;
   }
-/*
-  public static CourseList manualReadCourse()
+
+  public static CourseList manualReadCourse(File file)
   {
-    File file = new File("courses.txt");
     CourseList courses = new CourseList();
     try
     {
@@ -440,6 +440,5 @@ public class ReadWrite
     return courses;
   }
 
- */
 
 }

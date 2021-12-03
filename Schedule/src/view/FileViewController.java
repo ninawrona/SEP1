@@ -8,8 +8,10 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.files.ReadWrite;
+import model.list.ClassGroupList;
+import model.list.CourseList;
+import model.list.RoomList;
 import model.list.ScheduleModel;
-
 
 import java.io.File;
 
@@ -26,6 +28,10 @@ public class FileViewController
   private ScheduleModel model;
   private FileChooser fileChooser;
   private Stage primaryStage;
+
+  private File fileStudents = null;
+  private File fileCourses = null;
+  private File fileRooms = null;
 
   public FileViewController()
   {
@@ -53,44 +59,66 @@ public class FileViewController
 
   // @FXML methods here
 
-
   @FXML private void selectStudentsFileButton()
   {
     FileChooser fileChooser = new FileChooser();
-    File file = fileChooser.showOpenDialog(null);
+    fileStudents = fileChooser.showOpenDialog(null);
 
-    if (file != null) {
-      char[] fileNameArray = file.getName().toCharArray();
-      if( fileNameArray[fileNameArray.length-3]=='t' && fileNameArray[fileNameArray.length-2]=='x' && fileNameArray[fileNameArray.length-1]=='t')
+    if (fileStudents != null)
+    {
+      char[] fileNameArray = fileStudents.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
       {
-        studentsField.setText(file.getAbsolutePath());
-
+        studentsField.setText(fileStudents.getAbsolutePath());
       }
     }
   }
 
-
   @FXML void selectCoursesFileButton()
   {
     FileChooser fileChooser = new FileChooser();
-    File file = fileChooser.showOpenDialog(null);
-    if (file != null) {
-      coursesField.setText(file.getName());
-
+    fileCourses = fileChooser.showOpenDialog(null);
+    if (fileCourses != null)
+    {
+      char[] fileNameArray = fileCourses.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
+      {
+        coursesField.setText(fileCourses.getName());
+      }
     }
   }
 
   @FXML void selectRoomsFileButton()
   {
     FileChooser fileChooser = new FileChooser();
-    File file = fileChooser.showOpenDialog(null);
-    if (file != null) {
-      roomsField.setText(file.getName());
+    fileRooms = fileChooser.showOpenDialog(null);
+    if (fileRooms != null)
+    {
+      char[] fileNameArray = fileRooms.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
+      {
+        roomsField.setText(fileRooms.getName());
+      }
     }
   }
 
   @FXML void confirmInSelectATextFileButton()
   {
+    if(fileStudents != null && fileRooms != null && fileCourses!=null)
+    {
+      ClassGroupList classGroupList = null;
+      RoomList roomList = null;
+      CourseList courseList = null;
+
+      classGroupList =ReadWrite.manualReadStudent(fileStudents.getName());
+
+    }
     // Do something with this button to open the file at the path
     filePathField.getText();
     viewHandler.openView("schedule");

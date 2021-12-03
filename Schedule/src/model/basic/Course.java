@@ -101,7 +101,7 @@ public class Course
     return ECTS;
   }
 
-  public String toString()
+  /*public String toString()
   {
     String s = "";
 
@@ -112,6 +112,11 @@ public class Course
     }
     s += "\n ECTS: " + ECTS;
     return s;
+  }*/
+
+  @Override
+  public String toString() {
+    return name;
   }
 
   public boolean equals(Object obj)

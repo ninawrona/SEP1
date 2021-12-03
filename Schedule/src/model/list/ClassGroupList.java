@@ -11,16 +11,17 @@ public class ClassGroupList
 
   public ClassGroupList(){
     classes = new ArrayList<>();
-    /* debugging by making simple course
+
+    // debugging by making simple course
     ClassGroup x1 = new ClassGroup(1, "X");
 
     classes.add(x1);
     x1.addCourse(new Course("RWD"));
-    
-     */
+    //classes.add((new ClassGroup(1,"X")).copy());
 
-    classes.add((new ClassGroup(1,"X")).copy());
-    classes.add((new ClassGroup(1,"Y")).copy());
+
+
+   /* classes.add((new ClassGroup(1,"Y")).copy());
     classes.add((new ClassGroup(1,"Z")).copy());
     classes.add((new ClassGroup(1,"DK")).copy());
 
@@ -39,7 +40,7 @@ public class ClassGroupList
     classes.add((new ClassGroup(4,"Z")).copy());
     classes.add((new ClassGroup(4,"DK")).copy());
 
-
+*/
 
   }
 

@@ -10,6 +10,8 @@ public interface ScheduleModel
     public void removeCourse(Course course);
     public ClassGroupList getAllClasses();
     public CourseList getCourseListByClassGroup(ClassGroup classGroup);
+    public void setChosenClassGroup(ClassGroup classGroup);
+    public ClassGroup getChosenClassGroup();
     public void addSession(Session session, Room room);
     public void removeSession(Session session);
     public void setRoomList(RoomList roomList);

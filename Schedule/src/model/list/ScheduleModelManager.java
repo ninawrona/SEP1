@@ -10,6 +10,7 @@ public class ScheduleModelManager implements ScheduleModel
   private ClassGroupList classList;
   private StudentList studentList;
   private RoomList roomList;
+  private ClassGroup chosenClassGroup;
 
   public ScheduleModelManager()
   {
@@ -19,6 +20,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.classList = new ClassGroupList();
     this.studentList = new StudentList();
     this.roomList = new RoomList();
+    this.chosenClassGroup = null;
   }
 
   public ClassGroupList getAllClasses(){
@@ -67,6 +69,17 @@ public class ScheduleModelManager implements ScheduleModel
       return courseListClassGroup;
     }
     throw new NullPointerException("No courses found for this class.");
+  }
+
+  @Override
+  public void setChosenClassGroup(ClassGroup classGroup) {
+    this.chosenClassGroup = classGroup;
+    System.out.println("I just set the class" + classGroup);
+  }
+
+  @Override
+  public ClassGroup getChosenClassGroup() {
+    return chosenClassGroup;
   }
 
   public void addSession(Session session, Room room)

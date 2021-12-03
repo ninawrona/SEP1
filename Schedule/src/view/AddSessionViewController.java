@@ -31,12 +31,6 @@ public class AddSessionViewController {
     @FXML
     private ChoiceBox<Room> roomsChoiceBox;
 
-    /*@FXML private ChoiceBox<Integer> courseChoiceBoxInAddSession;
-    @FXML private DatePicker datePicker;
-    @FXML private ChoiceBox<Time> startTimeChoiceBox;
-    @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML private ChoiceBox<Integer> roomsChoiceBox;*/
-
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
@@ -233,6 +227,8 @@ public class AddSessionViewController {
     private void addSessionButton() {
         try {
             model.addSession(session, roomsChoiceBox.getValue());
+
+            System.out.println("MARRY CHRISTMAS");
             System.out.println("session added");
         }catch (Exception e){
             errorLabel.setText(e.getMessage());

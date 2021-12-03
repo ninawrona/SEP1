@@ -51,10 +51,12 @@ public class ScheduleViewController {
         errorLabel.setText("");
         // reset();
 
-
+        timeColumn.setText("time");
         timeColumn.setCellValueFactory(
                 cellData -> new ReadOnlyStringWrapper(cellData.getValue().getStartTimeProperty()));
 
+
+        mondayColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper("GingerBread"));
         for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
             switch (scheduleViewModel.getList().get(i).getDayOfWeekProperty()) {
                 case 1: {
@@ -84,22 +86,6 @@ public class ScheduleViewController {
             }
         }
 
-
-        /*mondayColumn.setCellValueFactory(
-                cellData -> if (cellData.getValue().getDayOfWeekProperty())
-                    ;
-
-                cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDayOfWeekProperty()));
-        tuesdayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getTuesdayProperty());
-        wednesdayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getWednesdayProperty());
-        thursdayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getThursdayProperty());
-        fridayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getFridayProperty());
-         */
-
         scheduleTable.setItems(scheduleViewModel.getList());
         // The method below should fetch all the session to display
         // scheduleTable.setItems(viewModel.getList());
@@ -113,10 +99,10 @@ public class ScheduleViewController {
         // set text to ""
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {
-            System.out.println("Tried");
+           // System.out.println("Tried");
             classNameLabel.setText(model.getChosenClassGroup().toString());
         } else {
-            System.out.println("Failed");
+          //  System.out.println("Failed");
             classNameLabel.setText("Class name");
         }
     }

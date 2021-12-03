@@ -83,7 +83,7 @@
                   </VBox>
                </children>
             </VBox>
-            <TableView fx:id="scheduleTable" prefHeight="350.0" prefWidth="587.0">
+            <TableView editable="true" fx:id="scheduleTable" prefHeight="350.0" prefWidth="587.0">
               <columns>
                 <TableColumn fx:id="timeColumn" prefWidth="75.0" />
                 <TableColumn fx:id="mondayColumn" prefWidth="75.0" text="Monday" />

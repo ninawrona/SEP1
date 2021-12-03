@@ -231,11 +231,18 @@ public class AddSessionViewController {
 
     @FXML
     private void addSessionButton() {
-        // model.addSession(session, roomsChoiceBox.getValue());
+        try {
+            model.addSession(session, roomsChoiceBox.getValue());
+            System.out.println("session added");
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
+        }
+        reset();
     }
 
     @FXML
     private void cancelInAddSessionButton() {
         viewHandler.openView("schedule");
+        reset();
     }
 }

@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.basic.ClassGroup;
 import model.list.ScheduleModel;
 
 
@@ -258,5 +259,8 @@ public class ViewHandler {
         return addTeacherViewController.getRoot();
     }
 
+    public ClassGroup getChosenClass(){
+        return classSelectViewController.getChosenClassFromController();
+    }
 
 }

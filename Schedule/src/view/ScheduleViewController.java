@@ -7,11 +7,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.list.*;
 
-public class ScheduleViewController
-{
+public class ScheduleViewController {
     //@FXML private methods here
-    @FXML Label errorLabel;
-    @FXML Label courseNameLabel;
+    @FXML
+    Label errorLabel;
+    @FXML
+    Label courseNameLabel;
     @FXML
     private TableView<ScheduleViewModel> scheduleTable;
     @FXML
@@ -32,14 +33,12 @@ public class ScheduleViewController
     private ScheduleModel model;
 
 
-    public ScheduleViewController()
-    {
+    public ScheduleViewController() {
         // Called by FXMLLoader
     }
 
 
-    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
-    {
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = this.model;
@@ -62,40 +61,46 @@ public class ScheduleViewController
         // scheduleTable.setItems(viewModel.getList());
     }
 
-    public Region getRoot()
-    {
+    public Region getRoot() {
         return root;
     }
 
-    public void reset()
-    {
+    public void reset() {
         // set text to ""
         errorLabel.setText("");
     }
 
     // @FXML methods here
-    @FXML private void uploadFilesButton()
-    {
+
+    @FXML
+    private void chooseClassButton() {
+        viewHandler.openView("classSelect");
+    }
+
+    @FXML
+    private void uploadFilesButton() {
         viewHandler.openView("fileView");
     }
 
-    @FXML private void addSessionButton()
-    {
+    @FXML
+    private void addSessionButton() {
         viewHandler.openView("addSession");
     }
 
-    @FXML private void removeSessionButton()
-    {
+    @FXML
+    private void removeSessionButton() {
         viewHandler.openView("removeSession");
     }
 
-    @FXML private void sessionDetailsButton()
-    {
+    @FXML
+    private void sessionDetailsButton() {
         viewHandler.openView("courseDetails");
     }
 
-    @FXML private void exitButton()
-    {
+    @FXML
+    private void exitButton() {
         viewHandler.closeView();
     }
+
+
 }

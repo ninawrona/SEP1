@@ -1,5 +1,7 @@
 package view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -21,6 +23,7 @@ public class ClassSelectViewController
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
+    private ClassGroup chosenClass;
 
     ArrayList<ClassGroup> allClassesArray = new ArrayList<>();
 
@@ -34,7 +37,9 @@ public class ClassSelectViewController
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = model;
+        this.chosenClass = null;
         reset();
+        loadAllCoursesArray();
     }
 
     public Region getRoot()
@@ -60,7 +65,25 @@ public class ClassSelectViewController
             allClassesArray.add(model.getAllClasses().get(i));
         }
         classChoiceBox.getItems().addAll(allClassesArray);
+       ObservableList<ClassGroup> obsClass = FXCollections.observableArrayList(allClassesArray);
+       classChoiceBox.setItems(obsClass);
+
+        chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
+
     }
 
     // @FXML methods here
+    @FXML
+    private void confirmInChooseClassButton(){
+        chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
+        chosenClass = classChoiceBox.getValue();
+        errorLabel.setText(chosenClass.getClassName());
+        System.out.println(chosenClass);
+    }
+
+    @FXML
+    private void cancelInChooseClassButton(){
+        viewHandler.openView("schedule");
+        reset();
+    }
 }

@@ -4,6 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
 
+/**
+ * A class representing the date.
+ *
+ *  @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ *  @version 1 - 2 December 2021
+ */
+
 public class Date
 {
   private int day;

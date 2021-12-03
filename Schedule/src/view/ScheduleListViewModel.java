@@ -9,7 +9,7 @@ import model.basic.Session;
 import model.list.ScheduleModel;
 
 public class ScheduleListViewModel {
-    private ObservableList<ScheduleViewModel> list;
+    private ObservableList<SessionViewModel> list;
     private ScheduleModel model;
     // We should have a class group to specify which schedule we are looking at
     private ClassGroup classGroup;
@@ -17,25 +17,25 @@ public class ScheduleListViewModel {
     public ScheduleListViewModel(ScheduleModel model, ClassGroup classGroup) {
         this.model = model;
         // Trying a different list implementation
-        // this.list = FXCollections.observableArrayList();
+        this.list = FXCollections.observableArrayList();
         this.classGroup = classGroup;
 
         update();
     }
 
-    public ObservableList<ScheduleViewModel> getList() {
+    public ObservableList<SessionViewModel> getList() {
         return list;
     }
 
     public void update() {
         list.clear();
         for (int i = 0; i < model.getSessionsByClassGroup(classGroup).size(); i++) {
-            list.add(new ScheduleViewModel(model.getSessionsByClassGroup(classGroup).get(i)));
+            list.add(new SessionViewModel(model.getSessionsByClassGroup(classGroup).get(i)));
         }
     }
 
     public void add(Session session) {
-        list.add(new ScheduleViewModel(session));
+        list.add(new SessionViewModel(session));
     }
 
     /* to do

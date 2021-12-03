@@ -33,7 +33,7 @@ public class SessionList
     }
     if (!(isTeacherAvailable(session)))
     {
-      throw new IllegalCallerException("Teacher not available!");
+      //throw new IllegalCallerException("Teacher not available!");
     }
     bookRoomForASession(room, session);//Exceptions inside this method
     sessions.add(session);

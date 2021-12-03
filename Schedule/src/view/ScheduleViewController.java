@@ -1,10 +1,12 @@
 package view;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
+import model.basic.Session;
 import model.list.*;
 
 public class ScheduleViewController {
@@ -14,22 +16,24 @@ public class ScheduleViewController {
     @FXML
     Label classNameLabel;
     @FXML
-    private TableView<ScheduleViewModel> scheduleTable;
+    private TableView<SessionViewModel> scheduleTable;
     @FXML
-    private TableColumn<ScheduleViewModel, String> timeColumn;
+    private TableColumn<SessionViewModel, String> timeColumn;
     @FXML
-    private TableColumn<ScheduleViewModel, String> mondayColumn;
+    private TableColumn<SessionViewModel, String> mondayColumn;
     @FXML
-    private TableColumn<ScheduleViewModel, String> tuesdayColumn;
+    private TableColumn<SessionViewModel, String> tuesdayColumn;
     @FXML
-    private TableColumn<ScheduleViewModel, String> wednesdayColumn;
+    private TableColumn<SessionViewModel, String> wednesdayColumn;
     @FXML
-    private TableColumn<ScheduleViewModel, String> thursdayColumn;
+    private TableColumn<SessionViewModel, String> thursdayColumn;
     @FXML
-    private TableColumn<ScheduleViewModel, String> fridayColumn;
+    private TableColumn<SessionViewModel, String> fridayColumn;
+
+
     private Region root;
     private ViewHandler viewHandler;
-    private ScheduleViewModel viewModel;
+    private ScheduleViewModel scheduleViewModel;
     private ScheduleModel model;
 
 
@@ -42,14 +46,50 @@ public class ScheduleViewController {
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = model;
+        this.scheduleViewModel = new ScheduleViewModel(model);
 
         errorLabel.setText("");
-        reset();
+        // reset();
+
 
         timeColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getTimeProperty());
-        mondayColumn.setCellValueFactory(
-                cellData -> cellData.getValue().getMondayProperty());
+                cellData -> new ReadOnlyStringWrapper(cellData.getValue().getStartTimeProperty()));
+
+        for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
+            switch (scheduleViewModel.getList().get(i).getDayOfWeekProperty()) {
+                case 1: {
+                    mondayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCourseProperty()));
+                }
+                case 2: {
+                    tuesdayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCourseProperty()));
+                }
+                case 3: {
+                    wednesdayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCourseProperty()));
+                }
+                case 4: {
+                    thursdayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCourseProperty()));
+                }
+                case 5: {
+                    fridayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCourseProperty()));
+                }
+                default:{
+                    mondayColumn.setCellValueFactory(
+                            cellData -> new ReadOnlyStringWrapper("Default"));
+                }
+            }
+        }
+
+
+        /*mondayColumn.setCellValueFactory(
+                cellData -> if (cellData.getValue().getDayOfWeekProperty())
+                    ;
+
+                cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDayOfWeekProperty()));
         tuesdayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getTuesdayProperty());
         wednesdayColumn.setCellValueFactory(
@@ -58,7 +98,9 @@ public class ScheduleViewController {
                 cellData -> cellData.getValue().getThursdayProperty());
         fridayColumn.setCellValueFactory(
                 cellData -> cellData.getValue().getFridayProperty());
+         */
 
+        scheduleTable.setItems(scheduleViewModel.getList());
         // The method below should fetch all the session to display
         // scheduleTable.setItems(viewModel.getList());
     }
@@ -70,11 +112,10 @@ public class ScheduleViewController {
     public void reset() {
         // set text to ""
         errorLabel.setText("");
-        if(model.getChosenClassGroup() != null){
+        if (model.getChosenClassGroup() != null) {
             System.out.println("Tried");
             classNameLabel.setText(model.getChosenClassGroup().toString());
-        }
-        else{
+        } else {
             System.out.println("Failed");
             classNameLabel.setText("Class name");
         }
@@ -95,7 +136,6 @@ public class ScheduleViewController {
     @FXML
     private void addSessionButton() {
         model.setChosenClassGroup(model.getChosenClassGroup());
-        System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
         viewHandler.openView("addSession");
     }
 

@@ -64,7 +64,7 @@ public class ClassGroup
 
   public String toString()
   {
-    String str = "\n" +semester + className +"\n";
+    String str =semester + className;
 
     for (int i = 0; i < courses.size(); i++)
     {

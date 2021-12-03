@@ -2,15 +2,15 @@ package model.basic;
 
 public class FoldableRoom extends Room
 {
-  private char letter;
+  private String letter;
 
-  public FoldableRoom(int floor, char block, int number, int capaciity, char letter)
+  public FoldableRoom(int floor, char block, int number, int capaciity, String letter)
   {
     super(floor, block, number, capaciity);
     this.letter = letter;
   }
 
-  public char getLetter(){
+  public String getLetter(){
     return letter;
   }
 

@@ -78,7 +78,7 @@ public class CourseList
     String str = "";
     for (int i = 0; i < courses.size(); i++)
     {
-      str += courses.get(i).toString();
+      str += courses.get(i).toString()+"\n";
     }
     return str;
   }

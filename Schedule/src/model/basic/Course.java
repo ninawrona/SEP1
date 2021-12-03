@@ -96,12 +96,12 @@ public class Course
   {
     String s = "";
 
-    s += "\nClass: " + classGroup + "\nCourseName:" + name;
+    s += "Class: " + classGroup + "\nCourseName:" + name;
     for (int j = 0; j < teachers.size(); j++)
     {
       s += "\nTeacher: " + teachers.get(j).getViaId();
     }
-    s += "\n ECTS: " + ECTS;
+    s += "\nECTS: " + ECTS +"\n";
     return s;
   }
 

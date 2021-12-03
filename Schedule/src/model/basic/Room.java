@@ -5,6 +5,7 @@ public abstract class Room
   private int floor;
   private char block;
   private int number;
+  private String letter;
   private int capacity;
 
   public Room(int floor, char block, int number, int capacity)
@@ -12,6 +13,16 @@ public abstract class Room
     this.floor = floor;
     this.block = block;
     this.number = number;
+    this.letter = "";
+    this.capacity = capacity;
+  }
+
+  public Room(int floor, char block, int number, String letter, int capacity)
+  {
+    this.floor = floor;
+    this.block = block;
+    this.number = number;
+    this.letter = letter;
     this.capacity = capacity;
   }
 
@@ -30,6 +41,10 @@ public abstract class Room
     return number;
   }
 
+  public String getLetter(){
+    return letter;
+  }
+
   public int getCapacity()
   {
     return capacity;
@@ -37,7 +52,7 @@ public abstract class Room
 
   public String toString()
   {
-    return "Room: " + block + floor + number + "\nCapacity: " + capacity;
+    return "Room: " + block + floor + number + letter + "\nCapacity: " + capacity;
   }
 
   public boolean equals(Object obj)

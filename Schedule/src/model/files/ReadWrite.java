@@ -1,11 +1,7 @@
 package model.files;
 
-import model.basic.ClassGroup;
-import model.basic.Course;
-import model.basic.Student;
-import model.basic.Teacher;
-import model.list.ClassGroupList;
-import model.list.StudentList;
+import model.basic.*;
+import model.list.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,19 +9,16 @@ import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.Scanner;
 
-import model.list.CourseList;
-import model.list.TeacherList;
-
 public class ReadWrite
 {
 
   public static void main(String[] args)
   {
-    //    System.out.println(manualReadStudent());
-    //   XMLParser.toXML(manualReadStudent(),"students.xml");
-    System.out.println(manualReadCourse());
-    //   manualWriteStudent(manualReadStudent());
-    //   manualWriteCourse(manualReadCourse());
+   // System.out.println(manualReadStudents());
+  //  XMLParser.toXML(manualReadStudents(), "students.xml");
+  //  System.out.println(manualReadCourses());
+  //  manualWriteCourse(manualReadCourses());
+    manualReadRooms();
   }
 
   /*
@@ -62,7 +55,7 @@ public class ReadWrite
         e.printStackTrace();
       }
     }
-
+*/
     public static void manualWriteCourse(CourseList courses)
     {
       File file = new File("Courses.xml");
@@ -74,8 +67,11 @@ public class ReadWrite
         String xml = "";
         xml +=
             "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+
+        xml += "\n<CourseList>";
         for (int i = 0; i < courses.size(); i++)
         {
+
           xml += "\n<Course>";
           xml += "\n    <Semester>" + courses.get(i).getSemesterTaught()
               + "</Semester>";
@@ -85,13 +81,15 @@ public class ReadWrite
               "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
           for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
           {
-            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j)
+            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getName() + "," + courses.get(i).getTeachers().get(j).getViaId()
                 + "</Teacher>";
           }
           xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
 
           xml += "\n</Course>";
+
         }
+        xml += "\n</CourseList>";
         out.println(xml);
         out.close();
 
@@ -104,8 +102,8 @@ public class ReadWrite
     }
 
 
-   */
-  public static ClassGroupList manualReadStudent()
+
+  public static ClassGroupList manualReadStudents()
   {
     File file = new File("students.txt");
     ClassGroupList classGroupList = new ClassGroupList();
@@ -382,7 +380,7 @@ public class ReadWrite
     return classGroupList;
   }
 
-  public static CourseList manualReadCourse()
+  public static CourseList manualReadCourses()
   {
     File file = new File("courses.txt");
     CourseList courses = new CourseList();
@@ -422,15 +420,17 @@ public class ReadWrite
             {
               course = new Course(courseName, classGroup, teacherList,
                   semesterTaught, ECTS);
-              System.out.println("Size is 0, New Course Made:\n" + course);
+              //System.out.println("Size is 0, New Course Made:\n" + course);
               for (int j = 0; j < teacherList.size(); j++)
               {
                 if (!(teacherList.get(j) == null))
                 {
                   teacherList.get(j).assignToCourseTaught(course);
-                  System.out.println(
+                  /*System.out.println(
                       "Courses taught: " + teacherList.get(j).getCoursesTaught()
                           + "\n--------------");
+
+                   */
                 }
               }
               courses.addCourse(course);
@@ -447,18 +447,23 @@ public class ReadWrite
                     .contains(new Teacher(parts[3]))))
                 {
                   courses.get(i).addTeacher(new Teacher(parts[3]));
-                  System.out.println("I added a teacher to an existing course"
+                 /* System.out.println("I added a teacher to an existing course"
                       + "\nEXISTING CLASS: " + courses.get(i)
                       + "----------------");
+
+                  */
                   teacherFound = true;
 
                 }
               }
-              if (teacherFound == false){
+              if (!teacherFound)
+              {
                 course = new Course(courseName, classGroup, teacherList,
                     semesterTaught, ECTS);
-                System.out.println("New Course being printed: \n" + course
+               /* System.out.println("New Course being printed: \n" + course
                     + "\n-----------------");
+
+                */
                 for (int j = 0; j < teacherList.size(); j++)
                 {
                   if (!(teacherList.get(j) == null))
@@ -471,22 +476,6 @@ public class ReadWrite
             }
 
           }
-          /*
-          else if (parts.length == 6)
-          {
-            semesterTaught = Integer.parseInt(parts[0]);
-            classGroup = new ClassGroup(semesterTaught,parts[1]);
-            courseName = parts[2];
-            teacherList.addTeacher(new Teacher(parts[3]));
-            teacherList.addTeacher(new Teacher(parts[4]));
-            ECTS = Integer.parseInt(parts[5]);
-            course = new Course(courseName, classGroup, teacherList, semesterTaught,  ECTS);
-            course.addTeacher(course.getTeachers().get(0));
-            course.addTeacher(course.getTeachers().get(1));
-            courses.addCourse(course);
-          }
-
-           */
           else
           {
             throw new IllegalArgumentException("Unable to read line" + line);
@@ -494,12 +483,47 @@ public class ReadWrite
         }
       }
     }
-
     catch (FileNotFoundException e)
     {
       e.printStackTrace();
     }
     return courses;
+  }
+
+  public static  RoomList manualReadRooms()
+  {
+    File file = new File("Rooms.txt");
+    RoomList rooms = new RoomList();
+
+    try
+    {
+      Scanner in = new Scanner(file);
+      int floor;
+      char block;
+      int number;
+      int capacity;
+      Room room;
+      String[] parts;
+
+      while (in.hasNext())
+      {
+        String line = in.nextLine();
+
+        if (line.contains(","))
+        {
+          parts = line.split(",");
+          if (parts.length == 2){
+
+          }
+        }
+      }
+    }
+    catch (FileNotFoundException e)
+    {
+      e.printStackTrace();
+    }
+    return rooms;
+
   }
 }
 

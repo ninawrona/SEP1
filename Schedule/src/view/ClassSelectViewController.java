@@ -65,9 +65,6 @@ public class ClassSelectViewController
             allClassesArray.add(model.getAllClasses().get(i));
         }
         classChoiceBox.getItems().addAll(allClassesArray);
-       //ObservableList<ClassGroup> obsClass = FXCollections.observableArrayList(allClassesArray);
-       //classChoiceBox.setItems(obsClass);
-
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
 
     }
@@ -78,12 +75,17 @@ public class ClassSelectViewController
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
         chosenClass = classChoiceBox.getValue();
         errorLabel.setText(chosenClass.toString());
+
         System.out.println(chosenClass);
     }
 
     @FXML
     private void cancelInChooseClassButton(){
-        viewHandler.openView("schedule");
         reset();
+        viewHandler.openView("schedule");
+    }
+
+    public ClassGroup getChosenClassFromController(){
+        return chosenClass;
     }
 }

@@ -13,11 +13,11 @@ public class Student
   private int semester;
 
   /**
-   * Three-argument constructor. The semester has to be a positive integer, the name cannot be null and, and the VIA ID has to be an integer with a length of 6
+   * Three-argument constructor. The semester has to be a positive integer, the name cannot be null and, and the VIA ID has to be an integer with a length of 6.
    *
-   * @param semester the semester in which the student is enrolled in
-   * @param name     the name of the student
-   * @param viaId    the VIA ID of the student
+   * @param semester the semester in which the student is enrolled in.
+   * @param name     the name of the student.
+   * @param viaId    the VIA ID of the student.
    */
   public Student(int semester, String name, int viaId)
   {
@@ -39,9 +39,9 @@ public class Student
   }
 
   /**
-   * A getter method returning the name.
+   * A getter method returning the name of the student.
    *
-   * @return name
+   * @return the name of the student.
    */
   public String getName()
   {
@@ -49,9 +49,9 @@ public class Student
   }
 
   /**
-   * A getter method returning the semester
+   * A getter method returning the semester in which the student is enrolled in.
    *
-   * @return semester
+   * @return the semester of the student
    */
   public int getSemester()
   {
@@ -59,9 +59,9 @@ public class Student
   }
 
   /**
-   * A getter method returning the VIA ID
+   * A getter method returning the VIA ID of the student.
    *
-   * @return viaId
+   * @return the VIA ID
    */
   public int getViaId()
   {
@@ -69,7 +69,7 @@ public class Student
   }
 
   /**
-   * A setter method setting the semester
+   * A setter method setting the semester of the student.
    *
    * @param semester the semester into which the student is to be enrolled.
    */

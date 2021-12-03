@@ -17,8 +17,8 @@ public class ReadWrite
 
   public static void main(String[] args)
   {
-    System.out.println(manualReadStudent());
-    XMLParser.toXML(manualReadStudent(),"students.xml");
+    System.out.println(manualReadStudent("students.txt"));
+    XMLParser.toXML(manualReadStudent("students.txt"),"students.xml");
     //   manualWriteStudent(manualReadStudent());
     //   manualWriteCourse(manualReadCourse());
   }
@@ -100,9 +100,9 @@ public class ReadWrite
 
 
    */
-  public static ClassGroupList manualReadStudent()
+  public static ClassGroupList manualReadStudent(String fileName)
   {
-    File file = new File("students.txt");
+    File file = new File(fileName);
     ClassGroupList classGroupList = new ClassGroupList();
 
     try

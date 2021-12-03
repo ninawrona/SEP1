@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.files.ReadWrite;
 import model.list.ScheduleModel;
 
 
@@ -16,7 +17,10 @@ public class FileViewController
 {
   //@FXML private methods here
   @FXML private Label errorLabel;
-  @FXML private TextArea filePathField;
+  @FXML private TextArea filePathField;//There is no such id in the FMXL file
+  @FXML private TextField studentsField;
+  @FXML private TextField coursesField;
+  @FXML private TextField roomsField;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
@@ -49,25 +53,40 @@ public class FileViewController
 
   // @FXML methods here
 
-  /* work in progress
-  @FXML void selectStudentsFileButton()
+
+  @FXML private void selectStudentsFileButton()
   {
-    File file = fileChooser.showOpenDialog(primaryStage);
+    FileChooser fileChooser = new FileChooser();
+    File file = fileChooser.showOpenDialog(null);
+
     if (file != null) {
-      openFile(file);
+      char[] fileNameArray = file.getName().toCharArray();
+      if( fileNameArray[fileNameArray.length-3]=='t' && fileNameArray[fileNameArray.length-2]=='x' && fileNameArray[fileNameArray.length-1]=='t')
+      {
+        studentsField.setText(file.getAbsolutePath());
+
+      }
     }
   }
 
-   */
 
   @FXML void selectCoursesFileButton()
   {
+    FileChooser fileChooser = new FileChooser();
+    File file = fileChooser.showOpenDialog(null);
+    if (file != null) {
+      coursesField.setText(file.getName());
 
+    }
   }
 
   @FXML void selectRoomsFileButton()
   {
-
+    FileChooser fileChooser = new FileChooser();
+    File file = fileChooser.showOpenDialog(null);
+    if (file != null) {
+      roomsField.setText(file.getName());
+    }
   }
 
   @FXML void confirmInSelectATextFileButton()

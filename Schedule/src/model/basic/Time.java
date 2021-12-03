@@ -13,9 +13,9 @@ public class Time
   /**
    * Two-argument constructor. The hour has to be between 0 and 23, and the minute has to be between 0 and 59.
    * @param hour
-   *            the hour
+   *            the hour.
    * @param minute
-   *            the minute
+   *            the minute.
    */
   public Time(int hour, int minute)
   {

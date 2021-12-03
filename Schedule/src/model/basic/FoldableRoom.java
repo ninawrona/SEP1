@@ -13,15 +13,15 @@ public class FoldableRoom extends Room
   /**
    * Five-argument constructor with the same exceptions as its superclass for the same instance variables. The letter must be either 'a' or 'b'.
    * @param floor
-   *              the floor on which the room is
+   *              the floor on which the room is.
    * @param block
-   *              the block in which the room is
+   *              the block in which the room is.
    * @param number
-   *              the number of the room
+   *              the number of the room.
    * @param capacity
-   *              the capacity of the room
+   *              the capacity of the room.
    * @param letter
-   *              the identifier of the room's halves
+   *              the identifier for the different halves of the room.
    */
   public FoldableRoom(int floor, char block, int number, int capacity, char letter)
   {

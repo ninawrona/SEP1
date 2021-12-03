@@ -16,13 +16,13 @@ public abstract class Room
   /**
    * Four-argument constructor. The floor must be 1 or greater. The room number must be 0 or greater. The capacity of the room must be a positive number.
    * @param floor
-   *              the floor on which the room is
+   *              the floor on which the room is.
    * @param block
-   *              the block in which the room is
+   *              the block in which the room is.
    * @param number
-   *              the number of the room
+   *              the number of the room.
    * @param capacity
-   *              the capacity of the room
+   *              the capacity of the room.
    */
   public Room(int floor, char block, int number, int capacity)
   {
@@ -49,7 +49,7 @@ public abstract class Room
 
   /**
    * A getter method for the floor of the room.
-   * @return floor
+   * @return the floor of the room.
    */
   public int getFloor()
   {
@@ -58,7 +58,7 @@ public abstract class Room
 
   /**
    * A getter method for the block in which the room is.
-   * @return block
+   * @return the block of the room.
    */
   public char getBlock()
   {
@@ -67,7 +67,7 @@ public abstract class Room
 
   /**
    * A getter method for the number of the room.
-   * @return number
+   * @return the number of the room.
    */
   public int getNumber()
   {
@@ -76,7 +76,7 @@ public abstract class Room
 
   /**
    * A getter method for the capacity of the room.
-   * @return capacity
+   * @return the capacity of the room
    */
   public int getCapacity()
   {

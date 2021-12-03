@@ -17,6 +17,15 @@ public class Date
   private int month;
   private int year;
 
+  /**
+   * Three-argument constructor taking a day, month, year all being an integer type.
+   * If the date is before today, the exception is thrown as we cannot schedule a session for the past.
+   *
+   * @param day the day of the date
+   * @param month the month of the date
+   * @param year the year of the date
+   */
+
   public Date(int day, int month, int year)
   {
     set(day, month, year);
@@ -27,11 +36,21 @@ public class Date
     }
   }
 
+  /**
+   * Overloaded zero-argument constructor creating a date object with today's date.
+   */
+
   public Date()
   {
     LocalDate today = LocalDate.now();
     set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
   }
+
+  /**
+   * A method returning a string representing the name of the week day for this Date object.
+   *
+   * @return A String object.
+   */
 
   public String getWeekday(){
     LocalDate date = LocalDate.of(year, month, day);
@@ -56,27 +75,52 @@ public class Date
     return weekdayName;
   }
 
-
+  /**
+   * A boolean method checking if the date is not before today.
+   *
+   * @return "True" if this Date object is not before today's date. "False" if this Date is before today's date.
+   */
   public boolean isValid()
   {
     return !isBefore(new Date());
   }
+
+  /**
+   * A getter method returning the day.
+   *
+   * @return a day int
+   */
 
   public int getDay()
   {
     return day;
   }
 
+  /**
+   * A getter method returning a month object.
+   *
+   * @return a month int
+   */
+
   public int getMonth()
   {
     return month;
   }
+  /**
+   * A getter method returning a year object.
+   *
+   * @return a year int
+   */
 
   public int getYear()
   {
     return year;
   }
-
+  /**
+   * A String method returning a name of the month of this Date object.
+   *
+   * @return a monthName String.
+   */
   public String getMonthName()
   {
     switch (month)
@@ -108,6 +152,14 @@ public class Date
     }
     return "null";
   }
+
+  /**
+   * A void method checking if the values for day, month, year are legal.
+   *
+   * @param day a day int
+   * @param month a month int
+   * @param year a year int
+   */
 
   public void set(int day, int month, int year)
   {
@@ -155,6 +207,12 @@ public class Date
     this.year = year;
   }
 
+  /**
+   * An int method checking for the number of days in month for month of this Date object.
+   *
+   * @return A number of days int
+   */
+
   public int numberOfDaysInMonth()
   {
     if (month == 2)
@@ -178,6 +236,11 @@ public class Date
     }
   }
 
+  /**
+   * A boolean method checking if the year of this Date object is a leap year.
+   *
+   * @return "True" when the year is a leap year. "False" when the year is not a leap year.
+   */
   public boolean isLeapYear()
   {
     if ((year % 4) == 0 && (((year % 100) != 0) || ((year % 400) == 0)))
@@ -190,6 +253,12 @@ public class Date
     }
 
   }
+
+  /**
+   * A boolean method checking if this Date object is before other Date object.
+   * @param date other Date object to which we want to compare this Date object.
+   * @return "True" if this Date is before other Date. "False" if this Date is after other Date.
+   */
 
   public boolean isBefore(Date date)
   {
@@ -233,6 +302,10 @@ public class Date
     }
   }
 
+  /**
+   * A void method increasing the value of the day for this Date object by one.
+   */
+
   public void stepForwardOneDay()
   {
     day++;
@@ -248,6 +321,10 @@ public class Date
     }
   }
 
+  /**
+   * A void method increasing the value of the day for this Date object by the given parameter.
+   * @param days the number of the days to step forward.
+   */
   public void stepForward(int days)
   {
 
@@ -258,12 +335,20 @@ public class Date
 
   }
 
+  /**
+   * A Date method creating a copy of this Date object.
+   * @return A Date object.
+   */
   public Date copy()
   {
     Date other = new Date(this.day, this.month, this.year);
     return other;
   }
 
+  /**
+   * A String method returning a day, month, year as a String in a proper format.
+   * @return A String object.
+   */
   public String toString()
   {
     String s = "";
@@ -282,6 +367,12 @@ public class Date
     return s;
   }
 
+  /**
+   * A boolean method taking an obj and comparing to this Date object.
+   *
+   * @param obj other Date object that we want to compare.
+   * @return "True" if the two Dates are identical. "False" if the obj is not a Date object or the two Dates are not identical.
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof Date))

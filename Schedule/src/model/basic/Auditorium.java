@@ -17,13 +17,13 @@ public class Auditorium extends Room {
      *
      *
      * @param floor
-     *              the floor on which the room is
+     *              the floor on which the room is.
      * @param block
-     *              the block in which the room is
+     *              the block in which the room is.
      * @param number
-     *              the number of the room
+     *              the number of the room.
      * @param AUDCAPACITY
-     *              the capacity of the auditorium
+     *              the capacity of the auditorium.
      */
     public Auditorium(int floor, char block, int number, int AUDCAPACITY) {
         super(floor, block, number, AUDCAPACITY);

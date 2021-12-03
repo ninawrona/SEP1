@@ -11,6 +11,15 @@ public class RoomList
   public RoomList(){
     rooms = new ArrayList<>();
 
+    // Adding some fake rooms
+    rooms.add(new Room(5, 'c', 16, 45));
+    rooms.add(new Room(5, 'c', 13, 45));
+    rooms.add(new Room(5, 'c', 12, 45));
+    rooms.add(new Room(5, 'c', 6, 45));
+    rooms.add(new Room(5, 'c', 7, 45));
+
+
+
   }
 
   public int size(){

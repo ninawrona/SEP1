@@ -14,15 +14,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AddSessionViewController{
+public class AddSessionViewController {
     //@FXML private methods here
-    @FXML private Label errorLabel;
-    @FXML private Label titleLabel;
-    @FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
-    @FXML private DatePicker datePicker;
-    @FXML private ChoiceBox<Time> startTimeChoiceBox;
-    @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML private ChoiceBox<Room> roomsChoiceBox;
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Label titleLabel;
+    @FXML
+    private ChoiceBox<Course> courseChoiceBoxInAddSession;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private ChoiceBox<Time> startTimeChoiceBox;
+    @FXML
+    private ChoiceBox<Integer> numberOfLessonsChoiceBox;
+    @FXML
+    private ChoiceBox<Room> roomsChoiceBox;
 
     /*@FXML private ChoiceBox<Integer> courseChoiceBoxInAddSession;
     @FXML private DatePicker datePicker;
@@ -50,8 +57,7 @@ public class AddSessionViewController{
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
-    {
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = model;
@@ -77,7 +83,6 @@ public class AddSessionViewController{
         this.classGroup = model.getChosenClassGroup();
         System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
     }
-
 
 
     //here we add our list of choices from an arrayList
@@ -158,8 +163,7 @@ public class AddSessionViewController{
             ClassGroup classGroupx = classGroup;
             System.out.println(classGroup);
             CourseList courseListx = new CourseList();
-            for (int i = 0; i < classGroupx.getCourses().size(); i++)
-            {
+            for (int i = 0; i < classGroupx.getCourses().size(); i++) {
                 courseListx.addCourse(classGroupx.getCourses().get(i));
             }
             for (int i = 0; i < courseListx.size(); i++) {
@@ -201,15 +205,14 @@ public class AddSessionViewController{
     }
 
     // Load rooms based on the session above
-   /* private void loadRoomArray() {
+    private void loadRoomArray() {
         roomsArray.removeAll(roomsArray);
-    for (int i = 0; i < model.suggestRooms(session).size(); i++)
-    {
-      roomsArray.add(model.suggestRooms(session).get(i));
-    }
+        for (int i = 0; i < model.suggestRooms(session).size(); i++) {
+            roomsArray.add(model.suggestRooms(session).get(i));
+        }
         roomsChoiceBox.getItems().addAll(roomsArray);
     }
-*/
+
 
     // Convert the date picker into our date class
     public Date getDateFromDatePicker() {
@@ -221,18 +224,18 @@ public class AddSessionViewController{
     // Create a session using the information above, then load rooms
     @FXML
     private void findRoomsButton() {
-     //   session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
-      //          startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
-     //   loadRoomArray();
+        session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
+                startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
+        loadRoomArray();
     }
 
-    @FXML private void addSessionButton()
-    {
-       // model.addSession(session, roomsChoiceBox.getValue());
+    @FXML
+    private void addSessionButton() {
+        // model.addSession(session, roomsChoiceBox.getValue());
     }
 
-    @FXML private void cancelInAddSessionButton()
-    {
+    @FXML
+    private void cancelInAddSessionButton() {
         viewHandler.openView("schedule");
     }
 }

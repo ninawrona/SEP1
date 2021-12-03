@@ -32,10 +32,10 @@ public class ViewHandler {
         this.primaryStage = primaryStage;
         openView("schedule");
 
-        // !!! Image currently not working
-        // Image icon = new Image("gingerbread.png");
+
+        Image icon = new Image("gingerbread.png");
         //Icon made By jocularityart
-        // primaryStage.getIcons().add(icon);
+        primaryStage.getIcons().add(icon);
         //controllers here
 
         scheduleViewController.reset();

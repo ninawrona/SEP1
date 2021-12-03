@@ -43,6 +43,11 @@ public class AddSessionViewController implements Initializable {
         this.root = root;
         this.model = model;
         reset();
+        errorLabel.setText("");
+        loadAllCourseArray();
+        loadTimeArray();
+        loadNumberOfLessonsArray();
+
     }
 
     public Region getRoot() {
@@ -55,6 +60,8 @@ public class AddSessionViewController implements Initializable {
         session = null;
     }
 
+
+
     //here we add our list of choices from an arrayList
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -65,6 +72,9 @@ public class AddSessionViewController implements Initializable {
         // roomsChoiceBox.getItems().addAll(roomsArray); //rooms that are currently available, we have to change
         // the array after clicking find rooms
     }
+
+
+
 
     // Load the courses into the arrayList
     // ? How will this look on the list? Will it use the toString method?
@@ -78,6 +88,7 @@ public class AddSessionViewController implements Initializable {
         }
         courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
     }
+
 
     private void loadTimeArray() {
         timeArray.removeAll(timeArray);

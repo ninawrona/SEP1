@@ -297,9 +297,9 @@ public class Session
 
   /**
    * A setter method setting the time at which a session begins. There are 11 valid start times for the lessons:
-   * 8:20,9:15,10:10,11:05,12:00,12:45,13:40,14:35,15:30,16:25 and 17:20.
+   * 8:20, 9:15, 10:10, 11:05, 12:00, 12:45, 13:40, 14:35, 15:30, 16:25 and 17:20.
    * @param startTime
-   *                A Time object representing the start time of the session to be set.
+   *                a Time object representing the start time of the session to be set.
    */
   public void setStartTime(Time startTime)
   {
@@ -538,16 +538,23 @@ public class Session
   }
 
   /**
-   * A method returning the string representation of a session
-   * @return
+   * A method returning the string representation of the session's details.
+   *
+   * @return A string containing the name of the course, the start time, the number of lessons, the end time and the room of a session.
    */
   public String toString()
   {
-    return "Session{" + "course=" + course + ", startTime=" + startTime
-        + ", Number of Lessons= " + numberOfLessons + " , End Time = "
-        + getEndTime() + ", room=" + room + '}';
+    return "Session{" + "Course= " + course + ", Start Time= " + startTime
+        + ", Number of Lessons= " + numberOfLessons + ", End Time = "
+        + getEndTime() + ", Room=" + room + '}';
   }
 
+  /**
+   * A method comparing two Session objects.
+   * @param obj
+   *          an object representing the other object to be compared.
+   * @return "True" if the compared Session objects are the same, or "False" if they are different objects.
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof Session))

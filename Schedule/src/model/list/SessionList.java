@@ -12,7 +12,7 @@ public class SessionList
   public SessionList()
   {
     this.sessions = new ArrayList<>();
-    this.roomList = null;
+    roomList = new RoomList();
   }
 
   public int size()
@@ -53,6 +53,7 @@ public class SessionList
     sessions.remove(session);
   }
 
+  /*
   public void setRoomList(RoomList roomList)
   {
     if (roomList == null)
@@ -61,6 +62,8 @@ public class SessionList
     }
     this.roomList = roomList;
   }
+
+   */
 
   public RoomList suggestRooms(Session session)
   {
@@ -76,11 +79,15 @@ public class SessionList
       if (isRoomAvailable(roomList.get(i), session.getStartTime(),
           session.getNumberOfLessons(), session.getDate()))
       {
-        if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
+        // Add this if again when the student list work
+        /*if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
             .getStudents().size())
         {
           suggestedRoomList.addRoom(roomList.get(i));
         }
+
+         */
+        suggestedRoomList.addRoom(roomList.get(i));
       }
     }
     if(suggestedRoomList.size()>0)

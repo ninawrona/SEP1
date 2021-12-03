@@ -13,7 +13,8 @@ public class Student
   private int semester;
 
   /**
-   * Three-argument constructor. The semester has to be a positive integer, the name cannot be null and, and the VIA ID has to be an integer with a length of 6.
+   * Three-argument constructor. The semester has to be a positive integer, the name cannot be null
+   * and the VIA ID has to be an integer with a length of 6.
    *
    * @param semester the semester in which the student is enrolled in.
    * @param name     the name of the student.
@@ -51,7 +52,7 @@ public class Student
   /**
    * A getter method returning the semester in which the student is enrolled in.
    *
-   * @return the semester of the student
+   * @return the semester of the student.
    */
   public int getSemester()
   {
@@ -61,7 +62,7 @@ public class Student
   /**
    * A getter method returning the VIA ID of the student.
    *
-   * @return the VIA ID
+   * @return the VIA ID of the student.
    */
   public int getViaId()
   {

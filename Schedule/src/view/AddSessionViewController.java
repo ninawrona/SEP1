@@ -14,15 +14,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AddSessionViewController implements Initializable {
+public class AddSessionViewController {
     //@FXML private methods here
-    @FXML private Label errorLabel;
-    @FXML private Label titleLabel;
-    @FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
-    @FXML private DatePicker datePicker;
-    @FXML private ChoiceBox<Time> startTimeChoiceBox;
-    @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML private ChoiceBox<Room> roomsChoiceBox;
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Label titleLabel;
+    @FXML
+    private ChoiceBox<Course> courseChoiceBoxInAddSession;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private ChoiceBox<Time> startTimeChoiceBox;
+    @FXML
+    private ChoiceBox<Integer> numberOfLessonsChoiceBox;
+    @FXML
+    private ChoiceBox<Room> roomsChoiceBox;
 
     /*@FXML private ChoiceBox<Integer> courseChoiceBoxInAddSession;
     @FXML private DatePicker datePicker;
@@ -50,14 +57,16 @@ public class AddSessionViewController implements Initializable {
         // Called by FXMLLoader
     }
 
-    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
-    {
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = model;
         this.classGroup = model.getChosenClassGroup();
         errorLabel.setText("");
         titleLabel.setText("");
+        loadAllCourseArray();
+        loadTimeArray();
+        loadNumberOfLessonsArray();
         reset();
     }
 
@@ -71,21 +80,29 @@ public class AddSessionViewController implements Initializable {
         titleLabel.setText("Add a Session to " + model.getChosenClassGroup().toString());
         session = null;
         model.setChosenClassGroup(model.getChosenClassGroup());
+        this.classGroup = model.getChosenClassGroup();
         System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
     }
 
 
-
     //here we add our list of choices from an arrayList
+    /*
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        model.setChosenClassGroup(model.getChosenClassGroup());
+        this.classGroup = model.getChosenClassGroup();
+        System.out.println(classGroup);
         loadAllCourseArray();
+        System.out.println("initializer");
+        System.out.println(classGroup);
         loadTimeArray();
         loadNumberOfLessonsArray();
         // Rooms should load after the time is set
         // roomsChoiceBox.getItems().addAll(roomsArray); //rooms that are currently available, we have to change
         // the array after clicking find rooms
     }
+
+     */
 
     /*public void loadAllCourseArray(){
         allCoursesArray.removeAll(allCoursesArray);
@@ -143,8 +160,15 @@ public class AddSessionViewController implements Initializable {
 
         // Only load the courses relevant to the selected class group
         try {
-            for (int i = 0; i < model.getCourseListByClassGroup(model.getChosenClassGroup()).size(); i++) {
-                allCoursesArray.add(model.getCourseListByClassGroup(model.getChosenClassGroup()).get(i));
+            ClassGroup classGroupx = classGroup;
+            System.out.println(classGroup);
+            CourseList courseListx = new CourseList();
+            for (int i = 0; i < classGroupx.getCourses().size(); i++) {
+                courseListx.addCourse(classGroupx.getCourses().get(i));
+            }
+            for (int i = 0; i < courseListx.size(); i++) {
+                Course coursex = courseListx.get(i);
+                allCoursesArray.add(coursex);
             }
             courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
         } catch (Exception e) {
@@ -181,15 +205,14 @@ public class AddSessionViewController implements Initializable {
     }
 
     // Load rooms based on the session above
-   /* private void loadRoomArray() {
+    private void loadRoomArray() {
         roomsArray.removeAll(roomsArray);
-    for (int i = 0; i < model.suggestRooms(session).size(); i++)
-    {
-      roomsArray.add(model.suggestRooms(session).get(i));
-    }
+        for (int i = 0; i < model.suggestRooms(session).size(); i++) {
+            roomsArray.add(model.suggestRooms(session).get(i));
+        }
         roomsChoiceBox.getItems().addAll(roomsArray);
     }
-*/
+
 
     // Convert the date picker into our date class
     public Date getDateFromDatePicker() {
@@ -201,18 +224,18 @@ public class AddSessionViewController implements Initializable {
     // Create a session using the information above, then load rooms
     @FXML
     private void findRoomsButton() {
-     //   session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
-      //          startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
-     //   loadRoomArray();
+        session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
+                startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
+        loadRoomArray();
     }
 
-    @FXML private void addSessionButton()
-    {
-       // model.addSession(session, roomsChoiceBox.getValue());
+    @FXML
+    private void addSessionButton() {
+        // model.addSession(session, roomsChoiceBox.getValue());
     }
 
-    @FXML private void cancelInAddSessionButton()
-    {
+    @FXML
+    private void cancelInAddSessionButton() {
         viewHandler.openView("schedule");
     }
 }

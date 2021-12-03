@@ -6,7 +6,7 @@ package model.basic;
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021
  */
-public abstract class Room
+public class Room
 {
   private int floor;
   private char block;

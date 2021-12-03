@@ -62,7 +62,7 @@ public class ClassGroup
     return copy;
   }
 
-  public String toString()
+  public String fullPrintOut()
   {
     String str = "\n" +semester + className +"\n";
 
@@ -76,6 +76,11 @@ public class ClassGroup
       str += students.get(i).toString();
     }
     return str;
+  }
+
+  @Override
+  public String toString() {
+    return semester + className;
   }
 
   public boolean equals(Object obj)

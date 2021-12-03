@@ -65,8 +65,8 @@ public class ClassSelectViewController
             allClassesArray.add(model.getAllClasses().get(i));
         }
         classChoiceBox.getItems().addAll(allClassesArray);
-       ObservableList<ClassGroup> obsClass = FXCollections.observableArrayList(allClassesArray);
-       classChoiceBox.setItems(obsClass);
+       //ObservableList<ClassGroup> obsClass = FXCollections.observableArrayList(allClassesArray);
+       //classChoiceBox.setItems(obsClass);
 
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
 
@@ -77,7 +77,7 @@ public class ClassSelectViewController
     private void confirmInChooseClassButton(){
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
         chosenClass = classChoiceBox.getValue();
-        errorLabel.setText(chosenClass.getClassName());
+        errorLabel.setText(chosenClass.toString());
         System.out.println(chosenClass);
     }
 

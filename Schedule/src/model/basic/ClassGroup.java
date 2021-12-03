@@ -87,6 +87,6 @@ public class ClassGroup
     ClassGroup other = (ClassGroup) obj;
 
     return className.equals(other.className) && semester == other.semester
-        && studentList.equals(other.studentList) && courses.equals(other.courses);
+        ;
   }
 }

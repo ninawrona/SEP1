@@ -99,7 +99,7 @@ public class Course
     s += "\nClass: " + classGroup + "\nCourseName:" + name;
     for (int j = 0; j < teachers.size(); j++)
     {
-      s += "\nTeacher " + teachers.get(j).getViaId();
+      s += "\nTeacher: " + teachers.get(j).getViaId();
     }
     s += "\n ECTS: " + ECTS;
     return s;
@@ -117,4 +117,5 @@ public class Course
     return name.equals(other.name) && semesterTaught == other.semesterTaught
         && ECTS == other.ECTS;
   }
+
 }

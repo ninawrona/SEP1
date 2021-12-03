@@ -52,6 +52,13 @@ public class Teacher
     }
     Teacher other = (Teacher)obj;
 
-    return name.equals(other.name) && viaId.equals(other.viaId);
+    if(name==null && other.name==null)
+    {
+      return viaId.equals(other.viaId);
+    }
+    else
+    {
+      return name.equals(other.name) && viaId.equals(other.viaId);
+    }
   }
 }

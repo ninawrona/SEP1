@@ -394,14 +394,13 @@ public class ReadWrite
       int semesterTaught = 0;
       ClassGroup classGroup;
       String courseName = null;
-      TeacherList teacherList = new TeacherList();
       int ECTS = 0;
       String[] parts;
 
       while (in.hasNext())
       {
-        teacherList.clear();
         String line = in.nextLine();
+
         if (line.contains(","))
         {
 
@@ -411,58 +410,67 @@ public class ReadWrite
             semesterTaught = Integer.parseInt(parts[0]);
             classGroup = new ClassGroup(semesterTaught, parts[1]);
             courseName = parts[2];
+            TeacherList teacherList = new TeacherList();
             teacherList.addTeacher(new Teacher(parts[3]));
-            masterTeacherList.addTeacher(new Teacher(parts[3]));
+            if (!(masterTeacherList.contains(new Teacher(parts[3]))))
+            {
+              masterTeacherList.addTeacher(new Teacher(parts[3]));
+            }
             ECTS = Integer.parseInt(parts[4]);
 
-            if (courses.size() >= 1)
-            {
-              for (int i = 0; i < courses.size(); i++)
-              {
-                if (courses.get(i).getClassGroup().equals(classGroup)
-                    && courses.get(i).getName().equals(courseName))
-                {
-                  courses.get(i).addTeacher(new Teacher(parts[3]));
-                  System.out.println("I added a teacher to an existing course");
-
-                }
-                else
-                {
-                  course = new Course(courseName, classGroup, teacherList,
-                      semesterTaught, ECTS);
-                  System.out.println("New Course being printed: \n" + course);
-                  for (int j = 0; j < teacherList.size(); j++)
-                  {
-                    if (!(teacherList.get(j) == null))
-                    {
-                      teacherList.get(j).assignToCourseTaught(course);
-                    }
-                    courses.addCourse(course);
-                  }
-                }
-              }
-            }
-            else
+            if (courses.size() == 0)
             {
               course = new Course(courseName, classGroup, teacherList,
                   semesterTaught, ECTS);
-              System.out.println("New Course Made:\n" + course);
+              System.out.println("Size is 0, New Course Made:\n" + course);
               for (int j = 0; j < teacherList.size(); j++)
               {
                 if (!(teacherList.get(j) == null))
                 {
                   teacherList.get(j).assignToCourseTaught(course);
+                  System.out.println(
+                      "Courses taught: " + teacherList.get(j).getCoursesTaught()
+                          + "\n--------------");
+                }
+              }
+              courses.addCourse(course);
+            }
+
+            else if (courses.size() >= 1)
+            {
+              boolean teacherFound = false;
+              for (int i = 0; i < courses.size(); i++)
+              {
+                if (courses.get(i).getClassGroup().equals(classGroup)
+                    && courses.get(i).getName().equals(courseName)
+                    && !(courses.get(i).getTeachers()
+                    .contains(new Teacher(parts[3]))))
+                {
+                  courses.get(i).addTeacher(new Teacher(parts[3]));
+                  System.out.println("I added a teacher to an existing course"
+                      + "\nEXISTING CLASS: " + courses.get(i)
+                      + "----------------");
+                  teacherFound = true;
+
+                }
+              }
+              if (teacherFound == false){
+                course = new Course(courseName, classGroup, teacherList,
+                    semesterTaught, ECTS);
+                System.out.println("New Course being printed: \n" + course
+                    + "\n-----------------");
+                for (int j = 0; j < teacherList.size(); j++)
+                {
+                  if (!(teacherList.get(j) == null))
+                  {
+                    teacherList.get(j).assignToCourseTaught(course);
+                  }
                 }
                 courses.addCourse(course);
               }
-
             }
 
           }
-
-          //           courses.addCourse(course);
-
-        }
           /*
           else if (parts.length == 6)
           {
@@ -479,13 +487,13 @@ public class ReadWrite
           }
 
            */
-        else
-        {
-          throw new IllegalArgumentException("Unable to read line" + line);
+          else
+          {
+            throw new IllegalArgumentException("Unable to read line" + line);
+          }
         }
       }
     }
-    //    System.out.println(courses.toString());
 
     catch (FileNotFoundException e)
     {

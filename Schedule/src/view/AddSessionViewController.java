@@ -17,21 +17,33 @@ import java.util.ResourceBundle;
 public class AddSessionViewController implements Initializable {
     //@FXML private methods here
     @FXML private Label errorLabel;
-    @FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
+    /*@FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
     @FXML private DatePicker datePicker;
     @FXML private ChoiceBox<Time> startTimeChoiceBox;
     @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML private ChoiceBox<Room> roomsChoiceBox;
+    @FXML private ChoiceBox<Room> roomsChoiceBox;*/
+
+    @FXML private ChoiceBox<Integer> courseChoiceBoxInAddSession;
+    @FXML private DatePicker datePicker;
+    @FXML private ChoiceBox<Time> startTimeChoiceBox;
+    @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
+    @FXML private ChoiceBox<Integer> roomsChoiceBox;
+
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
     private ClassGroup classGroup;
     private Session session;
 
-    ArrayList<Course> allCoursesArray = new ArrayList<>();
+    /*ArrayList<Course> allCoursesArray = new ArrayList<>();
     ArrayList<Time> timeArray = new ArrayList<>();
     ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
-    ArrayList<Room> roomsArray = new ArrayList<>();
+    ArrayList<Room> roomsArray = new ArrayList<>();*/
+
+    ArrayList<Integer> allCoursesArray = new ArrayList<>();
+    ArrayList<Time> timeArray = new ArrayList<>();
+    ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
+    ArrayList<Integer> roomsArray = new ArrayList<>();
 
     public AddSessionViewController() {
         // Called by FXMLLoader
@@ -42,6 +54,11 @@ public class AddSessionViewController implements Initializable {
         this.viewHandler = viewHandler;
         this.root = root;
         this.model = model;
+        this.classGroup = viewHandler.getChosenClass();
+        loadAllCourseArray();
+        loadTimeArray();
+        loadNumberOfLessonsArray();
+        errorLabel.setText(classGroup.toString());
         reset();
     }
 
@@ -55,6 +72,8 @@ public class AddSessionViewController implements Initializable {
         session = null;
     }
 
+
+
     //here we add our list of choices from an arrayList
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,9 +85,57 @@ public class AddSessionViewController implements Initializable {
         // the array after clicking find rooms
     }
 
+    public void loadAllCourseArray(){
+        allCoursesArray.removeAll(allCoursesArray);
+        allCoursesArray.add(1);
+        allCoursesArray.add(2);
+        allCoursesArray.add(3);
+        allCoursesArray.add(4);
+
+        courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
+    }
+
+    public void loadTimeArray(){
+        timeArray.removeAll(timeArray);
+        timeArray.add(new Time(8, 20));
+        timeArray.add(new Time(9, 15));
+        timeArray.add(new Time(10, 10));
+        timeArray.add(new Time(11, 5));
+        timeArray.add(new Time(12, 0));
+        timeArray.add(new Time(12, 45));
+        timeArray.add(new Time(13, 40));
+        timeArray.add(new Time(14, 35));
+        timeArray.add(new Time(15, 30));
+        timeArray.add(new Time(16, 25));
+        timeArray.add(new Time(17, 20));
+        startTimeChoiceBox.getItems().addAll(timeArray);
+    }
+
+    public void loadNumberOfLessonsArray(){
+        numberOfLessonsArray.removeAll(numberOfLessonsArray);
+        numberOfLessonsArray.add(1);
+        numberOfLessonsArray.add(2);
+        numberOfLessonsArray.add(3);
+        numberOfLessonsArray.add(4);
+
+        numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
+    }
+
+    public void loadRoomArray(){
+        roomsArray.removeAll(roomsArray);
+        roomsArray.add(1);
+        roomsArray.add(2);
+        roomsArray.add(3);
+        roomsArray.add(4);
+
+        roomsChoiceBox.getItems().addAll(roomsArray);
+    }
+
+
+
     // Load the courses into the arrayList
     // ? How will this look on the list? Will it use the toString method?
-    private void loadAllCourseArray() {
+    /*private void loadAllCourseArray() {
         // Clear the current arrayList
         allCoursesArray.removeAll(allCoursesArray);
 
@@ -78,6 +145,7 @@ public class AddSessionViewController implements Initializable {
         }
         courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
     }
+
 
     private void loadTimeArray() {
         timeArray.removeAll(timeArray);
@@ -115,6 +183,7 @@ public class AddSessionViewController implements Initializable {
     }
         roomsChoiceBox.getItems().addAll(roomsArray);
     }
+     */
 
     // Convert the date picker into our date class
     public Date getDateFromDatePicker() {
@@ -126,14 +195,14 @@ public class AddSessionViewController implements Initializable {
     // Create a session using the information above, then load rooms
     @FXML
     private void findRoomsButton() {
-        session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
-                startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
+     //   session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
+      //          startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
         loadRoomArray();
     }
 
     @FXML private void addSessionButton()
     {
-        model.addSession(session, roomsChoiceBox.getValue());
+       // model.addSession(session, roomsChoiceBox.getValue());
     }
 
     @FXML private void cancelInAddSessionButton()

@@ -25,7 +25,6 @@ public class ScheduleModelManager implements ScheduleModel
     return classList;
   }
 
-
   public void addTeacher(Teacher teacher)
   {
     teacherList.addTeacher(teacher);

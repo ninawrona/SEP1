@@ -35,6 +35,15 @@ public class Course
     this.ECTS = ECTS;
   }
 
+  // Debugging constructor
+  public Course(String name)
+  {
+    this.name = name;
+    classGroup = null;
+    teachers = null;
+    semesterTaught = 0;
+    ECTS = 0;
+  }
   public void addTeacher(Teacher teacher)
   {
     if (teachers.size() < 4)

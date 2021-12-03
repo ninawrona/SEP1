@@ -5,7 +5,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.list.ScheduleModel;
+
+
+import java.io.File;
 
 public class FileViewController
 {
@@ -15,6 +20,8 @@ public class FileViewController
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
+  private FileChooser fileChooser;
+  private Stage primaryStage;
 
   public FileViewController()
   {
@@ -26,6 +33,7 @@ public class FileViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    fileChooser = new FileChooser();
     reset();
   }
 
@@ -40,6 +48,27 @@ public class FileViewController
   }
 
   // @FXML methods here
+
+  /* work in progress
+  @FXML void selectStudentsFileButton()
+  {
+    File file = fileChooser.showOpenDialog(primaryStage);
+    if (file != null) {
+      openFile(file);
+    }
+  }
+
+   */
+
+  @FXML void selectCoursesFileButton()
+  {
+
+  }
+
+  @FXML void selectRoomsFileButton()
+  {
+
+  }
 
   @FXML void confirmInSelectATextFileButton()
   {

@@ -104,7 +104,7 @@ public class Time
    */
   public String toString()
   {
-    return "Hour: " + hour + "\nMinute: " + minute;
+    return + hour + ":" + minute;
   }
 
   /**

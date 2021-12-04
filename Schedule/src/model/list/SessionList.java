@@ -35,6 +35,9 @@ public class SessionList
     {
       //throw new IllegalCallerException("Teacher not available!");
     }
+    // assign room with the session itself
+    session.bookRoom(room);
+
     bookRoomForASession(room, session);//Exceptions inside this method
     sessions.add(session);
   }

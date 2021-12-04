@@ -220,6 +220,8 @@ public class AddSessionViewController {
     private void findRoomsButton() {
         session = new Session(courseChoiceBoxInAddSession.getValue(), getDateFromDatePicker(),
                 startTimeChoiceBox.getValue(), numberOfLessonsChoiceBox.getValue());
+        System.out.println("I just created the following session:\n");
+        System.out.println(session);
         loadRoomArray();
     }
 
@@ -233,12 +235,14 @@ public class AddSessionViewController {
         }catch (Exception e){
             errorLabel.setText(e.getMessage());
         }
+        System.out.println("I just added the following session: \n" + session);
         reset();
+        viewHandler.openView("schedule");
     }
 
     @FXML
     private void cancelInAddSessionButton() {
-        viewHandler.openView("schedule");
         reset();
+        viewHandler.openView("schedule");
     }
 }

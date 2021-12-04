@@ -26,7 +26,7 @@ public class CourseList
 
   public void addCourse(Course course)
   {
-    if(course==null)
+    if (course == null)
     {
       throw new IllegalArgumentException("Parameter cannot be null!");
     }
@@ -35,11 +35,12 @@ public class CourseList
 
   public void removeCourse(Course course)
   {
-    if(size()==0)
+    if (size() == 0)
     {
-      throw new NullPointerException("The list is empty! You cannot remove anything!");
+      throw new NullPointerException(
+          "The list is empty! You cannot remove anything!");
     }
-    if(course==null)
+    if (course == null)
     {
       throw new IllegalArgumentException("Parameter cannot be null!");
     }
@@ -58,17 +59,23 @@ public class CourseList
     throw new NullPointerException("There is no course by that name");
   }
 
-  public CourseList getCoursesByTeacher(Teacher teacher){
+  public CourseList getCoursesByTeacher(Teacher teacher)
+  {
     CourseList list = new CourseList();
 
-    for ( int i = 0 ; i < courses.size(); i++){
-      if (courses.get(i).getTeachers().contains(teacher)){
+    for (int i = 0; i < courses.size(); i++)
+    {
+      if (courses.get(i).getTeachers().contains(teacher))
+      {
         list.addCourse(courses.get(i));
       }
     }
-    if (list.size() > 0){
+    if (list.size() > 0)
+    {
       return list;
-    } else {
+    }
+    else
+    {
       throw new NullPointerException("No courses are taught by this teacher");
     }
   }

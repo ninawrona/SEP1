@@ -35,9 +35,10 @@ public class TeacherList
 
   public void removeTeacher(Teacher teacher)
   {
-    if(size()==0)
+    if (size() == 0)
     {
-      throw new NullPointerException("The list is empty! You cannot remove anything!");
+      throw new NullPointerException(
+          "The list is empty! You cannot remove anything!");
     }
     if (teacher == null)
     {
@@ -105,15 +106,13 @@ public class TeacherList
     }
   }
 
-
-
   public boolean contains(Teacher teacher)
   {
-    if(teacher==null)
+    if (teacher == null)
     {
       throw new NullPointerException("Parameter cannot be null!");
     }
-    if(teachers.contains(teacher))
+    if (teachers.contains(teacher))
     {
       return true;
     }

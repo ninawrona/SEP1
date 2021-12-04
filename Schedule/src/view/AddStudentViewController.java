@@ -6,39 +6,41 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.list.ScheduleModel;
 
-public class AddStudentViewController {
+public class AddStudentViewController
+{
 
-        //@FXML private methods here
-        @FXML private Label errorLabel;
-        @FXML private TextField studentsNameField;
-        @FXML private TextField studentsViaIdField;
-        @FXML private TextField courseField;
-        private Region root;
-        private ViewHandler viewHandler;
-        private ScheduleModel model;
-        public AddStudentViewController()
-        {
-            // Called by FXMLLoader
-        }
+  //@FXML private methods here
+  @FXML private Label errorLabel;
+  @FXML private TextField studentsNameField;
+  @FXML private TextField studentsViaIdField;
+  @FXML private TextField courseField;
+  private Region root;
+  private ViewHandler viewHandler;
+  private ScheduleModel model;
 
-        public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
-        {
-            this.viewHandler = viewHandler;
-            this.root = root;
-            this.model = model;
-            reset();
-        }
+  public AddStudentViewController()
+  {
+    // Called by FXMLLoader
+  }
 
-        public Region getRoot()
-        {
-            return root;
-        }
+  public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
+  {
+    this.viewHandler = viewHandler;
+    this.root = root;
+    this.model = model;
+    reset();
+  }
 
-        public void reset()
-        {
-            errorLabel.setText("");
-        }
+  public Region getRoot()
+  {
+    return root;
+  }
 
-        // @FXML methods here
+  public void reset()
+  {
+    errorLabel.setText("");
+  }
+
+  // @FXML methods here
 
 }

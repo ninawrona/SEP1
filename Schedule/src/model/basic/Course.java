@@ -44,6 +44,7 @@ public class Course
     semesterTaught = 0;
     ECTS = 0;
   }
+
   public void addTeacher(Teacher teacher)
   {
     if (teachers.size() < 4)
@@ -114,8 +115,8 @@ public class Course
     return s;
   }*/
 
-  @Override
-  public String toString() {
+  @Override public String toString()
+  {
     return name;
   }
 

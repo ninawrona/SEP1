@@ -86,7 +86,8 @@ public class Student
    */
   public String toString()
   {
-    return "\nName:" + name + "\nSemester:" + semester + "\nVia ID:" + viaId + "\n";
+    return "\nName:" + name + "\nSemester:" + semester + "\nVia ID:" + viaId
+        + "\n";
   }
 
   /**

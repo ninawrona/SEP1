@@ -2,6 +2,7 @@ package model.list;
 
 import model.basic.ClassGroup;
 import model.basic.*;
+
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,8 @@ public class ClassGroupList
 {
   private ArrayList<ClassGroup> classes;
 
-  public ClassGroupList(){
+  public ClassGroupList()
+  {
     classes = new ArrayList<>();
 
     // debugging by making simple course
@@ -46,52 +48,67 @@ public class ClassGroupList
 
   }
 
-  public int size(){
+  public int size()
+  {
     return classes.size();
   }
 
-  public void addClass(ClassGroup classGroup){
+  public void addClass(ClassGroup classGroup)
+  {
     classes.add(classGroup);
   }
 
-  public void removeClass(ClassGroup classGroup){
-    if(size()==0)
+  public void removeClass(ClassGroup classGroup)
+  {
+    if (size() == 0)
     {
-      throw new NullPointerException("The list is empty! You cannot remove anything!");
+      throw new NullPointerException(
+          "The list is empty! You cannot remove anything!");
     }
-    if(classes==null)
+    if (classes == null)
     {
       throw new IllegalArgumentException("Parameter cannot be null!");
     }
     classes.remove(classGroup);
   }
 
-  public ClassGroup get(int index){
+  public ClassGroup get(int index)
+  {
     return classes.get(index);
   }
 
-  public String toString(){
+  public String toString()
+  {
     String str = "";
-    for (int i = 0; i < classes.size(); i++){
-      if (classes.get(i).getStudents().size()==0){
+    for (int i = 0; i < classes.size(); i++)
+    {
+      if (classes.get(i).getStudents().size() == 0)
+      {
         str += "";
-      } else {
+      }
+      else
+      {
         str += classes.get(i).toString();
       }
     }
     return str;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof ClassGroupList)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof ClassGroupList))
+    {
       return false;
     }
 
-    ClassGroupList other = (ClassGroupList)obj;
+    ClassGroupList other = (ClassGroupList) obj;
 
-    if (classes.size() == other.size()){
-      for (int i = 0; i < classes.size(); i++){
-        if (!(classes.get(i).equals(other.get(i)))){
+    if (classes.size() == other.size())
+    {
+      for (int i = 0; i < classes.size(); i++)
+      {
+        if (!(classes.get(i).equals(other.get(i))))
+        {
           return false;
         }
       }

@@ -76,6 +76,8 @@ public class ClassSelectViewController
         chosenClass = classChoiceBox.getValue();
         model.setChosenClassGroup(chosenClass);
         System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
+        reset();
+        viewHandler.openView("schedule");
     }
 
     @FXML

@@ -37,20 +37,7 @@ public class ScheduleViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
-
-    // Setting the error label blank up here, so it can catch the exception below
-    errorLabel.setText("Bug");
-
-    try
-    {
-      this.scheduleViewModel = new ScheduleViewModel(model);
-    }
-    catch (IllegalArgumentException e)
-    {
-      errorLabel.setText("Please select a class");
-    }
-
-    // reset();
+    this.scheduleViewModel = new ScheduleViewModel(model);
 
     timeColumn.setText("time");
     timeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(
@@ -137,6 +124,14 @@ public class ScheduleViewController
       //  System.out.println("class not chosen yet");
       classNameLabel.setText("Class: ");
       errorLabel.setText("Please select a class");
+    }
+    try
+    {
+      scheduleViewModel.update();
+    }
+    catch (IllegalArgumentException e)
+    {
+      System.out.println(e.getMessage());
     }
   }
 

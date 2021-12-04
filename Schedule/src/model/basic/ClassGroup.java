@@ -2,6 +2,7 @@ package model.basic;
 
 import model.list.CourseList;
 import model.list.StudentList;
+
 /**
  * A class representing a class of students. A class has a list of students, a list of courses,
  * a name (for example: 'X', 'Y', 'Z', or 'DK'), and a semester.
@@ -19,12 +20,10 @@ public class ClassGroup
   /**
    * Three-argument constructor creating a class for a chosen semester with a given class name and list of students.
    * A new course list is generated for the class.
-   * @param semester
-   *                the semester of the class.
-   * @param className
-   *                the name of the class.
-   * @param studentList
-   *                the list of students enrolled in the class.
+   *
+   * @param semester    the semester of the class.
+   * @param className   the name of the class.
+   * @param studentList the list of students enrolled in the class.
    */
   public ClassGroup(int semester, String className, StudentList studentList)
   {
@@ -37,12 +36,12 @@ public class ClassGroup
   /**
    * Two-argument overloaded constructor taking only the name of the class and the semester.
    * A new course list and student list is generated for the class.
-   * @param semester
-   *                the semester of the class.
-   * @param className
-   *                the name of the class.
+   *
+   * @param semester  the semester of the class.
+   * @param className the name of the class.
    */
-  public ClassGroup(int semester, String className){
+  public ClassGroup(int semester, String className)
+  {
     this.semester = semester;
     this.className = className;
     courses = new CourseList();
@@ -51,6 +50,7 @@ public class ClassGroup
 
   /**
    * A getter method returning the students from the class.
+   *
    * @return an ArrayList containing the Student objects enrolled into the class.
    */
   public StudentList getStudents()
@@ -60,6 +60,7 @@ public class ClassGroup
 
   /**
    * A getter method returning the name of the class.
+   *
    * @return A string representing the name of the class.
    */
   public String getClassName()
@@ -69,6 +70,7 @@ public class ClassGroup
 
   /**
    * A getter method returning the semester of the class.
+   *
    * @return the semester of the class.
    */
   public int getSemester()
@@ -78,6 +80,7 @@ public class ClassGroup
 
   /**
    * A getter method returning the courses that are taught for the class.
+   *
    * @return an ArrayList containing the Course objects that are taught for the class.
    */
   public CourseList getCourses()
@@ -87,8 +90,8 @@ public class ClassGroup
 
   /**
    * A method that adds a course to the class.
-   * @param course
-   *              the course to be added to the CourseList of the ClassGroup.
+   *
+   * @param course the course to be added to the CourseList of the ClassGroup.
    */
   public void addCourse(Course course)
   {
@@ -97,21 +100,21 @@ public class ClassGroup
 
   /**
    * A method that adds a student to the class.
-   * @param student
-   *              the Student object to be added to the class.
    *
+   * @param student the Student object to be added to the class.
    */
-  public void addStudent(Student student){
+  public void addStudent(Student student)
+  {
     students.addStudent(student);
   }
 
   /**
    * A method that removes a student from the class.
-   * @param student
-   *                the Student object is removed from the class.
    *
+   * @param student the Student object is removed from the class.
    */
-  public void removeStudent(Student student){
+  public void removeStudent(Student student)
+  {
     students.removeStudent(student);
   }
 
@@ -129,11 +132,12 @@ public class ClassGroup
 
   /**
    * A method returning a string representation of the ClassGroup's details
+   *
    * @return A string containing the semester, the class name, the list of the taught courses and a list of the students in the class.
    */
   public String fullPrintOut()
   {
-    String str = "\n" +semester + className +"\n";
+    String str = "\n" + semester + className + "\n";
 
     for (int i = 0; i < courses.size(); i++)
     {
@@ -152,15 +156,15 @@ public class ClassGroup
    *
    * @return a string containing the semester and the name of the ClassGroup.
    */
-  @Override
-  public String toString() {
+  @Override public String toString()
+  {
     return semester + className;
   }
 
   /**
-   *A method comparing two objects.
-   * @param obj
-   *          an object representing the object to be compared with.
+   * A method comparing two objects.
+   *
+   * @param obj an object representing the object to be compared with.
    * @return "True" if the compared ClassGroup objects are the same, or "False" if they are different objects.
    */
   public boolean equals(Object obj)

@@ -55,8 +55,7 @@ public class FoldableRoom extends Room
   // todo change javadoc to reflect change
   public String toString()
   {
-    return "" + super.toString()
-        + letter;
+    return "" + super.toString() + letter;
   }
 
   /**

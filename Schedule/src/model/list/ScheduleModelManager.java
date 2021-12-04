@@ -23,7 +23,8 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenClassGroup = null;
   }
 
-  public ClassGroupList getAllClasses(){
+  public ClassGroupList getAllClasses()
+  {
     return classList;
   }
 
@@ -71,14 +72,14 @@ public class ScheduleModelManager implements ScheduleModel
     throw new NullPointerException("No courses found for this class.");
   }
 
-  @Override
-  public void setChosenClassGroup(ClassGroup classGroup) {
+  @Override public void setChosenClassGroup(ClassGroup classGroup)
+  {
     this.chosenClassGroup = classGroup;
     System.out.println("I just set the class" + classGroup);
   }
 
-  @Override
-  public ClassGroup getChosenClassGroup() {
+  @Override public ClassGroup getChosenClassGroup()
+  {
     return chosenClassGroup;
   }
 

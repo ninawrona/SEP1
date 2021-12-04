@@ -110,26 +110,26 @@ public class FileViewController
 
   @FXML void confirmInSelectATextFileButton()
   {
-    if(fileStudents != null && fileRooms != null && fileCourses!=null)
+    if (fileStudents != null && fileRooms != null && fileCourses != null)
     {
       ClassGroupList classGroupList = null;
       RoomList roomList = null;
       CourseList courseList = null;
 
-      classGroupList =ReadWrite.manualReadStudent(fileStudents);
+      classGroupList = ReadWrite.manualReadStudent(fileStudents);
       roomList = ReadWrite.manualReadRooms(fileRooms);
       courseList = ReadWrite.manualReadCourses(fileCourses);
 
       //Make methods to parse this list to our system.
-      for(int i = 0; i< courseList.size(); i++)
+      for (int i = 0; i < courseList.size(); i++)
       {
         model.addCourse(courseList.get(i));
       }
-      for(int i=0; i<roomList.size(); i++)
+      for (int i = 0; i < roomList.size(); i++)
       {
         //model.addRoom(roomList.get(i)); No such method yet
       }
-      for(int i=0; i<classGroupList.size(); i++)
+      for (int i = 0; i < classGroupList.size(); i++)
       {
         //model.addClassGroup(classGroupList.get(i)); No such method yet
       }

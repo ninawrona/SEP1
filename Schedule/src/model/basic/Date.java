@@ -7,8 +7,8 @@ import java.time.temporal.ChronoField;
 /**
  * A class representing the date.
  *
- *  @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
- *  @version 1 - 2 December 2021
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
  */
 
 public class Date
@@ -21,9 +21,9 @@ public class Date
    * Three-argument constructor taking a day, month, year all being an integer type.
    * If the date is before today, the exception is thrown as we cannot schedule a session for the past.
    *
-   * @param day the day of the date
+   * @param day   the day of the date
    * @param month the month of the date
-   * @param year the year of the date
+   * @param year  the year of the date
    */
 
   public Date(int day, int month, int year)
@@ -52,11 +52,13 @@ public class Date
    * @return A String object.
    */
 
-  public String getWeekday(){
+  public String getWeekday()
+  {
     LocalDate date = LocalDate.of(year, month, day);
     int weekdayNumber = date.get(ChronoField.DAY_OF_WEEK);
     String weekdayName = "";
-    switch (weekdayNumber) {
+    switch (weekdayNumber)
+    {
       case 1:
         weekdayName = "MONDAY";
       case 2:
@@ -68,7 +70,7 @@ public class Date
       case 5:
         weekdayName = "FRIDAY";
       case 6:
-        weekdayName ="SATURDAY";
+        weekdayName = "SATURDAY";
       case 7:
         weekdayName = "SUNDAY";
     }
@@ -106,6 +108,7 @@ public class Date
   {
     return month;
   }
+
   /**
    * A getter method returning a year object.
    *
@@ -116,6 +119,7 @@ public class Date
   {
     return year;
   }
+
   /**
    * A String method returning a name of the month of this Date object.
    *
@@ -156,9 +160,9 @@ public class Date
   /**
    * A void method checking if the values for day, month, year are legal.
    *
-   * @param day a day int
+   * @param day   a day int
    * @param month a month int
-   * @param year a year int
+   * @param year  a year int
    */
 
   public void set(int day, int month, int year)
@@ -256,6 +260,7 @@ public class Date
 
   /**
    * A boolean method checking if this Date object is before other Date object.
+   *
    * @param date other Date object to which we want to compare this Date object.
    * @return "True" if this Date is before other Date. "False" if this Date is after other Date.
    */
@@ -323,6 +328,7 @@ public class Date
 
   /**
    * A void method increasing the value of the day for this Date object by the given parameter.
+   *
    * @param days the number of the days to step forward.
    */
   public void stepForward(int days)
@@ -337,6 +343,7 @@ public class Date
 
   /**
    * A Date method creating a copy of this Date object.
+   *
    * @return A Date object.
    */
   public Date copy()
@@ -347,6 +354,7 @@ public class Date
 
   /**
    * A String method returning a day, month, year as a String in a proper format.
+   *
    * @return A String object.
    */
   public String toString()

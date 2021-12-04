@@ -307,20 +307,17 @@ public class SessionList
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getCourse().getClassGroup().getClassName()
-          .equals(classGroup.getClassName())
-          && sessions.get(i).getCourse().getClassGroup().getSemester()
-          == classGroup.getSemester())
+      if (sessions.get(i).getCourse().getClassGroup().equals(classGroup))
       {
         sessionListClassGroup.addSession(sessions.get(i),
             sessions.get(i).getRoom());
       }
     }
-    if (sessionListClassGroup.size() > 0)
+    if (sessionListClassGroup == null)
     {
-      return sessionListClassGroup;
+      System.out.println("Hey! sessionListClassGroup is null!");
     }
-    throw new NullPointerException("There no sessions for this class.");
+    return sessionListClassGroup;
   }
 
   public SessionList getSessionsByStudent(Student student)

@@ -102,7 +102,7 @@ public class Room
       str += 0;
     }
     str += floor + ".";
-    if(number < 10)
+    if (number < 10)
     {
       str += 0;
     }

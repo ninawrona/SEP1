@@ -298,8 +298,8 @@ public class Session
   /**
    * A setter method setting the time at which a session begins. There are 11 valid start times for the lessons:
    * 8:20, 9:15, 10:10, 11:05, 12:00, 12:45, 13:40, 14:35, 15:30, 16:25 and 17:20.
-   * @param startTime
-   *                a Time object representing the start time of the session to be set.
+   *
+   * @param startTime a Time object representing the start time of the session to be set.
    */
   public void setStartTime(Time startTime)
   {
@@ -319,9 +319,11 @@ public class Session
     {
       throw new IllegalArgumentException("The lesson must start at 11:05.");
     }
-    else if ((startTime.getHour() == 12 && startTime.getMinute() != 45)||(startTime.getHour()==12 &&startTime.getMinute()!=0))
+    else if ((startTime.getHour() == 12 && startTime.getMinute() != 45) || (
+        startTime.getHour() == 12 && startTime.getMinute() != 0))
     {
-      throw new IllegalArgumentException("The lesson must start at 12:45. (or at 12:00 for a lesson during lunch)");
+      throw new IllegalArgumentException(
+          "The lesson must start at 12:45. (or at 12:00 for a lesson during lunch)");
     }
     else if (startTime.getHour() == 13 && startTime.getMinute() != 40)
     {
@@ -356,8 +358,7 @@ public class Session
    * A setter method setting the number of lessons for a session. The method will throw an exception if
    * the number of lessons would push the end of the session outside the valid time-frame: 8:20-17:55.
    *
-   * @param numberOfLessons
-   *                      the number of lessons to be set for the session.
+   * @param numberOfLessons the number of lessons to be set for the session.
    */
   public void setNumberOfLessons(int numberOfLessons)
   {
@@ -427,6 +428,7 @@ public class Session
 
   /**
    * A method returning a String representation of the session's start time in a "hh:mm" format.
+   *
    * @return a string representing the start time of the session.
    */
   public String getStartTimeString()
@@ -449,8 +451,8 @@ public class Session
    * A method calculating and returning a String representation of the session's end time in a "hh:mm" format.
    * The end time of a session is calculated by multiplying the number of lessons with the length of a lesson (45 minutes per lesson and a 10-minute break included).
    * The result is subtracted by 10 (representing a redundant break at the end of the last lesson). The result is then converted into a valid hours and minutes format.
-   * @return
-   *        a string representing the time at which the session ends.
+   *
+   * @return a string representing the time at which the session ends.
    */
 
   public String getEndTimeString()
@@ -493,10 +495,9 @@ public class Session
 
   /**
    * An overridden method calculating and returning a String representation of the end time of a session; with the start time and number of lessons given inside the parameters.
-   * @param timeStart
-   *                the time at which the session to be converted starts.
-   * @param numberOfLessons
-   *                the number of lessons the session to be converted has.
+   *
+   * @param timeStart       the time at which the session to be converted starts.
+   * @param numberOfLessons the number of lessons the session to be converted has.
    * @return a string representing the time at which the session with the start time and number of lessons given inside the parameters ends.
    */
   public String getEndTimeString(Time timeStart, int numberOfLessons)
@@ -563,8 +564,8 @@ public class Session
 
   /**
    * A method comparing two Session objects.
-   * @param obj
-   *          an object representing the other object to be compared.
+   *
+   * @param obj an object representing the other object to be compared.
    * @return "True" if the compared Session objects are the same, or "False" if they are different objects.
    */
   public boolean equals(Object obj)

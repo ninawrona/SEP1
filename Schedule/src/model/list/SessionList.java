@@ -41,9 +41,10 @@ public class SessionList
 
   public void removeSession(Session session)
   {
-    if(size()==0)
+    if (size() == 0)
     {
-      throw new NullPointerException("The list is empty! You cannot remove anything!");
+      throw new NullPointerException(
+          "The list is empty! You cannot remove anything!");
     }
     if (session == null)
     {
@@ -90,11 +91,12 @@ public class SessionList
         suggestedRoomList.addRoom(roomList.get(i));
       }
     }
-    if(suggestedRoomList.size()>0)
+    if (suggestedRoomList.size() > 0)
     {
       return suggestedRoomList;
     }
-    throw new NullPointerException("There no rooms found fulfilling given values!");
+    throw new NullPointerException(
+        "There no rooms found fulfilling given values!");
 
   }
 
@@ -142,7 +144,8 @@ public class SessionList
   {
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getDate().equals(session.getDate()))//Another isOverlapped method possible to use
+      if (sessions.get(i).getDate().equals(
+          session.getDate()))//Another isOverlapped method possible to use
       {
         if (!(sessions.get(i).isOverlapped(session)))
         {
@@ -274,8 +277,8 @@ public class SessionList
       {
         if (sessions.get(i).getCourse().getTeachers().contains(teacher))
         {
-          sessionsByTeacher
-              .addSession(sessions.get(i), sessions.get(i).getRoom());
+          sessionsByTeacher.addSession(sessions.get(i),
+              sessions.get(i).getRoom());
         }
       }
     }
@@ -296,17 +299,21 @@ public class SessionList
     if (classGroup == null)
     {
       throw new IllegalArgumentException("Parameter cannot be null!");
+      // catch this exception in the controller for the schedule view
     }
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getCourse().getClassGroup().getClassName().equals(classGroup.getClassName())
-          && sessions.get(i).getCourse().getClassGroup().getSemester() == classGroup.getSemester())
+      if (sessions.get(i).getCourse().getClassGroup().getClassName()
+          .equals(classGroup.getClassName())
+          && sessions.get(i).getCourse().getClassGroup().getSemester()
+          == classGroup.getSemester())
       {
-        sessionListClassGroup.addSession(sessions.get(i), sessions.get(i).getRoom());
+        sessionListClassGroup.addSession(sessions.get(i),
+            sessions.get(i).getRoom());
       }
     }
-    if(sessionListClassGroup.size()>0)
+    if (sessionListClassGroup.size() > 0)
     {
       return sessionListClassGroup;
     }
@@ -315,26 +322,27 @@ public class SessionList
 
   public SessionList getSessionsByStudent(Student student)
   {
-    if(student==null)
+    if (student == null)
     {
       throw new IllegalArgumentException("Parameter cannot be null!");
     }
     SessionList sessionListOfStudent = new SessionList();
 
-    for(int i = 0; i<sessions.size(); i++)
+    for (int i = 0; i < sessions.size(); i++)
     {
-      if(sessions.get(i).getCourse().getClassGroup().getStudents().contains(student))
+      if (sessions.get(i).getCourse().getClassGroup().getStudents()
+          .contains(student))
       {
-        sessionListOfStudent.addSession(sessions.get(i), sessions.get(i).getRoom());
+        sessionListOfStudent.addSession(sessions.get(i),
+            sessions.get(i).getRoom());
       }
     }
-    if(sessionListOfStudent.size()>0)
+    if (sessionListOfStudent.size() > 0)
     {
       return sessionListOfStudent;
     }
     throw new NullPointerException("There are no sessions for this student.");
   }
-
 
   public String toString()
   {

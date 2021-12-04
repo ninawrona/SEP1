@@ -15,14 +15,11 @@ public class Room
 
   /**
    * Four-argument constructor. The floor must be 1 or greater. The room number must be 0 or greater. The capacity of the room must be a positive number.
-   * @param floor
-   *              the floor on which the room is.
-   * @param block
-   *              the block in which the room is.
-   * @param number
-   *              the number of the room.
-   * @param capacity
-   *              the capacity of the room.
+   *
+   * @param floor    the floor on which the room is.
+   * @param block    the block in which the room is.
+   * @param number   the number of the room.
+   * @param capacity the capacity of the room.
    */
   public Room(int floor, char block, int number, int capacity)
   {
@@ -33,11 +30,13 @@ public class Room
     }
     if (number < 0)
     {
-      throw new IllegalArgumentException("Room number has to be a positive integer or 0!");
+      throw new IllegalArgumentException(
+          "Room number has to be a positive integer or 0!");
     }
     if (capacity < 1)
     {
-      throw new IllegalArgumentException("The capacity of the room has to be at least 1!");
+      throw new IllegalArgumentException(
+          "The capacity of the room has to be at least 1!");
     }
 
     this.floor = floor;
@@ -49,6 +48,7 @@ public class Room
 
   /**
    * A getter method for the floor of the room.
+   *
    * @return the floor of the room.
    */
   public int getFloor()
@@ -58,6 +58,7 @@ public class Room
 
   /**
    * A getter method for the block in which the room is.
+   *
    * @return the block of the room.
    */
   public char getBlock()
@@ -67,6 +68,7 @@ public class Room
 
   /**
    * A getter method for the number of the room.
+   *
    * @return the number of the room.
    */
   public int getNumber()
@@ -76,6 +78,7 @@ public class Room
 
   /**
    * A getter method for the capacity of the room.
+   *
    * @return the capacity of the room
    */
   public int getCapacity()
@@ -85,16 +88,32 @@ public class Room
 
   /**
    * A method returning the String representation of the Room object.
+   *
    * @return A string containing the block, the floor, the number and the capacity of the room.
    */
+  // Changed to only show the full room name with appropriate zeroes
+  // todo make javadoc reflect change
   public String toString()
   {
-    return "Room: " + block + floor + number + "\nCapacity: " + capacity;
+    String str = "";
+    str += block;
+    if (floor < 10)
+    {
+      str += 0;
+    }
+    str += floor + ".";
+    if(number < 10)
+    {
+      str += 0;
+    }
+    str += number;
+    return str;
   }
+
   /**
    * A method comparing two Room objects.
-   * @param obj
-   *            an object representing the other object to be compared.
+   *
+   * @param obj an object representing the other object to be compared.
    * @return "True" if the compared Room objects are the same, or "False" if they are different objects.
    */
   public boolean equals(Object obj)

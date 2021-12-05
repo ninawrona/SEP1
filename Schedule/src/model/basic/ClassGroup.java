@@ -93,9 +93,12 @@ public class ClassGroup
    *
    * @param course the course to be added to the CourseList of the ClassGroup.
    */
+  // Sets the classgroup within the course as well
+  // todo update javadoc
   public void addCourse(Course course)
   {
     courses.addCourse(course);
+    course.setClassGroup(this);
   }
 
   /**

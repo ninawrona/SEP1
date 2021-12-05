@@ -43,8 +43,8 @@ public class ScheduleViewController
     timeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(
         cellData.getValue().getStartTimeProperty()));
 
-    mondayColumn.setCellValueFactory(
-        cellData -> new ReadOnlyStringWrapper("GingerBread"));
+   // mondayColumn.setCellValueFactory(
+     //   cellData -> new ReadOnlyStringWrapper("GingerBread"));
     if (scheduleViewModel != null)
     {
       for (int i = 0; i < scheduleViewModel.getList().size(); i++)

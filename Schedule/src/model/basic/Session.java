@@ -544,10 +544,11 @@ public class Session
    * @return A string containing the name of the course, the start time, the number of lessons, the end time and the room of a session.
    */
   // Modified to displayed correctly is a room is not assigned yet
+  // Modified to show class group as well
   // todo modify javadoc
   public String toString()
   {
-    String str = "Session{" + "Course= " + course + ", Start Time= " + startTime
+    String str = "Session{" + "Course= " + course + ", Class= " + course.getClassGroup() + ", Start Time= " + startTime
         + ", Number of Lessons= " + numberOfLessons + ", End Time = "
         + getEndTime() + ", Room= ";
     if (room == null)

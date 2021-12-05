@@ -82,6 +82,16 @@ public class Course
     return classGroup;
   }
 
+  // I needed a method to set the classGroup inside a course because courses
+  // are within classgroups. When I added a course to a classgroup, that
+  // course was not getting the classgroup set at the same time.
+  // Alt + F7 to find usages- CF 5/12
+
+  public void setClassGroup(ClassGroup classGroup)
+  {
+    this.classGroup = classGroup;
+  }
+
   public TeacherList getTeachers()
   {
     return teachers;

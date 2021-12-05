@@ -17,6 +17,7 @@ public class SessionViewModel
   public SessionViewModel(Session session)
   {
     courseProperty = new SimpleStringProperty(session.getCourse().getName());
+
     LocalDate localDate = LocalDate.of(session.getDate().getYear(),
         session.getDate().getMonth(), session.getDate().getDay());
     // Set day of week as an int. 1 is Monday, 7 is Sunday
@@ -27,23 +28,23 @@ public class SessionViewModel
         session.getNumberOfLessons());
   }
 
-  public String getCourseProperty()
+  public StringProperty getCourseProperty()
   {
-    return courseProperty.get();
+    return courseProperty;
   }
 
-  public int getDayOfWeekProperty()
+  public IntegerProperty getDayOfWeekProperty()
   {
-    return dayOfWeekProperty.get();
+    return dayOfWeekProperty;
   }
 
-  public String getStartTimeProperty()
+  public StringProperty getStartTimeProperty()
   {
-    return startTimeProperty.get();
+    return startTimeProperty;
   }
 
-  public int getNumberOfLessonsProperty()
+  public IntegerProperty getNumberOfLessonsProperty()
   {
-    return numberOfLessonsProperty.get();
+    return numberOfLessonsProperty;
   }
 }

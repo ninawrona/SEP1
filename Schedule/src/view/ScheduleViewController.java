@@ -5,8 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
-import model.basic.Session;
+import model.basic.Time;
 import model.list.*;
 
 public class ScheduleViewController
@@ -39,17 +40,13 @@ public class ScheduleViewController
     this.model = model;
     this.scheduleViewModel = new ScheduleViewModel(model);
 
-    timeColumn.setText("time");
-    timeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(
-        cellData.getValue().getStartTimeProperty()));
+    errorLabel.setText("");
+    System.out.println("Model List: " + scheduleViewModel.getList().toString());
 
-   // mondayColumn.setCellValueFactory(
-     //   cellData -> new ReadOnlyStringWrapper("GingerBread"));
-    if (scheduleViewModel != null)
-    {
-      for (int i = 0; i < scheduleViewModel.getList().size(); i++)
-      {
-        switch (scheduleViewModel.getList().get(i).getDayOfWeekProperty())
+    System.out.println("We entered the creation of table.");
+    //timeColumn.setCellValueFactory(new PropertyValueFactory<>("Cokolwiek"));
+    timeColumn.setCellValueFactory(cellData -> cellData.getValue().getStartTimeProperty());
+       /* switch (scheduleViewModel.getList().getDayOfWeekProperty())
         {
           case 1:
           {
@@ -86,22 +83,12 @@ public class ScheduleViewController
             mondayColumn.setCellValueFactory(
                 cellData -> new ReadOnlyStringWrapper("Default"));
           }
-        }
-      }
-    }
+    }*/
 
-    try
-
-    {
+      mondayColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
       scheduleTable.setItems(scheduleViewModel.getList());
       // The method below should fetch all the session to display
       // scheduleTable.setItems(viewModel.getList());
-    }
-    catch (Exception e)
-
-    {
-      errorLabel.setText(e.getMessage());
-    }
 
   }
 
@@ -125,14 +112,8 @@ public class ScheduleViewController
       classNameLabel.setText("Class: ");
       errorLabel.setText("Please select a class");
     }
-    try
-    {
-      scheduleViewModel.update();
-    }
-    catch (IllegalArgumentException e)
-    {
-      System.out.println(e.getMessage());
-    }
+
+    scheduleViewModel.update();
   }
 
   // @FXML methods here

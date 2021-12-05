@@ -18,6 +18,7 @@ public class ScheduleViewModel {
     public ScheduleViewModel(ScheduleModel model){
         this.model = model;
         this.list = FXCollections.observableArrayList();
+        update();
     }
 
 

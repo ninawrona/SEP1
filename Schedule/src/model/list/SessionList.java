@@ -301,7 +301,7 @@ public class SessionList
   {
     if (classGroup == null)
     {
-      throw new IllegalArgumentException("Parameter cannot be null!");
+      //throw new IllegalArgumentException("Parameter cannot be null!");
       // catch this exception in the controller for the schedule view
     }
     SessionList sessionListClassGroup = new SessionList();

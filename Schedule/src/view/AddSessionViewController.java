@@ -28,6 +28,7 @@ public class AddSessionViewController
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
+  private ScheduleViewModel scheduleViewModel;
   private ClassGroup classGroup;
   private Session session;
 
@@ -51,6 +52,7 @@ public class AddSessionViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    this.scheduleViewModel = new ScheduleViewModel(model);
     this.classGroup = model.getChosenClassGroup();
     errorLabel.setText("");
     titleLabel.setText("");
@@ -241,16 +243,13 @@ public class AddSessionViewController
     try
     {
       model.addSession(session, roomsChoiceBox.getValue());
-
-      System.out.println("MARRY CHRISTMAS");
-      System.out.println("session added");
+      scheduleViewModel.addSession(session);
     }
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }
     System.out.println("I just added the following session: \n" + session);
-    reset();
     viewHandler.openView("schedule");
   }
 

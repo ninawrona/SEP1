@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.basic.Session;
+import model.basic.Time;
 import model.list.ScheduleModel;
 
 import javax.lang.model.util.ElementScanner6;

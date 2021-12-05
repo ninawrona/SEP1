@@ -16,7 +16,8 @@ public class SessionViewModel
 
   public SessionViewModel(Session session)
   {
-    courseProperty = new SimpleStringProperty(session.getCourse().getName());
+    courseProperty = new SimpleStringProperty(session.getCourse().getName() + "\n" + session.getDate()
+    + "\n" + session.getRoom());
 
     LocalDate localDate = LocalDate.of(session.getDate().getYear(),
         session.getDate().getMonth(), session.getDate().getDay());

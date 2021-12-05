@@ -44,39 +44,33 @@ public class ScheduleViewController
     System.out.println("Model List: " + scheduleViewModel.getList().toString());
 
     System.out.println("We entered the creation of table.");
-    //timeColumn.setCellValueFactory(new PropertyValueFactory<>("Cokolwiek"));
     timeColumn.setCellValueFactory(cellData -> cellData.getValue().getStartTimeProperty());
-       /* switch (scheduleViewModel.getList().getDayOfWeekProperty())
+    /*switch (scheduleViewModel.getList().getDayOfWeekProperty())
         {
           case 1:
           {
             mondayColumn.setCellValueFactory(
-                cellData -> new ReadOnlyStringWrapper(
-                    cellData.getValue().getCourseProperty()));
+                cellData -> cellData.getValue().getCourseProperty());
           }
           case 2:
           {
             tuesdayColumn.setCellValueFactory(
-                cellData -> new ReadOnlyStringWrapper(
-                    cellData.getValue().getCourseProperty()));
+                cellData -> cellData.getValue().getCourseProperty());
           }
           case 3:
           {
             wednesdayColumn.setCellValueFactory(
-                cellData -> new ReadOnlyStringWrapper(
-                    cellData.getValue().getCourseProperty()));
+                cellData -> cellData.getValue().getCourseProperty());
           }
           case 4:
           {
             thursdayColumn.setCellValueFactory(
-                cellData -> new ReadOnlyStringWrapper(
-                    cellData.getValue().getCourseProperty()));
+                cellData -> cellData.getValue().getCourseProperty());
           }
           case 5:
           {
             fridayColumn.setCellValueFactory(
-                cellData -> new ReadOnlyStringWrapper(
-                    cellData.getValue().getCourseProperty()));
+                cellData -> cellData.getValue().getCourseProperty());
           }
           default:
           {
@@ -88,8 +82,6 @@ public class ScheduleViewController
       mondayColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
       scheduleTable.setItems(scheduleViewModel.getList());
       // The method below should fetch all the session to display
-      // scheduleTable.setItems(viewModel.getList());
-
   }
 
   public Region getRoot()

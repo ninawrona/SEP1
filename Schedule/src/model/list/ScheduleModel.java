@@ -12,9 +12,10 @@ public interface ScheduleModel
   public CourseList getCourseListByClassGroup(ClassGroup classGroup);
   public ClassGroup getChosenClassGroup();
   public void setChosenClassGroup(ClassGroup classGroup);
+  public void addClassGroupList(ClassGroupList classList);
   public void addSession(Session session, Room room);
   public void removeSession(Session session);
-  // public void setRoomList(RoomList roomList);
+  public void setRoomList(RoomList roomList);
   public RoomList suggestRooms(Session session);
   public boolean isTeacherAvailable(Session session);
   public SessionList getSessionsByTimeDate(Date date, Time startTime,

@@ -12,11 +12,14 @@ public class Teacher
 
   public Teacher(String viaId)
   {
-    name = null;
+    // Name is viaId for debugging
+    // todo add name to list
+    this.name = viaId;
     if (viaId.equals(null))
     {
       throw new IllegalArgumentException("Via ID can not be null");
     }
+    coursesTaught = new CourseList();
 
     this.viaId = viaId;
   }

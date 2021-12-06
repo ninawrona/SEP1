@@ -1,5 +1,5 @@
 package model.list;
-
+// TODO: 06/12/2021 CONTINUE DOCUMENTING ON TUESDAY 07/12. 
 import model.basic.*;
 
 import java.util.ArrayList;
@@ -143,9 +143,11 @@ public class SessionList
   }
 
   /**
-   * A method that books a room for a session
+   * A void method that books a room for a session. The parameters cannot be null, and booking is only done if the room is available.
    * @param room
+   *          the Room object to be booked for the Session object.
    * @param session
+   *          the Session object that needs a room booking.
    */
   public void bookRoomForASession(Room room, Session session)
   {
@@ -164,6 +166,21 @@ public class SessionList
     }
   }
 
+  /**
+   * A method that checks if a room is available. This is done by creating an ArrayList and looping through all the sessions. 
+   * If a session's room and date from the list is the same as the one from the parameters, it is added to the list. 
+   * The second for loop is checking if there is an overlap in terms of time between the sessions from the list, and the session from the parameters.
+   * 
+   * @param room
+   *          the Room object to be checked.
+   * @param timeStart
+   *          the beginning time of the Session.
+   * @param numberOfLessons
+   *          the number of lessons in the Session.
+   * @param date
+   *          the Date of the session.
+   * @return "True" if there is no overlap in the second for loop, "False" if there is an overlap. 
+   */
   public boolean isRoomAvailable(Room room, Time timeStart, int numberOfLessons,
       Date date)
   {
@@ -187,6 +204,16 @@ public class SessionList
     return true;
   }
 
+  /**
+   * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.
+   * If there are such sessions, the next if statement is checking if the session is overlapped by this. 
+   * If the sessions are not overlapped, the method is looping through the TeachersList of the session and checking if 
+   * it contains the same teacher(s). 
+   * If it does contain the same teacher, the method returns "False".
+   * @param session
+   *            the Session object to be compared with
+   * @return "True" if all the teachers from the Session are available, or "False" if at least one of them is unavailable.
+   */
   public boolean isTeacherAvailable(Session session)
   {
     for (int i = 0; i < sessions.size(); i++)
@@ -210,6 +237,13 @@ public class SessionList
     return false;
   }
 
+  /**
+   * 
+   * @param date
+   * @param startTime
+   * @param numberOfLessons
+   * @return
+   */
   public SessionList getSessionsByTimeDate(Date date, Time startTime,
       int numberOfLessons)
   {
@@ -292,7 +326,7 @@ public class SessionList
   }
 
   public Session getExactSession(Time time, Room room, Date date)
-  {//
+  {
     if (time == null || room == null)
     {
       throw new IllegalArgumentException("Parameters can not be null");

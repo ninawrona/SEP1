@@ -19,7 +19,7 @@ public class FileViewController
 {
   //@FXML private methods here
   @FXML private Label errorLabel;
-  @FXML private TextArea filePathField;//There is no such id in the FMXL file
+  //@FXML private TextArea filePathField;//There is no such id in the FMXL file
   @FXML private TextField studentsField;
   @FXML private TextField coursesField;
   @FXML private TextField roomsField;
@@ -137,7 +137,7 @@ public class FileViewController
 
     }
     // Do something with this button to open the file at the path
-    filePathField.getText();
+    // filePathField.getText();
     viewHandler.openView("schedule");
   }
 

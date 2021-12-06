@@ -490,8 +490,9 @@ public class ReadWrite
     return courses;
   }
 
-  public static  RoomList manualReadRooms(File file)
+  public static  RoomList manualReadRooms()
   {
+    File file = new File("Rooms.txt");
     RoomList rooms = new RoomList();
 
     try
@@ -521,6 +522,8 @@ public class ReadWrite
           for (int i = 0 ; i < parts.length; i++){
             if (parts[i].contains(".")){
               roomParts = parts[i].split("[.]");
+              block = parts[0].charAt(0);
+
               for (int j = 0; j < roomParts.length; j++){
                 System.out.println(roomParts[j]);
               }

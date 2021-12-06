@@ -52,6 +52,12 @@ public abstract class Room
 
   public String toString()
   {
+    String str = "";
+    if (floor < 10){
+      str += 0;
+      str+= floor;
+    }
+
     return "Room: " + block + floor + number + letter + "\nCapacity: " + capacity;
   }
 

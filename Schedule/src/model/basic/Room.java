@@ -126,6 +126,6 @@ public class Room
     Room other = (Room) obj;
 
     return floor == other.floor && block == other.block
-        && capacity == other.capacity;
+        && number == other.number;
   }
 }

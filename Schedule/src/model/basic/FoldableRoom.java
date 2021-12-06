@@ -24,11 +24,11 @@ public class FoldableRoom extends Room
       char letter)
   {
     super(floor, block, number, capacity);
-    if (Character.compare(letter, 'a') == 0)
+    if (letter=='a')
     {
       this.letter = letter;
     }
-    else if (Character.compare(letter, 'b') == 0)
+    else if (letter=='b')
     {
       this.letter = letter;
     }
@@ -49,10 +49,10 @@ public class FoldableRoom extends Room
   /**
    * A method returning the String representation of a FoldableRoom object.
    *
-   * @return A string containing the block, the floor, the number, the capacity and the letter of one half of the foldable room.
+   * @return A string containing the block, the floor, the number and the letter of one half of the foldable room.
    */
-  // Changed to only show full name
-  // todo change javadoc to reflect change
+
+
   public String toString()
   {
     return "" + super.toString() + letter;

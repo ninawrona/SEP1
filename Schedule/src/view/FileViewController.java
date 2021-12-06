@@ -123,7 +123,7 @@ public class FileViewController
       }
 
     }
-    // viewHandler.closeView();
+    viewHandler.closeView();
     viewHandler.openView("schedule");
   }
 

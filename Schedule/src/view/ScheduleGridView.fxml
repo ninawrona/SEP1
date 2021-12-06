@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="view.ScheduleGridViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="312.0" prefWidth="600.0">
          <children>
@@ -32,7 +26,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Choose Class">
+                        <Button mnemonicParsing="false" onAction="#chooseClassButton" prefHeight="30.0" prefWidth="100.0" text="Choose Class">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -40,7 +34,7 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Upload Files">
+                        <Button mnemonicParsing="false" onAction="#uploadFilesButton" prefHeight="30.0" prefWidth="100.0" text="Upload Files">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -48,7 +42,7 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button layoutX="15.0" layoutY="55.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Add Session">
+                        <Button layoutX="15.0" layoutY="55.0" mnemonicParsing="false" onAction="#addSessionButton" prefHeight="30.0" prefWidth="100.0" text="Add Session">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -56,7 +50,7 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button layoutX="15.0" layoutY="95.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Remove Session">
+                        <Button layoutX="15.0" layoutY="95.0" mnemonicParsing="false" onAction="#removeSessionButton" prefHeight="30.0" prefWidth="100.0" text="Remove Session">
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -64,7 +58,15 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button layoutX="15.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Session Details">
+                        <Button layoutX="15.0" layoutY="135.0" mnemonicParsing="false" onAction="#sessionDetailsButton" prefHeight="30.0" prefWidth="100.0" text="Session Details">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="15.0" layoutY="195.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="30.0" prefWidth="100.0" text="Exit">
                            <font>
                               <Font size="11.0" />
                            </font>

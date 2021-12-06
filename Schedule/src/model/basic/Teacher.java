@@ -12,12 +12,10 @@ public class Teacher
 
   public Teacher(String viaId)
   {
-    name = null;
-    if (viaId.equals(null))
+    if (viaId==(null))
     {
       throw new IllegalArgumentException("Via ID can not be null");
     }
-    
     this.viaId = viaId;
   }
 

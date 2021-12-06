@@ -1,5 +1,6 @@
 package view;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -57,9 +58,9 @@ public class AddSessionViewController
     errorLabel.setText("");
     titleLabel.setText("");
     loadAllCourseArray();
+    datePicker.showWeekNumbersProperty();
     loadTimeArray();
     loadNumberOfLessonsArray();
-    reset();
   }
 
   public Region getRoot()
@@ -69,6 +70,11 @@ public class AddSessionViewController
 
   public void reset()
   {
+    // Clear old drop-downs
+    courseChoiceBoxInAddSession.getItems().removeAll(allCoursesArray);
+    startTimeChoiceBox.getItems().removeAll(timeArray);
+    numberOfLessonsChoiceBox.getItems().removeAll(numberOfLessonsArray);
+    roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
     titleLabel.setText(
@@ -79,6 +85,15 @@ public class AddSessionViewController
     System.out.println(
         model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
             .getCourses());
+    System.out.println("I did a reset");
+    courseChoiceBoxInAddSession.setValue(null);
+    startTimeChoiceBox.setValue(null);
+    datePicker.getEditor().clear();
+    numberOfLessonsChoiceBox.setValue(null);
+    roomsChoiceBox.setValue(null);
+    loadAllCourseArray();
+    loadTimeArray();
+    loadNumberOfLessonsArray();
   }
 
   //here we add our list of choices from an arrayList
@@ -244,6 +259,7 @@ public class AddSessionViewController
     {
       model.addSession(session, roomsChoiceBox.getValue());
       scheduleViewModel.addSession(session);
+      reset();
     }
     catch (Exception e)
     {

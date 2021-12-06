@@ -129,12 +129,23 @@ public class TeacherList
     return false;
   }
 
+  public void clear(){
+    for (int i = 0; i < teachers.size(); i++){
+      teachers.remove(i);
+    }
+  }
+
   public String toString()
   {
     String str = "";
     for (int i = 0; i < teachers.size(); i++)
     {
-      str += i + 1 + ". " + teachers.get(i).toString();
+      if (teachers.get(i) == null){
+        str += "";
+      } else {
+        str += i + 1 + ". " + teachers.get(i).toString();
+      }
+
     }
     return str;
   }

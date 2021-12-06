@@ -22,6 +22,7 @@ public class ViewHandler
   private FileViewController fileViewController;
   private ScheduleViewController scheduleViewController;
   private SessionDetailsViewController sessionDetailsViewController;
+  private ScheduleGridViewController scheduleGridViewController;
   // more controllers here
 
   public ViewHandler(ScheduleModel model)
@@ -89,6 +90,9 @@ public class ViewHandler
       case "addTeacher":
         root = loadAddTeacherView("AddTeacher.fxml");
         break;
+      case "gridSchedule":
+        root = loadScheduleGridViewController("ScheduleGridView.fxml");
+        break;
     }
 
     currentScene.setRoot(root);
@@ -126,6 +130,30 @@ public class ViewHandler
       addSessionViewController.reset();
     }
     return addSessionViewController.getRoot();
+  }
+
+  private Region loadScheduleGridViewController(String fxmlFile)
+  {
+    if (scheduleGridViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        scheduleGridViewController = loader.getController();
+        scheduleGridViewController.init(this, model, root);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      scheduleGridViewController.reset();
+    }
+    return scheduleGridViewController.getRoot();
   }
 
   private Region loadSessionDetailsView(String fxmlFile)

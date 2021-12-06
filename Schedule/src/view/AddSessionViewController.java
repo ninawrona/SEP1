@@ -186,6 +186,10 @@ public class AddSessionViewController
       }
       courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
     }
+    catch (NullPointerException e)
+    {
+      errorLabel.setText("Class not selected!");
+    }
     catch (Exception e)
     {
       e.printStackTrace();

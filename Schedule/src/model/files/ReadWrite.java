@@ -92,8 +92,7 @@ public class ReadWrite
         for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
         {
           xml +=
-              "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getName()
-                  + "," + courses.get(i).getTeachers().get(j).getViaId()
+              "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getViaId()
                   + "</Teacher>";
         }
         xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";

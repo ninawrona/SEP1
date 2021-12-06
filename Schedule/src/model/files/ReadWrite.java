@@ -23,11 +23,13 @@ public class ReadWrite
     //  System.out.println(manualReadCourses());
     //  manualWriteCourse(manualReadCourses());
     System.out.println(manualReadRooms(rooms));
-    XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
+    //XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
   //  System.out.println( manualReadRooms(rooms)); ;
   }
 
   /*
+  //commented out since we no longer needed it. Would have manually written the students into an xml file but we used XMLParser instead.
+  //
     public static void manualWriteStudent(ClassGroupList students)
     {
       File file = new File("Students.xml");
@@ -62,6 +64,8 @@ public class ReadWrite
       }
     }
 */
+
+  //XMLParser did not want to convert the courseList into an xml file so we had to manual code it.
   public static void manualWriteCourse(CourseList courses)
   {
     File file = new File("Courses.xml");
@@ -88,8 +92,7 @@ public class ReadWrite
         for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
         {
           xml +=
-              "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getName()
-                  + "," + courses.get(i).getTeachers().get(j).getViaId()
+              "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getViaId()
                   + "</Teacher>";
         }
         xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
@@ -109,6 +112,7 @@ public class ReadWrite
     }
   }
 
+  //Reads in a File with students and turns it into a ClassGroupList
   public static ClassGroupList manualReadStudents(File file)
   {
 
@@ -129,7 +133,7 @@ public class ReadWrite
         String line = in.nextLine();
         if (line.contains(","))
         {
-
+          //divides the line by commas
           parts = line.split(",");
           if (parts.length == 4)
           {
@@ -385,7 +389,7 @@ public class ReadWrite
     }
     return classGroupList;
   }
-
+  //Reads in a file of Courses and turns it into a CourseList
   public static CourseList manualReadCourses(File file)
   {
 

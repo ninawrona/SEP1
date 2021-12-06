@@ -9,7 +9,6 @@ import model.list.ScheduleModel;
 public class AddTeacherViewController
 {
   //@FXML private methods here
-  @FXML private TextField teachersNameField;
   @FXML private TextField teachersViaIdField;
   @FXML private Label errorLabel;
   private Region root;
@@ -37,7 +36,21 @@ public class AddTeacherViewController
   public void reset()
   {
     errorLabel.setText("");
+    teachersViaIdField.setText("");
   }
 
   // @FXML methods here
+  @FXML private void confirmAddATeacherButton()
+  {
+    //TODO confirm
+    viewHandler.closeView();
+    viewHandler.openView("courseDetails");
+  }
+
+  @FXML private void cancelAddATeacherButton()
+  {
+    viewHandler.closeView();
+    viewHandler.openView("courseDetails");
+  }
+
 }

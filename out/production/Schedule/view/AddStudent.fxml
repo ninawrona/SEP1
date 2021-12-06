@@ -5,48 +5,60 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0" text="Add a Student">
-         <font>
-            <Font name="Bell MT" size="24.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="107.0" prefWidth="179.0" text="Full Name" />
-            <TextField fx:id="studentsNameField" alignment="CENTER" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="107.0" prefWidth="179.0" text="Via ID" />
-            <TextField fx:id="studentsViaIdField" alignment="CENTER" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="63.0" prefWidth="600.0">
-         <children>
-            <Label prefHeight="107.0" prefWidth="179.0" text="Class" />
-            <TextField fx:id="classFIeld" alignment="CENTER" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#confirmInAddAStudentButton" prefHeight="35.0" prefWidth="100.0" text="Confirm">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#cancelInAddAStudentButton" prefHeight="35.0" prefWidth="100.0" text="Cancel">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-            </Button>
-         </children></HBox>
-      <Label fx:id="errorLabel" prefHeight="32.0" prefWidth="648.0" text="Error Label" textFill="#c91c1c">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="288.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/11.0.2"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="view.AddStudentViewController">
+    <children>
+        <Label alignment="CENTER" prefHeight="80.0" prefWidth="600.0"
+               text="Add a Student">
+            <font>
+                <Font name="Bell MT" size="24.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0">
+            <children>
+                <Label prefHeight="107.0" prefWidth="179.0" text="Full Name"/>
+                <TextField fx:id="studentsNameField" alignment="CENTER"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="63.0" prefWidth="600.0">
+            <children>
+                <Label prefHeight="107.0" prefWidth="179.0" text="Via ID"/>
+                <TextField fx:id="studentsViaIdField" alignment="CENTER"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0"
+              prefHeight="63.0" prefWidth="600.0">
+            <children>
+                <Label prefHeight="107.0" prefWidth="179.0" text="Class"/>
+                <TextField fx:id="classField" alignment="CENTER"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
+            <children>
+                <Button mnemonicParsing="false"
+                        onAction="#confirmAddAStudentButton" prefHeight="35.0"
+                        prefWidth="100.0" text="Confirm">
+                    <HBox.margin>
+                        <Insets right="5.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false"
+                        onAction="#cancelAddAStudentButton" prefHeight="35.0"
+                        prefWidth="100.0" text="Cancel">
+                    <HBox.margin>
+                        <Insets right="5.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+        <Label fx:id="errorLabel" prefHeight="32.0" prefWidth="648.0"
+               text="Error Label" textFill="#c91c1c">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+    </children>
 </VBox>

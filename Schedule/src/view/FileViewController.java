@@ -112,32 +112,17 @@ public class FileViewController
   {
     if (fileStudents != null && fileRooms != null && fileCourses != null)
     {
-      ClassGroupList classGroupList = null;
+      model.getAllClasses().manualReadStudents(fileStudents);
+      model.getAllClasses().manualReadCourses(fileCourses);
+      
       RoomList roomList = null;
-      CourseList courseList = null;
-
-      classGroupList = ReadWrite.manualReadStudents(fileStudents);
       roomList = ReadWrite.manualReadRooms(fileRooms);
-      courseList = ReadWrite.manualReadCourses(fileCourses);
-
-      //Make methods to parse this list to our system.
-
-      for (int i = 0; i < courseList.size(); i++)
-      {
-        model.addCourse(courseList.get(i));
-      }
       for (int i = 0; i < roomList.size(); i++)
       {
         model.setRoomList(roomList);
       }
-      for (int i = 0; i < classGroupList.size(); i++)
-      {
-        model.addClassGroupList(classGroupList);
-      }
 
     }
-    // Do something with this button to open the file at the path
-    filePathField.getText();
     viewHandler.closeView();
     viewHandler.openView("schedule");
   }

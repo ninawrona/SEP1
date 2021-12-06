@@ -13,10 +13,13 @@ public class AddStudentViewController
   @FXML private Label errorLabel;
   @FXML private TextField studentsNameField;
   @FXML private TextField studentsViaIdField;
-  @FXML private TextField courseField;
+  @FXML private TextField classField;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
+  private String name = null;
+  private int viaId = 0;
+  private String className = null;
 
   public AddStudentViewController()
   {
@@ -39,8 +42,38 @@ public class AddStudentViewController
   public void reset()
   {
     errorLabel.setText("");
+    studentsNameField.setText("");
+    studentsViaIdField.setText("");
+    classField.setText("");
+  }
+  // @FXML methods here
+
+  @FXML private void confirmAddAStudentButton()
+  {
+    try
+    {
+      name = studentsNameField.getText();
+      viaId = Integer.parseInt(studentsViaIdField.getText());
+      className = classField.getText();
+      if (name != null && !name.equals("") && viaId != 0 && className != null
+          && className.length() == 2)
+      {
+        //TODO add the student to the chosen course
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+    viewHandler.closeView();
+    viewHandler.openView("courseDetails");
+
   }
 
-  // @FXML methods here
+  @FXML private void cancelAddAStudentButton()
+  {
+    viewHandler.closeView();
+    viewHandler.openView("courseDetails");
+  }
 
 }

@@ -89,15 +89,15 @@ public class SessionList
           suggestedRoomList.addRoom(roomList.get(i));
         }
 
-        suggestedRoomList.addRoom(roomList.get(i));
       }
     }
     if (suggestedRoomList.size() > 0)
     {
+      System.out.println("Here are the rooms from suggested: " + "\n" + suggestedRoomList);
       return suggestedRoomList;
     }
     throw new NullPointerException(
-        "There no rooms found fulfilling given values!");
+        "There are no rooms found fulfilling given values!");
 
   }
 
@@ -122,7 +122,8 @@ public class SessionList
       Date date)
   {
     SessionList list = new SessionList();
-
+  if(sessions.size()!=0)
+  {
     for (int i = 0; i < sessions.size(); i++)
     {
       if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
@@ -138,6 +139,7 @@ public class SessionList
         return false;
       }
     }
+  }
     return true;
   }
 

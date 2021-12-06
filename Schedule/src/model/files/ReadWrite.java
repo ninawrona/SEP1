@@ -14,11 +14,16 @@ public class ReadWrite
 
   public static void main(String[] args)
   {
+    File students = new File("students.txt");
+    File rooms = new File("Rooms.txt");
+    File courses = new File("courses.txt");
+
    // System.out.println(manualReadStudents());
   //  XMLParser.toXML(manualReadStudents(), "students.xml");
   //  System.out.println(manualReadCourses());
   //  manualWriteCourse(manualReadCourses());
-    manualReadRooms();
+
+    manualReadRooms(rooms);
   }
 
   /*
@@ -103,9 +108,9 @@ public class ReadWrite
 
 
 
-  public static ClassGroupList manualReadStudents()
+  public static ClassGroupList manualReadStudents(File file)
   {
-    File file = new File("students.txt");
+
     ClassGroupList classGroupList = new ClassGroupList();
 
     try
@@ -380,9 +385,9 @@ public class ReadWrite
     return classGroupList;
   }
 
-  public static CourseList manualReadCourses()
+  public static CourseList manualReadCourses(File file)
   {
-    File file = new File("courses.txt");
+
     CourseList courses = new CourseList();
     TeacherList masterTeacherList = new TeacherList();
     try

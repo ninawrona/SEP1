@@ -357,6 +357,7 @@ public class Session
   /**
    * A setter method setting the number of lessons for a session. The method will throw an exception if
    * the number of lessons would push the end of the session outside the valid time-frame: 8:20-17:55.
+   * Normally the lunch break is not considered as a slot for lessons, but it is possible to book it, with a maximum of 7 lessons, ending at 17:55
    *
    * @param numberOfLessons the number of lessons to be set for the session.
    */
@@ -422,6 +423,11 @@ public class Session
       throw new IllegalArgumentException(
           "There cannot be more than 1 lessons from 17:20.");
     }
+    else if (startTime.getHour() == 12 && startTime.getMinute() == 0
+        && numberOfLessons > 7)
+    {
+      throw new IllegalArgumentException("There cannot be more than 7 lessons from 12:00.");
+    }
 
     this.numberOfLessons = numberOfLessons;
   }
@@ -451,6 +457,7 @@ public class Session
    * A method calculating and returning a String representation of the session's end time in a "hh:mm" format.
    * The end time of a session is calculated by multiplying the number of lessons with the length of a lesson (45 minutes per lesson and a 10-minute break included).
    * The result is subtracted by 10 (representing a redundant break at the end of the last lesson). The result is then converted into a valid hours and minutes format.
+   * In case of booking a session through the lunch break, 10 more minutes are subtracted; no break after the lesson of 12:00-12:45.
    *
    * @return a string representing the time at which the session ends.
    */
@@ -463,6 +470,10 @@ public class Session
 
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
+
+    if (startTime.getHour()<=12 &&startTime.getMinute()!=45&& endHour>=12){ //If the lunch session is also booked, the session will be 10 minutes shorter.
+    endMinute-=10;
+    }
 
     if (endMinute > 60)
     {
@@ -479,6 +490,7 @@ public class Session
       endHour++;
     }
 
+
     String s = "";
     if (endHour < 10)
     {
@@ -491,14 +503,18 @@ public class Session
     }
     s += endMinute;
     return s;
+
+
   }
 
   /**
-   * An overridden method calculating and returning a String representation of the end time of a session; with the start time and number of lessons given inside the parameters.
+   * An overridden method calculating and returning a String representation of the end time of
+   * a session; with the start time and number of lessons given inside the parameters.
    *
    * @param timeStart       the time at which the session to be converted starts.
    * @param numberOfLessons the number of lessons the session to be converted has.
-   * @return a string representing the time at which the session with the start time and number of lessons given inside the parameters ends.
+   * @return a string representing the time at which the session with the start time and
+   * number of lessons given inside the parameters ends.
    */
   public String getEndTimeString(Time timeStart, int numberOfLessons)
   {
@@ -508,6 +524,10 @@ public class Session
 
     int endHour = timeStart.getHour() + hours;
     int endMinute = timeStart.getMinute() + minutes;
+
+    if (startTime.getHour()<=12 &&startTime.getMinute()!=45&& endHour>=12){ //If the lunch session is also booked, the session will be 10 minutes shorter.
+      endMinute-=10;
+    }
 
     if (endMinute > 60)
     {
@@ -541,16 +561,16 @@ public class Session
   /**
    * A method returning the string representation of the session's details.
    *
-   * @return A string containing the name of the course, the start time, the number of lessons, the end time and the room of a session.
+   * @return A string containing the name of the course, the class group, the start time,
+   * the number of lessons, the end time and the room (or unassigned room) of a session.
    */
-  // Modified to displayed correctly is a room is not assigned yet
-  // Modified to show class group as well
-  // todo modify javadoc
+
   public String toString()
   {
-    String str = "Session{" + "Course= " + course + ", Class= " + course.getClassGroup() + ", Start Time= " + startTime
-        + ", Number of Lessons= " + numberOfLessons + ", End Time = "
-        + getEndTime() + ", Room= ";
+    String str =
+        "Session{" + "Course= " + course + ", Class= " + course.getClassGroup()
+            + ", Start Time= " + startTime + ", Number of Lessons= "
+            + numberOfLessons + ", End Time = " + getEndTime() + ", Room= ";
     if (room == null)
     {
       str += "unassigned}";

@@ -25,10 +25,12 @@ public class Teacher
 
     if (viaId==(null))
     {
-      throw new IllegalArgumentException("Via ID can not be null");
+      throw new IllegalArgumentException("VIA ID can not be null");
     }
 
     this.viaId = viaId;
+    this.sessions= new SessionList();
+    this.coursesTaught=new CourseList();
   }
 
   /**
@@ -85,7 +87,7 @@ public class Teacher
   }
 
   /**
-   * A method comparing two objects
+   * A method comparing two objects.
    * @param obj
    *          an object representing the other object to be compared.
    * @return "True" if the two Teacher objects are identical, "False" if they are not.

@@ -89,10 +89,9 @@ public class Room
   /**
    * A method returning the String representation of the Room object.
    *
-   * @return A string containing the block, the floor, the number and the capacity of the room.
+   * @return A string containing the block, the floor, the number and the capacity of the room in
+   * a correct format (for example C05.16a, or C05.08).
    */
-  // Changed to only show the full room name with appropriate zeroes
-  // todo make javadoc reflect change
   public String toString()
   {
     String str = "";

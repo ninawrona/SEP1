@@ -4,7 +4,7 @@ import model.list.CourseList;
 import model.list.StudentList;
 
 /**
- * A class representing a class of students. A class has a list of students, a list of courses,
+ * A class representing a class of students(hereafter referred to as "ClassGroup"). A ClassGroup has a list of students, a list of courses,
  * a name (for example: 'X', 'Y', 'Z', or 'DK'), and a semester.
  *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
@@ -18,7 +18,7 @@ public class ClassGroup
   private int semester;
 
   /**
-   * Three-argument constructor creating a class for a chosen semester with a given class name and list of students.
+   * Three-argument constructor creating a Class Group for a chosen semester with a given class name and list of students.
    * A new course list is generated for the class.
    *
    * @param semester    the semester of the class.
@@ -49,9 +49,9 @@ public class ClassGroup
   }
 
   /**
-   * A getter method returning the students from the class.
+   * A getter method returning the students from the ClassGroup.
    *
-   * @return an ArrayList containing the Student objects enrolled into the class.
+   * @return an ArrayList containing the Student objects enrolled into the ClassGroup.
    */
   public StudentList getStudents()
   {
@@ -59,9 +59,9 @@ public class ClassGroup
   }
 
   /**
-   * A getter method returning the name of the class.
+   * A getter method returning the name of the ClassGroup.
    *
-   * @return A string representing the name of the class.
+   * @return A string representing the name of the ClassGroup.
    */
   public String getClassName()
   {
@@ -71,7 +71,7 @@ public class ClassGroup
   /**
    * A getter method returning the semester of the class.
    *
-   * @return the semester of the class.
+   * @return an int representing the semester of the Class Group.
    */
   public int getSemester()
   {
@@ -79,9 +79,9 @@ public class ClassGroup
   }
 
   /**
-   * A getter method returning the courses that are taught for the class.
+   * A getter method returning the courses that are taught for the ClassGroup.
    *
-   * @return an ArrayList containing the Course objects that are taught for the class.
+   * @return an ArrayList containing the Course objects that are taught for the ClassGroup.
    */
   public CourseList getCourses()
   {
@@ -89,7 +89,7 @@ public class ClassGroup
   }
 
   /**
-   * A method that adds a course to the class. The ClassGroup is set within the Course as well.
+   * A method that adds a course to the ClassGroup. The ClassGroup is set within the Course as well.
    *
    * @param course the course to be added to the CourseList of the ClassGroup.
    */
@@ -100,9 +100,9 @@ public class ClassGroup
   }
 
   /**
-   * A method that adds a student to the class.
+   * A method that adds a student to the ClassGroup.
    *
-   * @param student the Student object to be added to the class.
+   * @param student the Student object to be added to the ClassGroup.
    */
   public void addStudent(Student student)
   {
@@ -110,9 +110,9 @@ public class ClassGroup
   }
 
   /**
-   * A method that removes a student from the class.
+   * A method that removes a student from the ClassGroup.
    *
-   * @param student the Student object is removed from the class.
+   * @param student the Student object is removed from the ClassGroup.
    */
   public void removeStudent(Student student)
   {

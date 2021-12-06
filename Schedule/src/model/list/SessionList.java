@@ -3,28 +3,54 @@ package model.list;
 import model.basic.*;
 
 import java.util.ArrayList;
-
+/**
+ * A class representing a list of all the sessions.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class SessionList
 {
   private ArrayList<Session> sessions;
   private RoomList roomList;
 
+  /**
+   * A constructor taking no arguments that initializes two ArrayLists: one with Session objects and one with Room objects.
+   */
   public SessionList()
   {
     this.sessions = new ArrayList<>();
     roomList = new RoomList();
   }
 
+  /**
+   * A method returning the size of the SessionList
+   * @return an int representing how many Session objects the list contains.
+   */
   public int size()
   {
     return sessions.size();
   }
 
+  /**
+   * A getter method returning a Session at a chosen index.
+   * @param index
+   *            the index of the desired Session.
+   * @return the Session object at the specified index.
+   */
   public Session get(int index)
   {
     return sessions.get(index);
   }
 
+  /**
+   * A void method adding a Session object to the list (cannot be null) and booking a room for it. The method todo *is checking if the teacher is
+   * todo available for the session.
+   * @param session
+   *              a Session object
+   * @param room
+   *              a Room object
+   */
   public void addSession(Session session, Room room)
   {
     if (session == null)
@@ -33,6 +59,7 @@ public class SessionList
     }
     if (!(isTeacherAvailable(session)))
     {
+      // TODO: 06/12/2021 Remove comment/delete method.
       //throw new IllegalCallerException("Teacher not available!");
     }
     // assign room with the session itself
@@ -42,6 +69,11 @@ public class SessionList
     sessions.add(session);
   }
 
+  /**
+   * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
+   * @param session
+   *              the Session object to be removed from the list.
+   */
   public void removeSession(Session session)
   {
     if (size() == 0)
@@ -57,7 +89,11 @@ public class SessionList
     sessions.remove(session);
   }
 
-
+  /**
+   * A setter method for the RoomLists, used in the ViewController.
+   * @param roomList
+   *              the roomList to be set.
+   */
   public void setRoomList(RoomList roomList)
   {
     if (roomList == null)
@@ -67,7 +103,12 @@ public class SessionList
     this.roomList = roomList;
   }
 
-
+  /**
+   * A method that returns a list of available rooms when booking a session.
+   * @param session
+   *            the session that needs a room.
+   * @return an ArrayList of Room objects that are available for booking.
+   */
   public RoomList suggestRooms(Session session)
   {
     if (session == null)
@@ -101,6 +142,11 @@ public class SessionList
 
   }
 
+  /**
+   * A method that books a room for a session
+   * @param room
+   * @param session
+   */
   public void bookRoomForASession(Room room, Session session)
   {
     if (session == null || room == null)

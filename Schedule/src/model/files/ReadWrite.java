@@ -490,9 +490,8 @@ public class ReadWrite
     return courses;
   }
 
-  public static  RoomList manualReadRooms()
+  public static  RoomList manualReadRooms(File file)
   {
-    File file = new File("Rooms.txt");
     RoomList rooms = new RoomList();
 
     try
@@ -540,5 +539,6 @@ public class ReadWrite
     return rooms;
 
   }
+
 }
 

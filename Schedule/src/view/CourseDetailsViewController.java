@@ -44,6 +44,7 @@ public class CourseDetailsViewController
   public void reset()
   {
     errorLabel.setText("");
+    //set the areas to the chosen class and course.
   }
 
   // @FXML methods here
@@ -69,6 +70,13 @@ public class CourseDetailsViewController
   {
     //TODO
   }
+
+  @FXML private void cancelButton()
+  {
+    viewHandler.closeView();
+    viewHandler.openView("schedule");
+  }
+
 
 
 }

@@ -57,7 +57,7 @@ public class SessionList
     sessions.remove(session);
   }
 
-  /*
+
   public void setRoomList(RoomList roomList)
   {
     if (roomList == null)
@@ -67,7 +67,6 @@ public class SessionList
     this.roomList = roomList;
   }
 
-   */
 
   public RoomList suggestRooms(Session session)
   {

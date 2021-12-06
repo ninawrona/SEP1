@@ -83,6 +83,11 @@ public class ScheduleModelManager implements ScheduleModel
     return chosenClassGroup;
   }
 
+  public void addClassGroupList(ClassGroupList classList)
+  {
+    this.classList = classList;
+  }
+
   public void addSession(Session session, Room room)
   {
     sessionList.addSession(session, room);
@@ -93,12 +98,11 @@ public class ScheduleModelManager implements ScheduleModel
     sessionList.removeSession(session);
   }
 
-  /*public void setRoomList(RoomList roomList)
+  public void setRoomList(RoomList roomList)
   {
     sessionList.setRoomList(roomList);
   }
 
-   */
 
   public RoomList suggestRooms(Session session)
   {

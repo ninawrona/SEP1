@@ -121,17 +121,18 @@ public class FileViewController
       courseList = ReadWrite.manualReadCourses(fileCourses);
 
       //Make methods to parse this list to our system.
+      
       for (int i = 0; i < courseList.size(); i++)
       {
         model.addCourse(courseList.get(i));
       }
       for (int i = 0; i < roomList.size(); i++)
       {
-        //model.addRoom(roomList.get(i)); No such method yet
+        model.setRoomList(roomList);
       }
       for (int i = 0; i < classGroupList.size(); i++)
       {
-        //model.addClassGroup(classGroupList.get(i)); No such method yet
+        model.addClassGroupList(classGroupList);
       }
 
     }

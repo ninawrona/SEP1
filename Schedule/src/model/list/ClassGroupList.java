@@ -395,7 +395,8 @@ public class ClassGroupList
               {
                 if (!(teacherList.get(j) == null))
                 {
-                  teacherList.get(j).assignToCourseTaught(course);
+                  // todo this was not working
+                  // teacherList.get(j).assignToCourseTaught(course);
                   /*System.out.println(
                       "Courses taught: " + teacherList.get(j).getCoursesTaught()
                           + "\n--------------");

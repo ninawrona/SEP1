@@ -110,18 +110,12 @@ public class FileViewController
 
   @FXML void confirmInSelectATextFileButton()
   {
+
     if (fileStudents != null && fileRooms != null && fileCourses != null)
     {
       model.getAllClasses().manualReadStudents(fileStudents);
       model.getAllClasses().manualReadCourses(fileCourses);
-      
-      RoomList roomList = null;
-      roomList = ReadWrite.manualReadRooms(fileRooms);
-      for (int i = 0; i < roomList.size(); i++)
-      {
-        model.setRoomList(roomList);
-      }
-
+      model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
     }
     viewHandler.closeView();
     viewHandler.openView("schedule");

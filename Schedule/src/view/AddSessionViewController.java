@@ -11,6 +11,7 @@ import model.basic.*;
 import model.list.*;
 
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -77,90 +78,31 @@ public class AddSessionViewController
     roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
-    titleLabel.setText(
-        "Add a Session to " + model.getChosenClassGroup().toString());
-    session = null;
-    model.setChosenClassGroup(model.getChosenClassGroup());
-    this.classGroup = model.getChosenClassGroup();
-    System.out.println(
-        model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
-            .getCourses());
-    System.out.println("I did a reset");
-    courseChoiceBoxInAddSession.setValue(null);
-    startTimeChoiceBox.setValue(null);
-    datePicker.getEditor().clear();
-    numberOfLessonsChoiceBox.setValue(null);
-    roomsChoiceBox.setValue(null);
-    loadAllCourseArray();
-    loadTimeArray();
-    loadNumberOfLessonsArray();
+    if (model.getChosenClassGroup() != null)
+    {
+      titleLabel.setText(
+          "Add a Session to " + model.getChosenClassGroup().toString());
+      titleLabel.setText("Add a Session to ...");
+
+      session = null;
+      model.setChosenClassGroup(model.getChosenClassGroup());
+      this.classGroup = model.getChosenClassGroup();
+      System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
+      System.out.println("I did a reset");
+      courseChoiceBoxInAddSession.setValue(null);
+      startTimeChoiceBox.setValue(null);
+      datePicker.getEditor().clear();
+      numberOfLessonsChoiceBox.setValue(null);
+      roomsChoiceBox.setValue(null);
+      loadAllCourseArray();
+      loadTimeArray();
+      loadNumberOfLessonsArray();
+    }
+    else
+    {
+      errorLabel.setText("You have to choose class first!");
+    }
   }
-
-  //here we add our list of choices from an arrayList
-    /*
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        model.setChosenClassGroup(model.getChosenClassGroup());
-        this.classGroup = model.getChosenClassGroup();
-        System.out.println(classGroup);
-        loadAllCourseArray();
-        System.out.println("initializer");
-        System.out.println(classGroup);
-        loadTimeArray();
-        loadNumberOfLessonsArray();
-        // Rooms should load after the time is set
-        // roomsChoiceBox.getItems().addAll(roomsArray); //rooms that are currently available, we have to change
-        // the array after clicking find rooms
-    }
-
-     */
-
-    /*public void loadAllCourseArray(){
-        allCoursesArray.removeAll(allCoursesArray);
-        allCoursesArray.add(1);
-        allCoursesArray.add(2);
-        allCoursesArray.add(3);
-        allCoursesArray.add(4);
-
-        courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
-    }
-
-    public void loadTimeArray(){
-        timeArray.removeAll(timeArray);
-        timeArray.add(new Time(8, 20));
-        timeArray.add(new Time(9, 15));
-        timeArray.add(new Time(10, 10));
-        timeArray.add(new Time(11, 5));
-        timeArray.add(new Time(12, 0));
-        timeArray.add(new Time(12, 45));
-        timeArray.add(new Time(13, 40));
-        timeArray.add(new Time(14, 35));
-        timeArray.add(new Time(15, 30));
-        timeArray.add(new Time(16, 25));
-        timeArray.add(new Time(17, 20));
-        startTimeChoiceBox.getItems().addAll(timeArray);
-    }
-
-    public void loadNumberOfLessonsArray(){
-        numberOfLessonsArray.removeAll(numberOfLessonsArray);
-        numberOfLessonsArray.add(1);
-        numberOfLessonsArray.add(2);
-        numberOfLessonsArray.add(3);
-        numberOfLessonsArray.add(4);
-
-        numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
-    }
-
-    public void loadRoomArray(){
-        roomsArray.removeAll(roomsArray);
-        roomsArray.add(1);
-        roomsArray.add(2);
-        roomsArray.add(3);
-        roomsArray.add(4);
-
-        roomsChoiceBox.getItems().addAll(roomsArray);
-    }
-*/
 
   // Load the courses into the arrayList
   // ? How will this look on the list? Will it use the toString method?
@@ -235,6 +177,8 @@ public class AddSessionViewController
       roomsArray.add(model.suggestRooms(session).get(i));
     }
     roomsChoiceBox.getItems().addAll(roomsArray);
+    System.out.println("Those are the rooms displayed:" + "\n" + roomsArray);
+    System.out.println("Here are the rooms!");
   }
 
   // Convert the date picker into our date class
@@ -276,6 +220,7 @@ public class AddSessionViewController
   @FXML private void cancelInAddSessionButton()
   {
     reset();
+    viewHandler.closeView();
     viewHandler.openView("schedule");
   }
 }

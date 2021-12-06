@@ -72,9 +72,9 @@ public class ViewHandler
       case "confirmation":
         root = loadConfirmationView("ConfirmationView.fxml");
         break;
-      case "courseDetails":
-        root = loadCourseDetailsView("CourseDetailsView.fxml");
-        break;
+      //case "courseDetails":
+        //root = loadCourseDetailsView("CourseDetailsView.fxml");
+        //break;
       case "fileView":
         root = loadFileView("FileView.fxml");
         break;
@@ -90,7 +90,7 @@ public class ViewHandler
       case "addTeacher":
         root = loadAddTeacherView("AddTeacher.fxml");
         break;
-      case "gridSchedule":
+      case "courseDetails":
         root = loadScheduleGridViewController("ScheduleGridView.fxml");
         break;
     }

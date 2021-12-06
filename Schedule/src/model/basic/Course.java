@@ -116,12 +116,12 @@ public class Course
   {
     String s = "";
 
-    s += "\nClass: " + classGroup + "\nCourseName:" + name;
+    s += "Class: " + classGroup + "\nCourseName:" + name;
     for (int j = 0; j < teachers.size(); j++)
     {
-      s += "\n Teacher: " + teachers.get(j);
+      s += "\nTeacher: " + teachers.get(j).getViaId();
     }
-    s += "\n ECTS: " + ECTS;
+    s += "\nECTS: " + ECTS +"\n";
     return s;
   }*/
 
@@ -142,4 +142,5 @@ public class Course
     return name.equals(other.name) && semesterTaught == other.semesterTaught
         && ECTS == other.ECTS;
   }
+
 }

@@ -12,7 +12,9 @@ public class SessionViewModel
   private StringProperty courseProperty;
   private IntegerProperty dayOfWeekProperty;
   private StringProperty startTimeProperty;
+  private IntegerProperty startTimeIntProperty;
   private IntegerProperty numberOfLessonsProperty;
+  private int timeHolder;
 
   public SessionViewModel(Session session)
   {
@@ -27,6 +29,47 @@ public class SessionViewModel
     startTimeProperty = new SimpleStringProperty(session.getStartTimeString());
     numberOfLessonsProperty = new SimpleIntegerProperty(
         session.getNumberOfLessons());
+    switch (session.getStartTimeString())
+    {
+      case ("8:20"):
+        timeHolder = 2;
+        break;
+      case ("9:15"):
+        timeHolder = 3;
+        break;
+      case ("10:10"):
+        timeHolder = 4;
+        break;
+      case ("11:05"):
+        timeHolder = 5;
+        break;
+      case ("12:00"):
+        timeHolder = 6;
+        break;
+      case ("12:45"):
+        timeHolder = 7;
+        break;
+      case ("13:40"):
+        timeHolder = 8;
+        break;
+      case ("14:35"):
+        timeHolder = 9;
+        break;
+      case ("15:30"):
+        timeHolder = 10;
+        break;
+      case ("16:25"):
+        timeHolder = 11;
+        break;
+      case ("17:20"):
+        timeHolder = 12;
+        break;
+      default:
+        timeHolder = 2;
+        System.out.println("Could not find time for timeholder (SessionViewModel)");
+        break;
+    }
+    startTimeIntProperty = new SimpleIntegerProperty(timeHolder);
   }
 
   public StringProperty getCourseProperty()
@@ -42,6 +85,10 @@ public class SessionViewModel
   public StringProperty getStartTimeProperty()
   {
     return startTimeProperty;
+  }
+
+  public int getStartTimeIntProperty() {
+    return startTimeIntProperty.get();
   }
 
   public IntegerProperty getNumberOfLessonsProperty()

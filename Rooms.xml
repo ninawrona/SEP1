@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RoomList>
+  <rooms>
+    <number>15</number>
+    <block>C</block>
+    <floor>5</floor>
+    <capacity>45</capacity>
+  </rooms>
+  <rooms>
+    <number>16</number>
+    <letter>a</letter>
+    <block>C</block>
+    <floor>5</floor>
+    <capacity>45</capacity>
+  </rooms>
+  <rooms>
+    <number>16</number>
+    <letter>b</letter>
+    <block>C</block>
+    <floor>5</floor>
+    <capacity>45</capacity>
+  </rooms>
+  <rooms>
+    <number>12</number>
+    <block>C</block>
+    <floor>3</floor>
+    <capacity>20</capacity>
+  </rooms>
+  <rooms>
+    <number>13</number>
+    <block>C</block>
+    <floor>3</floor>
+    <capacity>125</capacity>
+  </rooms>
+</RoomList>

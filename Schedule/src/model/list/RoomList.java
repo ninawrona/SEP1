@@ -1,5 +1,6 @@
 package model.list;
 
+import model.basic.FoldableRoom;
 import model.basic.Room;
 
 import java.util.ArrayList;
@@ -12,12 +13,16 @@ public class RoomList
   {
     rooms = new ArrayList<>();
 
+
+    /*
     // Adding some fake rooms
     rooms.add(new Room(5, 'c', 16, 45));
     rooms.add(new Room(5, 'c', 13, 45));
     rooms.add(new Room(5, 'c', 12, 45));
     rooms.add(new Room(5, 'c', 6, 45));
     rooms.add(new Room(5, 'c', 7, 45));
+
+     */
 
   }
 
@@ -64,12 +69,24 @@ public class RoomList
     return roomList;
   }
 
+  public boolean contains(Room room){
+    if (room instanceof FoldableRoom){
+      return false;
+    }
+    for (int i = 0; i < rooms.size(); i++){
+      if (rooms.get(i).equals(room)){
+        return true;
+      }
+    }
+    return false;
+  }
+
   public String toString()
   {
     String str = "";
     for (int i = 0; i < rooms.size(); i++)
     {
-      str += rooms.get(i).toString();
+      str += rooms.get(i).toString() + "\n";
     }
     return str;
   }

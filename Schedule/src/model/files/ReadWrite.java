@@ -18,15 +18,18 @@ public class ReadWrite
     File rooms = new File("Rooms.txt");
     File courses = new File("courses.txt");
 
-   // System.out.println(manualReadStudents());
-  //  XMLParser.toXML(manualReadStudents(), "students.xml");
-  //  System.out.println(manualReadCourses());
-  //  manualWriteCourse(manualReadCourses());
-
-    manualReadRooms(rooms);
+    // System.out.println(manualReadStudents());
+    //  XMLParser.toXML(manualReadStudents(), "students.xml");
+    //  System.out.println(manualReadCourses());
+    //  manualWriteCourse(manualReadCourses());
+    System.out.println(manualReadRooms(rooms));
+    //XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
+  //  System.out.println( manualReadRooms(rooms)); ;
   }
 
   /*
+  //commented out since we no longer needed it. Would have manually written the students into an xml file but we used XMLParser instead.
+  //
     public static void manualWriteStudent(ClassGroupList students)
     {
       File file = new File("Students.xml");
@@ -61,53 +64,55 @@ public class ReadWrite
       }
     }
 */
-    public static void manualWriteCourse(CourseList courses)
+
+  //XMLParser did not want to convert the courseList into an xml file so we had to manual code it.
+  public static void manualWriteCourse(CourseList courses)
+  {
+    File file = new File("Courses.xml");
+    try
+
     {
-      File file = new File("Courses.xml");
-      try
+      PrintWriter out = new PrintWriter(file);
 
+      String xml = "";
+      xml +=
+          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+
+      xml += "\n<CourseList>";
+      for (int i = 0; i < courses.size(); i++)
       {
-        PrintWriter out = new PrintWriter(file);
 
-        String xml = "";
+        xml += "\n<Course>";
+        xml += "\n    <Semester>" + courses.get(i).getSemesterTaught()
+            + "</Semester>";
+        xml += "\n    <Class>" + courses.get(i).getClassGroup().getClassName()
+            + "</Class>";
         xml +=
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
-
-        xml += "\n<CourseList>";
-        for (int i = 0; i < courses.size(); i++)
+            "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
+        for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
         {
-
-          xml += "\n<Course>";
-          xml += "\n    <Semester>" + courses.get(i).getSemesterTaught()
-              + "</Semester>";
-          xml += "\n    <Class>" + courses.get(i).getClassGroup().getClassName()
-              + "</Class>";
           xml +=
-              "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
-          for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
-          {
-            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getName() + "," + courses.get(i).getTeachers().get(j).getViaId()
-                + "</Teacher>";
-          }
-          xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
-
-          xml += "\n</Course>";
-
+              "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getViaId()
+                  + "</Teacher>";
         }
-        xml += "\n</CourseList>";
-        out.println(xml);
-        out.close();
+        xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
+
+        xml += "\n</Course>";
 
       }
-      catch (FileNotFoundException e)
+      xml += "\n</CourseList>";
+      out.println(xml);
+      out.close();
 
-      {
-        e.printStackTrace();
-      }
     }
+    catch (FileNotFoundException e)
 
+    {
+      e.printStackTrace();
+    }
+  }
 
-
+  //Reads in a File with students and turns it into a ClassGroupList
   public static ClassGroupList manualReadStudents(File file)
   {
 
@@ -128,7 +133,7 @@ public class ReadWrite
         String line = in.nextLine();
         if (line.contains(","))
         {
-
+          //divides the line by commas
           parts = line.split(",");
           if (parts.length == 4)
           {
@@ -384,7 +389,7 @@ public class ReadWrite
     }
     return classGroupList;
   }
-
+  //Reads in a file of Courses and turns it into a CourseList
   public static CourseList manualReadCourses(File file)
   {
 
@@ -495,18 +500,15 @@ public class ReadWrite
     return courses;
   }
 
-  public static  RoomList manualReadRooms(File file)
+  public static RoomList manualReadRooms(File file)
   {
+
     RoomList rooms = new RoomList();
 
     try
     {
       Scanner in = new Scanner(file);
-      int floor;
-      char block;
-      int number;
-      int capacity;
-      Room room;
+
       String[] parts;
       String[] roomParts;
 
@@ -517,22 +519,82 @@ public class ReadWrite
         if (line.contains(","))
         {
           parts = line.split(",");
-          /*for (int i = 0; i < parts.length; i++){
-            System.out.println(parts[i]);
-          }
 
-           */
-
-          for (int i = 0 ; i < parts.length; i++){
-            if (parts[i].contains(".")){
+          for (int i = 0; i < parts.length-1; i++)
+          {
+            int floor;
+            String floorString = "";
+            char block;
+            int number;
+            String numberString = "";
+            int capacity;
+            char roomLetter;
+            Room room;
+            if (parts[i].contains("."))
+            {
               roomParts = parts[i].split("[.]");
-              for (int j = 0; j < roomParts.length; j++){
-                System.out.println(roomParts[j]);
-              }
-            }
-          }
-          if (parts.length == 2){
+              block = parts[0].charAt(0);
+              System.out.println("This is the block:" + block);
+              capacity = Integer.parseInt(parts[1]);
+              if (parts[0].charAt(1) == '0')
+              {
+                floorString += parts[0].charAt(1);
 
+                floorString += parts[0].charAt(2);
+                floor = Integer.parseInt(floorString);
+                System.out.println(
+                    "This is the floor when it starts with 0:" + floor);
+              }
+              else
+              {
+                floorString += parts[0].charAt(1);
+                floorString += parts[0].charAt(2);
+
+                floor = Integer.parseInt(floorString);
+                System.out.println(
+                    "This is the floor when it does not start with 0:" + floor);
+              }
+              if (roomParts[1].length() == 2)
+              {
+                number = Integer.parseInt(roomParts[1]);
+                numberString += roomParts[1];
+                System.out.println("This is the number:" + number);
+                System.out.println("This is the number string:" + numberString);
+                capacity = Integer.parseInt(parts[1]);
+                System.out.println("This is the capacity:" + capacity);
+                room = new Room(floor, block, number, capacity);
+                rooms.addRoom(room);
+              }
+              else if (roomParts[1].length() == 3)
+              {
+                numberString += roomParts[1].charAt(0);
+                numberString += roomParts[1].charAt(1);
+                number = Integer.parseInt(numberString);
+                roomLetter = roomParts[1].charAt(2);
+                numberString += roomLetter;
+                System.out.println(
+                    "The room number is:" + number + "\nAnd the room letter is:"
+                        + roomLetter);
+                capacity = Integer.parseInt(parts[1]);
+                System.out.println("This is the capacity:" + capacity);
+
+
+                room = new FoldableRoom(floor, block, number, capacity,
+                    roomLetter);
+                System.out.println("I just made a foldable room");
+                if (!(rooms.contains(room))){
+                  rooms.addRoom(room);
+                } else {
+                  System.out.println("Room already exists, failed to add");
+                }
+
+              }
+
+              System.out.println(
+                  "Room:" + block + floorString + "." + numberString + ","
+                      + capacity);
+
+            }
           }
         }
       }
@@ -542,8 +604,6 @@ public class ReadWrite
       e.printStackTrace();
     }
     return rooms;
-
   }
-
 }
 

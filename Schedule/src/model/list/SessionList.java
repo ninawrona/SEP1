@@ -82,14 +82,13 @@ public class SessionList
       if (isRoomAvailable(roomList.get(i), session.getStartTime(),
           session.getNumberOfLessons(), session.getDate()))
       {
-        // Add this if again when the student list work
-        /*if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
+
+       if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
             .getStudents().size())
         {
           suggestedRoomList.addRoom(roomList.get(i));
         }
 
-         */
         suggestedRoomList.addRoom(roomList.get(i));
       }
     }

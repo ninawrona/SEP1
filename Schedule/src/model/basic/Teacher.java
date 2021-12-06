@@ -21,6 +21,13 @@ public class Teacher
    */
   public Teacher(String viaId)
   {
+
+
+    if (viaId==(null))
+    {
+      throw new IllegalArgumentException("Via ID can not be null");
+    }
+
     this.viaId = viaId;
   }
 

@@ -134,42 +134,60 @@ public class Course
     return classGroup;
   }
 
-  // I needed a method to set the classGroup inside a course because courses
-  // are within classgroups. When I added a course to a classgroup, that
-  // course was not getting the classgroup set at the same time.
-  // Alt + F7 to find usages- CF 5/12
+
 
   /**
-   * A void method setting the classGroup inside a course (because the courses are within classGroups).
+   * A void method setting the classGroup for a course.
    * @param classGroup
+   *                the classGroup to be assigned for the course.
    */
   public void setClassGroup(ClassGroup classGroup)
   {
     this.classGroup = classGroup;
   }
 
+  /**
+   * A getter method returning a list of teachers teaching this course.
+   * @return an ArrayList of Teacher objects.
+   */
   public TeacherList getTeachers()
   {
     return teachers;
   }
 
+  /**
+   * A getter method returning a list of students participating in this course.
+   * @return an ArrayList of Student objects.
+   */
   public StudentList getStudents()
   {
     return classGroup.getStudents();
   }
 
+  /**
+   * A getter method returning the semester in which this course is taught.
+   * @return an int representing the semester in which this course is taught.
+   */
   public int getSemesterTaught()
   {
     return semesterTaught;
   }
 
+  /**
+   * A getter method returning the ECTS value of this course.
+   * @return an int representing the ECTS value of this course.
+   */
   public int getECTS()
   {
     return ECTS;
   }
 
-  /*public String toString()
-  {
+  /**
+   * A method returning the details of this Course object.
+   * @return a String representation of the Course object containing the ClassGroup, name of the course, its teachers and the ECTS value of it.
+   */
+  public String toString()
+ {
     String s = "";
 
     s += "Class: " + classGroup + "\nCourseName:" + name;
@@ -179,13 +197,22 @@ public class Course
     }
     s += "\nECTS: " + ECTS +"\n";
     return s;
-  }*/
+  }
 
+  //todo: Agree on the redundancy of this overridden toString method. @see getName();  Robert agrees, ...
+  /*
   @Override public String toString()
   {
     return name;
   }
+*/
 
+  /**
+   * A method comparing two objects.
+   * @param obj
+   *          an object that represents the object to be compared with
+   * @return "True" if the two Course objects are identical, or "False" if they are not.
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof Course))

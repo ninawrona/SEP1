@@ -151,18 +151,18 @@ public class TeacherList
     return false;
   }
 
-
   /**
-   * A method returning a String representation of the arraylist "teachers".
-   * @return a String containing all the teachers and their information.
+   * A void method clearing the TeacherList by looping through it, and removing all the Teacher objects.
    */
-
   public void clear(){
     for (int i = 0; i < teachers.size(); i++){
       teachers.remove(i);
     }
   }
-
+  /**
+   * A method returning a String representation of the arraylist "teachers".
+   * @return a String containing all the teachers and their information.
+   */
   public String toString()
   {
     String str = "";

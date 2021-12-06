@@ -31,7 +31,7 @@ public class Time
 
   /**
    * A getter method for the hour.
-   * @return hour
+   * @return an int representing the hour
    */
   public int getHour()
   {
@@ -40,7 +40,7 @@ public class Time
 
   /**
    * A getter method for the minute.
-   * @return minute
+   * @return an int representing the minute
    */
   public int getMinute()
   {
@@ -82,7 +82,7 @@ public class Time
 
   /**
    * A method converting the time into seconds.
-   * @return an integer representing the seconds.
+   * @return an int representing the seconds.
    */
   public int getTimeInSeconds()
   {

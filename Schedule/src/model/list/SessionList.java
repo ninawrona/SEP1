@@ -1,30 +1,56 @@
 package model.list;
-
+// TODO: 06/12/2021 CONTINUE DOCUMENTING ON TUESDAY 07/12. 
 import model.basic.*;
 
 import java.util.ArrayList;
-
+/**
+ * A class representing a list of all the sessions.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class SessionList
 {
   private ArrayList<Session> sessions;
   private RoomList roomList;
 
+  /**
+   * A constructor taking no arguments that initializes two ArrayLists: one with Session objects and one with Room objects.
+   */
   public SessionList()
   {
     this.sessions = new ArrayList<>();
     roomList = new RoomList();
   }
 
+  /**
+   * A method returning the size of the SessionList
+   * @return an int representing how many Session objects the list contains.
+   */
   public int size()
   {
     return sessions.size();
   }
 
+  /**
+   * A getter method returning a Session at a chosen index.
+   * @param index
+   *            the index of the desired Session.
+   * @return the Session object at the specified index.
+   */
   public Session get(int index)
   {
     return sessions.get(index);
   }
 
+  /**
+   * A void method adding a Session object to the list (cannot be null) and booking a room for it. The method todo *is checking if the teacher is
+   * todo available for the session.
+   * @param session
+   *              a Session object
+   * @param room
+   *              a Room object
+   */
   public void addSession(Session session, Room room)
   {
     if (session == null)
@@ -33,6 +59,7 @@ public class SessionList
     }
     if (!(isTeacherAvailable(session)))
     {
+      // TODO: 06/12/2021 Remove comment/delete method.
       //throw new IllegalCallerException("Teacher not available!");
     }
     // assign room with the session itself
@@ -42,6 +69,11 @@ public class SessionList
     sessions.add(session);
   }
 
+  /**
+   * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
+   * @param session
+   *              the Session object to be removed from the list.
+   */
   public void removeSession(Session session)
   {
     if (size() == 0)
@@ -57,7 +89,11 @@ public class SessionList
     sessions.remove(session);
   }
 
-
+  /**
+   * A setter method for the RoomLists, used in the ViewController.
+   * @param roomList
+   *              the roomList to be set.
+   */
   public void setRoomList(RoomList roomList)
   {
     if (roomList == null)
@@ -67,7 +103,12 @@ public class SessionList
     this.roomList = roomList;
   }
 
-
+  /**
+   * A method that returns a list of available rooms when booking a session.
+   * @param session
+   *            the session that needs a room.
+   * @return an ArrayList of Room objects that are available for booking.
+   */
   public RoomList suggestRooms(Session session)
   {
     if (session == null)
@@ -101,6 +142,13 @@ public class SessionList
 
   }
 
+  /**
+   * A void method that books a room for a session. The parameters cannot be null, and booking is only done if the room is available.
+   * @param room
+   *          the Room object to be booked for the Session object.
+   * @param session
+   *          the Session object that needs a room booking.
+   */
   public void bookRoomForASession(Room room, Session session)
   {
     if (session == null || room == null)
@@ -118,6 +166,21 @@ public class SessionList
     }
   }
 
+  /**
+   * A method that checks if a room is available. This is done by creating an ArrayList and looping through all the sessions. 
+   * If a session's room and date from the list is the same as the one from the parameters, it is added to the list. 
+   * The second for loop is checking if there is an overlap in terms of time between the sessions from the list, and the session from the parameters.
+   * 
+   * @param room
+   *          the Room object to be checked.
+   * @param timeStart
+   *          the beginning time of the Session.
+   * @param numberOfLessons
+   *          the number of lessons in the Session.
+   * @param date
+   *          the Date of the session.
+   * @return "True" if there is no overlap in the second for loop, "False" if there is an overlap. 
+   */
   public boolean isRoomAvailable(Room room, Time timeStart, int numberOfLessons,
       Date date)
   {
@@ -143,6 +206,16 @@ public class SessionList
     return true;
   }
 
+  /**
+   * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.
+   * If there are such sessions, the next if statement is checking if the session is overlapped by this. 
+   * If the sessions are not overlapped, the method is looping through the TeachersList of the session and checking if 
+   * it contains the same teacher(s). 
+   * If it does contain the same teacher, the method returns "False".
+   * @param session
+   *            the Session object to be compared with
+   * @return "True" if all the teachers from the Session are available, or "False" if at least one of them is unavailable.
+   */
   public boolean isTeacherAvailable(Session session)
   {
     for (int i = 0; i < sessions.size(); i++)
@@ -166,6 +239,13 @@ public class SessionList
     return false;
   }
 
+  /**
+   * 
+   * @param date
+   * @param startTime
+   * @param numberOfLessons
+   * @return
+   */
   public SessionList getSessionsByTimeDate(Date date, Time startTime,
       int numberOfLessons)
   {
@@ -248,7 +328,7 @@ public class SessionList
   }
 
   public Session getExactSession(Time time, Room room, Date date)
-  {//
+  {
     if (time == null || room == null)
     {
       throw new IllegalArgumentException("Parameters can not be null");

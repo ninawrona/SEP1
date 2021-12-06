@@ -1,6 +1,8 @@
 package view;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,11 +21,22 @@ public class ScheduleGridViewController{
     private ScheduleModel model;
     private Region root;
     private ScheduleViewModel scheduleViewModel;
+    private AddSessionViewController addSessionViewController;
 
     @FXML
-    javafx.scene.control.Label errorLabel;
+    Label errorLabel;
     @FXML
     Label classNameLabel;
+    @FXML
+    Label label11;
+    @FXML
+    Label label12;
+    @FXML
+    Label label13;
+    @FXML
+    Label label14;
+    @FXML
+    Label label15;
     @FXML private GridPane gridPane;
 
         public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
@@ -33,19 +46,39 @@ public class ScheduleGridViewController{
             this.model = model;
             this.scheduleViewModel = new ScheduleViewModel(model);
             this.gridPane = new GridPane();
+            this.addSessionViewController = new AddSessionViewController();
 
-            //creating label email
-            Text text1 = new Text("Email");
+            reset();
+            label11.setText("Monday");
+            label12.setText("Tuesday");
+            label13.setText("Wednesday");
+            label14.setText("Thursday");
+            label15.setText("Friday");
+            try{
+                Label label = (Label) getNodeByRowColumnIndex(1, 1, gridPane);
+                System.out.println(label);
+            }catch (Exception e){
+                e.printStackTrace();
+                System.out.println("sth is wrong again, but does it work?");
+            }
 
-            //creating label password
-            Text text2 = new Text("Password");
-
-            //Arranging all the nodes in the grid
-            gridPane.add(text1, 0, 0);
-            gridPane.add(text2, 0, 1);
-
-
+            //label01.setText(addSessionViewController.timeArray.get(0));
         }
+
+    public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
+                result = node;
+                break;
+            }
+        }
+
+        return result;
+    }
+
 
         public Region getRoot() {
             return root;
@@ -102,6 +135,5 @@ public class ScheduleGridViewController{
     {
         viewHandler.closeView();
     }
-
 
 }

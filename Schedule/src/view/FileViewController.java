@@ -116,7 +116,7 @@ public class FileViewController
       RoomList roomList = null;
       CourseList courseList = null;
 
-      //classGroupList = ReadWrite.manualReadStudent(fileStudents);
+      classGroupList = ReadWrite.manualReadStudents(fileStudents);
       roomList = ReadWrite.manualReadRooms(fileRooms);
       courseList = ReadWrite.manualReadCourses(fileCourses);
 

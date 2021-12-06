@@ -29,7 +29,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="studentsField" prefHeight="25.0" prefWidth="226.0" />
+            <TextField fx:id="studentsField" prefHeight="25.0" prefWidth="300.0" />
             <Button mnemonicParsing="false" onAction="#selectStudentsFileButton" text="Select File">
                <HBox.margin>
                   <Insets left="10.0" />
@@ -50,7 +50,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="coursesField" prefHeight="25.0" prefWidth="226.0" />
+            <TextField fx:id="coursesField" prefHeight="25.0" prefWidth="300.0" />
             <Button mnemonicParsing="false" onAction="#selectCoursesFileButton" text="Select File">
                <HBox.margin>
                   <Insets left="10.0" />
@@ -71,7 +71,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="roomsField" prefHeight="25.0" prefWidth="226.0" />
+            <TextField fx:id="roomsField" prefHeight="25.0" prefWidth="300.0" />
             <Button mnemonicParsing="false" onAction="#selectRoomsFileButton" text="Select File">
                <HBox.margin>
                   <Insets left="10.0" />

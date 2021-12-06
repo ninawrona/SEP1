@@ -87,7 +87,7 @@ public class FileViewController
           && fileNameArray[fileNameArray.length - 2] == 'x'
           && fileNameArray[fileNameArray.length - 1] == 't')
       {
-        coursesField.setText(fileCourses.getName());
+        coursesField.setText(fileCourses.getAbsolutePath());
       }
     }
   }
@@ -103,7 +103,7 @@ public class FileViewController
           && fileNameArray[fileNameArray.length - 2] == 'x'
           && fileNameArray[fileNameArray.length - 1] == 't')
       {
-        roomsField.setText(fileRooms.getName());
+        roomsField.setText(fileRooms.getAbsolutePath());
       }
     }
   }

@@ -504,6 +504,7 @@ public class ReadWrite
       int capacity;
       Room room;
       String[] parts;
+      String[] roomParts;
 
       while (in.hasNext())
       {
@@ -512,6 +513,20 @@ public class ReadWrite
         if (line.contains(","))
         {
           parts = line.split(",");
+          /*for (int i = 0; i < parts.length; i++){
+            System.out.println(parts[i]);
+          }
+
+           */
+
+          for (int i = 0 ; i < parts.length; i++){
+            if (parts[i].contains(".")){
+              roomParts = parts[i].split("[.]");
+              for (int j = 0; j < roomParts.length; j++){
+                System.out.println(roomParts[j]);
+              }
+            }
+          }
           if (parts.length == 2){
 
           }

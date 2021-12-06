@@ -137,8 +137,8 @@ public class FileViewController
 
     }
     // Do something with this button to open the file at the path
-    filePathField.getText();
-    viewHandler.closeView();
+    // filePathField.getText();
+    // viewHandler.closeView();
     viewHandler.openView("schedule");
   }
 

@@ -29,6 +29,7 @@ public class Teacher
     }
 
     this.viaId = viaId;
+    coursesTaught = new CourseList();
   }
 
   /**

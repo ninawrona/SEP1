@@ -17,7 +17,7 @@ public class Teacher
     {
       throw new IllegalArgumentException("Via ID can not be null");
     }
-
+    
     this.viaId = viaId;
   }
 

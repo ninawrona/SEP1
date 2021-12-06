@@ -10,55 +10,59 @@ public class Teacher
   private CourseList coursesTaught;
   private SessionList sessions;
 
-  public Teacher(String viaId){
-    name = null;
-    if (viaId.equals(null)){
+  public Teacher(String viaId)
+  {
+    // Name is viaId for debugging
+    // todo add name to list
+    this.name = viaId;
+    if (viaId.equals(null))
+    {
       throw new IllegalArgumentException("Via ID can not be null");
     }
-    
-    this.viaId = viaId;
     coursesTaught = new CourseList();
-    sessions = new SessionList();
+
+    this.viaId = viaId;
   }
 
-  public String getName(){
+  public String getName()
+  {
     return name;
   }
 
-  public String getViaId(){
+  public String getViaId()
+  {
     return viaId;
   }
 
-  public CourseList getCoursesTaught(){
+  public CourseList getCoursesTaught()
+  {
     return coursesTaught;
   }
 
-  public void assignToCourseTaught(Course course){
+  public void assignToCourseTaught(Course course)
+  {
     coursesTaught.addCourse(course);
   }
 
-  public void removeFromCoursesTaught(Course course){
+  public void removeFromCoursesTaught(Course course)
+  {
     coursesTaught.removeCourse(course);
   }
 
-
-  public String toString(){
-    return "Name: " + name + "\nVia ID: " + viaId ;
+  public String toString()
+  {
+    return "Name: " + name + "\nVia ID: " + viaId + "\nCourses Taught: "
+        + coursesTaught;
   }
 
-  public boolean equals(Object obj){
-    if (!(obj instanceof Teacher)){
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Teacher))
+    {
       return false;
     }
-    Teacher other = (Teacher)obj;
+    Teacher other = (Teacher) obj;
 
-    if(name==null && other.name==null)
-    {
-      return viaId.equals(other.viaId);
-    }
-    else
-    {
-      return name.equals(other.name) && viaId.equals(other.viaId);
-    }
+    return name.equals(other.name) && viaId.equals(other.viaId);
   }
 }

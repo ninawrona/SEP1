@@ -121,7 +121,7 @@ public class FileViewController
       courseList = ReadWrite.manualReadCourses(fileCourses);
 
       //Make methods to parse this list to our system.
-      
+
       for (int i = 0; i < courseList.size(); i++)
       {
         model.addCourse(courseList.get(i));

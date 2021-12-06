@@ -14,10 +14,11 @@ public class ReadWrite
 
   public static void main(String[] args)
   {
-    //System.out.println(manualReadStudent("students.txt"));
-    //XMLParser.toXML(manualReadStudent("students.txt"),"students.xml");
-    //   manualWriteStudent(manualReadStudent());
-    //   manualWriteCourse(manualReadCourse());
+   // System.out.println(manualReadStudents());
+  //  XMLParser.toXML(manualReadStudents(), "students.xml");
+  //  System.out.println(manualReadCourses());
+  //  manualWriteCourse(manualReadCourses());
+    manualReadRooms();
   }
 
   /*
@@ -54,7 +55,7 @@ public class ReadWrite
         e.printStackTrace();
       }
     }
-
+*/
     public static void manualWriteCourse(CourseList courses)
     {
       File file = new File("Courses.xml");
@@ -66,8 +67,11 @@ public class ReadWrite
         String xml = "";
         xml +=
             "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+
+        xml += "\n<CourseList>";
         for (int i = 0; i < courses.size(); i++)
         {
+
           xml += "\n<Course>";
           xml += "\n    <Semester>" + courses.get(i).getSemesterTaught()
               + "</Semester>";
@@ -77,13 +81,15 @@ public class ReadWrite
               "\n    <CourseName>" + courses.get(i).getName() + "</CourseName>";
           for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
           {
-            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j)
+            xml += "\n    <Teacher>" + courses.get(i).getTeachers().get(j).getName() + "," + courses.get(i).getTeachers().get(j).getViaId()
                 + "</Teacher>";
           }
           xml += "\n    <ECTS>" + courses.get(i).getECTS() + "</ECTS>";
 
           xml += "\n</Course>";
+
         }
+        xml += "\n</CourseList>";
         out.println(xml);
         out.close();
 
@@ -96,10 +102,10 @@ public class ReadWrite
     }
 
 
-   */
-  public static ClassGroupList manualReadStudent(File file)
-  {
 
+  public static ClassGroupList manualReadStudents()
+  {
+    File file = new File("students.txt");
     ClassGroupList classGroupList = new ClassGroupList();
 
     try
@@ -374,9 +380,9 @@ public class ReadWrite
     return classGroupList;
   }
 
-  public static CourseList manualReadCourses(File file)
+  public static CourseList manualReadCourses()
   {
-
+    File file = new File("courses.txt");
     CourseList courses = new CourseList();
     TeacherList masterTeacherList = new TeacherList();
     try
@@ -484,9 +490,10 @@ public class ReadWrite
     return courses;
   }
 
-  public static RoomList manualReadRooms(File file)
+  public static  RoomList manualReadRooms(File file)
   {
     RoomList rooms = new RoomList();
+
     try
     {
       Scanner in = new Scanner(file);
@@ -496,6 +503,7 @@ public class ReadWrite
       int capacity;
       Room room;
       String[] parts;
+      String[] roomParts;
 
       while (in.hasNext())
       {
@@ -504,6 +512,20 @@ public class ReadWrite
         if (line.contains(","))
         {
           parts = line.split(",");
+          /*for (int i = 0; i < parts.length; i++){
+            System.out.println(parts[i]);
+          }
+
+           */
+
+          for (int i = 0 ; i < parts.length; i++){
+            if (parts[i].contains(".")){
+              roomParts = parts[i].split("[.]");
+              for (int j = 0; j < roomParts.length; j++){
+                System.out.println(roomParts[j]);
+              }
+            }
+          }
           if (parts.length == 2){
 
           }
@@ -518,5 +540,5 @@ public class ReadWrite
 
   }
 
-
 }
+

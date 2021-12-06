@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FileViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="244.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FileViewController">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -25,6 +25,9 @@
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <TextField fx:id="studentsField" prefHeight="25.0" prefWidth="226.0" />
             <Button mnemonicParsing="false" onAction="#selectStudentsFileButton" text="Select File">
@@ -43,6 +46,9 @@
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <TextField fx:id="coursesField" prefHeight="25.0" prefWidth="226.0" />
             <Button mnemonicParsing="false" onAction="#selectCoursesFileButton" text="Select File">
@@ -61,6 +67,9 @@
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <TextField fx:id="roomsField" prefHeight="25.0" prefWidth="226.0" />
             <Button mnemonicParsing="false" onAction="#selectRoomsFileButton" text="Select File">
@@ -79,11 +88,17 @@
                     <HBox.margin>
                         <Insets right="5.0" />
                     </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#cancelInSelectATextFileButton" prefHeight="35.0" prefWidth="100.0" text="Cancel">
                     <HBox.margin>
                         <Insets right="5.0" />
                     </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
                 </Button>
             </children>
             <padding>

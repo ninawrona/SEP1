@@ -1,6 +1,6 @@
 package model.basic;
 
-public abstract class Room
+public class Room
 {
   private int floor;
   private char block;

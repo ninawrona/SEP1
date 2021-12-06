@@ -107,7 +107,7 @@ public class FileViewController
       }
     }
   }
-
+/*
   @FXML void confirmInSelectATextFileButton()
   {
     if (fileStudents != null && fileRooms != null && fileCourses != null)
@@ -116,24 +116,28 @@ public class FileViewController
       RoomList roomList = null;
       CourseList courseList = null;
 
-      classGroupList = ReadWrite.manualReadStudents(fileStudents);
+      //classGroupList = ReadWrite.manualReadStudents(fileStudents);
       roomList = ReadWrite.manualReadRooms(fileRooms);
       courseList = ReadWrite.manualReadCourses(fileCourses);
 
       //Make methods to parse this list to our system.
 
+      model.addClassGroupList(ReadWrite.manualReadStudents(fileStudents));
+      for (int i = 0; i < classGroupList.size(); i++)
+      {
+        for()
+        if(classGroupList.get(i).getClassName().equals())
+      }
       for (int i = 0; i < courseList.size(); i++)
       {
-        model.addCourse(courseList.get(i));
+        if (model.getAllClasses()().getClassGroup().getSemester() == getSemester() && course
+            .getClassGroup().getClassName().equals(getClassName()))
       }
       for (int i = 0; i < roomList.size(); i++)
       {
         model.setRoomList(roomList);
       }
-      for (int i = 0; i < classGroupList.size(); i++)
-      {
-        model.addClassGroupList(classGroupList);
-      }
+
 
     }
     // Do something with this button to open the file at the path
@@ -142,6 +146,7 @@ public class FileViewController
     viewHandler.openView("schedule");
   }
 
+ */
   @FXML void cancelInSelectATextFileButton()
   {
     viewHandler.openView("schedule");

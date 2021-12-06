@@ -140,7 +140,7 @@ public class Course
   // Alt + F7 to find usages- CF 5/12
 
   /**
-   * A void method setting the classGroup inside a course because courses are within classGroups.
+   * A void method setting the classGroup inside a course (because the courses are within classGroups).
    * @param classGroup
    */
   public void setClassGroup(ClassGroup classGroup)

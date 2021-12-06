@@ -15,7 +15,7 @@ public class Teacher
     if (viaId.equals(null)){
       throw new IllegalArgumentException("Via ID can not be null");
     }
-
+    
     this.viaId = viaId;
     coursesTaught = new CourseList();
     sessions = new SessionList();

@@ -1,6 +1,5 @@
 package view;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -80,6 +79,7 @@ public class ScheduleViewController
     }*/
 
       mondayColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
+      //scheduleTable.setItems();
       scheduleTable.setItems(scheduleViewModel.getList());
       // The method below should fetch all the session to display
   }

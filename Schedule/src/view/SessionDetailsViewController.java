@@ -25,8 +25,7 @@ public class SessionDetailsViewController
     // Called by FXMLLoader
   }
 
-  public void init(ViewHandler viewHandler, ScheduleModel model,
-      Region root) // add model when made
+  public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
   {
     this.viewHandler = viewHandler;
     this.root = root;

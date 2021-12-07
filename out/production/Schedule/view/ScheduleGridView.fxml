@@ -87,7 +87,7 @@
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <GridPane fx:id="gridPane" alignment="TOP_RIGHT" gridLinesVisible="true" onMouseClicked="#removeSessionButton" prefHeight="435.0" prefWidth="841.0">
+                  <GridPane alignment="TOP_RIGHT" gridLinesVisible="true" onMouseClicked="#removeSessionButton" prefHeight="435.0" prefWidth="841.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -115,7 +115,7 @@
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="label40" alignment="CENTER" prefHeight="29.0" prefWidth="119.0" text="Label" GridPane.rowIndex="4">
+                        <Label fx:id="label04" alignment="CENTER" prefHeight="29.0" prefWidth="119.0" text="Label" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
@@ -123,68 +123,348 @@
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label12" alignment="CENTER" prefHeight="70.0" prefWidth="118.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label fx:id="label21" alignment="CENTER" prefHeight="70.0" prefWidth="118.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label13" alignment="CENTER" prefHeight="35.0" prefWidth="171.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Label fx:id="label31" alignment="CENTER" prefHeight="35.0" prefWidth="171.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label14" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <Label fx:id="label41" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label15" alignment="CENTER" prefHeight="114.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <Label fx:id="label51" alignment="CENTER" prefHeight="114.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label20" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="194.0" text="Label" GridPane.rowIndex="2">
+                        <Label fx:id="label02" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="194.0" text="Label" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label30" alignment="CENTER" prefHeight="17.0" prefWidth="138.0" text="Label" GridPane.rowIndex="3">
+                        <Label fx:id="label03" alignment="CENTER" prefHeight="17.0" prefWidth="138.0" text="Label" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label50" alignment="CENTER" prefHeight="17.0" prefWidth="158.0" text="Label" GridPane.rowIndex="5">
+                        <Label fx:id="label05" alignment="CENTER" prefHeight="17.0" prefWidth="158.0" text="Label" GridPane.rowIndex="5">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label60" alignment="CENTER" prefHeight="17.0" prefWidth="164.0" text="Label" GridPane.rowIndex="6">
+                        <Label fx:id="label06" alignment="CENTER" prefHeight="17.0" prefWidth="164.0" text="Label" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label70" alignment="CENTER" prefHeight="20.0" prefWidth="192.0" text="Label" GridPane.rowIndex="7">
+                        <Label fx:id="label07" alignment="CENTER" prefHeight="20.0" prefWidth="192.0" text="Label" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label80" alignment="CENTER" prefHeight="17.0" prefWidth="155.0" text="Label" GridPane.rowIndex="8">
+                        <Label fx:id="label08" alignment="CENTER" prefHeight="17.0" prefWidth="155.0" text="Label" GridPane.rowIndex="8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label90" alignment="CENTER" prefHeight="20.0" prefWidth="166.0" text="Label" GridPane.rowIndex="9">
+                        <Label fx:id="label09" alignment="CENTER" prefHeight="20.0" prefWidth="166.0" text="Label" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label100" alignment="CENTER" prefHeight="20.0" prefWidth="178.0" text="Label" GridPane.rowIndex="10">
+                        <Label fx:id="label010" alignment="CENTER" prefHeight="20.0" prefWidth="178.0" text="Label" GridPane.rowIndex="10">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label110" alignment="CENTER" prefHeight="20.0" prefWidth="198.0" text="Label" GridPane.rowIndex="11">
+                        <Label fx:id="label011" alignment="CENTER" prefHeight="20.0" prefWidth="198.0" text="Label" GridPane.rowIndex="11">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label120" alignment="CENTER" prefHeight="20.0" prefWidth="197.0" text="Label" GridPane.rowIndex="12">
+                        <Label fx:id="label012" alignment="CENTER" prefHeight="20.0" prefWidth="197.0" text="Label" GridPane.rowIndex="12">
                            <font>
                               <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell13" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell14" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell15" alignment="CENTER" layoutX="130.0" layoutY="115.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell16" alignment="CENTER" layoutX="130.0" layoutY="150.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell17" alignment="CENTER" layoutX="130.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell18" alignment="CENTER" layoutX="130.0" layoutY="220.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell19" alignment="CENTER" layoutX="130.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell111" alignment="CENTER" layoutX="130.0" layoutY="290.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell110" alignment="CENTER" layoutX="130.0" layoutY="359.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="130.0" layoutY="359.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123" alignment="CENTER" layoutX="130.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell124" alignment="CENTER" layoutX="130.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell125" alignment="CENTER" layoutX="130.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1251" alignment="CENTER" layoutX="250.0" layoutY="80.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1231" alignment="CENTER" layoutX="250.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12311" alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123111" alignment="CENTER" layoutX="250.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1231111" alignment="CENTER" layoutX="250.0" layoutY="220.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12311111" alignment="CENTER" layoutX="250.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123111111" alignment="CENTER" layoutX="250.0" layoutY="290.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1231111111" alignment="CENTER" layoutX="250.0" layoutY="325.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12311111111" alignment="CENTER" layoutX="250.0" layoutY="359.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1241" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12411" alignment="CENTER" layoutX="370.0" layoutY="80.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell124111" alignment="CENTER" layoutX="370.0" layoutY="115.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1241111" alignment="CENTER" layoutX="370.0" layoutY="150.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12411111" alignment="CENTER" layoutX="370.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell124111111" alignment="CENTER" layoutX="370.0" layoutY="220.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1241111111" alignment="CENTER" layoutX="370.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12411111111" alignment="CENTER" layoutX="370.0" layoutY="290.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell124111111111" alignment="CENTER" layoutX="370.0" layoutY="325.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1241111111111" alignment="CENTER" layoutX="370.0" layoutY="359.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1242" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1243" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1244" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1245" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1246" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1247" alignment="CENTER" layoutX="370.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1232" alignment="CENTER" layoutX="250.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12412" alignment="CENTER" layoutX="370.0" layoutY="80.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell124112" alignment="CENTER" layoutX="370.0" layoutY="115.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell126" alignment="CENTER" layoutX="130.0" layoutY="45.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1222" alignment="CENTER" layoutX="130.0" layoutY="80.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12321" alignment="CENTER" layoutX="490.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123211" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1232111" alignment="CENTER" layoutX="609.0" layoutY="80.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12321111" alignment="CENTER" layoutX="609.0" layoutY="115.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123211111" alignment="CENTER" layoutX="609.0" layoutY="150.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1232111111" alignment="CENTER" layoutX="609.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell12321111111" alignment="CENTER" layoutX="609.0" layoutY="220.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123211111111" alignment="CENTER" layoutX="609.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1232111112" alignment="CENTER" layoutX="609.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell1232111113" alignment="CENTER" layoutX="609.0" layoutY="185.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cell123211111112" alignment="CENTER" layoutX="609.0" layoutY="255.0" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="12">
+                           <font>
+                              <Font size="10.0" />
                            </font>
                         </Label>
                      </children>
                   </GridPane>
+                  <Label fx:id="cell121" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
                </children>
                <VBox.margin>
                   <Insets left="5.0" right="5.0" />

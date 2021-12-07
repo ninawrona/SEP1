@@ -413,9 +413,10 @@ public class SessionList
   /**
    * A getter method returning a session with a specified teacher.
    * @param teacher
-   *              the Teacher object to b
+   *              a Teacher object representing the teacher to search the sessions by.
    * @param date
-   * @return
+   *          a Date object representing the date to search the session by.
+   * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
    */
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)
   {
@@ -443,12 +444,18 @@ public class SessionList
 
   }
 
+  /**
+   * A getter method returning a list of Session objects with the specified ClassGroup.
+   * @param classGroup
+   *                a ClassGroup object representing the ClassGroup by which the sessions are sorted.
+   * @return A list of Sessions (if there are any) with the same ClassGroup as the one specified in the parameter.
+   */
   public SessionList getSessionsByClassGroup(ClassGroup classGroup)
   {
     if (classGroup == null)
     {
-      //throw new IllegalArgumentException("Parameter cannot be null!");
-      // catch this exception in the controller for the schedule view
+     throw new IllegalArgumentException("Parameter cannot be null!");
+
     }
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
@@ -466,6 +473,12 @@ public class SessionList
     return sessionListClassGroup;
   }
 
+  /**
+   * A getter method returning a list of Session objects with the same student.
+   * @param student
+   *              a Student object representing the student to search by.
+   * @return A list of Sessions (if there are any) with the same student.
+   */
   public SessionList getSessionsByStudent(Student student)
   {
     if (student == null)
@@ -490,6 +503,10 @@ public class SessionList
     throw new NullPointerException("There are no sessions for this student.");
   }
 
+  /**
+   * A method returning a String representation of the Session List.
+   * @return A String object containing all the sessions.
+   */
   public String toString()
   {
     String str = "";
@@ -500,6 +517,12 @@ public class SessionList
     return str;
   }
 
+  /**
+   * A method comparing two objects.
+   * @param obj
+   *          the object to be compared with
+   * @return "True" if the two SessionList objects are identical, "False" if they are not.
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof SessionList))

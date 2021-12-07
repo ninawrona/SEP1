@@ -137,7 +137,8 @@ public class ScheduleModelManager implements ScheduleModel
 
   public SessionList getSessionsByClassGroup(ClassGroup classGroup)
   {
-    return sessionList.getSessionsByClassGroup(classGroup);
+      return sessionList.getSessionsByClassGroup(classGroup);
+      //The exceptions are ruining the code!
   }
 
   public SessionList getSessionsByStudent(Student student)

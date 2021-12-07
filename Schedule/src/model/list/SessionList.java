@@ -369,13 +369,8 @@ public class SessionList
 
   }
 
-  public SessionList getSessionsByClassGroup(ClassGroup classGroup)
+  public SessionList getSessionsByClassGroup(ClassGroup classGroup)//SEQUENCE DIAGRAM!
   {
-    if (classGroup == null)
-    {
-      //throw new IllegalArgumentException("Parameter cannot be null!");
-      // catch this exception in the controller for the schedule view
-    }
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
     {
@@ -385,11 +380,8 @@ public class SessionList
             .addSession(sessions.get(i), sessions.get(i).getRoom());
       }
     }
-    if (sessionListClassGroup == null)
-    {
-      System.out.println("Hey! sessionListClassGroup is null!");
-    }
-    return sessionListClassGroup;
+      return sessionListClassGroup;
+
   }
 
   public SessionList getSessionsByStudent(Student student)

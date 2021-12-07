@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScheduleGridViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="543.0" prefWidth="893.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScheduleGridViewController">
    <children>
-      <VBox prefHeight="312.0" prefWidth="600.0">
+      <VBox prefHeight="514.0" prefWidth="893.0">
          <children>
             <Label alignment="CENTER" prefHeight="33.0" prefWidth="689.0" text="Schedule">
                <font>
@@ -22,7 +22,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <HBox alignment="TOP_RIGHT" prefHeight="317.0" prefWidth="679.0">
+            <HBox alignment="TOP_RIGHT" prefHeight="417.0" prefWidth="883.0">
                <children>
                   <VBox prefHeight="222.0" prefWidth="242.0">
                      <children>
@@ -30,6 +30,9 @@
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="50.0" />
+                           </VBox.margin>
                         </Label>
                         <Button mnemonicParsing="false" onAction="#chooseClassButton" prefHeight="30.0" prefWidth="100.0" text="Choose Class">
                            <VBox.margin>
@@ -84,7 +87,7 @@
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <GridPane fx:id="gridPane" alignment="TOP_RIGHT" gridLinesVisible="true" prefHeight="273.0" prefWidth="479.0">
+                  <GridPane fx:id="gridPane" alignment="TOP_RIGHT" gridLinesVisible="true" onMouseClicked="#removeSessionButton" prefHeight="435.0" prefWidth="841.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -109,73 +112,73 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <HBox.margin>
-                        <Insets right="5.0" />
+                        <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                      <children>
-                        <Label fx:id="label40" prefHeight="36.0" prefWidth="88.0" text="Label" GridPane.rowIndex="4">
+                        <Label fx:id="label40" alignment="CENTER" prefHeight="29.0" prefWidth="119.0" text="Label" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label11" prefHeight="27.0" prefWidth="101.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="label11" alignment="CENTER" prefHeight="27.0" prefWidth="192.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label12" prefHeight="17.0" prefWidth="118.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label fx:id="label12" alignment="CENTER" prefHeight="70.0" prefWidth="118.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label13" prefHeight="37.0" prefWidth="129.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Label fx:id="label13" alignment="CENTER" prefHeight="35.0" prefWidth="171.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label14" prefHeight="17.0" prefWidth="199.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <Label fx:id="label14" alignment="CENTER" prefHeight="58.0" prefWidth="120.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label15" prefHeight="17.0" prefWidth="146.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <Label fx:id="label15" alignment="CENTER" prefHeight="114.0" prefWidth="120.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label20" prefHeight="17.0" prefWidth="194.0" text="Label" GridPane.rowIndex="2">
+                        <Label fx:id="label20" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="194.0" text="Label" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label30" prefHeight="17.0" prefWidth="138.0" text="Label" GridPane.rowIndex="3">
+                        <Label fx:id="label30" alignment="CENTER" prefHeight="17.0" prefWidth="138.0" text="Label" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label50" prefHeight="17.0" prefWidth="158.0" text="Label" GridPane.rowIndex="5">
+                        <Label fx:id="label50" alignment="CENTER" prefHeight="17.0" prefWidth="158.0" text="Label" GridPane.rowIndex="5">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label60" prefHeight="17.0" prefWidth="164.0" text="Label" GridPane.rowIndex="6">
+                        <Label fx:id="label60" alignment="CENTER" prefHeight="17.0" prefWidth="164.0" text="Label" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label70" prefHeight="17.0" prefWidth="225.0" text="Label" GridPane.rowIndex="7">
+                        <Label fx:id="label70" alignment="CENTER" prefHeight="20.0" prefWidth="192.0" text="Label" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label80" prefHeight="17.0" prefWidth="155.0" text="Label" GridPane.rowIndex="8">
+                        <Label fx:id="label80" alignment="CENTER" prefHeight="17.0" prefWidth="155.0" text="Label" GridPane.rowIndex="8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font></Label>
-                        <Label fx:id="label90" text="Label" GridPane.rowIndex="9">
+                        <Label fx:id="label90" alignment="CENTER" prefHeight="20.0" prefWidth="166.0" text="Label" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label100" text="Label" GridPane.rowIndex="10">
+                        <Label fx:id="label100" alignment="CENTER" prefHeight="20.0" prefWidth="178.0" text="Label" GridPane.rowIndex="10">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label110" text="Label" GridPane.rowIndex="11">
+                        <Label fx:id="label110" alignment="CENTER" prefHeight="20.0" prefWidth="198.0" text="Label" GridPane.rowIndex="11">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="label120" text="Label" GridPane.rowIndex="12">
+                        <Label fx:id="label120" alignment="CENTER" prefHeight="20.0" prefWidth="197.0" text="Label" GridPane.rowIndex="12">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -189,6 +192,14 @@
             </HBox>
          </children>
       </VBox>
-      <Label fx:id="errorLabel" prefHeight="50.0" prefWidth="689.0" text="Error Label" textFill="#da2222" />
+      <HBox prefHeight="65.0" prefWidth="766.0">
+         <children>
+            <Label fx:id="errorLabel" prefHeight="123.0" prefWidth="689.0" text="Error Label" textFill="#da2222">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </VBox>

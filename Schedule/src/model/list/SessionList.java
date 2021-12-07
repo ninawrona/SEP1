@@ -57,14 +57,19 @@ public class SessionList
   {
     try
     {
-      
-        if (session == null)
-        {
-          throw new IllegalArgumentException("Session cannot be null!");
-        } if (!(isTeacherAvailable(session)))
-    {
-      throw new IllegalCallerException("Teacher not available!");
-    }
+
+      if (session == null)
+      {
+        throw new IllegalArgumentException("Session cannot be null!");
+      }
+      if (!(isTeacherAvailable(session)))
+      {
+        throw new IllegalCallerException("Teacher not available!");
+      }
+      if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),session)))
+      {
+        throw new IllegalCallerException("This would overlap one of the ClassGroup's existing Sessions!");
+      }
       // assign room with the session itself
       // session.bookRoom(room);
       bookRoomForASession(room, session);//Exceptions inside this method
@@ -206,27 +211,33 @@ public class SessionList
     }
     return true;
   }
-/*
-  public boolean isClassGroupAvailable(ClassGroup classgroup)
+
+  /**
+   * A method that checks if a ClassGroup could have a session without overlaps. The method takes all the sessions from
+   * the SessionList for the ClassGroup specified in the parameter and checking if the Session from the parameter
+   * is overlapping any of these, returning "False" if it is, or "True" if it is not.
+   * @param classgroup
+   *                the ClassGroup object to be booked a Session for.
+   * @param session
+   *            the Session to be booked for the ClassGroup object.
+   * @return "False" if the ClassGroup's new Session overlaps with an existing Session, or "True" if it does not.
+   */
+  public boolean isClassGroupAvailable(ClassGroup classgroup, Session session)
   {
-    SessionList list = new SessionList();
     if (sessions.size() != 0)
     {
-      for (int i = 0; i < sessions.size(); i++)
+      SessionList list = new SessionList();
+      list = (getSessionsByClassGroup(classgroup));
+      for (int i = 0; i < list.size(); i++)
       {
-        if (sessions.get(i).getCourse().getClassGroup().getClassName()
-            .equals(classgroup.getClassName())
-            && sessions.get(i).getCourse().getClassGroup().getSemester()
-            == classgroup.getSemester() {
-
-      }
-
+        if (list.get(i).isOverlapped(session))
         {
-          list.addSession(sessions.get(i), sessions.get(i).getRoom());
+        return false;
         }
       }
     }
-  }*/
+    return true;
+  }
 
   /**
    * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.

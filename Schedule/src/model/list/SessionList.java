@@ -274,10 +274,14 @@ public class SessionList
   } //5 + O(N^2). It is N^2 because we have a for-loop in a for-loop
 
   /**
+   * A getter method returning a list of Session objects on a specified date and time with a certain number of lessons. The variables cannot be null.
    * @param date
+   *          a Date object representing the date
    * @param startTime
+   *          A Time object representing the time
    * @param numberOfLessons
-   * @return
+   *          an int representing the number of lessons
+   * @return A list of Sessions (if there are any) on the given date and time with the specified number of lessons
    */
   public SessionList getSessionsByTimeDate(Date date, Time startTime,
       int numberOfLessons)
@@ -308,6 +312,12 @@ public class SessionList
     }
   }
 
+  /**
+   * A getter method returning a list of Session objects in a chosen room (cannot be null).
+   * @param room
+   *          a Room object representing the room to be checked.
+   * @return a list of Sessions (if there are any) that are held in the previously specified Room.
+   */
   public SessionList getSessionsByRoom(Room room)
   {
     SessionList list = new SessionList();
@@ -334,6 +344,12 @@ public class SessionList
     }
   }
 
+  /**
+   * A getter method returning a list of Session objects with the same selected course (the course cannot be null).
+   * @param course
+   *            a Course object by which the Sessions will be sorted.
+   * @return A list of all the Sessions (if there are any) for the same, previously specified course.
+   */
   public SessionList getSessionsByCourse(Course course)
   {
     SessionList list = new SessionList();
@@ -360,6 +376,16 @@ public class SessionList
     }
   }
 
+  /**
+   * A getter method returning the Session at the chosen time and date, from a chosen room.
+   * @param time
+   *          a Time object representing the time of the session.
+   * @param room
+   *          a Room object representing the room of the session.
+   * @param date
+   *          a Date object representing the date of the session.
+   * @return a Session object if there is any.
+   */
   public Session getExactSession(Time time, Room room, Date date)
   {
     if (time == null || room == null)
@@ -384,6 +410,13 @@ public class SessionList
 
   }
 
+  /**
+   * A getter method returning a session with a specified teacher.
+   * @param teacher
+   *              the Teacher object to b
+   * @param date
+   * @return
+   */
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)
   {
     SessionList sessionsByTeacher = new SessionList();

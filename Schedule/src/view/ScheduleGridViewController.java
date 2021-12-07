@@ -14,11 +14,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import model.basic.Time;
 import model.list.*;
+
+import java.awt.*;
 
 public class ScheduleGridViewController
 {
@@ -191,6 +196,9 @@ public class ScheduleGridViewController
           .getCourseProperty();
       Label labelTest = new Label();
       labelTest.setText(courseName.get());
+
+      // Adds a background color to the session on the grid
+      // labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf("cyan"), null, null)));
 
       int startTimeInt = scheduleViewModel.getList().get(i)
           .getStartTimeIntProperty();

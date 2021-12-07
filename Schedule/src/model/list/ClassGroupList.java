@@ -10,11 +10,18 @@ import java.util.Scanner;
 
 /**
  * A class representing a collection of classes
+ *
+ *   @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ *   @version 1 - 2 December 2021
  */
 public class ClassGroupList
 {
   private ArrayList<ClassGroup> classes;
 
+  /**
+   * A non-argument constructor that creates a new list of classes.
+   * Classes are added manually.
+   */
   public ClassGroupList()
   {
     classes = new ArrayList<>();
@@ -46,15 +53,34 @@ public class ClassGroupList
 
   }
 
+  /**
+   * A method returning the number of classes that are stored in the list.
+   *
+   * @return the number of classes.
+   */
   public int size()
   {
     return classes.size();
   }
 
+  /**
+   * A void method that takes a classGroup as an argument and adds it to a class collection.
+   * @param classGroup
+   *            the ClassGroup object to be added.
+   */
+
   public void addClass(ClassGroup classGroup)
   {
     classes.add(classGroup);
   }
+
+  /**
+   * A void method that takes a classGroup as an argument. It checks the size of the list and if it is 0
+   * it throws a NullPointerException. If the list is null it throws an IllegalArgumentException.
+   * Otherwise it removes a ClassGroup object from the list.
+   * @param classGroup
+   *              A ClassGroup object to be removed from the list.
+   */
 
   public void removeClass(ClassGroup classGroup)
   {
@@ -69,6 +95,14 @@ public class ClassGroupList
     }
     classes.remove(classGroup);
   }
+
+  /**
+   * A getter method that takes an integer and returns the class that is assigned with this number in the array.
+   * @param index
+   *          The number of the course in the list.
+   * @return
+   *       A ClassGroup object that is stored in the classes list.
+   */
 
   public ClassGroup get(int index)
   {

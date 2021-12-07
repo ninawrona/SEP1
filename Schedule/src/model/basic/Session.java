@@ -199,7 +199,6 @@ public class Session
   {
     Time endTime2 = getEndTime(timeStart, numberOfLessons);
 
-
     if ((startTime.isBefore(timeStart) && (startTime.isBefore(endTime2))
         && getEndTime().isBefore(timeStart) && getEndTime().isBefore(
         endTime2))) //Session 1 ends before Session 2 begins
@@ -267,58 +266,61 @@ public class Session
    */
   public boolean isOverlapped(Session other)
   {
-    if (getDate().equals(other.getDate())){
+    if (getDate().equals(other.getDate()))
+    {
 
+      if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
+          other.getEndTime())) && getEndTime().isBefore(other.getStartTime())
+          && getEndTime().isBefore(
+          other.getEndTime()))) //Session 1 ends before Session 2 begins
+      {
+        return false;
+      }
+      else if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
+          other.getEndTime())) && !(getEndTime().isBefore(other.getStartTime()))
+          && getEndTime().isBefore(
+          other.getEndTime()))) // Session 1 extends into Session 2
+      {
+        return true;
+      }
 
-    if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
-        other.getEndTime())) && getEndTime().isBefore(other.getStartTime())
-        && getEndTime().isBefore(
-        other.getEndTime()))) //Session 1 ends before Session 2 begins
-    {
-      return false;
-    }
-    else if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
-        other.getEndTime())) && !(getEndTime().isBefore(other.getStartTime()))
-        && getEndTime().isBefore(
-        other.getEndTime()))) // Session 1 extends into Session 2
-    {
-      return true;
-    }
+      else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
+          getEndTime()) && !(other.getEndTime().isBefore(startTime))
+          && !(other.getEndTime()
+          .isBefore(getEndTime()))) //Session 1 begins and ends inside Session 2
+      {
+        return false;
+      }
 
-    else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
-        getEndTime()) && !(other.getEndTime().isBefore(startTime))
-        && !(other.getEndTime()
-        .isBefore(getEndTime()))) //Session 1 begins and ends inside Session 2
-    {
-      return false;
-    }
-
-    else if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
-        other.getEndTime())) && !(getEndTime().isBefore(other.getStartTime()))
-        && !(getEndTime().isBefore(
-        other.getEndTime())))) // Session 2 begins and ends inside Session 1
-    {
-      return true;
-    }
-    else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
-        getEndTime()) && other.getEndTime().isBefore(startTime)
-        && other.getEndTime()
-        .isBefore(getEndTime())) // Session 2 ends before Session 1 begins
-    {
-      return false;
-    }
-    else if ((other.startTime.isBefore(startTime) && other.startTime.isBefore(
-        getEndTime()) && !(other.getEndTime().isBefore(startTime))
-        && other.getEndTime()
-        .isBefore(getEndTime())))//Session 2 extends into Session 1
-    {
-      return true;
-    }
-    else if (startTime.getTimeInSeconds() == other.startTime.getTimeInSeconds()) //Session 1 and Session 2 start at the same time
-    {
-      return true;
-    }
-    else return (getEndTime().getTimeInSeconds()==other.getEndTime().getTimeInSeconds()); //Session 1 and Session 2 end at the same time
+      else if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
+          other.getEndTime())) && !(getEndTime().isBefore(other.getStartTime()))
+          && !(getEndTime().isBefore(
+          other.getEndTime())))) // Session 2 begins and ends inside Session 1
+      {
+        return true;
+      }
+      else if (other.startTime.isBefore(startTime) && other.startTime.isBefore(
+          getEndTime()) && other.getEndTime().isBefore(startTime)
+          && other.getEndTime()
+          .isBefore(getEndTime())) // Session 2 ends before Session 1 begins
+      {
+        return false;
+      }
+      else if ((other.startTime.isBefore(startTime) && other.startTime.isBefore(
+          getEndTime()) && !(other.getEndTime().isBefore(startTime))
+          && other.getEndTime()
+          .isBefore(getEndTime())))//Session 2 extends into Session 1
+      {
+        return true;
+      }
+      else if (startTime.getTimeInSeconds()
+          == other.startTime.getTimeInSeconds()) //Session 1 and Session 2 start at the same time
+      {
+        return true;
+      }
+      else
+        return (getEndTime().getTimeInSeconds() == other.getEndTime()
+            .getTimeInSeconds()); //Session 1 and Session 2 end at the same time
     }
     return false;
   }
@@ -631,6 +633,22 @@ public class Session
     return course.equals(other.course) && startTime.equals(other.startTime)
         && room.equals(other.room) && date.equals(other.date)
         && numberOfLessons == other.numberOfLessons;
+  }
+
+  // todo add to javadoc
+  public String shortString()
+  {
+    String str = "";
+    str += course.getName() + "\n" + date + "\n";
+    if (room == null)
+    {
+      str += "unassigned";
+    }
+    else
+    {
+      str += room;
+    }
+    return str;
   }
 
 }

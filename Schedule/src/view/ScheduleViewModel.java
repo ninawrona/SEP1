@@ -51,5 +51,4 @@ public class ScheduleViewModel {
     public void addSession(Session session){
         list.add(new SessionViewModel(session));
     }
-
 }

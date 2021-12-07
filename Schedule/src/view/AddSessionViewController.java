@@ -89,7 +89,7 @@ public class AddSessionViewController
     System.out.println(
         model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
             .getCourses());
-    System.out.println("I did a reset");
+    System.out.println("I just reset the add session window!");
     courseChoiceBoxInAddSession.setValue(null);
     startTimeChoiceBox.setValue(null);
     datePicker.getEditor().clear();

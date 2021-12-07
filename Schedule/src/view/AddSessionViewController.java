@@ -56,12 +56,15 @@ public class AddSessionViewController
     this.model = model;
     this.scheduleViewModel = new ScheduleViewModel(model);
     this.classGroup = model.getChosenClassGroup();
+    reset();
+    /*
     errorLabel.setText("");
     titleLabel.setText("");
     loadAllCourseArray();
     datePicker.showWeekNumbersProperty();
     loadTimeArray();
     loadNumberOfLessonsArray();
+     */
   }
 
   public Region getRoot()
@@ -78,29 +81,25 @@ public class AddSessionViewController
     roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
-    if (model.getChosenClassGroup() != null)
-    {
-      titleLabel.setText(
-          "Add a Session to " + model.getChosenClassGroup().toString());
-      session = null;
-      model.setChosenClassGroup(model.getChosenClassGroup());
-      this.classGroup = model.getChosenClassGroup();
-      System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
-      System.out.println("I did a reset");//What does it mean?
-      courseChoiceBoxInAddSession.setValue(null);
-      startTimeChoiceBox.setValue(null);
-      datePicker.getEditor().clear();
-      numberOfLessonsChoiceBox.setValue(null);
-      roomsChoiceBox.setValue(null);
-      loadAllCourseArray();
-      loadTimeArray();
-      loadNumberOfLessonsArray();
-    }
-    else
-    {
-      errorLabel.setText("You have to choose class first!");
-    }
+    titleLabel.setText(
+        "Add a Session to " + model.getChosenClassGroup().toString());
+    session = null;
+    model.setChosenClassGroup(model.getChosenClassGroup());
+    this.classGroup = model.getChosenClassGroup();
+    System.out.println(
+        model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
+            .getCourses());
+    System.out.println("I did a reset");
+    courseChoiceBoxInAddSession.setValue(null);
+    startTimeChoiceBox.setValue(null);
+    datePicker.getEditor().clear();
+    numberOfLessonsChoiceBox.setValue(null);
+    roomsChoiceBox.setValue(null);
+    loadAllCourseArray();
+    loadTimeArray();
+    loadNumberOfLessonsArray();
   }
+
 
   // Load the courses into the arrayList
   // ? How will this look on the list? Will it use the toString method?
@@ -201,7 +200,7 @@ public class AddSessionViewController
       System.out.println(session);
       loadRoomArray();
     }
-    catch(Exception e)
+    catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }

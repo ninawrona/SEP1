@@ -20,11 +20,11 @@ public class ClassGroupList
     classes = new ArrayList<>();
 
     // debugging by making simple course
-    ClassGroup x1 = new ClassGroup(1, "X");
-
-    classes.add(x1);
-    x1.addCourse(new Course("RWD"));
+    //ClassGroup x1 = new ClassGroup(1, "X");
+    //classes.add(x1);
+    //x1.addCourse(new Course("RWD"));
     //classes.add((new ClassGroup(1,"X")).copy());
+    classes.add(new ClassGroup(1, "X"));
     classes.add((new ClassGroup(1, "Y")));
     classes.add((new ClassGroup(1, "Z")));
     classes.add((new ClassGroup(1, "DK")));
@@ -458,7 +458,6 @@ public class ClassGroupList
       e.printStackTrace();
     }
 
-
     for (int j = 0; j < courses.size(); j++)
     {
       String classGroupString =
@@ -507,6 +506,150 @@ public class ClassGroupList
           for (int i = 0; i < size(); i++)
           {
             if (get(i).getSemester() == 1 && get(i).getClassName().equals("DK"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "2X":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 2 && get(i).getClassName().equals("X"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "2Y":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 2 && get(i).getClassName().equals("Y"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "2Z":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 2 && get(i).getClassName().equals("Z"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "2DK":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 2 && get(i).getClassName().equals("DK"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "3X":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 3 && get(i).getClassName().equals("X"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "3Y":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 3 && get(i).getClassName().equals("Y"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "3Z":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 3 && get(i).getClassName().equals("Z"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "3DK":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 3 && get(i).getClassName().equals("DK"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "4X":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 4 && get(i).getClassName().equals("X"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "4Y":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 4 && get(i).getClassName().equals("Y"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "4Z":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 4 && get(i).getClassName().equals("Z"))
+            {
+              get(i).addCourse(courses.get(j));
+              break;
+            }
+          }
+        }
+        break;
+        case "4DK":
+        {
+          for (int i = 0; i < size(); i++)
+          {
+            if (get(i).getSemester() == 4 && get(i).getClassName().equals("DK"))
             {
               get(i).addCourse(courses.get(j));
               break;

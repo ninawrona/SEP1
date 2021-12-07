@@ -64,7 +64,7 @@ public class ViewHandler
     switch (id)
     {
       case "addSession":
-        root = loadAddSessionLView("AddSessionView.fxml");
+        root = loadAddSessionView("AddSessionView.fxml");
         break;
       case "classSelect":
         root = loadClassSelectView("ClassSelectView.fxml");
@@ -108,7 +108,7 @@ public class ViewHandler
     primaryStage.show();
   }
 
-  private Region loadAddSessionLView(String fxmlFile)
+  private Region loadAddSessionView(String fxmlFile)
   {
     if (addSessionViewController == null)
     {

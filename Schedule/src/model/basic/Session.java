@@ -199,6 +199,7 @@ public class Session
   {
     Time endTime2 = getEndTime(timeStart, numberOfLessons);
 
+
     if ((startTime.isBefore(timeStart) && (startTime.isBefore(endTime2))
         && getEndTime().isBefore(timeStart) && getEndTime().isBefore(
         endTime2))) //Session 1 ends before Session 2 begins
@@ -250,7 +251,7 @@ public class Session
 
   /**
    * An overridden method checking if the current session and the one from the parameter (referred to as Session 2) are overlapped.
-   * There are seven if-statements checking for the eight different possible scenarios:
+   * There are seven if-statements checking for the nine different possible scenarios:
    * 1. Session 1 begins and ends before Session 2 begins. This is NOT considered an overlap.
    * 2. Session 1 begins before Session 2 and ends after Session 2 begins. This is considered an overlap.
    * 3. Session 1 begins after Session 2 begins and ends before Session 2 ends. This is considered an overlap.
@@ -259,12 +260,16 @@ public class Session
    * 6. Session 2 begins before Session 1 and ends after Session 1 begins. This is considered an overlap.
    * 7. Session 1 and Session 2 begin at the same time.
    * 8. Session 1 and Session 2 end at the same time.
+   * 9. Session 1 and Session 2 are on two different dates.
    *
    * @param other an object of type Session representing Session 2.
-   * @return "True" for scenario 2, 3, 5, 6, 7 and 8, or "False" for scenario 1 and 4.
+   * @return "True" for scenario 2, 3, 5, 6, 7 and 8, or "False" for scenario 1, 4 and 9.
    */
   public boolean isOverlapped(Session other)
   {
+    if (getDate().equals(other.getDate())){
+
+
     if ((startTime.isBefore(other.getStartTime()) && (startTime.isBefore(
         other.getEndTime())) && getEndTime().isBefore(other.getStartTime())
         && getEndTime().isBefore(
@@ -314,6 +319,8 @@ public class Session
       return true;
     }
     else return (getEndTime().getTimeInSeconds()==other.getEndTime().getTimeInSeconds()); //Session 1 and Session 2 end at the same time
+    }
+    return false;
   }
 
   /**

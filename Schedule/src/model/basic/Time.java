@@ -69,7 +69,7 @@ public class Time
   }
 
   /**
-   * A method checking if the time is before another time.
+   * A method checking if the time is before another time by converting both times into seconds and comparing the results.
    *
    * @param time
    *            time object to be compared with

@@ -1,5 +1,6 @@
 package model.basic;
 
+import model.list.StudentList;
 import model.list.TeacherList;
 
 /**
@@ -159,7 +160,7 @@ public class Session
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
 
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -168,7 +169,7 @@ public class Session
     {
       endMinute = endMinute + 45;
     }
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -187,10 +188,12 @@ public class Session
    * 4. Session 2 begins and ends before Session 1 begins. This is NOT considered an overlap.
    * 5. Session 2 begins after Session 1 begins and ends before Session 1 ends. This is considered an overlap.
    * 6. Session 2 begins before Session 1 and ends after Session 1 begins. This is considered an overlap.
+   * 7. Session 1 and Session 2 begin at the same time.
+   * 8. Session 1 and Session 2 ends at the same time.
    *
    * @param timeStart       the time at which Session 2 starts.
    * @param numberOfLessons the number of lessons inside Session 2.
-   * @return "True" for scenario 2,3,5 and 6, or "False" for scenario 1 and 4.
+   * @return "True" for scenario 2, 3, 5, 6, 7 and 8, or "False" for scenario 1 and 4.
    */
   public boolean isOverlapped(Time timeStart, int numberOfLessons)
   {
@@ -229,24 +232,36 @@ public class Session
       return true;
     }
 
-    else
-      return (timeStart.isBefore(startTime) && timeStart.isBefore(getEndTime())
-          && !(endTime2.isBefore(startTime)) && endTime2.isBefore(
-          getEndTime()));//Session 2 extends into Session 1
+    else if ((timeStart.isBefore(startTime) && timeStart.isBefore(getEndTime())
+        && !(endTime2.isBefore(startTime)) && endTime2.isBefore(
+        getEndTime())))//Session 2 extends into Session 1//
+    {
+      return true;
+    }
+    else if (timeStart.getTimeInSeconds()
+        == startTime.getTimeInSeconds()) //Session 1 and Session 2 begin at the same time
+
+    {
+      return true;
+    }
+    return (endTime2.getTimeInSeconds()
+        == getEndTime().getTimeInSeconds()); //Session 1 and 2 end at the same time
   }
 
   /**
    * An overridden method checking if the current session and the one from the parameter (referred to as Session 2) are overlapped.
-   * There are six if-statements checking for the six different possible scenarios:
+   * There are seven if-statements checking for the eight different possible scenarios:
    * 1. Session 1 begins and ends before Session 2 begins. This is NOT considered an overlap.
    * 2. Session 1 begins before Session 2 and ends after Session 2 begins. This is considered an overlap.
    * 3. Session 1 begins after Session 2 begins and ends before Session 2 ends. This is considered an overlap.
    * 4. Session 2 begins and ends before Session 1 begins. This is NOT considered an overlap.
    * 5. Session 2 begins after Session 1 begins and ends before Session 1 ends. This is considered an overlap.
    * 6. Session 2 begins before Session 1 and ends after Session 1 begins. This is considered an overlap.
+   * 7. Session 1 and Session 2 begin at the same time.
+   * 8. Session 1 and Session 2 end at the same time.
    *
    * @param other an object of type Session representing Session 2.
-   * @return "True" for scenario 2,3,5 and 6, or "False" for scenario 1 and 4.
+   * @return "True" for scenario 2, 3, 5, 6, 7 and 8, or "False" for scenario 1 and 4.
    */
   public boolean isOverlapped(Session other)
   {
@@ -287,12 +302,18 @@ public class Session
     {
       return false;
     }
-    else
-      return (other.startTime.isBefore(startTime) && other.startTime.isBefore(
-          getEndTime()) && !(other.getEndTime().isBefore(startTime))
-          && other.getEndTime()
-          .isBefore(getEndTime())); //Session 2 extends into Session 1
-
+    else if ((other.startTime.isBefore(startTime) && other.startTime.isBefore(
+        getEndTime()) && !(other.getEndTime().isBefore(startTime))
+        && other.getEndTime()
+        .isBefore(getEndTime())))//Session 2 extends into Session 1
+    {
+      return true;
+    }
+    else if (startTime.getTimeInSeconds() == other.startTime.getTimeInSeconds()) //Session 1 and Session 2 start at the same time
+    {
+      return true;
+    }
+    else return (getEndTime().getTimeInSeconds()==other.getEndTime().getTimeInSeconds()); //Session 1 and Session 2 end at the same time
   }
 
   /**
@@ -426,7 +447,8 @@ public class Session
     else if (startTime.getHour() == 12 && startTime.getMinute() == 0
         && numberOfLessons > 7)
     {
-      throw new IllegalArgumentException("There cannot be more than 7 lessons from 12:00.");
+      throw new IllegalArgumentException(
+          "There cannot be more than 7 lessons from 12:00.");
     }
 
     this.numberOfLessons = numberOfLessons;
@@ -471,8 +493,10 @@ public class Session
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
 
-    if (startTime.getHour()<=12 &&startTime.getMinute()!=45&& endHour>=12){ //If the lunch session is also booked, the session will be 10 minutes shorter.
-    endMinute-=10;
+    if (startTime.getHour() <= 12 && startTime.getMinute() != 45
+        && endHour >= 12)
+    { //If the lunch session is also booked, the session will be 10 minutes shorter.
+      endMinute -= 10;
     }
 
     if (endMinute > 60)
@@ -490,7 +514,6 @@ public class Session
       endHour++;
     }
 
-
     String s = "";
     if (endHour < 10)
     {
@@ -503,7 +526,6 @@ public class Session
     }
     s += endMinute;
     return s;
-
 
   }
 
@@ -525,8 +547,10 @@ public class Session
     int endHour = timeStart.getHour() + hours;
     int endMinute = timeStart.getMinute() + minutes;
 
-    if (startTime.getHour()<=12 &&startTime.getMinute()!=45&& endHour>=12){ //If the lunch session is also booked, the session will be 10 minutes shorter.
-      endMinute-=10;
+    if (startTime.getHour() <= 12 && startTime.getMinute() != 45
+        && endHour >= 12)
+    { //If the lunch session is also booked, the session will be 10 minutes shorter.
+      endMinute -= 10;
     }
 
     if (endMinute > 60)
@@ -601,18 +625,7 @@ public class Session
         && room.equals(other.room) && date.equals(other.date)
         && numberOfLessons == other.numberOfLessons;
   }
-  public static void main(String[] args)
-  {
-    Teacher teacher1 = new Teacher("SVA");
-    TeacherList teacherList1= new TeacherList();
-    teacherList1.addTeacher(teacher1);
-    Student student1 = new Student(1, "Bob",654654);
-    Student student2 = new Student(1, "Wendy",655655);
-    Room room1= new Room(5,'C',16,45);
-    Room room2= new Room(5,'C',14,45);
-    
 
-  }
 }
 
 

@@ -448,4 +448,36 @@ public class SessionList
     }
     return false;
   }
+  public static void main(String[] args)
+  {
+    Teacher teacher1 = new Teacher("SVA");
+    TeacherList teacherList1= new TeacherList();
+    teacherList1.addTeacher(teacher1);
+    Student student1 = new Student(1, "Bob",654654);
+    Student student2 = new Student(1, "Wendy",655655);
+    Room room1= new Room(5,'C',16,45);
+    Room room2= new Room(5,'C',14,45);
+    Time time1=new Time(8,20);
+    Time time2=new Time(12,45);
+
+    Date date1= new Date(10,10,2022);
+    Date date2= new Date(11,11,2022);
+    System.out.println(date1);
+    StudentList studentList1=new StudentList();
+    studentList1.addStudent(student1);
+    studentList1.addStudent(student2);
+    ClassGroup group1=new ClassGroup(1,"Y",studentList1);
+    Course course1=new Course("SDJ", group1,teacherList1,1,10);
+    SessionList sessionList1= new SessionList();
+    Session session1=new Session(course1,date1,time1,4);
+    Session session2=new Session(course1,date1,time1,2);
+
+    System.out.println("Session1 : "+session1.toString());
+    System.out.println("Session2 : "+session2.toString());
+    System.out.println("Session 1 is overlapped by session 2: "+session1.isOverlapped(session2));
+
+
+
+
+  }
 }

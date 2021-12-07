@@ -3,6 +3,7 @@ package view;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,11 +12,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 import model.basic.Time;
 import model.list.*;
+
 
 
 public class ScheduleGridViewController {
@@ -128,7 +131,32 @@ public class ScheduleGridViewController {
 
 
             gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+            System.out.println(gridPane.getChildren().get(0));
         }
+
+        gridPane.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                //Node nodeHandler = getNodeByRowColumnIndex(dayOfWeek, startTimeInt, gridPane);
+                System.out.println(gridPane.getChildren());
+                //gets the X and Y of where you clicked
+                double clickX = Math.floor(mouseEvent.getX());
+                double clickY = Math.floor(mouseEvent.getY());
+
+                //Prints out the nodes x/y so that we can see location. the plan is to get the XY of the node we want and compare it to the X Y of where we clicked?
+                System.out.println("X:" + clickX + "\nY:" + clickY);
+                for (int i = 0; i < gridPane.getChildren().size(); i++){
+                    System.out.println("X:" + gridPane.getChildren().get(i).getLayoutX() + "\nY:" + gridPane.getChildren().get(i).getLayoutY());
+                }
+
+                for(int i = 0; i<gridPane.getColumnCount(); i++){
+                    for(int j = 0; j<gridPane.getRowCount();j++)
+                    gridPane.getChildren().remove(i, j);
+                }
+
+            }
+        });
     }
 
     public Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {

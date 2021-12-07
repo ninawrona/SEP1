@@ -3,6 +3,7 @@ package model.list;
 import model.basic.*;
 
 import java.util.ArrayList;
+
 /**
  * A class representing a list of all the sessions.
  *
@@ -25,6 +26,7 @@ public class SessionList
 
   /**
    * A method returning the size of the SessionList
+   *
    * @return an int representing how many Session objects the list contains.
    */
   public int size()
@@ -34,8 +36,8 @@ public class SessionList
 
   /**
    * A getter method returning a Session at a chosen index.
-   * @param index
-   *            the index of the desired Session.
+   *
+   * @param index the index of the desired Session.
    * @return the Session object at the specified index.
    */
   public Session get(int index)
@@ -46,10 +48,9 @@ public class SessionList
   /**
    * A void method adding a Session object to the list (cannot be null) and booking a room for it. The method todo *is checking if the teacher is
    * todo available for the session.
-   * @param session
-   *              a Session object
-   * @param room
-   *              a Room object
+   *
+   * @param session a Session object
+   * @param room    a Room object
    */
   public void addSession(Session session, Room room)
   {
@@ -63,16 +64,15 @@ public class SessionList
       //throw new IllegalCallerException("Teacher not available!");
     }
     // assign room with the session itself
-    session.bookRoom(room);
-
+    // session.bookRoom(room);
     bookRoomForASession(room, session);//Exceptions inside this method
     sessions.add(session);
   }
 
   /**
    * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
-   * @param session
-   *              the Session object to be removed from the list.
+   *
+   * @param session the Session object to be removed from the list.
    */
   public void removeSession(Session session)
   {
@@ -91,8 +91,8 @@ public class SessionList
 
   /**
    * A setter method for the RoomLists, used in the ViewController.
-   * @param roomList
-   *              the roomList to be set.
+   *
+   * @param roomList the roomList to be set.
    */
   public void setRoomList(RoomList roomList)
   {
@@ -105,8 +105,8 @@ public class SessionList
 
   /**
    * A method that returns a list of available rooms when booking a session.
-   * @param session
-   *            the session that needs a room.
+   *
+   * @param session the session that needs a room.
    * @return an ArrayList of Room objects that are available for booking.
    */
   public RoomList suggestRooms(Session session)
@@ -123,8 +123,7 @@ public class SessionList
       if (isRoomAvailable(roomList.get(i), session.getStartTime(),
           session.getNumberOfLessons(), session.getDate()))
       {
-
-       if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
+        if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
             .getStudents().size())
         {
           suggestedRoomList.addRoom(roomList.get(i));
@@ -134,7 +133,6 @@ public class SessionList
     }
     if (suggestedRoomList.size() > 0)
     {
-      System.out.println("Here are the rooms from suggested: " + "\n" + suggestedRoomList);
       return suggestedRoomList;
     }
     throw new NullPointerException(
@@ -144,10 +142,9 @@ public class SessionList
 
   /**
    * A void method that books a room for a session. The parameters cannot be null, and booking is only done if the room is available.
-   * @param room
-   *          the Room object to be booked for the Session object.
-   * @param session
-   *          the Session object that needs a room booking.
+   *
+   * @param room    the Room object to be booked for the Session object.
+   * @param session the Session object that needs a room booking.
    */
   public void bookRoomForASession(Room room, Session session)
   {
@@ -167,53 +164,49 @@ public class SessionList
   }
 
   /**
-   * A method that checks if a room is available. This is done by creating an ArrayList and looping through all the sessions. 
-   * If a session's room and date from the list is the same as the one from the parameters, it is added to the list. 
+   * A method that checks if a room is available. This is done by creating an ArrayList and looping through all the sessions.
+   * If a session's room and date from the list is the same as the one from the parameters, it is added to the list.
    * The second for loop is checking if there is an overlap in terms of time between the sessions from the list, and the session from the parameters.
-   * 
-   * @param room
-   *          the Room object to be checked.
-   * @param timeStart
-   *          the beginning time of the Session.
-   * @param numberOfLessons
-   *          the number of lessons in the Session.
-   * @param date
-   *          the Date of the session.
-   * @return "True" if there is no overlap in the second for loop, "False" if there is an overlap. 
+   *
+   * @param room            the Room object to be checked.
+   * @param timeStart       the beginning time of the Session.
+   * @param numberOfLessons the number of lessons in the Session.
+   * @param date            the Date of the session.
+   * @return "True" if there is no overlap in the second for loop, "False" if there is an overlap.
    */
   public boolean isRoomAvailable(Room room, Time timeStart, int numberOfLessons,
       Date date)
   {
     SessionList list = new SessionList();
-  if(sessions.size()!=0)
-  {
-    for (int i = 0; i < sessions.size(); i++)
+    if (sessions.size() != 0)
     {
-      if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
-          .equals(date))
+      for (int i = 0; i < sessions.size(); i++)
       {
-        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+        if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
+            .equals(date))
+        {
+          list.addSession(sessions.get(i), sessions.get(i).getRoom());
+        }
+      }
+      for (int i = 0; i < list.size(); i++)
+      {
+        if (list.get(i).isOverlapped(timeStart, numberOfLessons))
+        {
+          return false;
+        }
       }
     }
-    for (int i = 0; i < list.size(); i++)
-    {
-      if (list.get(i).isOverlapped(timeStart, numberOfLessons))
-      {
-        return false;
-      }
-    }
-  }
     return true;
   }
 
   /**
    * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.
-   * If there are such sessions, the next if statement is checking if the session is overlapped by this. 
-   * If the sessions are not overlapped, the method is looping through the TeachersList of the session and checking if 
-   * it contains the same teacher(s). 
+   * If there are such sessions, the next if statement is checking if the session is overlapped by this.
+   * If the sessions are not overlapped, the method is looping through the TeachersList of the session and checking if
+   * it contains the same teacher(s).
    * If it does contain the same teacher, the method returns "False".
-   * @param session
-   *            the Session object to be compared with
+   *
+   * @param session the Session object to be compared with
    * @return "True" if all the teachers from the Session are available, or "False" if at least one of them is unavailable.
    */
   public boolean isTeacherAvailable(Session session)
@@ -240,7 +233,6 @@ public class SessionList
   }
 
   /**
-   * 
    * @param date
    * @param startTime
    * @param numberOfLessons
@@ -360,8 +352,8 @@ public class SessionList
       {
         if (sessions.get(i).getCourse().getTeachers().contains(teacher))
         {
-          sessionsByTeacher.addSession(sessions.get(i),
-              sessions.get(i).getRoom());
+          sessionsByTeacher
+              .addSession(sessions.get(i), sessions.get(i).getRoom());
         }
       }
     }
@@ -389,8 +381,8 @@ public class SessionList
     {
       if (sessions.get(i).getCourse().getClassGroup().equals(classGroup))
       {
-        sessionListClassGroup.addSession(sessions.get(i),
-            sessions.get(i).getRoom());
+        sessionListClassGroup
+            .addSession(sessions.get(i), sessions.get(i).getRoom());
       }
     }
     if (sessionListClassGroup == null)
@@ -413,8 +405,8 @@ public class SessionList
       if (sessions.get(i).getCourse().getClassGroup().getStudents()
           .contains(student))
       {
-        sessionListOfStudent.addSession(sessions.get(i),
-            sessions.get(i).getRoom());
+        sessionListOfStudent
+            .addSession(sessions.get(i), sessions.get(i).getRoom());
       }
     }
     if (sessionListOfStudent.size() > 0)

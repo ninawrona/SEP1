@@ -188,6 +188,9 @@ public class Course
    */
   public String toString()
  {
+   //TODO agree whether we display it like this???
+   return getName();
+   /*
     String s = "";
 
     s += "Class: " + classGroup + "\nCourseName:" + name;
@@ -197,6 +200,8 @@ public class Course
     }
     s += "\nECTS: " + ECTS +"\n";
     return s;
+
+    */
   }
 
   //todo: Agree on the redundancy of this overridden toString method. @see getName();  Robert agrees, ...

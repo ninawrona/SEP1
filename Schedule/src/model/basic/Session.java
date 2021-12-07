@@ -601,5 +601,18 @@ public class Session
         && room.equals(other.room) && date.equals(other.date)
         && numberOfLessons == other.numberOfLessons;
   }
+  public static void main(String[] args)
+  {
+    Teacher teacher1 = new Teacher("SVA");
+    TeacherList teacherList1= new TeacherList();
+    teacherList1.addTeacher(teacher1);
+    Student student1 = new Student(1, "Bob",654654);
+    Student student2 = new Student(1, "Wendy",655655);
+    Room room1= new Room(5,'C',16,45);
+    Room room2= new Room(5,'C',14,45);
+    
 
+  }
 }
+
+

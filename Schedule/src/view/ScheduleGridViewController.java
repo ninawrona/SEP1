@@ -154,7 +154,7 @@ public class ScheduleGridViewController {
                     }
 
                      */
-                    gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
+                    // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
                 }
             });
         }

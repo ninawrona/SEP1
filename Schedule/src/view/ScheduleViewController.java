@@ -99,6 +99,7 @@ public class ScheduleViewController
     {
       // System.out.println("Tried");
       classNameLabel.setText("Class: " + model.getChosenClassGroup().toString());
+      scheduleViewModel.update();
     }
     else
     {
@@ -107,7 +108,6 @@ public class ScheduleViewController
       errorLabel.setText("Please select a class");
     }
 
-    scheduleViewModel.update();
   }
 
   // @FXML methods here

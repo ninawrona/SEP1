@@ -31,14 +31,17 @@ public class ScheduleViewModel {
                 model.getSessionsByClassGroup(model.getChosenClassGroup()).get(i)));
             System.out.println(
                 "I just added a session to the list in scheduleViewModel!");
+            System.out.println("Update in ScheduleViewModel" + model.getSessionsByClassGroup(model.getChosenClassGroup()));
           }
+        }
+        catch (IllegalArgumentException e)
+        {
+          System.out.println("The class is not set yet, or sessions don't exist");
         }
         catch (NullPointerException e)
         {
           System.out.println("That class does not have sessions yet");
         }
-
-        System.out.println("Update in ScheduleViewModel" + model.getSessionsByClassGroup(model.getChosenClassGroup()));
     }
 
     public ObservableList<SessionViewModel> getList(){

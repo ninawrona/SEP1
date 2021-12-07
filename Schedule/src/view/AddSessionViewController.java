@@ -211,7 +211,16 @@ public class AddSessionViewController
   {
     try
     {
+      session.bookRoom(roomsChoiceBox.getValue());
       model.addSession(session, roomsChoiceBox.getValue());
+      if (session.getRoom() == null)
+      {
+        System.out.println("Hey! The room for this session is null!");
+      }
+      else
+      {
+        System.out.println("I put that session in room " + session.getRoom());
+      }
       scheduleViewModel.addSession(session);
       reset();
     }

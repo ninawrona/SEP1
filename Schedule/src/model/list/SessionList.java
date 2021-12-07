@@ -78,6 +78,8 @@ public class SessionList
     catch (Exception e)
     {
       System.out.println("There was an issue adding the session.");
+      System.out.println(e.getMessage());
+      e.printStackTrace();
       throw new IllegalStateException("There was an issue adding the session.");
     }
   }
@@ -251,6 +253,8 @@ public class SessionList
    */
   public boolean isTeacherAvailable(Session session)
   {
+    System.out.println("I am checking if the below teachers are available");
+    System.out.println(session.getTeachers());
     for (int i = 0;
          i < sessions.size(); i++)   //O(N) where N is the size of the sessions
     {
@@ -261,16 +265,18 @@ public class SessionList
         {
           for (int j = 0; j < session.getTeachers().size(); j++) //O(N)
           {
-            if (!(sessions.get(i).getCourse().getTeachers() //O(1)
+            if ((sessions.get(i).getCourse().getTeachers() //O(1)
                 .contains(session.getTeachers().get(j)))) //O(1)
             {
-              return true; //O(1)
+              System.out.println("That teacher is not available :(");
+              return false; //O(1)
             }
           }
         }
       }
     }
-    return false; // O(1)
+    System.out.println("The teacher is free!");
+    return true; // O(1)
   } //5 + O(N^2). It is N^2 because we have a for-loop in a for-loop
 
   /**

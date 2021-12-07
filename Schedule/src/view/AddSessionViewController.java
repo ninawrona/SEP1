@@ -193,6 +193,7 @@ public class AddSessionViewController
   // Create a session using the information above, then load rooms
   @FXML private void findRoomsButton()
   {
+    roomsChoiceBox.getItems().removeAll(roomsArray);
     session = new Session(courseChoiceBoxInAddSession.getValue(),
         getDateFromDatePicker(), startTimeChoiceBox.getValue(),
         numberOfLessonsChoiceBox.getValue());

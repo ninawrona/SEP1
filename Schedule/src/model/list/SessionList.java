@@ -211,26 +211,26 @@ public class SessionList
    */
   public boolean isTeacherAvailable(Session session)
   {
-    for (int i = 0; i < sessions.size(); i++)
+    for (int i = 0; i < sessions.size(); i++)   //O(N) where N is the size of the sessions
     {
-      if (sessions.get(i).getDate().equals(
-          session.getDate()))//Another isOverlapped method possible to use
+      if (sessions.get(i).getDate().equals(     //O(1)
+          session.getDate()))//Another isOverlapped method possible to use    //O(1)
       {
-        if (!(sessions.get(i).isOverlapped(session)))
+        if (!(sessions.get(i).isOverlapped(session)))     //O(1)
         {
-          for (int j = 0; j < session.getTeachers().size(); j++)
+          for (int j = 0; j < session.getTeachers().size(); j++) //O(N)
           {
-            if (!(sessions.get(i).getCourse().getTeachers()
-                .contains(session.getTeachers().get(j))))
+            if (!(sessions.get(i).getCourse().getTeachers() //O(1)
+                .contains(session.getTeachers().get(j)))) //O(1)
             {
-              return true;
+              return true; //O(1)
             }
           }
         }
       }
     }
-    return false;
-  }
+    return false; // O(1)
+  } //5 + O(N^2). It is N^2 because we have a for-loop in a for-loop
 
   /**
    * @param date

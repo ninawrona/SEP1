@@ -82,13 +82,11 @@ public class AddSessionViewController
     {
       titleLabel.setText(
           "Add a Session to " + model.getChosenClassGroup().toString());
-      titleLabel.setText("Add a Session to ...");
-
       session = null;
       model.setChosenClassGroup(model.getChosenClassGroup());
       this.classGroup = model.getChosenClassGroup();
       System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
-      System.out.println("I did a reset");
+      System.out.println("I did a reset");//What does it mean?
       courseChoiceBoxInAddSession.setValue(null);
       startTimeChoiceBox.setValue(null);
       datePicker.getEditor().clear();
@@ -193,13 +191,20 @@ public class AddSessionViewController
   // Create a session using the information above, then load rooms
   @FXML private void findRoomsButton()
   {
-    roomsChoiceBox.getItems().removeAll(roomsArray);
-    session = new Session(courseChoiceBoxInAddSession.getValue(),
-        getDateFromDatePicker(), startTimeChoiceBox.getValue(),
-        numberOfLessonsChoiceBox.getValue());
-    System.out.println("I just created the following session:\n");
-    System.out.println(session);
-    loadRoomArray();
+    try
+    {
+      session = new Session(courseChoiceBoxInAddSession.getValue(),
+          getDateFromDatePicker(), startTimeChoiceBox.getValue(),
+          numberOfLessonsChoiceBox.getValue());
+      System.out.println("I just created the following session:\n");
+      System.out.println(session);
+      loadRoomArray();
+    }
+    catch(Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+
   }
 
   @FXML private void addSessionButton()

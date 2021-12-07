@@ -40,27 +40,27 @@ public class ScheduleGridViewController {
     @FXML
     Label label15;
     @FXML
-    private Label label20;
+    private Label label02;
     @FXML
-    private Label label30;
+    private Label label03;
     @FXML
-    private Label label40;
+    private Label label04;
     @FXML
-    private Label label50;
+    private Label label05;
     @FXML
-    private Label label60;
+    private Label label06;
     @FXML
-    private Label label70;
+    private Label label07;
     @FXML
-    private Label label80;
+    private Label label08;
     @FXML
-    private Label label90;
+    private Label label09;
     @FXML
-    private Label label100;
+    private Label label010;
     @FXML
-    private Label label110;
+    private Label label011;
     @FXML
-    private Label label120;
+    private Label label012;
 
     @FXML
     private GridPane gridPane;
@@ -84,17 +84,17 @@ public class ScheduleGridViewController {
         label13.setText("Wednesday");
         label14.setText("Thursday");
         label15.setText("Friday");
-        label20.setText("8:20");
-        label30.setText("9:15");
-        label40.setText("10:10");
-        label50.setText("11:05");
-        label60.setText("12:00");
-        label70.setText("12:45");
-        label80.setText("13:40");
-        label90.setText("14:35");
-        label100.setText("15:30");
-        label110.setText("16:25");
-        label120.setText("17:20");
+        label02.setText("8:20");
+        label03.setText("9:15");
+        label04.setText("10:10");
+        label05.setText("11:05");
+        label06.setText("12:00");
+        label07.setText("12:45");
+        label08.setText("13:40");
+        label09.setText("14:35");
+        label010.setText("15:30");
+        label011.setText("16:25");
+        label012.setText("17:20");
         // Commented out for debugging - CF
             /*try{
                 Label label = (Label) getNodeByRowColumnIndex(1, 1, gridPane);
@@ -115,6 +115,7 @@ public class ScheduleGridViewController {
         System.out.println("I just tried to add the test");
 
          */
+
 
         //populate the grid pane for the first time
         for (int i = 0; i < scheduleViewModel.getList().size(); i++) {

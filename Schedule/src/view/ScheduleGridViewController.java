@@ -3,6 +3,7 @@ package view;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
@@ -127,8 +129,38 @@ public class ScheduleGridViewController {
 
 
             gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+            gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    //Node nodeHandler = getNodeByRowColumnIndex(dayOfWeek, startTimeInt, gridPane);
+                    System.out.println(gridPane.getChildren());
+                    //gets the X and Y of where you clicked
+                    double clickX = Math.floor(mouseEvent.getX());
+                    double clickY = Math.floor(mouseEvent.getY());
+
+                    //Prints out the nodes x/y so that we can see location. the plan is to get the XY of the node we want and compare it to the X Y of where we clicked?
+                    System.out.println("X:" + clickX + "\nY:" + clickY);
+                    for (int i = 0; i < gridPane.getChildren().size(); i++){
+                        System.out.println("X:" + gridPane.getChildren().get(i).getLayoutX() + "\nY:" + gridPane.getChildren().get(i).getLayoutY());
+                    }
+                    //tried to remove at x,y but they are not the same as row and column
+                   // gridPane.getChildren().remove(getNodeByRowColumnIndex((int)clickY,(int)clickX,gridPane));
+
+                    //when you print out properties it says what row and column and span the session is
+                    /*
+                    for (int i = 0; i < gridPane.getChildren().size(); i++){
+                    Object node = gridPane.getChildren().get(i).getProperties().get(getNodeByRowColumnIndex((int)clickY,(int)clickX,gridPane));
+                    System.out.println(gridPane.getChildren().get(i).getProperties());
+                    }
+
+                     */
+                    gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
+                }
+            });
         }
     }
+
+
 
     public Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
         Node result = null;
@@ -184,7 +216,7 @@ public class ScheduleGridViewController {
 
     @FXML
     private void removeSessionButton() {
-        viewHandler.openView("removeSession");
+        //uhuh
     }
 
     @FXML

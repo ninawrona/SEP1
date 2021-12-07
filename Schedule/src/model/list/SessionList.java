@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class SessionList
 {
+  private static Session session1;
   private ArrayList<Session> sessions;
   private RoomList roomList;
 
@@ -46,27 +47,35 @@ public class SessionList
   }
 
   /**
-   * A void method adding a Session object to the list (cannot be null) and booking a room for it. The method todo *is checking if the teacher is
-   * todo available for the session.
+   * A void method adding a Session object to the list (cannot be null) and booking a room for it. The method is checking if the teacher is
+   * available for the session.
    *
    * @param session a Session object
    * @param room    a Room object
    */
   public void addSession(Session session, Room room)
   {
-    if (session == null)
+    try
     {
-      throw new IllegalArgumentException("Session cannot be null!");
+      if ()
+      if (session == null)
+      {
+        throw new IllegalArgumentException("Session cannot be null!");
+      }
+      if (!(isTeacherAvailable(session)))
+      {
+        throw new IllegalCallerException("Teacher not available!");
+      }
+      // assign room with the session itself
+      // session.bookRoom(room);
+      bookRoomForASession(room, session);//Exceptions inside this method
+      sessions.add(session);
     }
-    if (!(isTeacherAvailable(session)))
+    catch (Exception e)
     {
-      // TODO: 06/12/2021 Remove comment/delete method.
-      //throw new IllegalCallerException("Teacher not available!");
+      System.out.println("There was an issue adding the session.");
+      throw new IllegalStateException("There was an issue adding the session.");
     }
-    // assign room with the session itself
-    // session.bookRoom(room);
-    bookRoomForASession(room, session);//Exceptions inside this method
-    sessions.add(session);
   }
 
   /**
@@ -198,6 +207,7 @@ public class SessionList
     }
     return true;
   }
+  public boolean isClassGroupAvailable(Time timeStart)
 
   /**
    * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.
@@ -352,8 +362,8 @@ public class SessionList
       {
         if (sessions.get(i).getCourse().getTeachers().contains(teacher))
         {
-          sessionsByTeacher
-              .addSession(sessions.get(i), sessions.get(i).getRoom());
+          sessionsByTeacher.addSession(sessions.get(i),
+              sessions.get(i).getRoom());
         }
       }
     }
@@ -381,8 +391,8 @@ public class SessionList
     {
       if (sessions.get(i).getCourse().getClassGroup().equals(classGroup))
       {
-        sessionListClassGroup
-            .addSession(sessions.get(i), sessions.get(i).getRoom());
+        sessionListClassGroup.addSession(sessions.get(i),
+            sessions.get(i).getRoom());
       }
     }
     if (sessionListClassGroup == null)
@@ -405,8 +415,8 @@ public class SessionList
       if (sessions.get(i).getCourse().getClassGroup().getStudents()
           .contains(student))
       {
-        sessionListOfStudent
-            .addSession(sessions.get(i), sessions.get(i).getRoom());
+        sessionListOfStudent.addSession(sessions.get(i),
+            sessions.get(i).getRoom());
       }
     }
     if (sessionListOfStudent.size() > 0)
@@ -448,36 +458,36 @@ public class SessionList
     }
     return false;
   }
+
   public static void main(String[] args)
   {
     Teacher teacher1 = new Teacher("SVA");
-    TeacherList teacherList1= new TeacherList();
+    TeacherList teacherList1 = new TeacherList();
     teacherList1.addTeacher(teacher1);
-    Student student1 = new Student(1, "Bob",654654);
-    Student student2 = new Student(1, "Wendy",655655);
-    Room room1= new Room(5,'C',16,45);
-    Room room2= new Room(5,'C',14,45);
-    Time time1=new Time(8,20);
-    Time time2=new Time(12,45);
+    Student student1 = new Student(1, "Bob", 654654);
+    Student student2 = new Student(1, "Wendy", 655655);
+    Room room1 = new Room(5, 'C', 16, 45);
+    Room room2 = new Room(5, 'C', 14, 45);
+    Time time1 = new Time(8, 20);
+    Time time2 = new Time(12, 45);
 
-    Date date1= new Date(10,10,2022);
-    Date date2= new Date(11,11,2022);
+    Date date1 = new Date(10, 10, 2022);
+    Date date2 = new Date(11, 11, 2022);
     System.out.println(date1);
-    StudentList studentList1=new StudentList();
+    StudentList studentList1 = new StudentList();
     studentList1.addStudent(student1);
     studentList1.addStudent(student2);
-    ClassGroup group1=new ClassGroup(1,"Y",studentList1);
-    Course course1=new Course("SDJ", group1,teacherList1,1,10);
-    SessionList sessionList1= new SessionList();
-    Session session1=new Session(course1,date1,time1,4);
-    Session session2=new Session(course1,date1,time1,2);
+    ClassGroup group1 = new ClassGroup(1, "Y", studentList1);
+    Course course1 = new Course("SDJ", group1, teacherList1, 1, 10);
+    SessionList sessionList1 = new SessionList();
+    Session session1 = new Session(course1, date1, time1, 4);
+    Session session2 = new Session(course1, date1, time1, 2);
 
-    System.out.println("Session1 : "+session1.toString());
-    System.out.println("Session2 : "+session2.toString());
-    System.out.println("Session 1 is overlapped by session 2: "+session1.isOverlapped(session2));
-
-
-
+    System.out.println("Session1 : " + session1.toString());
+    System.out.println("Session2 : " + session2.toString());
+    System.out.println(
+        "Session 1 is overlapped by session 2: " + session1.isOverlapped(
+            session2));
 
   }
 }

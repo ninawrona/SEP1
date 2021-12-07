@@ -29,6 +29,8 @@ public class FileViewController
   private FileChooser fileChooser;
   private Stage primaryStage;
 
+  private int counter = 0; //it is done so we dont add files twice
+
   private File fileStudents = null;
   private File fileCourses = null;
   private File fileRooms = null;
@@ -110,15 +112,20 @@ public class FileViewController
 
   @FXML void confirmInSelectATextFileButton()
   {
-
-    if (fileStudents != null && fileRooms != null && fileCourses != null)
-    {
-      model.getAllClasses().manualReadStudents(fileStudents);
-      model.getAllClasses().manualReadCourses(fileCourses);
-      model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
+    if (counter == 0){
+      if (fileStudents != null && fileRooms != null && fileCourses != null)
+      {
+        model.getAllClasses().manualReadStudents(fileStudents);
+        model.getAllClasses().manualReadCourses(fileCourses);
+        model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
+      }
+      viewHandler.closeView();
+      viewHandler.openView("schedule");
+      counter++;
+    } else {
+      errorLabel.setText("File already uploaded!\n If you want to upload the files then restart the program");
     }
-    viewHandler.closeView();
-    viewHandler.openView("schedule");
+
   }
 
   @FXML void cancelInSelectATextFileButton()

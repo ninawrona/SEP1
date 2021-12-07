@@ -57,15 +57,14 @@ public class SessionList
   {
     try
     {
-      if ()
-      if (session == null)
-      {
-        throw new IllegalArgumentException("Session cannot be null!");
-      }
-      if (!(isTeacherAvailable(session)))
-      {
-        throw new IllegalCallerException("Teacher not available!");
-      }
+      
+        if (session == null)
+        {
+          throw new IllegalArgumentException("Session cannot be null!");
+        } if (!(isTeacherAvailable(session)))
+    {
+      throw new IllegalCallerException("Teacher not available!");
+    }
       // assign room with the session itself
       // session.bookRoom(room);
       bookRoomForASession(room, session);//Exceptions inside this method
@@ -207,7 +206,27 @@ public class SessionList
     }
     return true;
   }
-  public boolean isClassGroupAvailable(Time timeStart)
+/*
+  public boolean isClassGroupAvailable(ClassGroup classgroup)
+  {
+    SessionList list = new SessionList();
+    if (sessions.size() != 0)
+    {
+      for (int i = 0; i < sessions.size(); i++)
+      {
+        if (sessions.get(i).getCourse().getClassGroup().getClassName()
+            .equals(classgroup.getClassName())
+            && sessions.get(i).getCourse().getClassGroup().getSemester()
+            == classgroup.getSemester() {
+
+      }
+
+        {
+          list.addSession(sessions.get(i), sessions.get(i).getRoom());
+        }
+      }
+    }
+  }*/
 
   /**
    * A method that is checking for the availability of a Teacher. This is done by checking for sessions with the same date as this Session's date.
@@ -221,7 +240,8 @@ public class SessionList
    */
   public boolean isTeacherAvailable(Session session)
   {
-    for (int i = 0; i < sessions.size(); i++)   //O(N) where N is the size of the sessions
+    for (int i = 0;
+         i < sessions.size(); i++)   //O(N) where N is the size of the sessions
     {
       if (sessions.get(i).getDate().equals(     //O(1)
           session.getDate()))//Another isOverlapped method possible to use    //O(1)

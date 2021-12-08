@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import model.basic.Student;
 import model.list.ScheduleModel;
 
 public class AddStudentViewController
@@ -54,11 +55,12 @@ public class AddStudentViewController
     {
       name = studentsNameField.getText();
       viaId = Integer.parseInt(studentsViaIdField.getText());
-      className = classField.getText();
+      //className = classField.getText();
+      Student student = new Student(model.getChosenClassGroup().getSemester(), name, viaId);
       if (name != null && !name.equals("") && viaId != 0 && className != null
           && className.length() == 2)
       {
-        //TODO add the student to the chosen course
+        model.getChosenSession().getCourse().addStudent(student);
       }
     }
     catch (Exception e)

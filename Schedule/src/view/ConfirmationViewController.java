@@ -15,6 +15,7 @@ public class ConfirmationViewController
   private ViewHandler viewHandler;
   private ScheduleModel model;
 
+
   public ConfirmationViewController()
   {
     // Called by FXMLLoader
@@ -25,6 +26,7 @@ public class ConfirmationViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    errorLabel.setText("");
     reset();
   }
 
@@ -39,5 +41,9 @@ public class ConfirmationViewController
   }
 
   // @FXML methods here
+  @FXML
+  public void confirmInConfirmationViewButton() {
+    //hgjk
+  }
 }
 

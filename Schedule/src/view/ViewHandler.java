@@ -314,7 +314,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         addTeacherViewController = loader.getController();
-        classSelectViewController.init(this, model, root);
+        addTeacherViewController.init(this, root, model);
       }
       catch (Exception e)
       {

@@ -14,10 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import model.basic.Session;
@@ -26,6 +23,7 @@ import model.files.ReadWrite;
 import model.files.XMLParser;
 import model.list.*;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class ScheduleGridViewController
@@ -191,6 +189,12 @@ public class ScheduleGridViewController
       errorLabel.setText("Please select a class");
     }
 
+    // Add a vBox to the first pane to find the dimensions of the grid
+    VBox vBoxTest = new VBox();
+    gridPane.add(vBoxTest, 0, 0, 1, 1);
+    double dimHeight = vBoxTest.getHeight();
+    double dimWidth = vBoxTest.getWidth();
+
     scheduleViewModel.update();
     // Populate the grid
     for (int i = 0; i < scheduleViewModel.getList().size(); i++)
@@ -201,7 +205,7 @@ public class ScheduleGridViewController
       labelTest.setText(courseName.get());
 
       // Adds a background color to the session on the grid
-      // labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf("cyan"), null, null)));
+      labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf("cyan"), null, null)));
 
       int startTimeInt = scheduleViewModel.getList().get(i)
           .getStartTimeIntProperty();
@@ -209,6 +213,9 @@ public class ScheduleGridViewController
           .getNumberOfLessonsProperty().intValue();
       int dayOfWeek = scheduleViewModel.getList().get(i).getDayOfWeekProperty()
           .getValue();
+
+      labelTest.setMinHeight((double) numberOfLessonsInt * 23);
+      labelTest.setMinWidth(100);
 
       gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
     }

@@ -72,7 +72,7 @@ public class TeacherList
     }
     if (teacher == null)
     {
-      throw new IllegalArgumentException("Teacher can not be null");
+      throw new IllegalArgumentException("You must select a teacher to remove");
     }
     teachers.remove(teacher);
   }

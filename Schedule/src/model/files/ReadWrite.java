@@ -135,6 +135,12 @@ public class ReadWrite
             + "</Course>";
         xml += "\n    <Class>" + sessions.get(i).getCourse().getClassGroup()
             + "</Class>";
+
+        xml += "\n    <Date>" + sessions.get(i).getDate()
+            + "</Date>";
+
+        xml += "\n    <WeekDay>" + sessions.get(i).getDate().getWeekday()
+            + "</WeekDay>";
         xml +=
             "\n    <StartTime>" + sessions.get(i).getStartTime() + "</StartTime>";
           xml +=

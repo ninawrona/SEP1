@@ -105,8 +105,14 @@ public class CourseDetailsViewController
 
   @FXML private void removeTeacherButton()
   {
-    model.getChosenSession().getTeachers().removeTeacher(teacherChoice.getValue());
-    reset();
+    try{
+      model.getChosenSession().getTeachers().removeTeacher(teacherChoice.getValue());
+      reset();
+    }
+    catch (IllegalArgumentException e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
   }
 
   @FXML private void addStudentButton()
@@ -117,8 +123,15 @@ public class CourseDetailsViewController
 
   @FXML private void removeStudentButton()
   {
-    model.getChosenSession().getCourse().removeStudent(studentChoice.getValue());
-    reset();
+    try{
+      model.getChosenSession().getCourse().removeStudent(studentChoice.getValue());
+      reset();
+    }
+    catch (IllegalArgumentException e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+    System.out.println("List of current students");
     System.out.println(model.getChosenSession().getCourse().getStudents().toString());
   }
 

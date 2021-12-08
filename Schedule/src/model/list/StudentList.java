@@ -73,7 +73,7 @@ public class StudentList
 
     if (student == null)
     {
-      throw new IllegalArgumentException("Student cannot be null!");
+      throw new IllegalArgumentException("You must select a student to remove");
     }
 
     students.remove(student);

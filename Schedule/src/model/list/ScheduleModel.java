@@ -12,6 +12,8 @@ public interface ScheduleModel
   public CourseList getCourseListByClassGroup(ClassGroup classGroup);
   public ClassGroup getChosenClassGroup();
   public void setChosenClassGroup(ClassGroup classGroup);
+  public Session getChosenSession();
+  public void setChosenSession(Session session);
   public void addClassGroupList(ClassGroupList classList);
   public void addSession(Session session, Room room);
   public void removeSession(Session session);

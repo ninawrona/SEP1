@@ -11,6 +11,7 @@ public class ScheduleModelManager implements ScheduleModel
   private StudentList studentList;
   private RoomList roomList;
   private ClassGroup chosenClassGroup;
+  private Session chosenSession;
 
   public ScheduleModelManager()
   {
@@ -21,6 +22,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.studentList = new StudentList();
     this.roomList = new RoomList();
     this.chosenClassGroup = null;
+    this.chosenSession = null;
   }
 
   public ClassGroupList getAllClasses()
@@ -81,6 +83,16 @@ public class ScheduleModelManager implements ScheduleModel
   @Override public ClassGroup getChosenClassGroup()
   {
     return chosenClassGroup;
+  }
+
+  @Override
+  public Session getChosenSession() {
+    return chosenSession;
+  }
+
+  @Override
+  public void setChosenSession(Session session) {
+    this.chosenSession = session;
   }
 
   public void addClassGroupList(ClassGroupList classList)

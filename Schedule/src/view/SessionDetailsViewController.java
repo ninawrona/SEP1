@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.beans.property.StringProperty;
 import model.list.ScheduleModel;
+import model.basic.*;
 
 public class SessionDetailsViewController
 {
@@ -21,6 +22,7 @@ public class SessionDetailsViewController
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
+  private Session chosenSession;
 
   public SessionDetailsViewController()
   {
@@ -32,6 +34,8 @@ public class SessionDetailsViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    this.chosenSession = model.getChosenSession();
+
     reset();
   }
 

@@ -34,6 +34,7 @@ public class CourseDetailsViewController
     this.root = root;
     this.model = model;
     reset();
+    System.out.println("Ects: "+model.getChosenSession().getCourse().getECTS());
     courseNameField.setText("" + model.getChosenSession().getCourse());
     semesterField.setText("" + model.getChosenClassGroup().getSemester());
     ectsPointsField.setText("" + model.getChosenSession().getCourse().getECTS());

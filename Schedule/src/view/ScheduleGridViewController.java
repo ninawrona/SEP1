@@ -346,7 +346,12 @@ public class ScheduleGridViewController
 
   @FXML private void sessionDetailsButton()
   {
+    if(model.getChosenSession() == null){
+      errorLabel.setText("Choose a session first.");
+    }
+    else{
     viewHandler.openView("sessionDetails");
+    }
   }
 
   @FXML private void exitButton()

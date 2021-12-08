@@ -47,24 +47,22 @@ public class SessionDetailsViewController
   public void reset()
   {
     errorLabel.setText("");
-    courseDetailsField.setText("" + chosenSession.getCourse());
-    classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());
-    teachersDetailsField.setText("" + chosenSession.getTeachers());
-    studentsDetailsField.setText("" + chosenSession.getCourse().getStudents());
-    startTimeField.setText("" + chosenSession.getStartTimeString());
-    roomDetailsField.setText("" + chosenSession.getRoom());
+      courseDetailsField.setText("" + chosenSession.getCourse());
+      classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());
+      teachersDetailsField.setText("" + chosenSession.getTeachers());
+      studentsDetailsField.setText("" + chosenSession.getCourse().getStudents());
+      startTimeField.setText("" + chosenSession.getStartTimeString());
+      roomDetailsField.setText("" + chosenSession.getRoom());
   }
 
   // @FXML methods here
 
   public void courseDetailsButton(){
     viewHandler.openView("courseDetails");
-    reset();
   }
 
   public void cancelInSessionDetailsViewButton(){
-    viewHandler.openView("scheduleGrid");
-    reset();
+    viewHandler.openView("schedule");
   }
 
 }

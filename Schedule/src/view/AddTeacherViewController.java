@@ -61,16 +61,17 @@ public class AddTeacherViewController
   {
     try{
     teacherToBeAdded = new Teacher(teachersViaIdField.getText());
-    boolean remove = confirmation();
-    if (remove) {
+    boolean add = confirmation();
+    if (add) {
       model.getChosenSession().getCourse().addTeacher(teacherToBeAdded);
+      teacherToBeAdded.assignToCourseTaught(model.getChosenSession().getCourse());
     }
   } catch (Exception e) {
   errorLabel.setText("Item not found: " + e.getMessage());
 }
     //
     System.out.println("Our teacher:" + teacherToBeAdded);
-    System.out.println("Teachers for this dourse: " + model.getChosenSession().getCourse().getTeachers());
+    System.out.println("Teachers for this course: " + model.getChosenSession().getCourse().getTeachers());
     viewHandler.closeView();
     viewHandler.openView("schedule");
   }

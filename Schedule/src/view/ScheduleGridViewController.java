@@ -20,7 +20,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import model.basic.Session;
 import model.basic.Time;
+import model.files.ReadWrite;
+import model.files.XMLParser;
 import model.list.*;
 
 import java.awt.*;
@@ -351,9 +354,24 @@ public class ScheduleGridViewController
     viewHandler.openView("addSession");
   }
 
-  @FXML private void removeSessionButton()
+  @FXML private void toXML()
   {
-    //uhuh
+    SessionList allAddedSessions = new SessionList();
+
+      for (int j = 0;
+           j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+               .size(); j++)
+      {
+
+        allAddedSessions.addSession(
+            model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
+            model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
+                .getRoom());
+      }
+
+   // XMLParser.toXML(allAddedSessions,"SessionList.XML");
+    ReadWrite.manualWriteSessionList(allAddedSessions);
+  //  System.out.println(allAddedSessions);
   }
 
   @FXML private void sessionDetailsButton()

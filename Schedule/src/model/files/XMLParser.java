@@ -8,6 +8,7 @@ import model.basic.ClassGroup;
 import model.basic.Course;
 import parser.ParserException;
 import parser.XmlJsonParser;
+import view.ScheduleGridViewController;
 
 import java.io.File;
 

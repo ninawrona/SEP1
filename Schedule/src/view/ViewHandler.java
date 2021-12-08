@@ -89,7 +89,7 @@ public class ViewHandler
         root = loadAddTeacherView("AddTeacher.fxml");
         break;
       case "courseDetails":
-        root = loadCourseDetailsView("CourseDetails.fxml");
+        root = loadCourseDetailsView("CourseDetailsView.fxml");
         break;
     }
 

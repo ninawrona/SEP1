@@ -4,6 +4,12 @@ import model.basic.Student;
 
 import java.util.ArrayList;
 
+/**
+ * A class representing a list of teachers.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class StudentList
 {
   private ArrayList<Student> students;

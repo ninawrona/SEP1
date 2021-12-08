@@ -14,11 +14,20 @@ public class StudentList
 {
   private ArrayList<Student> students;
 
+  /**
+   * A zero argument constructor intializing the instance variable 'students'
+   * to new ArrayList of Student object.
+   */
   public StudentList()
   {
     this.students = new ArrayList<>();
   }
 
+  /**
+   * A method returning a size of a StudentList object.
+   *
+   * @return an int size();
+   */
   public int size()
   {
     return students.size();

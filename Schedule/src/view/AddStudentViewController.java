@@ -94,6 +94,7 @@ public class AddStudentViewController
 
   @FXML private void cancelAddAStudentButton()
   {
+    reset();
     viewHandler.closeView();
     viewHandler.openView("courseDetails");
   }

@@ -19,7 +19,6 @@ public class ViewHandler
   private AddStudentViewController addStudentViewController;
   private AddTeacherViewController addTeacherViewController;
   private ClassSelectViewController classSelectViewController;
-  private ConfirmationViewController confirmationViewController;
   private CourseDetailsViewController courseDetailsViewController;
   private FileViewController fileViewController;
   private SessionDetailsViewController sessionDetailsViewController;
@@ -69,9 +68,6 @@ public class ViewHandler
         break;
       case "classSelect":
         root = loadClassSelectView("ClassSelectView.fxml");
-        break;
-      case "confirmation":
-        root = loadConfirmationView("ConfirmationView.fxml");
         break;
       case "fileView":
         root = loadFileView("FileView.fxml");
@@ -230,30 +226,6 @@ public class ViewHandler
   public void closeView()
   {
     primaryStage.close();
-  }
-
-  private Region loadConfirmationView(String fxmlFile)
-  {
-    if (confirmationViewController == null)
-    {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        confirmationViewController = loader.getController();
-        confirmationViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-    else
-    {
-      confirmationViewController.reset();
-    }
-    return confirmationViewController.getRoot();
   }
 
   private Region loadClassSelectView(String fxmlFile)

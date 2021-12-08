@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import model.basic.Session;
 import model.basic.Time;
 import model.files.ReadWrite;
@@ -205,7 +207,25 @@ public class ScheduleGridViewController
       labelTest.setText(courseName.get());
 
       // Adds a background color to the session on the grid
-      labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf("cyan"), null, null)));
+      String backColor = "lavender";
+      String courseHolder = "" + scheduleViewModel.getList().get(i).getCourseProperty();
+      if (courseHolder.contains("RWD"))
+      {
+        backColor = "lightblue";
+      }
+      if (courseHolder.contains("DMA"))
+      {
+        backColor = "lightseagreen";
+      }
+      if (courseHolder.contains("SDJ"))
+      {
+        backColor = "burlywood";
+      }
+      if (courseHolder.contains("SEP"))
+      {
+        backColor = "indianred";
+      }
+      labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
       int startTimeInt = scheduleViewModel.getList().get(i)
           .getStartTimeIntProperty();
@@ -216,6 +236,8 @@ public class ScheduleGridViewController
 
       labelTest.setMinHeight((double) numberOfLessonsInt * 23);
       labelTest.setMinWidth(100);
+      labelTest.setTextAlignment(TextAlignment.CENTER);
+      labelTest.setAlignment(Pos.CENTER);
 
       gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
     }

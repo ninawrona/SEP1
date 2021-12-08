@@ -9,6 +9,9 @@ import javafx.scene.layout.Region;
 import model.basic.Student;
 import model.basic.Teacher;
 import model.list.ScheduleModel;
+import model.list.StudentList;
+
+import java.util.ArrayList;
 
 public class CourseDetailsViewController
 {
@@ -22,6 +25,9 @@ public class CourseDetailsViewController
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
+
+  ArrayList<Student> studentList = new ArrayList<>();
+  ArrayList<Teacher> teacherList = new ArrayList<>();
 
   public CourseDetailsViewController()
   {
@@ -49,8 +55,46 @@ public class CourseDetailsViewController
   {
     errorLabel.setText("");
     //set the areas to the chosen class and course.
+
+    studentChoice.getItems().removeAll(studentList);
+    teacherChoice.getItems().removeAll(teacherList);
+    studentChoice.setValue(null);
+    teacherChoice.setValue(null);
+
+    loadStudentArray();
+    loadTeacherArray();
+
   }
 
+  public void loadStudentArray(){
+    studentList.removeAll(studentList);
+
+    try{
+      for(int i = 0; i<model.getChosenClassGroup().getStudents().size(); i++){
+        studentList.add(model.getChosenClassGroup().getStudents().get(i));
+      }
+      studentChoice.getItems().addAll(studentList);
+    }
+    catch (Exception e){
+      e.printStackTrace();
+    }
+  }
+
+
+  public void loadTeacherArray(){
+    teacherList.removeAll(teacherList);
+
+    try{
+      for(int i = 0; i<model.getChosenSession().getTeachers().size();i++){
+        teacherList.add(model.getChosenSession().getTeachers().get(i));
+      }
+      teacherChoice.getItems().addAll(teacherList);
+    }
+    catch (Exception e){
+      e.printStackTrace();
+    }
+
+  }
   // @FXML methods here
 
   @FXML private void addTeacherButton()

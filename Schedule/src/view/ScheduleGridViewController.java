@@ -191,6 +191,10 @@ public class ScheduleGridViewController {
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
+            if (model.getChosenClassGroup().getStudents().size() == 0)
+            {
+                errorLabel.setText("Please upload the text files");
+            }
             classNameLabel.setText(
                     "Class: " + model.getChosenClassGroup().toString());
         } else {
@@ -198,6 +202,7 @@ public class ScheduleGridViewController {
             classNameLabel.setText("Class: ");
             errorLabel.setText("Please select a class");
         }
+
 
         // Add a vBox to the first pane to find the dimensions of the grid
         VBox vBoxTest = new VBox();
@@ -372,11 +377,9 @@ public class ScheduleGridViewController {
 
     @FXML
     private void addSessionButton() {
-        if (model.getChosenClassGroup() == null)
-        {
+        if (model.getChosenClassGroup() == null) {
             errorLabel.setText("Please select a class before adding sessions");
-        }
-        else {
+        } else {
             model.setChosenClassGroup(model.getChosenClassGroup());
             viewHandler.openView("addSession");
         }

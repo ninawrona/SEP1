@@ -234,12 +234,14 @@ public class ScheduleGridViewController
       int dayOfWeek = scheduleViewModel.getList().get(i).getDayOfWeekProperty()
           .getValue();
 
-      labelTest.setMinHeight((double) numberOfLessonsInt * 23);
-      labelTest.setMinWidth(100);
+      labelTest.setMinHeight((double) numberOfLessonsInt * 25 - 2);
+      labelTest.setMinWidth(100 - 1);
       labelTest.setTextAlignment(TextAlignment.CENTER);
       labelTest.setAlignment(Pos.CENTER);
 
       gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+      // Move the label like 1 pixel to the right to make it centered
+      labelTest.setTranslateX(0.3);
     }
 
     System.out.println("Here are the current gridPane children");

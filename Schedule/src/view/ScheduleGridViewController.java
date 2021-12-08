@@ -238,6 +238,8 @@ public class ScheduleGridViewController
             {
               System.out.println("Found the target in the list in model");
               System.out.println("Setting to chosen session");
+              model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
+                      .get(j));
               //model.removeSession(
                //   model.getSessionsByClassGroup(model.getChosenClassGroup())
               //      .get(j));

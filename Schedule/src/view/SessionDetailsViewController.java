@@ -51,5 +51,15 @@ public class SessionDetailsViewController
 
   // @FXML methods here
 
+  public void courseDetailsButton(){
+    viewHandler.openView("courseDetails");
+    reset();
+  }
+
+  public void cancelInSessionDetailsViewButton(){
+    viewHandler.openView("schedule");
+    reset();
+  }
+
 }
 

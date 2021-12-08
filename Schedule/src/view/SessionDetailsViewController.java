@@ -15,9 +15,8 @@ public class SessionDetailsViewController
   @FXML private Label errorLabel;
   @FXML private TextArea courseDetailsField;
   @FXML private TextArea classDetailsField;
-  @FXML private TextArea teachersDetailsField;
-  @FXML private TextArea studentsDetailsField;
   @FXML private TextArea startTimeField;
+  @FXML private TextArea endTimeField;
   @FXML private TextArea roomDetailsField;
   private Region root;
   private ViewHandler viewHandler;
@@ -49,9 +48,8 @@ public class SessionDetailsViewController
     errorLabel.setText("");
       courseDetailsField.setText("" + chosenSession.getCourse());
       classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());
-      teachersDetailsField.setText("" + chosenSession.getTeachers());
-      studentsDetailsField.setText("" + chosenSession.getCourse().getStudents());
       startTimeField.setText("" + chosenSession.getStartTimeString());
+      endTimeField.setText("" + chosenSession.getEndTimeString());
       roomDetailsField.setText("" + chosenSession.getRoom());
   }
 

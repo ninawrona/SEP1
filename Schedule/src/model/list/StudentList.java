@@ -15,7 +15,7 @@ public class StudentList
   private ArrayList<Student> students;
 
   /**
-   * A zero argument constructor intializing the instance variable 'students'
+   * A zero argument constructor intializing the instance variable "students"
    * to new ArrayList of Student object.
    */
   public StudentList()

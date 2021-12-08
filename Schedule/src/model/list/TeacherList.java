@@ -160,7 +160,7 @@ public class TeacherList
     }
   }
   /**
-   * A method returning a String representation of the arraylist "teachers".
+   * A method returning a String representation of the ArrayList "teachers".
    * @return a String containing all the teachers and their information.
    */
   public String toString()

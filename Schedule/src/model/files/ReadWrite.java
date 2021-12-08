@@ -112,6 +112,58 @@ public class ReadWrite
     }
   }
 
+  //Parser would not work so I made a manual write.
+  //Reads in a SessionList and turns it into xml format.
+  public static void manualWriteSessionList(SessionList sessions)
+  {
+    File file = new File("SessionList.xml");
+    try
+
+    {
+      PrintWriter out = new PrintWriter(file);
+
+      String xml = "";
+      xml +=
+          "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+
+      xml += "\n<SessionList>";
+      for (int i = 0; i < sessions.size(); i++)
+      {
+
+        xml += "\n<Session>";
+        xml += "\n    <Course>" + sessions.get(i).getCourse()
+            + "</Course>";
+        xml += "\n    <Class>" + sessions.get(i).getCourse().getClassGroup()
+            + "</Class>";
+        xml +=
+            "\n    <StartTime>" + sessions.get(i).getStartTime() + "</StartTime>";
+          xml +=
+              "\n    <NumberOfLessons>" + sessions.get(i).getNumberOfLessons()
+                  + "</NumberOfLessons>";
+
+        xml += "\n    <EndTime>" + sessions.get(i).getEndTime() + "</EndTime>";
+
+        if (sessions.get(i).getRoom() == null){
+          xml += "\n   <Room>unassigned</Room>";
+        } else {
+          xml += "\n   <Room>" + sessions.get(i).getRoom() + "</Room>";
+        }
+
+        xml += "\n</Session>";
+
+      }
+      xml += "\n</SessionList>";
+      out.println(xml);
+      out.close();
+
+    }
+    catch (FileNotFoundException e)
+
+    {
+      e.printStackTrace();
+    }
+  }
+
   //Reads in a File with students and turns it into a ClassGroupList
   public static ClassGroupList manualReadStudents(File file)
   {

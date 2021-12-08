@@ -240,26 +240,14 @@ public class ScheduleGridViewController
                 .get(j).shortString().equals(compare))
             {
               System.out.println("Found the target in the list in model");
-              System.out.println("Removing from the list");
-              model.removeSession(
-                  model.getSessionsByClassGroup(model.getChosenClassGroup())
+              System.out.println("Setting to chosen session");
+              model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
                       .get(j));
-            }
-          }
+              //model.removeSession(
+               //   model.getSessionsByClassGroup(model.getChosenClassGroup())
+              //      .get(j));
 
-          // Remove the label from the grid pane
-          for (int i = 0; i < gridPane.getChildren().size(); i++)
-          {
-            // System.out.println("I am looking at child " + i);
-            if (gridPane.getChildren().get(i) instanceof Label)
-            {
-              Label labelToRead = (Label) gridPane.getChildren().get(i);
-              if (labelToRead.getText().equals((compare)))
-              {
-                System.out.println(
-                    "Found my target. Trying to remove it from grid pane");
-                gridPane.getChildren().remove(gridPane.getChildren().get(i));
-              }
+              viewHandler.openView("sessionDetails");
             }
           }
 
@@ -376,7 +364,12 @@ public class ScheduleGridViewController
 
   @FXML private void sessionDetailsButton()
   {
-    viewHandler.openView("courseDetails");
+    if(model.getChosenSession() == null){
+      errorLabel.setText("Choose a session first.");
+    }
+    else{
+    viewHandler.openView("sessionDetails");
+    }
   }
 
   @FXML private void exitButton()

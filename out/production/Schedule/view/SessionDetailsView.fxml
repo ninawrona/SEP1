@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SessionDetailsViewController">
    <children>
       <Label alignment="CENTER" prefHeight="48.0" prefWidth="621.0" text="Session Details View">
          <font>
@@ -98,14 +98,14 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
                <children>
-                  <Button fx:id="courseDetailsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Course details">
+                  <Button mnemonicParsing="false" onAction="#courseDetailsButton" prefHeight="25.0" prefWidth="100.0" text="Course details">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="11.0" />
                      </font></Button>
-                  <Button fx:id="cancelInSessionDetailsViewButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Cancel">
+                  <Button mnemonicParsing="false" onAction="#cancelInSessionDetailsViewButton" prefHeight="25.0" prefWidth="100.0" text="Cancel">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>

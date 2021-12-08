@@ -461,7 +461,6 @@ public class SessionList
     if (classGroup == null)
     {
      throw new IllegalArgumentException("Parameter cannot be null!");
-
     }
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
@@ -471,10 +470,6 @@ public class SessionList
         sessionListClassGroup.addSession(sessions.get(i),
             sessions.get(i).getRoom());
       }
-    }
-    if (sessionListClassGroup == null)
-    {
-      System.out.println("Hey! sessionListClassGroup is null!");
     }
     return sessionListClassGroup;
   }

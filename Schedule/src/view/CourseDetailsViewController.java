@@ -34,6 +34,9 @@ public class CourseDetailsViewController
     this.root = root;
     this.model = model;
     reset();
+    courseNameField.setText("" + model.getChosenSession().getCourse());
+    semesterField.setText("" + model.getChosenClassGroup().getSemester());
+    ectsPointsField.setText("" + model.getChosenSession().getCourse().getECTS());
   }
 
   public Region getRoot()
@@ -57,7 +60,7 @@ public class CourseDetailsViewController
 
   @FXML private void removeTeacherButton()
   {
-    //TODO remove chosen teacher
+    teacherChoice.getValue().removeFromCoursesTaught(model.getChosenSession().getCourse());
   }
 
   @FXML private void addStudentButton()
@@ -68,7 +71,7 @@ public class CourseDetailsViewController
 
   @FXML private void removeStudentButton()
   {
-    //TODO
+    model.removeStudentFromCourse(studentChoice.getValue(), model.getChosenSession().getCourse());
   }
 
   @FXML private void cancelButton()

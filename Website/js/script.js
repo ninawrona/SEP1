@@ -3,20 +3,8 @@ var document, DOMParser;
 
 //Write your function declarations below this line
 //example of a function getting and returning the book titles from the XML "text"
-function displayBookTitle(n) {
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(text, "text/xml");
-    var x = xmlDoc.getElementsByTagName("title");
-    return x[n].childNodes[0].nodeValue;
-}
 
-function displayAuthor(n){
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(text, "text/xml");
-    var x = xmlDoc.getElementsByTagName("author");
-    return x[n].childNodes[0].nodeValue;
-}
-
+/*
 function displayTable(){
     var parser = new DOMParser();
     var xmlDoc = parser.parseFromString(text, "text/xml");
@@ -35,7 +23,9 @@ function displayTable(){
     table += "</table>";
     document.getElementById("GOT").innerHTML = table;
 }
-
+*/
+var hour820 = document.getElementsByClassName("8:20").getElementsByTagName("td");
+    hour820[1].innerHTML="RWD C05.16a"
 
 function readXML(){
     var xhttp = new XMLHttpRequest();
@@ -52,8 +42,8 @@ function showData(xml){
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName("SessionList");
     var listLength = x.length;
-
-    var table = "<table><tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr>";
+    var hour820 = document.getElementsByClassName("820");
+    hour820[1].innerHTML="RWD C05.16a"
 
     for (var i = 0; i < listLength; i++){
         var numberOfLessons = x.getElementsByTagName("NumberOfLessons").childNodes[0].nodeValue

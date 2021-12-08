@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.beans.property.StringProperty;
+
 import model.basic.ClassGroup;
 import model.list.ScheduleModel;
 
@@ -20,7 +22,6 @@ public class ViewHandler
   private ConfirmationViewController confirmationViewController;
   private CourseDetailsViewController courseDetailsViewController;
   private FileViewController fileViewController;
-  private ScheduleViewController scheduleViewController;
   private SessionDetailsViewController sessionDetailsViewController;
   private ScheduleGridViewController scheduleGridViewController;
   // more controllers here
@@ -41,7 +42,7 @@ public class ViewHandler
     primaryStage.getIcons().add(icon);
     //controllers here
 
-    scheduleViewController.reset();
+    scheduleGridViewController.reset();
     // Only above should be reset
         /*
         addSessionViewController.reset();
@@ -72,14 +73,11 @@ public class ViewHandler
       case "confirmation":
         root = loadConfirmationView("ConfirmationView.fxml");
         break;
-      //case "courseDetails":
-        //root = loadCourseDetailsView("CourseDetailsView.fxml");
-        //break;
       case "fileView":
         root = loadFileView("FileView.fxml");
         break;
       case "schedule":
-        root = loadScheduleView("ScheduleView.fxml");
+        root = loadScheduleGridView("ScheduleGridView.fxml");
         break;
       case "sessionDetails":
         root = loadSessionDetailsView("SessionDetailsView.fxml");
@@ -91,7 +89,7 @@ public class ViewHandler
         root = loadAddTeacherView("AddTeacher.fxml");
         break;
       case "courseDetails":
-        root = loadScheduleGridViewController("ScheduleGridView.fxml");
+        root = loadCourseDetailsView("CourseDetails.fxml");
         break;
     }
 
@@ -132,7 +130,7 @@ public class ViewHandler
     return addSessionViewController.getRoot();
   }
 
-  private Region loadScheduleGridViewController(String fxmlFile)
+  private Region loadScheduleGridView(String fxmlFile)
   {
     if (scheduleGridViewController == null)
     {
@@ -178,30 +176,6 @@ public class ViewHandler
       sessionDetailsViewController.reset();
     }
     return sessionDetailsViewController.getRoot();
-  }
-
-  private Region loadScheduleView(String fxmlFile)
-  {
-    if (scheduleViewController == null)
-    {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        scheduleViewController = loader.getController();
-        scheduleViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-    else
-    {
-      scheduleViewController.reset();
-    }
-    return scheduleViewController.getRoot();
   }
 
   private Region loadFileView(String fxmlFile)

@@ -238,9 +238,11 @@ public class ScheduleGridViewController
             {
               System.out.println("Found the target in the list in model");
               System.out.println("Removing from the list");
-              model.removeSession(
-                  model.getSessionsByClassGroup(model.getChosenClassGroup())
-                      .get(j));
+              //model.removeSession(
+               //   model.getSessionsByClassGroup(model.getChosenClassGroup())
+              //      .get(j));
+
+              viewHandler.openView("sessionDetails");
             }
           }
 
@@ -358,7 +360,7 @@ public class ScheduleGridViewController
 
   @FXML private void sessionDetailsButton()
   {
-    viewHandler.openView("courseDetails");
+    viewHandler.openView("sessionDetails");
   }
 
   @FXML private void exitButton()

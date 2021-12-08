@@ -2,20 +2,22 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import javafx.beans.property.StringProperty;
 import model.list.ScheduleModel;
 
 public class SessionDetailsViewController
 {
   //@FXML private methods here
   @FXML private Label errorLabel;
-  @FXML private TextField courseDetailsField;
-  @FXML private TextField classDetailsField;
-  @FXML private TextField teachersDetailsField;
-  @FXML private TextField studentsDetailsField;
-  @FXML private TextField startTimeField;
-  @FXML private TextField roomDetailsField;
+  @FXML private TextArea courseDetailsField;
+  @FXML private TextArea classDetailsField;
+  @FXML private TextArea teachersDetailsField;
+  @FXML private TextArea studentsDetailsField;
+  @FXML private TextArea startTimeField;
+  @FXML private TextArea roomDetailsField;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;

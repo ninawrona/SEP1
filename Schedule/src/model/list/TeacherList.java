@@ -16,7 +16,7 @@ public class TeacherList
   private ArrayList<Teacher> teachers;
 
   /**
-   * Zero-argument constructor. The previously declared arraylist "teachers" of type Teacher is initialized.
+   * Zero-argument constructor. The previously declared ArrayList "teachers" of type Teacher is initialized.
    */
   public TeacherList()
   {
@@ -24,7 +24,7 @@ public class TeacherList
   }
 
   /**
-   * A method returning the number of elements the arraylist contains.
+   * A method returning the number of elements the ArrayList contains.
    * @return an int representing the number of Teacher objects on the list.
    */
   public int size()

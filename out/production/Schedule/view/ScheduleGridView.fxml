@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScheduleGridViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScheduleGridViewController">
    <children>
-      <VBox prefHeight="312.0" prefWidth="600.0">
+      <VBox minWidth="-Infinity" prefHeight="350.0" prefWidth="820.0">
          <children>
-            <Label alignment="CENTER" prefHeight="33.0" prefWidth="689.0" text="Schedule">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="800.0" text="Schedule">
                <font>
                   <Font name="Bell MT" size="25.0" />
                </font>
@@ -22,9 +22,9 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <HBox prefHeight="300.0" prefWidth="800.0">
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0">
                <children>
-                  <VBox prefHeight="222.0" prefWidth="200.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0">
                      <children>
                         <Label fx:id="classNameLabel" alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="Class Name" textAlignment="CENTER">
                            <font>
@@ -84,7 +84,7 @@
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <GridPane fx:id="gridPane" alignment="TOP_RIGHT" gridLinesVisible="true" prefHeight="300.0" prefWidth="600.0">
+                  <GridPane fx:id="gridPane" alignment="TOP_RIGHT" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -70,8 +70,8 @@ public class CourseDetailsViewController
     studentList.removeAll(studentList);
 
     try{
-      for(int i = 0; i<model.getChosenClassGroup().getStudents().size(); i++){
-        studentList.add(model.getChosenClassGroup().getStudents().get(i));
+      for(int i = 0; i<model.getChosenSession().getCourse().getStudents().size(); i++){
+        studentList.add(model.getChosenSession().getCourse().getStudents().get(i));
       }
       studentChoice.getItems().addAll(studentList);
     }
@@ -105,7 +105,8 @@ public class CourseDetailsViewController
 
   @FXML private void removeTeacherButton()
   {
-    teacherChoice.getValue().removeFromCoursesTaught(model.getChosenSession().getCourse());
+    model.getChosenSession().getTeachers().removeTeacher(teacherChoice.getValue());
+    reset();
   }
 
   @FXML private void addStudentButton()
@@ -116,7 +117,9 @@ public class CourseDetailsViewController
 
   @FXML private void removeStudentButton()
   {
-    model.removeStudentFromCourse(studentChoice.getValue(), model.getChosenSession().getCourse());
+    model.getChosenSession().getCourse().removeStudent(studentChoice.getValue());
+    reset();
+    System.out.println(model.getChosenSession().getCourse().getStudents().toString());
   }
 
   @FXML private void cancelButton()

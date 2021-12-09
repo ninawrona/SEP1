@@ -3,9 +3,7 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.basic.*;
 import model.list.*;
@@ -14,7 +12,10 @@ import java.net.URL;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static java.lang.Integer.parseInt;
 
 public class AddSessionViewController
 {
@@ -212,6 +213,14 @@ public class AddSessionViewController
 
   }
 
+  private boolean confirmation() {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText("Are you sure you want to book: " + session.getRoom() + " for less than 45 students?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
   @FXML private void addSessionButton()
   {
     try
@@ -221,6 +230,17 @@ public class AddSessionViewController
       if (session.getRoom() == null)
       {
         System.out.println("Hey! The room for this session is null!");
+      }
+      if (session.getRoom().getCapacity()>100&&session.getCourse().getStudents().size()<45){
+        boolean book = confirmation();
+        if(book){
+          scheduleViewModel.addSession(session);
+          reset();
+        }
+        else{
+          session.bookRoom(null);
+        }
+        //errorLabel.setText("Are you sure you want to book the auditorium for less than 45 students?");
       }
       else
       {

@@ -191,7 +191,6 @@ public class ScheduleGridViewController {
     public void reset() {
         // set text to ""
         errorLabel.setText("");
-       // model.setChosenSession(null);
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
             if (model.getChosenClassGroup().getStudents().size() == 0) {
@@ -205,80 +204,80 @@ public class ScheduleGridViewController {
             errorLabel.setText("Please select a class");
         }
 
-
-        // Add a vBox to the first pane to find the dimensions of the grid
-        VBox vBoxTest = new VBox();
-        gridPane.add(vBoxTest, 0, 0, 1, 1);
-        double dimHeight = vBoxTest.getHeight();
-        double dimWidth = vBoxTest.getWidth();
-
         // Clear the grid
-        // columns
         for (int i = 0; i < gridPane.getChildren().size(); i++) {
-            System.out.println("I'm looking at " + gridPane.getChildren().get(i));
+            // System.out.println("I'm looking at " + gridPane.getChildren().get(i));
             if (gridPane.getChildren().get(i).getId() != null) {
-                System.out.println("The id is " + gridPane.getChildren().get(i).getId());
-                if (!(gridPane.getChildren().get(i).getId().contains("label"))) {
-                    System.out.println("removing");
+                // System.out.println("The id is " + gridPane.getChildren().get(i).getId());
+                if (gridPane.getChildren().get(i).getId().contains("session")) {
+                    // System.out.println("removing");
                     gridPane.getChildren().remove(i);
+                    i--;
                 }
             }
         }
 
         scheduleViewModel.update();
         // Populate the grid
-        for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
-            StringProperty courseName = scheduleViewModel.getList().get(i)
-                    .getCourseProperty();
-            Label labelTest = new Label();
-            labelTest.setText(courseName.get());
-            // String nodeId = "session" + i;
-            labelTest.setId("session");
+        try {
+            for (int i = 0; i < scheduleViewModel.getListByClassGroup().size(); i++) {
+                StringProperty courseName = scheduleViewModel.getListByClassGroup().get(i)
+                        .getCourseProperty();
+                Label labelTest = new Label();
+                labelTest.setText(courseName.get());
+                // String nodeId = "session" + i;
+                labelTest.setId("session" + i);
 
-            // Adds a background color to the session on the grid
-            String backColor = "lavender";
-            String courseHolder = "" + scheduleViewModel.getList().get(i).getCourseProperty();
-            if (courseHolder.contains("RWD")) {
-                backColor = "lightblue";
-            }
-            if (courseHolder.contains("DMA")) {
-                backColor = "lightseagreen";
-            }
-            if (courseHolder.contains("SDJ")) {
-                backColor = "burlywood";
-            }
-            if (courseHolder.contains("SEP")) {
-                backColor = "indianred";
-            }
-            labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+                // Adds a background color to the session on the grid
+                String backColor = "lavender";
+                String courseHolder = "" + scheduleViewModel.getListByClassGroup().get(i).getCourseProperty();
+                if (courseHolder.contains("RWD")) {
+                    backColor = "lightblue";
+                }
+                if (courseHolder.contains("DMA")) {
+                    backColor = "lightseagreen";
+                }
+                if (courseHolder.contains("SDJ")) {
+                    backColor = "burlywood";
+                }
+                if (courseHolder.contains("SEP")) {
+                    backColor = "indianred";
+                }
+                labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
-            int startTimeInt = scheduleViewModel.getList().get(i)
-                    .getStartTimeIntProperty();
-            int numberOfLessonsInt = scheduleViewModel.getList().get(i)
-                    .getNumberOfLessonsProperty().intValue();
-            int dayOfWeek = scheduleViewModel.getList().get(i).getDayOfWeekProperty()
-                    .getValue();
+                int startTimeInt = scheduleViewModel.getListByClassGroup().get(i)
+                        .getStartTimeIntProperty();
+                int numberOfLessonsInt = scheduleViewModel.getListByClassGroup().get(i)
+                        .getNumberOfLessonsProperty().intValue();
+                int dayOfWeek = scheduleViewModel.getListByClassGroup().get(i).getDayOfWeekProperty()
+                        .getValue();
 
-            labelTest.setMinHeight((double) numberOfLessonsInt * 25 - 2);
-            labelTest.setMinWidth(100 - 1);
-            labelTest.setTextAlignment(TextAlignment.CENTER);
-            labelTest.setAlignment(Pos.CENTER);
+                labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
+                labelTest.setMinWidth(100 - 1);
+                labelTest.setTextAlignment(TextAlignment.CENTER);
+                labelTest.setAlignment(Pos.CENTER);
 
-            gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
-            // Move the label like 1 pixel to the right to make it centered
-            labelTest.setTranslateX(0.3);
+                gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+                // System.out.println("I just added this label");
+                System.out.println(labelTest);
+                // Move the label like 1 pixel to the right to make it centered
+                labelTest.setTranslateX(0.3);
+            }
+        }
+        catch   (Exception e)
+        {
+            System.out.println(e.getMessage());
         }
 
-        System.out.println("Here are the current gridPane children");
-        for (int i = 0; i < gridPane.getChildren().size(); i++) {
-            System.out.println(gridPane.getChildren().get(i));
-        }
+        // System.out.println("Here are the current gridPane children");
+        // for (int i = 0; i < gridPane.getChildren().size(); i++) {
+        //   System.out.println(gridPane.getChildren().get(i));
+        // }
 
         // Chris attempts remove on click
         gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                reset();
                 String selected = mouseEvent.getTarget().toString();
                 System.out.println("I just selected" + selected);
                 Object target = mouseEvent.getTarget();
@@ -297,14 +296,11 @@ public class ScheduleGridViewController {
                              .size(); j++) {
                     if (model.getSessionsByClassGroup(model.getChosenClassGroup())
                             .get(j).shortString().equals(compare)) {
-                        System.out.println("Found the target in the list in model");
-                        System.out.println("Setting to chosen session");
+                        // System.out.println("Found the target in the list in model");
+                        // System.out.println("Setting to chosen session");
                         model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
                                 .get(j));
-                        //model.removeSession(
-                        //   model.getSessionsByClassGroup(model.getChosenClassGroup())
-                        //      .get(j));
-
+                        System.out.println("TEST* The chosen session is: "+model.getChosenSession());
                         viewHandler.openView("sessionDetails");
                     }
                 }

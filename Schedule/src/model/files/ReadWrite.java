@@ -24,7 +24,7 @@ public class ReadWrite
     //  manualWriteCourse(manualReadCourses());
     System.out.println(manualReadRooms(rooms));
     //XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
-  //  System.out.println( manualReadRooms(rooms)); ;
+    //  System.out.println( manualReadRooms(rooms)); ;
   }
 
   /*
@@ -131,29 +131,35 @@ public class ReadWrite
       {
 
         xml += "\n<Session>";
-        xml += "\n    <Course>" + sessions.get(i).getCourse()
-            + "</Course>";
+        xml += "\n    <Course>" + sessions.get(i).getCourse() + "</Course>";
         xml += "\n    <Class>" + sessions.get(i).getCourse().getClassGroup()
             + "</Class>";
-        xml += "\n    <Teachers>" + sessions.get(i).getCourse().getTeachers()
-            + "</Teacher>";
+        xml += "\n    <Teachers>";
+        for (int j = 0;
+             j < sessions.get(i).getCourse().getTeachers().size(); j++)
+        {
+          xml +=
+              sessions.get(j).getCourse().getTeachers().get(j).getViaId() + ",";
+        }
+        xml += "</Teachers>";
 
-        xml += "\n    <Date>" + sessions.get(i).getDate()
-            + "</Date>";
+        xml += "\n    <Date>" + sessions.get(i).getDate() + "</Date>";
 
         xml += "\n    <WeekDay>" + sessions.get(i).getDate().getWeekday()
             + "</WeekDay>";
-        xml +=
-            "\n    <StartTime>" + sessions.get(i).getStartTime() + "</StartTime>";
-          xml +=
-              "\n    <NumberOfLessons>" + sessions.get(i).getNumberOfLessons()
-                  + "</NumberOfLessons>";
+        xml += "\n    <StartTime>" + sessions.get(i).getStartTime()
+            + "</StartTime>";
+        xml += "\n    <NumberOfLessons>" + sessions.get(i).getNumberOfLessons()
+            + "</NumberOfLessons>";
 
         xml += "\n    <EndTime>" + sessions.get(i).getEndTime() + "</EndTime>";
 
-        if (sessions.get(i).getRoom() == null){
+        if (sessions.get(i).getRoom() == null)
+        {
           xml += "\n   <Room>unassigned</Room>";
-        } else {
+        }
+        else
+        {
           xml += "\n   <Room>" + sessions.get(i).getRoom() + "</Room>";
         }
 
@@ -449,6 +455,7 @@ public class ReadWrite
     }
     return classGroupList;
   }
+
   //Reads in a file of Courses and turns it into a CourseList
   public static CourseList manualReadCourses(File file)
   {
@@ -580,7 +587,7 @@ public class ReadWrite
         {
           parts = line.split(",");
 
-          for (int i = 0; i < parts.length-1; i++)
+          for (int i = 0; i < parts.length - 1; i++)
           {
             int floor;
             String floorString = "";
@@ -638,13 +645,15 @@ public class ReadWrite
                 capacity = Integer.parseInt(parts[1]);
                 System.out.println("This is the capacity:" + capacity);
 
-
                 room = new FoldableRoom(floor, block, number, capacity,
                     roomLetter);
                 System.out.println("I just made a foldable room");
-                if (!(rooms.contains(room))){
+                if (!(rooms.contains(room)))
+                {
                   rooms.addRoom(room);
-                } else {
+                }
+                else
+                {
                   System.out.println("Room already exists, failed to add");
                 }
 

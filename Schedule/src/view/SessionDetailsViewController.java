@@ -45,12 +45,19 @@ public class SessionDetailsViewController
 
   public void reset()
   {
+    chosenSession=model.getChosenSession();
     errorLabel.setText("");
       courseDetailsField.setText("" + chosenSession.getCourse());
       classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());
       startTimeField.setText("" + chosenSession.getStartTimeString());
       endTimeField.setText("" + chosenSession.getEndTimeString());
       roomDetailsField.setText("" + chosenSession.getRoom());
+  }
+  public void removeSessionButton(){
+    System.out.println("This is the chosen session before removing: "+chosenSession);
+    model.removeSession(chosenSession);
+    System.out.println("My sessions: " +model.getSessionsByClassGroup(model.getChosenClassGroup()) );
+
   }
 
   // @FXML methods here
@@ -61,13 +68,6 @@ public class SessionDetailsViewController
 
   public void cancelInSessionDetailsViewButton(){
     viewHandler.openView("schedule");
-  }
-
-  public void removeSessionButton(){
-    model.removeSession(chosenSession);
-    System.out.println("My sessions: " +model.getSessionsByClassGroup(model.getChosenClassGroup()) );
-    model.setChosenSession(null);
-    chosenSession =null;
   }
 
 }

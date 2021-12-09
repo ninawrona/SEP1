@@ -754,13 +754,9 @@ public class SessionList
     sessionList1.addSession(session3, room1);
     sessionList1.addSession(session1, room2);
     sessionList1.addSession(session2, room1);
-<<<<<<< HEAD
+
     System.out.println("This is the list: "+
         sessionList1.getSessionsByDateAndClassGroup(date1, group1));
-=======
     System.out.println(sort(sessionList1));
->>>>>>> 485ea643995cc9dce27f7eeb2e8e0aada3230fb1
-
-    System.out.println("SORTED: " +sessionList1.sortDateClassGroupSessions(date1,group1));
   }
 }

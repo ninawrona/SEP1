@@ -14,14 +14,23 @@
    <children>
       <VBox minWidth="-Infinity" prefHeight="350.0" prefWidth="820.0">
          <children>
-            <Label alignment="CENTER" prefHeight="33.0" prefWidth="800.0" text="Schedule">
-               <font>
-                  <Font name="Bell MT" size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="weekLabel" prefHeight="51.0" prefWidth="205.0" text="Week: Not Selecte">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="50.0" prefWidth="113.0" text="Schedule">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
             <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0">
                <children>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0">

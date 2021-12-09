@@ -103,137 +103,137 @@ function showData(xml) {
                                 hour820[1].classList.add("pt-"+numberOfLessons)
                                 hour820[1].rowSpan = ""+numberOfLessons
                             }
-                            case ("MONDAY"):
+                            case ("TUESDAY"):
                             {
-                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                hour820[2].innerHTML = course + "<br>" + room + + "<br>"
                                 for(var i = 0; i<teachers.length; i++)
                                 {   
-                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                    hour820[2].innerHTML+=teachers[i]+"  ";
                                 }
                                 switch(course)
                                 {
                                     case("SDJ"):
                                     {
-                                        hour820[1].classList.add("bg-danger")
+                                        hour820[2].classList.add("bg-danger")
                                     }
                                     break;
                                     case("DMA"):
                                     {
-                                        hour820[1].classList.add("bg-info")
+                                        hour820[2].classList.add("bg-info")
                                     }
                                     break;
                                     case("RWD"):
                                     {
-                                        hour820[1].classList.add("bg-primary")
+                                        hour820[2].classList.add("bg-primary")
                                     }
                                     break;
                                     case("SEP"):
                                     {
-                                        hour820[1].classList.add("bg-warning")
+                                        hour820[2].classList.add("bg-warning")
                                     }
                                     break;
                                 }
-                                hour820[1].classList.add("pt-"+numberOfLessons)
-                                hour820[1].rowSpan = ""+numberOfLessons
+                                hour820[2].classList.add("pt-"+numberOfLessons)
+                                hour820[2].rowSpan = ""+numberOfLessons
                             }
-                            case ("MONDAY"):
+                            case ("WENDESDAY"):
                             {
-                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                hour820[3].innerHTML = course + "<br>" + room + + "<br>"
                                 for(var i = 0; i<teachers.length; i++)
                                 {   
-                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                    hour820[3].innerHTML+=teachers[i]+"  ";
                                 }
                                 switch(course)
                                 {
                                     case("SDJ"):
                                     {
-                                        hour820[1].classList.add("bg-danger")
+                                        hour820[3].classList.add("bg-danger")
                                     }
                                     break;
                                     case("DMA"):
                                     {
-                                        hour820[1].classList.add("bg-info")
+                                        hour820[3].classList.add("bg-info")
                                     }
                                     break;
                                     case("RWD"):
                                     {
-                                        hour820[1].classList.add("bg-primary")
+                                        hour820[3].classList.add("bg-primary")
                                     }
                                     break;
                                     case("SEP"):
                                     {
-                                        hour820[1].classList.add("bg-warning")
+                                        hour820[3].classList.add("bg-warning")
                                     }
                                     break;
                                 }
-                                hour820[1].classList.add("pt-"+numberOfLessons)
-                                hour820[1].rowSpan = ""+numberOfLessons
+                                hour820[3].classList.add("pt-"+numberOfLessons)
+                                hour820[3].rowSpan = ""+numberOfLessons
                             }
-                            case ("MONDAY"):
+                            case ("THURSDAY"):
                             {
-                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                hour820[4].innerHTML = course + "<br>" + room + + "<br>"
                                 for(var i = 0; i<teachers.length; i++)
                                 {   
-                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                    hour820[4].innerHTML+=teachers[i]+"  ";
                                 }
                                 switch(course)
                                 {
                                     case("SDJ"):
                                     {
-                                        hour820[1].classList.add("bg-danger")
+                                        hour820[4].classList.add("bg-danger")
                                     }
                                     break;
                                     case("DMA"):
                                     {
-                                        hour820[1].classList.add("bg-info")
+                                        hour820[4].classList.add("bg-info")
                                     }
                                     break;
                                     case("RWD"):
                                     {
-                                        hour820[1].classList.add("bg-primary")
+                                        hour820[4].classList.add("bg-primary")
                                     }
                                     break;
                                     case("SEP"):
                                     {
-                                        hour820[1].classList.add("bg-warning")
+                                        hour820[4].classList.add("bg-warning")
                                     }
                                     break;
                                 }
-                                hour820[1].classList.add("pt-"+numberOfLessons)
-                                hour820[1].rowSpan = ""+numberOfLessons
+                                hour820[4].classList.add("pt-"+numberOfLessons)
+                                hour820[4].rowSpan = ""+numberOfLessons
                             }
-                            case ("MONDAY"):
+                            case ("FRIDAY"):
                             {
-                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                hour820[5].innerHTML = course + "<br>" + room + + "<br>"
                                 for(var i = 0; i<teachers.length; i++)
                                 {   
-                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                    hour820[5].innerHTML+=teachers[i]+"  ";
                                 }
                                 switch(course)
                                 {
                                     case("SDJ"):
                                     {
-                                        hour820[1].classList.add("bg-danger")
+                                        hour820[5].classList.add("bg-danger")
                                     }
                                     break;
                                     case("DMA"):
                                     {
-                                        hour820[1].classList.add("bg-info")
+                                        hour820[5].classList.add("bg-info")
                                     }
                                     break;
                                     case("RWD"):
                                     {
-                                        hour820[1].classList.add("bg-primary")
+                                        hour820[5].classList.add("bg-primary")
                                     }
                                     break;
                                     case("SEP"):
                                     {
-                                        hour820[1].classList.add("bg-warning")
+                                        hour820[5].classList.add("bg-warning")
                                     }
                                     break;
                                 }
-                                hour820[1].classList.add("pt-"+numberOfLessons)
-                                hour820[1].rowSpan = ""+numberOfLessons
+                                hour820[5].classList.add("pt-"+numberOfLessons)
+                                hour820[5].rowSpan = ""+numberOfLessons
                             }
                     }
                 }

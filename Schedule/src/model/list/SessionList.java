@@ -556,7 +556,7 @@ public class SessionList
     Student student2 = new Student(1, "Wendy", 655655);
     Room room1 = new Room(5, 'C', 16, 45);
     Room room2 = new Room(5, 'C', 14, 45);
-    Time time1 = new Time(8, 20);
+    Time time1 = new Time(9, 15);
     Time time2 = new Time(12, 45);
 
     Date date1 = new Date(10, 10, 2022);

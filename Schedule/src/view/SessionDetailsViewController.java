@@ -45,6 +45,7 @@ public class SessionDetailsViewController
 
   public void reset()
   {
+    chosenSession=model.getChosenSession();
     errorLabel.setText("");
       courseDetailsField.setText("" + chosenSession.getCourse());
       classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());

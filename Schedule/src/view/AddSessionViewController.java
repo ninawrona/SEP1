@@ -92,7 +92,7 @@ public class AddSessionViewController
     System.out.println("I just reset the add session window!");
     courseChoiceBoxInAddSession.setValue(null);
     startTimeChoiceBox.setValue(null);
-    datePicker.getEditor().clear();
+    // datePicker.getEditor().clear();
     numberOfLessonsChoiceBox.setValue(null);
     roomsChoiceBox.setValue(null);
     loadAllCourseArray();

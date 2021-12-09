@@ -32,10 +32,10 @@ public class SessionViewModel
     fullStringProperty = new SimpleStringProperty(session.toString());
     switch (session.getStartTimeString())
     {
-      case ("8:20"):
+      case ("08:20"):
         timeHolder = 2;
         break;
-      case ("9:15"):
+      case ("09:15"):
         timeHolder = 3;
         break;
       case ("10:10"):

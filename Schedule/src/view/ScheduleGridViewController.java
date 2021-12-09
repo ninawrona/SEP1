@@ -214,9 +214,12 @@ public class ScheduleGridViewController {
         // Clear the grid
         // columns
         for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            System.out.println("I'm looking at " + gridPane.getChildren().get(i));
             if (gridPane.getChildren().get(i).getId() != null) {
-                if (gridPane.getChildren().get(i).getId().contains("session")) {
-                    gridPane.getChildren().remove(gridPane.getChildren().get(i));
+                System.out.println("The id is " + gridPane.getChildren().get(i).getId());
+                if (!(gridPane.getChildren().get(i).getId().contains("label"))) {
+                    System.out.println("removing");
+                    gridPane.getChildren().remove(i);
                 }
             }
         }
@@ -228,8 +231,8 @@ public class ScheduleGridViewController {
                     .getCourseProperty();
             Label labelTest = new Label();
             labelTest.setText(courseName.get());
-            String nodeId = "session" + i;
-            labelTest.setId(nodeId);
+            // String nodeId = "session" + i;
+            labelTest.setId("session");
 
             // Adds a background color to the session on the grid
             String backColor = "lavender";

@@ -54,7 +54,7 @@ public class SessionList
    * @param room    a Room object
    */
   public void addSession(Session session, Room room)
-  {
+  { // TODO: 07/12/2021 INCLUDE THE METHOD THAT IS CHECKING IF THE CLASSGROUP ALREADY HAS A SESSION. @see method isClassGroupAvailable 
     try
     {
 

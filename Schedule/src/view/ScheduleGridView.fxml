@@ -16,7 +16,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="weekLabel" prefHeight="51.0" prefWidth="205.0" text="Week: Not Selected">
+                  <Label fx:id="weekLabel" prefHeight="51.0" prefWidth="205.0" text="Week: Not Selecte">
                      <font>
                         <Font size="18.0" />
                      </font>

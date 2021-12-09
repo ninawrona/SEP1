@@ -160,7 +160,7 @@ public class ReadWrite
         }
         else
         {
-          xml += "\n   <Room>" + sessions.get(i).getRoom() + "</Room>";
+          xml +="\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
         }
 
         xml += "\n</Session>";

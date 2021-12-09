@@ -81,14 +81,6 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
                <children>
-                  <Button layoutX="20.0" layoutY="106.0" mnemonicParsing="false" onAction="#removeSessionButton" prefHeight="25.0" prefWidth="100.0" text="Remove Session">
-                     <font>
-                        <Font size="11.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#courseDetailsButton" prefHeight="25.0" prefWidth="100.0" text="Course details">
                      <VBox.margin>
                         <Insets bottom="10.0" />

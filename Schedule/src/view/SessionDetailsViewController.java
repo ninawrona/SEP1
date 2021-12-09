@@ -63,12 +63,5 @@ public class SessionDetailsViewController
     viewHandler.openView("schedule");
   }
 
-  public void removeSessionButton(){
-    model.removeSession(chosenSession);
-    System.out.println("My sessions: " +model.getSessionsByClassGroup(model.getChosenClassGroup()) );
-    model.setChosenSession(null);
-    chosenSession =null;
-  }
-
 }
 

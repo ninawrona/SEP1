@@ -200,6 +200,12 @@ public class AddSessionViewController
           numberOfLessonsChoiceBox.getValue());
       System.out.println("I just created the following session:\n");
       System.out.println(session);
+
+      //GAP checker:
+
+      if (model.getSessionsByDateAndClassGroup(getDateFromDatePicker(), model.getChosenClassGroup()).size()>1 ){
+        //SORTING BASED ON START TIME
+      }
       loadRoomArray();
     }
     catch (IllegalArgumentException a){

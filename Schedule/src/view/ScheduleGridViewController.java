@@ -171,14 +171,16 @@ public class ScheduleGridViewController {
         Node result = null;
         ObservableList<Node> childrens = gridPane.getChildren();
 
-        for (Node node : childrens) {
-            if (gridPane.getRowIndex(node) == row
-                    && gridPane.getColumnIndex(node) == column) {
-                result = node;
-                break;
+        if (childrens.size() != 0) {
+
+            for (Node node : childrens) {
+                if (gridPane.getRowIndex(node) == row
+                        && gridPane.getColumnIndex(node) == column) {
+                    result = node;
+                    break;
+                }
             }
         }
-
         return result;
     }
 
@@ -191,6 +193,9 @@ public class ScheduleGridViewController {
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
+            if (model.getChosenClassGroup().getStudents().size() == 0) {
+                errorLabel.setText("Please upload the text files");
+            }
             classNameLabel.setText(
                     "Class: " + model.getChosenClassGroup().toString());
         } else {
@@ -199,11 +204,22 @@ public class ScheduleGridViewController {
             errorLabel.setText("Please select a class");
         }
 
+
         // Add a vBox to the first pane to find the dimensions of the grid
         VBox vBoxTest = new VBox();
         gridPane.add(vBoxTest, 0, 0, 1, 1);
         double dimHeight = vBoxTest.getHeight();
         double dimWidth = vBoxTest.getWidth();
+
+        // Clear the grid
+        // columns
+        for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            if (gridPane.getChildren().get(i).getId() != null) {
+                if (gridPane.getChildren().get(i).getId().contains("session")) {
+                    gridPane.getChildren().remove(gridPane.getChildren().get(i));
+                }
+            }
+        }
 
         scheduleViewModel.update();
         // Populate the grid
@@ -212,6 +228,8 @@ public class ScheduleGridViewController {
                     .getCourseProperty();
             Label labelTest = new Label();
             labelTest.setText(courseName.get());
+            String nodeId = "session" + i;
+            labelTest.setId(nodeId);
 
             // Adds a background color to the session on the grid
             String backColor = "lavender";
@@ -372,11 +390,9 @@ public class ScheduleGridViewController {
 
     @FXML
     private void addSessionButton() {
-        if (model.getChosenClassGroup() == null)
-        {
+        if (model.getChosenClassGroup() == null) {
             errorLabel.setText("Please select a class before adding sessions");
-        }
-        else {
+        } else {
             model.setChosenClassGroup(model.getChosenClassGroup());
             viewHandler.openView("addSession");
         }

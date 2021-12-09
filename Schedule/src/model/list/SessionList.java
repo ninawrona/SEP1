@@ -54,7 +54,7 @@ public class SessionList
    * @param room    a Room object
    */
   public void addSession(Session session, Room room)
-  {
+  { // TODO: 07/12/2021 INCLUDE THE METHOD THAT IS CHECKING IF THE CLASSGROUP ALREADY HAS A SESSION. @see method isClassGroupAvailable 
     try
     {
 
@@ -556,7 +556,7 @@ public class SessionList
     Student student2 = new Student(1, "Wendy", 655655);
     Room room1 = new Room(5, 'C', 16, 45);
     Room room2 = new Room(5, 'C', 14, 45);
-    Time time1 = new Time(8, 20);
+    Time time1 = new Time(9, 15);
     Time time2 = new Time(12, 45);
 
     Date date1 = new Date(10, 10, 2022);

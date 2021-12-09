@@ -190,6 +190,7 @@ public class AddSessionViewController
   // Create a session using the information above, then load rooms
   @FXML private void findRoomsButton()
   {
+    errorLabel.setText("");
     roomsChoiceBox.getItems().removeAll(roomsArray);
     try
     {
@@ -200,10 +201,14 @@ public class AddSessionViewController
       System.out.println(session);
       loadRoomArray();
     }
+    catch (IllegalArgumentException a){
+      errorLabel.setText("The last lesson has to end before 18:00.");
+    }
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }
+
 
   }
 

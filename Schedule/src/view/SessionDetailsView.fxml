@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SessionDetailsViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SessionDetailsViewController">
    <children>
       <Label alignment="CENTER" prefHeight="48.0" prefWidth="621.0" text="Session Details View">
          <font>
@@ -79,16 +79,16 @@
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="20.0" layoutY="106.0" mnemonicParsing="false" onAction="#removeSessionButton" prefHeight="25.0" prefWidth="100.0" text="Remove Session">
-               <font>
-                  <Font size="11.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Button>
             <VBox alignment="CENTER" prefHeight="198.0" prefWidth="120.0">
                <children>
+                  <Button mnemonicParsing="false" onAction="#removeSessionButton" prefHeight="25.0" prefWidth="100.0" text="Remove Session">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#courseDetailsButton" prefHeight="25.0" prefWidth="100.0" text="Course details">
                      <VBox.margin>
                         <Insets bottom="10.0" />

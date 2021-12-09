@@ -52,6 +52,12 @@ public class SessionDetailsViewController
       endTimeField.setText("" + chosenSession.getEndTimeString());
       roomDetailsField.setText("" + chosenSession.getRoom());
   }
+  public void removeSessionButton(){
+    System.out.println("This is the chosen session before removing: "+chosenSession);
+    model.removeSession(chosenSession);
+    System.out.println("My sessions: " +model.getSessionsByClassGroup(model.getChosenClassGroup()) );
+
+  }
 
   // @FXML methods here
 

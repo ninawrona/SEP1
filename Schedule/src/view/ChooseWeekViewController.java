@@ -51,6 +51,7 @@ public class ChooseWeekViewController {
         chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
         model.setChosenWeekNumber(chosenWeekNumber);
         System.out.println("I just set the week to " + model.getChosenWeekNumber());
+        // Holder
         System.out.println("I'm finding the monday");
         LocalDate mondayHolder = date;
         while (true) {

@@ -37,8 +37,10 @@ public class ScheduleGridViewController {
     private ScheduleViewModel scheduleViewModel;
     // private AddSessionViewController addSessionViewController;
 
-    @FXML
-    private Label weekLabel;
+    //@FXML
+    //private Label weekLabel;
+
+    @FXML private  Label weekLabel;
     @FXML
     private Label errorLabel;
     @FXML
@@ -91,7 +93,6 @@ public class ScheduleGridViewController {
         // this.gridPane = new GridPane();
         // this.addSessionViewController = new AddSessionViewController();
 
-        reset();
         label11.setText("Monday");
         label12.setText("Tuesday");
         label13.setText("Wednesday");
@@ -108,6 +109,8 @@ public class ScheduleGridViewController {
         label100.setText("15:30");
         label110.setText("16:25");
         label120.setText("17:20");
+        weekLabel.setText("Select week");
+        reset();
         // Commented out for debugging - CF
             /*try{
                 Label label = (Label) getNodeByRowColumnIndex(1, 1, gridPane);
@@ -197,8 +200,13 @@ public class ScheduleGridViewController {
             Date monday = model.getChosenMonday();
             Date friday = monday.copy();
             friday.stepForward(4);
-            weekLabel.setText("Week: " + model.getChosenWeekNumber() + " " + monday.getDay() + "/" + monday.getMonth()
-                    + " - " + friday.getDay() + "/" + friday.getMonth());
+//            weekLabel.setText("Week: " + model.getChosenWeekNumber() + " " + monday.getDay() + "/" + monday.getMonth()
+                   // + " - " + friday.getDay() + "/" + friday.getMonth());
+            weekLabel.setText("Test");
+        }
+        else
+        {
+            weekLabel.setText("Select week");
         }
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {

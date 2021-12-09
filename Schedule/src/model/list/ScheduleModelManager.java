@@ -108,8 +108,9 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenWeekNumber = chosenWeekNumber;
   }
 
-  @Override
-  public Date getChosenMonday() {
+ // Bla bla
+  public Date getChosenMonday()
+  {
     return chosenMonday;
   }
 

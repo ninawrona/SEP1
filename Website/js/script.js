@@ -26,11 +26,11 @@ function displayTable(){
     var listLength = x.length;
 
     var table = "<table><tr><th>Author</th><th>Title</th><th>Year</th>";
-    for (var i = 0; i < listLength; i++){
+    for (var j = 0; j < listLength; j++){
         table +=
-        "<tr><td>" + x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +
-        "</td><td>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
-        "</td><td>" + x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue +
+        "<tr><td>" + x[j].getElementsByTagName("author")[0].childNodes[0].nodeValue +
+        "</td><td>" + x[j].getElementsByTagName("title")[0].childNodes[0].nodeValue +
+        "</td><td>" + x[j].getElementsByTagName("year")[0].childNodes[0].nodeValue +
         "</td></tr>";
         
     }
@@ -54,13 +54,9 @@ function showData(xml) {
     var x = xmlDoc.getElementsByTagName("Session");
     var listLength = x.length;
     var test = document.getElementById("test");
-    test.innerHTML = "This is the lenght: " + listLength
 
     for (var i = 0; i < listLength; i++) {
 
-        if (i != 0) {
-            test.innerHTML = "I am entering loop second time!"
-        }
         var course = x[i].getElementsByTagName("Course")[0].childNodes[0].nodeValue;
         var room = x[i].getElementsByTagName("Room")[0].childNodes[0].nodeValue;
         var teachers = x[i].getElementsByTagName("Teachers")[0].childNodes[0].nodeValue.split(",");
@@ -76,8 +72,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour820[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour820[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour820[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -108,8 +104,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour820[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour820[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour820[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -140,8 +136,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour820[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour820[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour820[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -172,8 +168,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour820[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour820[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour820[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -204,8 +200,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour820[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour820[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour820[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -242,8 +238,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour915[1].innerHTML = course + "<br>" + room + "<br>";
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour915[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour915[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -274,8 +270,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour915[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour915[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour915[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -306,8 +302,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour915[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour915[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour915[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -338,8 +334,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour915[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour915[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour915[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -370,8 +366,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour915[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour915[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour915[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -408,8 +404,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1010[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1010[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1010[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -440,8 +436,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1010[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1010[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1010[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -472,8 +468,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1010[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1010[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1010[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -504,8 +500,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1010[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1010[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1010[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -536,8 +532,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1010[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1010[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1010[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -574,8 +570,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1105[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1105[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1105[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -606,8 +602,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1105[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1105[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1105[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -638,8 +634,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1105[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1105[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1105[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -670,8 +666,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1105[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1105[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1105[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -702,8 +698,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1105[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1105[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1105[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -740,8 +736,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1200[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1200[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1200[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -772,8 +768,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1200[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1200[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1200[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -804,8 +800,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1200[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1200[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1200[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -836,8 +832,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1200[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1200[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1200[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -868,8 +864,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1200[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1200[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1200[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -906,8 +902,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1245[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1245[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1245[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -937,10 +933,9 @@ function showData(xml) {
                             break;
                         case ("TUESDAY"):
                             {
-                                test.innerHTML = "I am entering this case!"
                                 hour1245[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1245[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1245[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -971,8 +966,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1245[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1245[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1245[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1003,8 +998,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1245[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1245[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1245[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1035,8 +1030,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1245[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1245[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1245[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1073,8 +1068,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1340[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1340[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1340[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1105,8 +1100,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1340[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1340[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1340[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1137,8 +1132,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1340[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1340[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1340[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1169,8 +1164,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1340[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1340[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1340[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1201,8 +1196,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1340[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1340[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1340[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1239,8 +1234,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1435[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1435[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1435[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1271,8 +1266,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1435[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1435[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1435[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1303,8 +1298,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1435[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1435[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1435[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1335,8 +1330,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1435[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1435[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1435[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1367,8 +1362,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1435[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1435[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1435[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1405,8 +1400,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1530[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1530[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1530[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1437,8 +1432,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1530[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1530[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1530[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1469,8 +1464,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1530[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1530[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1530[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1501,8 +1496,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1530[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1530[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1530[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1533,8 +1528,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1530[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1530[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1530[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1571,8 +1566,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1625[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1625[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1625[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1603,8 +1598,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1625[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1625[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1625[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1635,8 +1630,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1625[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1625[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1625[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1667,8 +1662,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1625[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1625[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1625[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1699,8 +1694,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1625[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1625[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1625[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1737,8 +1732,8 @@ function showData(xml) {
                         case ("MONDAY"):
                             {
                                 hour1720[1].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1720[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1720[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1769,8 +1764,8 @@ function showData(xml) {
                         case ("TUESDAY"):
                             {
                                 hour1720[2].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1720[2].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1720[2].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1801,8 +1796,8 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
                                 hour1720[3].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1720[3].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1720[3].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1833,8 +1828,8 @@ function showData(xml) {
                         case ("THURSDAY"):
                             {
                                 hour1720[4].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1720[1].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1720[1].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -1865,8 +1860,8 @@ function showData(xml) {
                         case ("FRIDAY"):
                             {
                                 hour1720[5].innerHTML = course + "<br>" + room + "<br>"
-                                for (var i = 0; i < teachers.length; i++) {
-                                    hour1720[5].innerHTML += teachers[i] + "  ";
+                                for (var j = 0; j < teachers.length; j++) {
+                                    hour1720[5].innerHTML += teachers[j] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):

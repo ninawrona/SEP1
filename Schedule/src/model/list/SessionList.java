@@ -88,19 +88,64 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
-   * @param date
-   *          a Date object representing the date.
-   * @param classGroup
-   *          a ClassGroup object representing the ClassGroup.
+   *
+   * @param date       a Date object representing the date.
+   * @param classGroup a ClassGroup object representing the ClassGroup.
    * @return a list of Session objects (if there are any) with the same date and classGroup.
    */
-  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup)
+  public SessionList getSessionsByDateAndClassGroup(Date date,
+      ClassGroup classGroup)
   {
-    SessionList list= new SessionList();
-    SessionList listsorted=new SessionList();
+    SessionList list = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
+          .getClassGroup().equals(classGroup))
+      {
+        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+      if (list.size() == 0)
+      {
+        throw new NullPointerException(
+            "The list is empty! You cannot remove anything!");
+      }
+
+    }
+    return list;
+  }
+/*
+  public SessionList sort()
+  {
+    SessionList list = new SessionList();
+    SessionList listsorted = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
+          .getClassGroup().equals(classGroup))
+      {
+        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+      if (list.size() == 0)
+      {
+        throw new NullPointerException(
+            "The list is empty! You cannot remove anything!");
+      }
+    }
+    for (int j = 1; j < list.size(); j++)
+    {
+      if (list.sessions.get(j - 1).getStartTime().getTimeInSeconds()
+          < list.sessions.get(j).getStartTime().getTimeInSeconds())
+      {
+        listsorted.addSession(0, list.sessions.get(j),
+            list.sessions.get(j).getRoom());
+      }
+      else
+        listsorted.addSession(0, list.sessions.get(j - 1), list.get);
+    }
+  }*/
 
 
-    for (int i=0;i<sessions.size();i++)
+   /* for (int i=0;i<sessions.size();i++)
     {
       if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup))
       {
@@ -128,19 +173,20 @@ public class SessionList
         }
       }
 
-      
+
 
      return listsorted;
   }
-
+*/
   // TODO: 09/12/2021 COMMENTS FOR THIS
+
   /**
-   *
    * @param index
    * @param session
    * @param room
    */
-  public void addSession(int index,Session session, Room room){
+  public void addSession(int index, Session session, Room room)
+  {
     try
     {
 
@@ -171,6 +217,7 @@ public class SessionList
       throw new IllegalStateException("There was an issue adding the session.");
     }
   }
+
   /**
    * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
    *
@@ -671,7 +718,7 @@ public class SessionList
     Room room2 = new Room(5, 'C', 14, 45);
     Time time1 = new Time(9, 15);
     Time time2 = new Time(12, 45);
-    Time time3= new Time(15,30);
+    Time time3 = new Time(15, 30);
 
     Date date1 = new Date(10, 10, 2022);
     Date date2 = new Date(11, 11, 2022);
@@ -681,17 +728,17 @@ public class SessionList
     studentList1.addStudent(student2);
     ClassGroup group1 = new ClassGroup(1, "Y", studentList1);
     Course course1 = new Course("SDJ", group1, teacherList1, 1, 10);
-    Course course2= new Course("DMA",group1,teacherList1,1,10);
-    Course course3=new Course("RWD",group1,teacherList1,1,10);
+    Course course2 = new Course("DMA", group1, teacherList1, 1, 10);
+    Course course3 = new Course("RWD", group1, teacherList1, 1, 10);
     SessionList sessionList1 = new SessionList();
     Session session1 = new Session(course1, date1, time2, 1);
     Session session2 = new Session(course2, date1, time1, 1);
     Session session3 = new Session(course3, date1, time3, 1);
-    sessionList1.addSession(session3,room1);
-    sessionList1.addSession(session1,room2);
-    sessionList1.addSession(session2,room1);
-    System.out.println(sessionList1.getSessionsByDateAndClassGroup(date1,group1));
-
+    sessionList1.addSession(session3, room1);
+    sessionList1.addSession(session1, room2);
+    sessionList1.addSession(session2, room1);
+    System.out.println(
+        sessionList1.getSessionsByDateAndClassGroup(date1, group1));
 
   }
 }

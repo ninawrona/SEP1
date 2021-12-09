@@ -115,6 +115,86 @@ public class SessionList
   }
 
 
+  public static String sort(SessionList sessionList)
+  {
+    SessionList list = sessionList;
+
+      class Node{
+          int value;
+          Node left;
+          Node right;
+          Node(int value){
+              this.value = value;
+              left = null;
+              right = null;
+          }
+      }
+
+      class Tree{
+          Node node;
+          Tree(int value){
+              node = new Node(value);
+          }
+          public Node insert(Node node, int value){
+              if(node == null){
+                  return new Node(value);
+              }
+              // Move to the left if passed value is
+              // less than the current node
+              if(value < node.value){
+                  node.left = insert(node.left, value);
+              }
+              // Move to the right if passed value is
+              // greater than the current node
+              else if(value > node.value){
+                  node.right = insert(node.right, value);
+              }
+              return node;
+          }
+
+          // For traversing in order
+          public void inOrder(Node node){
+              if(node != null){
+                  inOrder(node.left);
+                  System.out.print(node.value + " ");
+                  inOrder(node.right);
+              }
+          }
+
+          public void inOrderDesc(Node node){
+              if(node != null){
+                  inOrderDesc(node.right);
+                  System.out.print(node.value + " ");
+                  inOrderDesc(node.left);
+              }
+          }
+      }
+
+      Session[] array = new Session[list.size()];
+      for(int i = 0; i< list.size(); i++){
+        array[i] = list.get(i);
+      }
+
+
+              Tree tree = new Tree(array[0].getStartTime().getTimeInSeconds());
+              for(int i = 0; i < array.length; i++){
+                  tree.insert(tree.node, array[i].getStartTime().getTimeInSeconds());
+              }
+              System.out.println("Sorted Array (Ascending)- ");
+              tree.inOrder(tree.node);
+              System.out.println();
+              System.out.println("Sorted Array (Descending)- ");
+              tree.inOrderDesc(tree.node);
+
+              System.out.println(tree);
+              //ArrayList<Session> finalArrayList = new ArrayList<>();
+              //finalArrayList.add(sessionList.getSessionsByTimeDate(list.get(0).getDate(), ))
+    return tree.toString();
+  }
+
+
+
+
   // TODO: 09/12/2021 COMMENTS FOR THIS
 
   /**
@@ -674,8 +754,12 @@ public class SessionList
     sessionList1.addSession(session3, room1);
     sessionList1.addSession(session1, room2);
     sessionList1.addSession(session2, room1);
+<<<<<<< HEAD
     System.out.println("This is the list: "+
         sessionList1.getSessionsByDateAndClassGroup(date1, group1));
+=======
+    System.out.println(sort(sessionList1));
+>>>>>>> 485ea643995cc9dce27f7eeb2e8e0aada3230fb1
 
     System.out.println("SORTED: " +sessionList1.sortDateClassGroupSessions(date1,group1));
   }

@@ -191,6 +191,7 @@ public class ScheduleGridViewController {
     public void reset() {
         // set text to ""
         errorLabel.setText("");
+       // model.setChosenSession(null);
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
             if (model.getChosenClassGroup().getStudents().size() == 0) {
@@ -277,6 +278,7 @@ public class ScheduleGridViewController {
         gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                reset();
                 String selected = mouseEvent.getTarget().toString();
                 System.out.println("I just selected" + selected);
                 Object target = mouseEvent.getTarget();

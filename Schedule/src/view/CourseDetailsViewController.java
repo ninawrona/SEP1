@@ -9,6 +9,9 @@ import javafx.scene.layout.Region;
 import model.basic.Student;
 import model.basic.Teacher;
 import model.list.ScheduleModel;
+import model.list.StudentList;
+
+import java.util.ArrayList;
 
 public class CourseDetailsViewController
 {
@@ -23,6 +26,9 @@ public class CourseDetailsViewController
   private ViewHandler viewHandler;
   private ScheduleModel model;
 
+  ArrayList<Student> studentList = new ArrayList<>();
+  ArrayList<Teacher> teacherList = new ArrayList<>();
+
   public CourseDetailsViewController()
   {
     // Called by FXMLLoader
@@ -34,6 +40,10 @@ public class CourseDetailsViewController
     this.root = root;
     this.model = model;
     reset();
+    System.out.println("Ects: "+model.getChosenSession().getCourse().getECTS());
+    courseNameField.setText("" + model.getChosenSession().getCourse());
+    semesterField.setText("" + model.getChosenClassGroup().getSemester());
+    ectsPointsField.setText("" + model.getChosenSession().getCourse().getECTS());
   }
 
   public Region getRoot()
@@ -45,8 +55,46 @@ public class CourseDetailsViewController
   {
     errorLabel.setText("");
     //set the areas to the chosen class and course.
+
+    studentChoice.getItems().removeAll(studentList);
+    teacherChoice.getItems().removeAll(teacherList);
+    studentChoice.setValue(null);
+    teacherChoice.setValue(null);
+
+    loadStudentArray();
+    loadTeacherArray();
+
   }
 
+  public void loadStudentArray(){
+    studentList.removeAll(studentList);
+
+    try{
+      for(int i = 0; i<model.getChosenSession().getCourse().getStudents().size(); i++){
+        studentList.add(model.getChosenSession().getCourse().getStudents().get(i));
+      }
+      studentChoice.getItems().addAll(studentList);
+    }
+    catch (Exception e){
+      e.printStackTrace();
+    }
+  }
+
+
+  public void loadTeacherArray(){
+    teacherList.removeAll(teacherList);
+
+    try{
+      for(int i = 0; i<model.getChosenSession().getTeachers().size();i++){
+        teacherList.add(model.getChosenSession().getTeachers().get(i));
+      }
+      teacherChoice.getItems().addAll(teacherList);
+    }
+    catch (Exception e){
+      e.printStackTrace();
+    }
+
+  }
   // @FXML methods here
 
   @FXML private void addTeacherButton()
@@ -57,7 +105,14 @@ public class CourseDetailsViewController
 
   @FXML private void removeTeacherButton()
   {
-    //TODO remove chosen teacher
+    try{
+      model.getChosenSession().getTeachers().removeTeacher(teacherChoice.getValue());
+      reset();
+    }
+    catch (IllegalArgumentException e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
   }
 
   @FXML private void addStudentButton()
@@ -68,7 +123,16 @@ public class CourseDetailsViewController
 
   @FXML private void removeStudentButton()
   {
-    //TODO
+    try{
+      model.getChosenSession().getCourse().removeStudent(studentChoice.getValue());
+      reset();
+    }
+    catch (IllegalArgumentException e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+    System.out.println("List of current students");
+    System.out.println(model.getChosenSession().getCourse().getStudents().toString());
   }
 
   @FXML private void cancelButton()

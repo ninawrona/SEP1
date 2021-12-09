@@ -89,7 +89,7 @@ public class AddSessionViewController
     System.out.println(
         model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
             .getCourses());
-    System.out.println("I did a reset");
+    System.out.println("I just reset the add session window!");
     courseChoiceBoxInAddSession.setValue(null);
     startTimeChoiceBox.setValue(null);
     datePicker.getEditor().clear();
@@ -211,7 +211,16 @@ public class AddSessionViewController
   {
     try
     {
+      session.bookRoom(roomsChoiceBox.getValue());
       model.addSession(session, roomsChoiceBox.getValue());
+      if (session.getRoom() == null)
+      {
+        System.out.println("Hey! The room for this session is null!");
+      }
+      else
+      {
+        System.out.println("I put that session in room " + session.getRoom());
+      }
       scheduleViewModel.addSession(session);
       reset();
     }

@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.beans.property.StringProperty;
+
 import model.basic.ClassGroup;
 import model.list.ScheduleModel;
 
@@ -17,10 +19,8 @@ public class ViewHandler
   private AddStudentViewController addStudentViewController;
   private AddTeacherViewController addTeacherViewController;
   private ClassSelectViewController classSelectViewController;
-  private ConfirmationViewController confirmationViewController;
   private CourseDetailsViewController courseDetailsViewController;
   private FileViewController fileViewController;
-  private ScheduleViewController scheduleViewController;
   private SessionDetailsViewController sessionDetailsViewController;
   private ScheduleGridViewController scheduleGridViewController;
   // more controllers here
@@ -41,7 +41,7 @@ public class ViewHandler
     primaryStage.getIcons().add(icon);
     //controllers here
 
-    scheduleViewController.reset();
+    scheduleGridViewController.reset();
     // Only above should be reset
         /*
         addSessionViewController.reset();
@@ -69,17 +69,11 @@ public class ViewHandler
       case "classSelect":
         root = loadClassSelectView("ClassSelectView.fxml");
         break;
-      case "confirmation":
-        root = loadConfirmationView("ConfirmationView.fxml");
-        break;
-      //case "courseDetails":
-        //root = loadCourseDetailsView("CourseDetailsView.fxml");
-        //break;
       case "fileView":
         root = loadFileView("FileView.fxml");
         break;
       case "schedule":
-        root = loadScheduleView("ScheduleView.fxml");
+        root = loadScheduleGridView("ScheduleGridView.fxml");
         break;
       case "sessionDetails":
         root = loadSessionDetailsView("SessionDetailsView.fxml");
@@ -91,7 +85,7 @@ public class ViewHandler
         root = loadAddTeacherView("AddTeacher.fxml");
         break;
       case "courseDetails":
-        root = loadScheduleGridViewController("ScheduleGridView.fxml");
+        root = loadCourseDetailsView("CourseDetailsView.fxml");
         break;
     }
 
@@ -132,7 +126,7 @@ public class ViewHandler
     return addSessionViewController.getRoot();
   }
 
-  private Region loadScheduleGridViewController(String fxmlFile)
+  private Region loadScheduleGridView(String fxmlFile)
   {
     if (scheduleGridViewController == null)
     {
@@ -178,30 +172,6 @@ public class ViewHandler
       sessionDetailsViewController.reset();
     }
     return sessionDetailsViewController.getRoot();
-  }
-
-  private Region loadScheduleView(String fxmlFile)
-  {
-    if (scheduleViewController == null)
-    {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        scheduleViewController = loader.getController();
-        scheduleViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-    else
-    {
-      scheduleViewController.reset();
-    }
-    return scheduleViewController.getRoot();
   }
 
   private Region loadFileView(String fxmlFile)
@@ -258,30 +228,6 @@ public class ViewHandler
     primaryStage.close();
   }
 
-  private Region loadConfirmationView(String fxmlFile)
-  {
-    if (confirmationViewController == null)
-    {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        confirmationViewController = loader.getController();
-        confirmationViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
-    }
-    else
-    {
-      confirmationViewController.reset();
-    }
-    return confirmationViewController.getRoot();
-  }
-
   private Region loadClassSelectView(String fxmlFile)
   {
     if (classSelectViewController == null)
@@ -316,7 +262,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         addStudentViewController = loader.getController();
-        classSelectViewController.init(this, model, root);
+        addStudentViewController.init(this, root, model);
       }
       catch (Exception e)
       {
@@ -340,7 +286,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         addTeacherViewController = loader.getController();
-        classSelectViewController.init(this, model, root);
+        addTeacherViewController.init(this, root, model);
       }
       catch (Exception e)
       {

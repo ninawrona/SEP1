@@ -3,8 +3,10 @@ package view;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,12 +15,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import model.basic.Session;
 import model.basic.Time;
+import model.files.ReadWrite;
+import model.files.XMLParser;
 import model.list.*;
 
+import javax.swing.*;
+import java.awt.*;
 
 public class ScheduleGridViewController {
     private ViewHandler viewHandler;
@@ -119,6 +127,7 @@ public class ScheduleGridViewController {
          */
 
         //populate the grid pane for the first time
+        /* moving to reset
         for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
             StringProperty courseName = scheduleViewModel.getList().get(i).getCourseProperty();
             Label labelTest = new Label();
@@ -154,28 +163,26 @@ public class ScheduleGridViewController {
                     }
 
                      */
-                    gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
-                }
-            });
-        }
+        // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
     }
 
-
-
-    public Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+    public Node getNodeByRowColumnIndex(final int row, final int column,
+                                        GridPane gridPane) {
         Node result = null;
         ObservableList<Node> childrens = gridPane.getChildren();
 
-        for (Node node : childrens) {
-            if (gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
-                result = node;
-                break;
+        if (childrens.size() != 0) {
+
+            for (Node node : childrens) {
+                if (gridPane.getRowIndex(node) == row
+                        && gridPane.getColumnIndex(node) == column) {
+                    result = node;
+                    break;
+                }
             }
         }
-
         return result;
     }
-
 
     public Region getRoot() {
         return root;
@@ -186,14 +193,187 @@ public class ScheduleGridViewController {
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
-            classNameLabel.setText("Class: " + model.getChosenClassGroup().toString());
+            if (model.getChosenClassGroup().getStudents().size() == 0) {
+                errorLabel.setText("Please upload the text files");
+            }
+            classNameLabel.setText(
+                    "Class: " + model.getChosenClassGroup().toString());
         } else {
             //  System.out.println("class not chosen yet");
             classNameLabel.setText("Class: ");
             errorLabel.setText("Please select a class");
         }
 
+
+        // Add a vBox to the first pane to find the dimensions of the grid
+        VBox vBoxTest = new VBox();
+        gridPane.add(vBoxTest, 0, 0, 1, 1);
+        double dimHeight = vBoxTest.getHeight();
+        double dimWidth = vBoxTest.getWidth();
+
+        // Clear the grid
+        // columns
+        for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            if (gridPane.getChildren().get(i).getId() != null) {
+                if (gridPane.getChildren().get(i).getId().contains("session")) {
+                    gridPane.getChildren().remove(gridPane.getChildren().get(i));
+                }
+            }
+        }
+
         scheduleViewModel.update();
+        // Populate the grid
+        for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
+            StringProperty courseName = scheduleViewModel.getList().get(i)
+                    .getCourseProperty();
+            Label labelTest = new Label();
+            labelTest.setText(courseName.get());
+            String nodeId = "session" + i;
+            labelTest.setId(nodeId);
+
+            // Adds a background color to the session on the grid
+            String backColor = "lavender";
+            String courseHolder = "" + scheduleViewModel.getList().get(i).getCourseProperty();
+            if (courseHolder.contains("RWD")) {
+                backColor = "lightblue";
+            }
+            if (courseHolder.contains("DMA")) {
+                backColor = "lightseagreen";
+            }
+            if (courseHolder.contains("SDJ")) {
+                backColor = "burlywood";
+            }
+            if (courseHolder.contains("SEP")) {
+                backColor = "indianred";
+            }
+            labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+
+            int startTimeInt = scheduleViewModel.getList().get(i)
+                    .getStartTimeIntProperty();
+            int numberOfLessonsInt = scheduleViewModel.getList().get(i)
+                    .getNumberOfLessonsProperty().intValue();
+            int dayOfWeek = scheduleViewModel.getList().get(i).getDayOfWeekProperty()
+                    .getValue();
+
+            labelTest.setMinHeight((double) numberOfLessonsInt * 25 - 2);
+            labelTest.setMinWidth(100 - 1);
+            labelTest.setTextAlignment(TextAlignment.CENTER);
+            labelTest.setAlignment(Pos.CENTER);
+
+            gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+            // Move the label like 1 pixel to the right to make it centered
+            labelTest.setTranslateX(0.3);
+        }
+
+        System.out.println("Here are the current gridPane children");
+        for (int i = 0; i < gridPane.getChildren().size(); i++) {
+            System.out.println(gridPane.getChildren().get(i));
+        }
+
+        // Chris attempts remove on click
+        gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                String selected = mouseEvent.getTarget().toString();
+                System.out.println("I just selected" + selected);
+                Object target = mouseEvent.getTarget();
+                String compare = "";
+                if (target instanceof Text) {
+                    Text targetTextObject = (Text) target;
+                    compare = targetTextObject.getText();
+                } else if (target instanceof Label) {
+                    Label targetLabel = (Label) target;
+                    compare = targetLabel.getText();
+                }
+
+                // Choosing the session by clicking
+                for (int j = 0;
+                     j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+                             .size(); j++) {
+                    if (model.getSessionsByClassGroup(model.getChosenClassGroup())
+                            .get(j).shortString().equals(compare)) {
+                        System.out.println("Found the target in the list in model");
+                        System.out.println("Setting to chosen session");
+                        model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
+                                .get(j));
+                        //model.removeSession(
+                        //   model.getSessionsByClassGroup(model.getChosenClassGroup())
+                        //      .get(j));
+
+                        viewHandler.openView("sessionDetails");
+                    }
+                }
+
+          /* slow version
+          // System.out.println("I found text!");
+          for (int i = 0; i < gridPane.getChildren().size(); i++)
+          {
+            // System.out.println("I am looking at child " + i);
+            if (gridPane.getChildren().get(i) instanceof Label)
+            {
+              Label labelToRead = (Label) gridPane.getChildren().get(i);
+              if (labelToRead.getText().equals(((Text) target).getText()))
+              {
+                System.out.println(
+                    "Found my target. Trying to remove it from grid pane");
+                gridPane.getChildren().remove(gridPane.getChildren().get(i));
+                for (int j = 0; j < model.getSessionsByClassGroup(
+                    model.getChosenClassGroup()).size(); j++)
+                {
+                  if (model.getSessionsByClassGroup(model.getChosenClassGroup())
+                      .get(j).shortString().equals(labelToRead.getText()))
+                  {
+                    System.out.println("Found the target in the list in model");
+                    System.out.println("Removing from the list");
+                    model.removeSession(model.getSessionsByClassGroup(
+                        model.getChosenClassGroup()).get(j));
+                  }
+                }
+                break;
+              }
+            }
+
+          }
+
+           */
+            }
+        });
+
+    /*
+    gridPane.setOnMouseClicked(new EventHandler<MouseEvent>()
+
+    {
+      @Override public void handle(MouseEvent mouseEvent)
+      {
+        //Node nodeHandler = getNodeByRowColumnIndex(dayOfWeek, startTimeInt, gridPane);
+        System.out.println(gridPane.getChildren());
+        //gets the X and Y of where you clicked
+        double clickX = Math.floor(mouseEvent.getX());
+        double clickY = Math.floor(mouseEvent.getY());
+
+        //Prints out the nodes x/y so that we can see location. the plan is to get the XY of the node we want and compare it to the X Y of where we clicked?
+        System.out.println("X:" + clickX + "\nY:" + clickY);
+        for (int i = 0; i < gridPane.getChildren().size(); i++)
+        {
+          System.out.println(
+              "X:" + gridPane.getChildren().get(i).getLayoutX() + "\nY:"
+                  + gridPane.getChildren().get(i).getLayoutY());
+        }
+        //tried to remove at x,y but they are not the same as row and column
+        // gridPane.getChildren().remove(getNodeByRowColumnIndex((int)clickY,(int)clickX,gridPane));
+
+        //when you print out properties it says what row and column and span the session is
+                    /*
+                    for (int i = 0; i < gridPane.getChildren().size(); i++){
+                    Object node = gridPane.getChildren().get(i).getProperties().get(getNodeByRowColumnIndex((int)clickY,(int)clickX,gridPane));
+                    System.out.println(gridPane.getChildren().get(i).getProperties());
+                    }
+
+                     */
+        // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
+        //}
+
+        //});
     }
 
     // @FXML methods here
@@ -210,18 +390,40 @@ public class ScheduleGridViewController {
 
     @FXML
     private void addSessionButton() {
-        model.setChosenClassGroup(model.getChosenClassGroup());
-        viewHandler.openView("addSession");
+        if (model.getChosenClassGroup() == null) {
+            errorLabel.setText("Please select a class before adding sessions");
+        } else {
+            model.setChosenClassGroup(model.getChosenClassGroup());
+            viewHandler.openView("addSession");
+        }
     }
 
     @FXML
-    private void removeSessionButton() {
-        //uhuh
+    private void toXML() {
+        SessionList allAddedSessions = new SessionList();
+
+        for (int j = 0;
+             j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+                     .size(); j++) {
+
+            allAddedSessions.addSession(
+                    model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
+                    model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
+                            .getRoom());
+        }
+
+        // XMLParser.toXML(allAddedSessions,"SessionList.XML");
+        ReadWrite.manualWriteSessionList(allAddedSessions);
+        //  System.out.println(allAddedSessions);
     }
 
     @FXML
     private void sessionDetailsButton() {
-        viewHandler.openView("courseDetails");
+        if (model.getChosenSession() == null) {
+            errorLabel.setText("Choose a session first.");
+        } else {
+            viewHandler.openView("sessionDetails");
+        }
     }
 
     @FXML

@@ -9,12 +9,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * A class representing a collection of classes
+ * A class representing a list of ClassGroup objects.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta.
+ * @version 1 - 2 December 2021.
  */
 public class ClassGroupList
 {
   private ArrayList<ClassGroup> classes;
 
+  /**
+   * A constructor taking no arguments and creating a new ArrayList of type ClassGroup.
+   * The ArrayList is filled up with the legal classes(1-4 and 'X','Y','Z' or 'DK'),
+   * where X','Y','Z' are for international classes and 'DK' for Danish class.
+   */
   public ClassGroupList()
   {
     classes = new ArrayList<>();
@@ -46,15 +54,31 @@ public class ClassGroupList
 
   }
 
+  /**
+   * An overridden method returning size of an ClassGroupList object.
+   *
+   * @return size int
+   */
   public int size()
   {
     return classes.size();
   }
 
+  /**
+   * A void method to add ClassGroup to ClassGroupList.
+   *
+   * @param classGroup A classGroup object which is to be added.
+   */
   public void addClass(ClassGroup classGroup)
   {
     classes.add(classGroup);
   }
+
+  /**
+   * An void method to remove ClassGroup from ClassGroupList
+   *
+   * @param classGroup A classGroup object which is to be removed.
+   */
 
   public void removeClass(ClassGroup classGroup)
   {
@@ -70,11 +94,25 @@ public class ClassGroupList
     classes.remove(classGroup);
   }
 
+  /**
+   * A method to get a ClassGroup at the specified index from ClassGroupList.
+   *
+   * @param index An int index of a ClassGroup to be returned.
+   * @return ClassGroup object at the specified index.
+   */
   public ClassGroup get(int index)
   {
     return classes.get(index);
   }
 
+  /**
+   * A void method to read students from the given file and
+   * assign them to the correct, already existing ClassGroup.
+   *
+   * @param file
+   *            file that contains information about each Student
+   *            (semester, class name, VIA ID, name of the Student)
+   */
   public void manualReadStudents(File file)
   {
 
@@ -350,6 +388,15 @@ public class ClassGroupList
 
   }
 
+  /**
+   * A void method to read courses from the given file and
+   * assign them to the correct, already existing ClassGroup.
+   *
+   * @param file
+   *            file that contains information about each Course
+   *            (semester, class name, teacher's VIA ID, name of the course, ECTS points)
+   */
+  //TODO Finish this class
   public void manualReadCourses(File file)
   {
 
@@ -663,6 +710,11 @@ public class ClassGroupList
 
   //throw new IllegalArgumentException("Error reading line: " + line)
 
+  /**
+   * A method returning a String Object containing the list of the ClassGroup.toString().
+   *
+   * @return String containing the list of the ClassGroup.toString().
+   */
   public String toString()
   {
     String str = "";
@@ -680,6 +732,13 @@ public class ClassGroupList
     return str;
   }
 
+  /**
+   * A method comparing two objects.
+   *
+   * @param obj
+   *           an object that represents the object to be compared with
+   * @return "True" if the two Course objects are identical, or "False" if they are not.
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof ClassGroupList))

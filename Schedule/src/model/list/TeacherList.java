@@ -16,7 +16,7 @@ public class TeacherList
   private ArrayList<Teacher> teachers;
 
   /**
-   * Zero-argument constructor. The previously declared arraylist "teachers" of type Teacher is initialized.
+   * Zero-argument constructor. The previously declared ArrayList "teachers" of type Teacher is initialized.
    */
   public TeacherList()
   {
@@ -24,7 +24,7 @@ public class TeacherList
   }
 
   /**
-   * A method returning the number of elements the arraylist contains.
+   * A method returning the number of elements the ArrayList contains.
    * @return an int representing the number of Teacher objects on the list.
    */
   public int size()
@@ -72,7 +72,7 @@ public class TeacherList
     }
     if (teacher == null)
     {
-      throw new IllegalArgumentException("Teacher can not be null");
+      throw new IllegalArgumentException("You must select a teacher to remove");
     }
     teachers.remove(teacher);
   }
@@ -160,7 +160,7 @@ public class TeacherList
     }
   }
   /**
-   * A method returning a String representation of the arraylist "teachers".
+   * A method returning a String representation of the ArrayList "teachers".
    * @return a String containing all the teachers and their information.
    */
   public String toString()

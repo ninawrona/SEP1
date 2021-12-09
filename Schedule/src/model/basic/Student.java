@@ -39,6 +39,20 @@ public class Student
     this.viaId = viaId;
   }
 
+  public Student(String name, int viaId){
+    if (name == null)
+    {
+      throw new IllegalArgumentException("Name cannot be null!");
+    }
+    if (String.valueOf(viaId).length() < 6)
+    {
+      throw new IllegalArgumentException("The VIA ID has to be 6 digits long!");
+    }
+    this.semester=0;
+    this.name = name;
+    this.viaId = viaId;
+  }
+
   /**
    * A getter method returning the name of the student.
    *

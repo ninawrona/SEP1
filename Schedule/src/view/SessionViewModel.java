@@ -14,12 +14,12 @@ public class SessionViewModel
   private StringProperty startTimeProperty;
   private IntegerProperty startTimeIntProperty;
   private IntegerProperty numberOfLessonsProperty;
+  private StringProperty fullStringProperty;
   private int timeHolder;
 
   public SessionViewModel(Session session)
   {
-    courseProperty = new SimpleStringProperty(session.getCourse().getName() + "\n" + session.getDate()
-    + "\n" + session.getRoom());
+    courseProperty = new SimpleStringProperty(session.shortString());
 
     LocalDate localDate = LocalDate.of(session.getDate().getYear(),
         session.getDate().getMonth(), session.getDate().getDay());
@@ -29,6 +29,7 @@ public class SessionViewModel
     startTimeProperty = new SimpleStringProperty(session.getStartTimeString());
     numberOfLessonsProperty = new SimpleIntegerProperty(
         session.getNumberOfLessons());
+    fullStringProperty = new SimpleStringProperty(session.toString());
     switch (session.getStartTimeString())
     {
       case ("8:20"):

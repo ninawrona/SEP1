@@ -113,71 +113,8 @@ public class SessionList
     }
     return list;
   }
-/*
-  public SessionList sort()
-  {
-    SessionList list = new SessionList();
-    SessionList listsorted = new SessionList();
-    for (int i = 0; i < sessions.size(); i++)
-    {
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
-          .getClassGroup().equals(classGroup))
-      {
-        list.addSession(sessions.get(i), sessions.get(i).getRoom());
-      }
-      if (list.size() == 0)
-      {
-        throw new NullPointerException(
-            "The list is empty! You cannot remove anything!");
-      }
-    }
-    for (int j = 1; j < list.size(); j++)
-    {
-      if (list.sessions.get(j - 1).getStartTime().getTimeInSeconds()
-          < list.sessions.get(j).getStartTime().getTimeInSeconds())
-      {
-        listsorted.addSession(0, list.sessions.get(j),
-            list.sessions.get(j).getRoom());
-      }
-      else
-        listsorted.addSession(0, list.sessions.get(j - 1), list.get);
-    }
-  }*/
 
 
-   /* for (int i=0;i<sessions.size();i++)
-    {
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup))
-      {
-        list.addSession(sessions.get(i), sessions.get(i).getRoom());
-      }
-      if (list.size() == 0)
-      {
-        throw new NullPointerException(
-            "The list is empty! You cannot remove anything!");
-      }
-    }
-
-    listsorted.addSession(list.get(0), list.get(0).getRoom());
-    list.removeSession(list.get(0));
-    System.out.println("The list with sessions on the same day: "+list.toString());
-
-      for (int j=0; j<list.size()-1;j++){
-        if (listsorted.get(j).getStartTime().getTimeInSeconds()>list.get(0).getStartTime().getTimeInSeconds())
-        {
-          listsorted.addSession(j, list.get(0), list.get(0).getRoom());
-          list.removeSession(list.get(j));
-        }else {
-        listsorted.addSession(j+1, list.get(0), list.get(0).getRoom());
-          list.removeSession(list.get(0));
-        }
-      }
-
-
-
-     return listsorted;
-  }
-*/
   // TODO: 09/12/2021 COMMENTS FOR THIS
 
   /**
@@ -737,8 +674,9 @@ public class SessionList
     sessionList1.addSession(session3, room1);
     sessionList1.addSession(session1, room2);
     sessionList1.addSession(session2, room1);
-    System.out.println(
+    System.out.println("This is the list: "+
         sessionList1.getSessionsByDateAndClassGroup(date1, group1));
 
+    System.out.println("SORTED: " +sessionList1.sortDateClassGroupSessions(date1,group1));
   }
 }

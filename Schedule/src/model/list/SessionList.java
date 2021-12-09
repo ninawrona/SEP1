@@ -110,7 +110,7 @@ public class SessionList
             "The list is empty! You cannot remove anything!");
       }
       for (int j=0; j<list.size();j++){
-        list.get(j).getStartTime().getTimeInSeconds()
+        list.get(j).getStartTime().getTimeInSeconds();
       }
 
 

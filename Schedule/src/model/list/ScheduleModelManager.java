@@ -13,6 +13,7 @@ public class ScheduleModelManager implements ScheduleModel
   private ClassGroup chosenClassGroup;
   private Session chosenSession;
   private int chosenWeekNumber;
+  private Date chosenMonday;
 
   public ScheduleModelManager()
   {
@@ -105,6 +106,16 @@ public class ScheduleModelManager implements ScheduleModel
   @Override
   public void setChosenWeekNumber(int chosenWeekNumber) {
     this.chosenWeekNumber = chosenWeekNumber;
+  }
+
+  @Override
+  public Date getChosenMonday() {
+    return chosenMonday;
+  }
+
+  @Override
+  public void setChosenMonday(Date chosenMonday) {
+    this.chosenMonday = chosenMonday;
   }
 
   public void addClassGroupList(ClassGroupList classList)

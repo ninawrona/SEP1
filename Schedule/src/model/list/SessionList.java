@@ -113,36 +113,84 @@ public class SessionList
     }
     return list;
   }
-/*
-  public SessionList sort()
+
+  public static String sort(SessionList sessionList)
   {
-    SessionList list = new SessionList();
-    SessionList listsorted = new SessionList();
-    for (int i = 0; i < sessions.size(); i++)
-    {
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
-          .getClassGroup().equals(classGroup))
-      {
-        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+    SessionList list = sessionList;
+
+      class Node{
+          int value;
+          Node left;
+          Node right;
+          Node(int value){
+              this.value = value;
+              left = null;
+              right = null;
+          }
       }
-      if (list.size() == 0)
-      {
-        throw new NullPointerException(
-            "The list is empty! You cannot remove anything!");
+
+      class Tree{
+          Node node;
+          Tree(int value){
+              node = new Node(value);
+          }
+          public Node insert(Node node, int value){
+              if(node == null){
+                  return new Node(value);
+              }
+              // Move to the left if passed value is
+              // less than the current node
+              if(value < node.value){
+                  node.left = insert(node.left, value);
+              }
+              // Move to the right if passed value is
+              // greater than the current node
+              else if(value > node.value){
+                  node.right = insert(node.right, value);
+              }
+              return node;
+          }
+
+          // For traversing in order
+          public void inOrder(Node node){
+              if(node != null){
+                  inOrder(node.left);
+                  System.out.print(node.value + " ");
+                  inOrder(node.right);
+              }
+          }
+
+          public void inOrderDesc(Node node){
+              if(node != null){
+                  inOrderDesc(node.right);
+                  System.out.print(node.value + " ");
+                  inOrderDesc(node.left);
+              }
+          }
       }
-    }
-    for (int j = 1; j < list.size(); j++)
-    {
-      if (list.sessions.get(j - 1).getStartTime().getTimeInSeconds()
-          < list.sessions.get(j).getStartTime().getTimeInSeconds())
-      {
-        listsorted.addSession(0, list.sessions.get(j),
-            list.sessions.get(j).getRoom());
+
+      Session[] array = new Session[list.size()];
+      for(int i = 0; i< list.size(); i++){
+        array[i] = list.get(i);
       }
-      else
-        listsorted.addSession(0, list.sessions.get(j - 1), list.get);
-    }
-  }*/
+
+
+              Tree tree = new Tree(array[0].getStartTime().getTimeInSeconds());
+              for(int i = 0; i < array.length; i++){
+                  tree.insert(tree.node, array[i].getStartTime().getTimeInSeconds());
+              }
+              System.out.println("Sorted Array (Ascending)- ");
+              tree.inOrder(tree.node);
+              System.out.println();
+              System.out.println("Sorted Array (Descending)- ");
+              tree.inOrderDesc(tree.node);
+
+              System.out.println(tree);
+              //ArrayList<Session> finalArrayList = new ArrayList<>();
+              //finalArrayList.add(sessionList.getSessionsByTimeDate(list.get(0).getDate(), ))
+    return tree.toString();
+  }
+
 
 
    /* for (int i=0;i<sessions.size();i++)
@@ -737,8 +785,7 @@ public class SessionList
     sessionList1.addSession(session3, room1);
     sessionList1.addSession(session1, room2);
     sessionList1.addSession(session2, room1);
-    System.out.println(
-        sessionList1.getSessionsByDateAndClassGroup(date1, group1));
+    System.out.println(sort(sessionList1));
 
   }
 }

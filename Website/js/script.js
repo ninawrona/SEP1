@@ -11,7 +11,7 @@ var hour1340 = document.getElementById("13:40").getElementsByTagName("td");
 var hour1435 = document.getElementById("14:35").getElementsByTagName("td");
 var hour1530 = document.getElementById("15:30").getElementsByTagName("td");
 var hour1625 = document.getElementById("16:25").getElementsByTagName("td");
-var hour1720= document.getElementById("17:20").getElementsByTagName("td");
+var hour1720 = document.getElementById("17:20").getElementsByTagName("td");
 
 
 //Write your function declarations below this line
@@ -37,16 +37,16 @@ function displayTable(){
     document.getElementById("GOT").innerHTML = table;
 }
 */
+var number = 2;
+hour820[1].innerHTML = "RWD" + "<br>" + "C05.16a" + "<br>" + "SVA"
+hour820[1].classList.add("bg-danger")
+hour820[1].classList.add("pt-"+number)
+hour820[1].rowSpan = ""+number
 
-    hour820[1].innerHTML="RWD" +"<br>"+ "C05.16a"+"<br>" + "SVA"
-    hour820[1].classList.add("bg-danger")
-    hour820[1].classList.add("pt-5")
-    hour820[1].rowSpan="5"
-
-function readXML(){
+function readXML() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        if (this.readyState == 4 && this.status == 200){
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
             showData(xhttp);
         }
     };
@@ -54,40 +54,199 @@ function readXML(){
     xhttp.send();
 }
 
-function showData(xml){
+function showData(xml) {
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName("SessionList");
     var listLength = x.length;
-    for (var i = 0; i < listLength; i++){
+    for (var i = 0; i < listLength; i++) {
         var course = x.getElementsByTagName("Course").childNodes[0].nodeValue;
         var room = x.get.getElementsByTagName("Room").childNodes[0].nodeValue;
-        var teacher = x.get.getElementsByTagName("Teachers").childNodes[0].nodeValue;
+        var teachers = x.getElementsByTagName("Teachers").childNodes[0].nodeValue.split(",")
+        //var teacher = x.get.getElementsByTagName("Teachers").childNodes[0].nodeValue;
         var numberOfLessons = x.getElementsByTagName("NumberOfLessons").childNodes[0].nodeValue;
-        var startTime =x.getElementsByTagName("StartTime")[0].childNodes[0].nodeValue;
+        var startTime = x.getElementsByTagName("StartTime")[0].childNodes[0].nodeValue;
         var weekDay = x.getElementsByTagName("WeekDay")[0].childNodes[0].nodeValue;
-        switch(startTime)
-        {
-            case("8:20"):
-            {
-                switch(weekDay)
+        switch (startTime) {
+            case ("8:20"):
                 {
-                    case("MONDAY"):
-                    {
-                    //Here we write the code now :DDDD
-                    hour820[1].innerHTML = 
+                    switch (weekDay) {
+                        case ("MONDAY"):
+                            {
+                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                for(var i = 0; i<teachers.length; i++)
+                                {   
+                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                }
+                                switch(course)
+                                {
+                                    case("SDJ"):
+                                    {
+                                        hour820[1].classList.add("bg-danger")
+                                    }
+                                    break;
+                                    case("DMA"):
+                                    {
+                                        hour820[1].classList.add("bg-info")
+                                    }
+                                    break;
+                                    case("RWD"):
+                                    {
+                                        hour820[1].classList.add("bg-primary")
+                                    }
+                                    break;
+                                    case("SEP"):
+                                    {
+                                        hour820[1].classList.add("bg-warning")
+                                    }
+                                    break;
+                                }
+                                hour820[1].classList.add("pt-"+numberOfLessons)
+                                hour820[1].rowSpan = ""+numberOfLessons
+                            }
+                            case ("MONDAY"):
+                            {
+                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                for(var i = 0; i<teachers.length; i++)
+                                {   
+                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                }
+                                switch(course)
+                                {
+                                    case("SDJ"):
+                                    {
+                                        hour820[1].classList.add("bg-danger")
+                                    }
+                                    break;
+                                    case("DMA"):
+                                    {
+                                        hour820[1].classList.add("bg-info")
+                                    }
+                                    break;
+                                    case("RWD"):
+                                    {
+                                        hour820[1].classList.add("bg-primary")
+                                    }
+                                    break;
+                                    case("SEP"):
+                                    {
+                                        hour820[1].classList.add("bg-warning")
+                                    }
+                                    break;
+                                }
+                                hour820[1].classList.add("pt-"+numberOfLessons)
+                                hour820[1].rowSpan = ""+numberOfLessons
+                            }
+                            case ("MONDAY"):
+                            {
+                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                for(var i = 0; i<teachers.length; i++)
+                                {   
+                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                }
+                                switch(course)
+                                {
+                                    case("SDJ"):
+                                    {
+                                        hour820[1].classList.add("bg-danger")
+                                    }
+                                    break;
+                                    case("DMA"):
+                                    {
+                                        hour820[1].classList.add("bg-info")
+                                    }
+                                    break;
+                                    case("RWD"):
+                                    {
+                                        hour820[1].classList.add("bg-primary")
+                                    }
+                                    break;
+                                    case("SEP"):
+                                    {
+                                        hour820[1].classList.add("bg-warning")
+                                    }
+                                    break;
+                                }
+                                hour820[1].classList.add("pt-"+numberOfLessons)
+                                hour820[1].rowSpan = ""+numberOfLessons
+                            }
+                            case ("MONDAY"):
+                            {
+                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                for(var i = 0; i<teachers.length; i++)
+                                {   
+                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                }
+                                switch(course)
+                                {
+                                    case("SDJ"):
+                                    {
+                                        hour820[1].classList.add("bg-danger")
+                                    }
+                                    break;
+                                    case("DMA"):
+                                    {
+                                        hour820[1].classList.add("bg-info")
+                                    }
+                                    break;
+                                    case("RWD"):
+                                    {
+                                        hour820[1].classList.add("bg-primary")
+                                    }
+                                    break;
+                                    case("SEP"):
+                                    {
+                                        hour820[1].classList.add("bg-warning")
+                                    }
+                                    break;
+                                }
+                                hour820[1].classList.add("pt-"+numberOfLessons)
+                                hour820[1].rowSpan = ""+numberOfLessons
+                            }
+                            case ("MONDAY"):
+                            {
+                                hour820[1].innerHTML = course + "<br>" + room + + "<br>"
+                                for(var i = 0; i<teachers.length; i++)
+                                {   
+                                    hour820[1].innerHTML+=teachers[i]+"  ";
+                                }
+                                switch(course)
+                                {
+                                    case("SDJ"):
+                                    {
+                                        hour820[1].classList.add("bg-danger")
+                                    }
+                                    break;
+                                    case("DMA"):
+                                    {
+                                        hour820[1].classList.add("bg-info")
+                                    }
+                                    break;
+                                    case("RWD"):
+                                    {
+                                        hour820[1].classList.add("bg-primary")
+                                    }
+                                    break;
+                                    case("SEP"):
+                                    {
+                                        hour820[1].classList.add("bg-warning")
+                                    }
+                                    break;
+                                }
+                                hour820[1].classList.add("pt-"+numberOfLessons)
+                                hour820[1].rowSpan = ""+numberOfLessons
+                            }
                     }
                 }
-            }
-            break;
+                break;
         }
-        
+
         table +=
-        "<tr><td>" + x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +
-        "</td><td>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
-        "</td><td>" + x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue +
-        "</td></tr>";
-        
+            "<tr><td>" + x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +
+            "</td><td>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
+            "</td><td>" + x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+
     }
-    table+= "</table>";
+    table += "</table>";
     document.getElementById("HP").innerHTML = table;
 }

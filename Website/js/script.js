@@ -101,8 +101,7 @@ function showData(xml) {
                                 hour820[1].classList.add("pt-" + numberOfLessons)
                                 hour820[1].rowSpan = "" + numberOfLessons;
 
-                                
-                                for(var k=numberOfLessons; k>=1; k--)
+                                for(var k=numberOfLessons-1; k>=1; k--)
                                 {
                                     timeList[k][1].remove()
                                 }
@@ -139,9 +138,9 @@ function showData(xml) {
                                 }
                                 hour820[2].classList.add("pt-" + numberOfLessons)
                                 hour820[2].rowSpan = "" + numberOfLessons
-                                for(var k=numberOfLessons; k>=1; k--)
+                                for(var k=numberOfLessons-1; k>=1; k--)
                                 {
-                                    timeList[k][2].remove()
+                                    timeList[k][1].remove()
                                 }
                             }
                             break;
@@ -175,6 +174,11 @@ function showData(xml) {
                                 }
                                 hour820[3].classList.add("pt-" + numberOfLessons)
                                 hour820[3].rowSpan = "" + numberOfLessons
+
+                                for(var k=numberOfLessons-1; k>=1; k--)
+                                {
+                                    timeList[k][1].remove()
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -207,6 +211,10 @@ function showData(xml) {
                                 }
                                 hour820[4].classList.add("pt-" + numberOfLessons)
                                 hour820[4].rowSpan = "" + numberOfLessons
+                                for(var k=numberOfLessons-1; k>=1; k--)
+                                {
+                                    timeList[k][1].remove()
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -239,6 +247,10 @@ function showData(xml) {
                                 }
                                 hour820[5].classList.add("pt-" + numberOfLessons)
                                 hour820[5].rowSpan = "" + numberOfLessons
+                                for(var k=numberOfLessons-1; k>=1; k--)
+                                {
+                                    timeList[k][1].remove()
+                                }
                             }
                             break;
                     }
@@ -277,6 +289,8 @@ function showData(xml) {
                                 }
                                 hour915[1].classList.add("pt-" + numberOfLessons)
                                 hour915[1].rowSpan = "" + numberOfLessons
+
+                                    
                             }
                             break;
                         case ("TUESDAY"):

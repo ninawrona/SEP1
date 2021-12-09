@@ -300,10 +300,7 @@ public class ScheduleGridViewController {
                         // System.out.println("Setting to chosen session");
                         model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
                                 .get(j));
-                        //model.removeSession(
-                        //   model.getSessionsByClassGroup(model.getChosenClassGroup())
-                        //      .get(j));
-
+                        System.out.println("TEST* The chosen session is: "+model.getChosenSession());
                         viewHandler.openView("sessionDetails");
                     }
                 }

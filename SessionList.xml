@@ -4,21 +4,23 @@
 <Session>
     <Course>SDJ</Course>
     <Class>1X</Class>
+    <Teachers>ALHE,</Teachers>
     <Date>13/12/2021</Date>
     <WeekDay>MONDAY</WeekDay>
-    <StartTime>8:20</StartTime>
-    <NumberOfLessons>2</NumberOfLessons>
-    <EndTime>10:00</EndTime>
+    <StartTime>9:15</StartTime>
+    <NumberOfLessons>3</NumberOfLessons>
+    <EndTime>11:50</EndTime>
    <Room>C05.15</Room>
 </Session>
 <Session>
     <Course>RWD</Course>
     <Class>1X</Class>
+    <Teachers>ALHE,</Teachers>
     <Date>14/12/2021</Date>
     <WeekDay>TUESDAY</WeekDay>
-    <StartTime>10:10</StartTime>
+    <StartTime>12:45</StartTime>
     <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>13:30</EndTime>
+    <EndTime>15:20</EndTime>
    <Room>C05.15</Room>
 </Session>
 </SessionList>

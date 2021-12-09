@@ -172,7 +172,7 @@ public class SessionList
     if (isRoomAvailable(room, session.getStartTime(),
         session.getNumberOfLessons(), session.getDate()))
     {
-      if (room.getCapacity()>100) // TODO: 09/12/2021 AUDITORIUM WARNING IN PROGRESS. 
+
       session.bookRoom(room);
     }
     else
@@ -584,7 +584,7 @@ public class SessionList
     Room room1 = new Room(5, 'C', 16, 45);
     Room room2 = new Room(5, 'C', 14, 45);
     Time time1 = new Time(9, 15);
-    Time time2 = new Time(12, 45);
+    Time time2 = new Time(17, 20);
 
     Date date1 = new Date(10, 10, 2022);
     Date date2 = new Date(11, 11, 2022);
@@ -595,7 +595,7 @@ public class SessionList
     ClassGroup group1 = new ClassGroup(1, "Y", studentList1);
     Course course1 = new Course("SDJ", group1, teacherList1, 1, 10);
     SessionList sessionList1 = new SessionList();
-    Session session1 = new Session(course1, date1, time1, 4);
+    Session session1 = new Session(course1, date1, time2, 4);
     Session session2 = new Session(course1, date1, time1, 2);
 
     System.out.println("Session1 : " + session1.toString());

@@ -19,6 +19,16 @@ public class ScheduleViewModel {
         update();
     }
 
+    public ObservableList<SessionViewModel> getListByClassGroup()
+    {
+        ObservableList<SessionViewModel> holder = FXCollections.observableArrayList();
+        for (int i = 0; i < model.getSessionsByClassGroup(model.getChosenClassGroup()).size(); i++) {
+            holder.add(new SessionViewModel(
+                    model.getSessionsByClassGroup(model.getChosenClassGroup()).get(i)));
+        }
+        return holder;
+    }
+
 
     public void update(){
         list.clear();

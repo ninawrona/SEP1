@@ -1,4 +1,5 @@
 package model.basic;
+
 /**
  * A class representing the time.
  *
@@ -132,4 +133,6 @@ public class Time
 
     return hour == other.hour && minute == other.minute;
   }
+
+
 }

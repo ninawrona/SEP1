@@ -203,8 +203,26 @@ public class AddSessionViewController
 
       //GAP checker:
 
-      if (model.getSessionsByDateAndClassGroup(getDateFromDatePicker(), model.getChosenClassGroup()).size()>1 ){
+
+      SessionList sortedSessions = model.getSessionsByDateAndClassGroup(getDateFromDatePicker(),model.getChosenClassGroup());
+      if (sortedSessions.size()>1 ){
         //SORTING BASED ON START TIME
+        for (int i=0; i<sortedSessions.size();i++){
+          int difference=sortedSessions.get(i+1).getStartTime().getTimeInSeconds()-sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+          if (difference>10){
+            if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==55){
+              loadRoomArray();
+            }
+            boolean gap = gapConfirmation();
+            if (gapConfirmation()){
+              loadRoomArray();
+            }
+            else{
+              reset();
+            }
+          }
+        }
       }
       loadRoomArray();
     }
@@ -223,6 +241,14 @@ public class AddSessionViewController
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText("Are you sure you want to book: " + session.getRoom() + " for less than 45 students?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
+  private boolean gapConfirmation() {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText("You have a gap between the sessions. Do you want to continue?");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }

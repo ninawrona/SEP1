@@ -255,8 +255,8 @@ public class SessionList
    */
   public boolean isTeacherAvailable(Session session)
   {
-    System.out.println("I am checking if the below teachers are available");
-    System.out.println(session.getTeachers());
+    // System.out.println("I am checking if the below teachers are available");
+    // System.out.println(session.getTeachers());
 
     //Old code
    /*
@@ -299,14 +299,14 @@ public class SessionList
             if ((sessions.get(i).getCourse().getTeachers() //O(1)
                 .contains(session.getTeachers().get(j)))) //O(1)
             {
-              System.out.println("Teacher is unavailable :(");
+              // System.out.println("Teacher is unavailable :(");
               return false;
             }
           }
         }
       }
     }
-    System.out.println("The teacher is free!");
+    // System.out.println("The teacher is free!");
     return true; // O(1)
   } //5 + O(N^2). It is N^2 because we have a for-loop in a for-loop
 

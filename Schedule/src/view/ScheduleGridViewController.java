@@ -204,12 +204,13 @@ public class ScheduleGridViewController {
             errorLabel.setText("Please select a class");
         }
 
+        // Clear the grid
         for (int i = 0; i < gridPane.getChildren().size(); i++) {
-            System.out.println("I'm looking at " + gridPane.getChildren().get(i));
+            // System.out.println("I'm looking at " + gridPane.getChildren().get(i));
             if (gridPane.getChildren().get(i).getId() != null) {
-                System.out.println("The id is " + gridPane.getChildren().get(i).getId());
+                // System.out.println("The id is " + gridPane.getChildren().get(i).getId());
                 if (gridPane.getChildren().get(i).getId().contains("session")) {
-                    System.out.println("removing");
+                    // System.out.println("removing");
                     gridPane.getChildren().remove(i);
                     i--;
                 }
@@ -251,13 +252,13 @@ public class ScheduleGridViewController {
                 int dayOfWeek = scheduleViewModel.getListByClassGroup().get(i).getDayOfWeekProperty()
                         .getValue();
 
-                labelTest.setMinHeight((double) numberOfLessonsInt * 25 - 2);
+                labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
                 labelTest.setMinWidth(100 - 1);
                 labelTest.setTextAlignment(TextAlignment.CENTER);
                 labelTest.setAlignment(Pos.CENTER);
 
                 gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
-                System.out.println("I just added this label");
+                // System.out.println("I just added this label");
                 System.out.println(labelTest);
                 // Move the label like 1 pixel to the right to make it centered
                 labelTest.setTranslateX(0.3);
@@ -268,10 +269,10 @@ public class ScheduleGridViewController {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Here are the current gridPane children");
-        for (int i = 0; i < gridPane.getChildren().size(); i++) {
-            System.out.println(gridPane.getChildren().get(i));
-        }
+        // System.out.println("Here are the current gridPane children");
+        // for (int i = 0; i < gridPane.getChildren().size(); i++) {
+        //   System.out.println(gridPane.getChildren().get(i));
+        // }
 
         // Chris attempts remove on click
         gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -295,8 +296,8 @@ public class ScheduleGridViewController {
                              .size(); j++) {
                     if (model.getSessionsByClassGroup(model.getChosenClassGroup())
                             .get(j).shortString().equals(compare)) {
-                        System.out.println("Found the target in the list in model");
-                        System.out.println("Setting to chosen session");
+                        // System.out.println("Found the target in the list in model");
+                        // System.out.println("Setting to chosen session");
                         model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
                                 .get(j));
                         //model.removeSession(

@@ -18,7 +18,7 @@
         <Teachers>LILE,</Teachers>
         <Date>13/12/2021</Date>
         <WeekDay>TUESDAY</WeekDay>
-        <StartTime>10:10</StartTime>
+        <StartTime>8:20</StartTime>
         <NumberOfLessons>4</NumberOfLessons>
         <EndTime>10:10</EndTime>
         <Room>C05.15</Room>
@@ -29,7 +29,7 @@
         <Teachers>SVA,</Teachers>
         <Date>13/12/2021</Date>
         <WeekDay>WEDNESDAY</WeekDay>
-        <StartTime>12:45</StartTime>
+        <StartTime>16:25</StartTime>
         <NumberOfLessons>2</NumberOfLessons>
         <EndTime>11:50</EndTime>
         <Room>C05.15</Room>
@@ -39,21 +39,11 @@
         <Class>1Y</Class>
         <Teachers>MONA,</Teachers>
         <Date>13/12/2021</Date>
-        <WeekDay>THURSDAY</WeekDay>
+        <WeekDay>FRIDAY</WeekDay>
         <StartTime>14:35</StartTime>
         <NumberOfLessons>4</NumberOfLessons>
         <EndTime>11:50</EndTime>
         <Room>C05.15</Room>
     </Session>
-    <Session>
-        <Course>DMA</Course>
-        <Class>1Y</Class>
-        <Teachers>RIB,</Teachers>
-        <Date>13/12/2021</Date>
-        <WeekDay>FRIDAY</WeekDay>
-        <StartTime>12:45</StartTime>
-        <NumberOfLessons>6</NumberOfLessons>
-        <EndTime>11:50</EndTime>
-        <Room>C05.15</Room>
-    </Session>
+    
 </SessionList>

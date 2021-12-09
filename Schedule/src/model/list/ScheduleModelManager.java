@@ -12,6 +12,7 @@ public class ScheduleModelManager implements ScheduleModel
   private RoomList roomList;
   private ClassGroup chosenClassGroup;
   private Session chosenSession;
+  private int chosenWeekNumber;
 
   public ScheduleModelManager()
   {
@@ -23,6 +24,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.roomList = new RoomList();
     this.chosenClassGroup = null;
     this.chosenSession = null;
+    this.chosenWeekNumber = 0;
   }
 
   public ClassGroupList getAllClasses()
@@ -93,6 +95,16 @@ public class ScheduleModelManager implements ScheduleModel
   @Override
   public void setChosenSession(Session session) {
     this.chosenSession = session;
+  }
+
+  @Override
+  public int getChosenWeekNumber() {
+    return chosenWeekNumber;
+  }
+
+  @Override
+  public void setChosenWeekNumber(int chosenWeekNumber) {
+    this.chosenWeekNumber = chosenWeekNumber;
   }
 
   public void addClassGroupList(ClassGroupList classList)

@@ -14,6 +14,8 @@ public interface ScheduleModel
   public void setChosenClassGroup(ClassGroup classGroup);
   public Session getChosenSession();
   public void setChosenSession(Session session);
+  public int getChosenWeekNumber();
+  public void setChosenWeekNumber(int chosenWeekNumber);
   public void addClassGroupList(ClassGroupList classList);
   public void addSession(Session session, Room room);
   public void removeSession(Session session);

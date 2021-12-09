@@ -10,7 +10,7 @@
     <StartTime>9:15</StartTime>
     <NumberOfLessons>3</NumberOfLessons>
     <EndTime>11:50</EndTime>
-   <Room>C05.15</Room>
+    <Room>C05.15</Room>
 </Session>
 <Session>
     <Course>RWD</Course>
@@ -21,6 +21,6 @@
     <StartTime>12:45</StartTime>
     <NumberOfLessons>3</NumberOfLessons>
     <EndTime>15:20</EndTime>
-   <Room>C05.15</Room>
+    <Room>C05.15</Room>
 </Session>
 </SessionList>

@@ -389,6 +389,24 @@ public class ScheduleGridViewController {
         viewHandler.openView("fileView");
     }
 
+    @FXML void chooseWeekButton()
+    {
+        if (model.getChosenClassGroup() != null)
+        {
+            if (model.getChosenClassGroup().getStudents().size() == 0)
+            {
+                errorLabel.setText("Please upload the text files");
+            }
+            else
+            {
+                viewHandler.openView("chooseWeek");
+            }
+        }
+        else
+        {
+            errorLabel.setText("Please select a class");
+        }
+    }
     @FXML
     private void addSessionButton() {
         if (model.getChosenClassGroup() == null) {

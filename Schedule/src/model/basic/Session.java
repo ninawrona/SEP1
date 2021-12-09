@@ -34,7 +34,7 @@ public class Session
     this.date = date.copy();
     this.startTime = startTime.copy();
     room = null;
-    this.numberOfLessons = numberOfLessons;
+    setNumberOfLessons(numberOfLessons);
   }
 
   /**

@@ -19,6 +19,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import model.basic.Date;
 import model.basic.Session;
 import model.basic.Time;
 import model.files.ReadWrite;
@@ -27,28 +28,31 @@ import model.list.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
 
 public class ScheduleGridViewController {
     private ViewHandler viewHandler;
     private ScheduleModel model;
     private Region root;
     private ScheduleViewModel scheduleViewModel;
-    private AddSessionViewController addSessionViewController;
+    // private AddSessionViewController addSessionViewController;
 
     @FXML
-    Label errorLabel;
+    private Label weekLabel;
     @FXML
-    Label classNameLabel;
+    private Label errorLabel;
     @FXML
-    Label label11;
+    private Label classNameLabel;
     @FXML
-    Label label12;
+    private Label label11;
     @FXML
-    Label label13;
+    private Label label12;
     @FXML
-    Label label14;
+    private Label label13;
     @FXML
-    Label label15;
+    private Label label14;
+    @FXML
+    private Label label15;
     @FXML
     private Label label20;
     @FXML
@@ -71,7 +75,6 @@ public class ScheduleGridViewController {
     private Label label110;
     @FXML
     private Label label120;
-
     @FXML
     private GridPane gridPane;
 
@@ -86,7 +89,7 @@ public class ScheduleGridViewController {
         this.scheduleViewModel = new ScheduleViewModel(model);
         // This gridpane is already set above.
         // this.gridPane = new GridPane();
-        this.addSessionViewController = new AddSessionViewController();
+        // this.addSessionViewController = new AddSessionViewController();
 
         reset();
         label11.setText("Monday");
@@ -163,7 +166,7 @@ public class ScheduleGridViewController {
                     }
 
                      */
-        // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
+        // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt));
     }
 
     public Node getNodeByRowColumnIndex(final int row, final int column,
@@ -190,6 +193,13 @@ public class ScheduleGridViewController {
 
     public void reset() {
         // set text to ""
+        if (model.getChosenWeekNumber() != 0) {
+            Date monday = model.getChosenMonday();
+            Date friday = monday.copy();
+            friday.stepForward(4);
+            weekLabel.setText("Week: " + model.getChosenWeekNumber() + " " + monday.getDay() + "/" + monday.getMonth()
+                    + " - " + friday.getDay() + "/" + friday.getMonth());
+        }
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {
             // System.out.println("Tried");
@@ -216,12 +226,15 @@ public class ScheduleGridViewController {
                 }
             }
         }
+        // This is a practice for finding sessions by class group and date
+        // The goal is to find all sessions from monday to Friday for a given class
+
 
         scheduleViewModel.update();
         // Populate the grid
         try {
-            for (int i = 0; i < scheduleViewModel.getListByClassGroup().size(); i++) {
-                StringProperty courseName = scheduleViewModel.getListByClassGroup().get(i)
+            for (int i = 0; i < scheduleViewModel.getListByDateAndClassGroup().size(); i++) {
+                StringProperty courseName = scheduleViewModel.getListByDateAndClassGroup().get(i)
                         .getCourseProperty();
                 Label labelTest = new Label();
                 labelTest.setText(courseName.get());
@@ -230,7 +243,7 @@ public class ScheduleGridViewController {
 
                 // Adds a background color to the session on the grid
                 String backColor = "lavender";
-                String courseHolder = "" + scheduleViewModel.getListByClassGroup().get(i).getCourseProperty();
+                String courseHolder = "" + scheduleViewModel.getListByDateAndClassGroup().get(i).getCourseProperty();
                 if (courseHolder.contains("RWD")) {
                     backColor = "lightblue";
                 }
@@ -245,11 +258,11 @@ public class ScheduleGridViewController {
                 }
                 labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
-                int startTimeInt = scheduleViewModel.getListByClassGroup().get(i)
+                int startTimeInt = scheduleViewModel.getListByDateAndClassGroup().get(i)
                         .getStartTimeIntProperty();
-                int numberOfLessonsInt = scheduleViewModel.getListByClassGroup().get(i)
+                int numberOfLessonsInt = scheduleViewModel.getListByDateAndClassGroup().get(i)
                         .getNumberOfLessonsProperty().intValue();
-                int dayOfWeek = scheduleViewModel.getListByClassGroup().get(i).getDayOfWeekProperty()
+                int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i).getDayOfWeekProperty()
                         .getValue();
 
                 labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
@@ -263,9 +276,7 @@ public class ScheduleGridViewController {
                 // Move the label like 1 pixel to the right to make it centered
                 labelTest.setTranslateX(0.3);
             }
-        }
-        catch   (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -300,7 +311,7 @@ public class ScheduleGridViewController {
                         // System.out.println("Setting to chosen session");
                         model.setChosenSession(model.getSessionsByClassGroup(model.getChosenClassGroup())
                                 .get(j));
-                        System.out.println("TEST* The chosen session is: "+model.getChosenSession());
+                        System.out.println("TEST* The chosen session is: " + model.getChosenSession());
                         viewHandler.openView("sessionDetails");
                     }
                 }
@@ -341,9 +352,9 @@ public class ScheduleGridViewController {
         });
 
     /*
-    gridPane.setOnMouseClicked(new EventHandler<MouseEvent>()
+    gridPane.setOnMouseClicked(new EventHandler<MouseEvent>())
 
-    {
+
       @Override public void handle(MouseEvent mouseEvent)
       {
         //Node nodeHandler = getNodeByRowColumnIndex(dayOfWeek, startTimeInt, gridPane);
@@ -389,24 +400,19 @@ public class ScheduleGridViewController {
         viewHandler.openView("fileView");
     }
 
-    @FXML void chooseWeekButton()
-    {
-        if (model.getChosenClassGroup() != null)
-        {
-            if (model.getChosenClassGroup().getStudents().size() == 0)
-            {
+    @FXML
+    void chooseWeekButton() {
+        if (model.getChosenClassGroup() != null) {
+            if (model.getChosenClassGroup().getStudents().size() == 0) {
                 errorLabel.setText("Please upload the text files");
-            }
-            else
-            {
+            } else {
                 viewHandler.openView("chooseWeek");
             }
-        }
-        else
-        {
+        } else {
             errorLabel.setText("Please select a class");
         }
     }
+
     @FXML
     private void addSessionButton() {
         if (model.getChosenClassGroup() == null) {

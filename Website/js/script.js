@@ -59,9 +59,12 @@ function showData(xml){
     var x = xmlDoc.getElementsByTagName("SessionList");
     var listLength = x.length;
     for (var i = 0; i < listLength; i++){
-        var numberOfLessons = x.getElementsByTagName("NumberOfLessons").childNodes[0].nodeValue
-        var startTime =x.getElementsByTagName("StartTime")[0].childNodes[0].nodeValue
-        var weekDay = x.getElementsByTagName("WeekDay")[0].childNodes[0].nodeValue
+        var course = x.getElementsByTagName("Course").childNodes[0].nodeValue;
+        var room = x.get.getElementsByTagName("Room").childNodes[0].nodeValue;
+        var teacher = x.get.getElementsByTagName("Teachers").childNodes[0].nodeValue;
+        var numberOfLessons = x.getElementsByTagName("NumberOfLessons").childNodes[0].nodeValue;
+        var startTime =x.getElementsByTagName("StartTime")[0].childNodes[0].nodeValue;
+        var weekDay = x.getElementsByTagName("WeekDay")[0].childNodes[0].nodeValue;
         switch(startTime)
         {
             case("8:20"):
@@ -71,6 +74,7 @@ function showData(xml){
                     case("MONDAY"):
                     {
                     //Here we write the code now :DDDD
+                    hour820[1].innerHTML = 
                     }
                 }
             }

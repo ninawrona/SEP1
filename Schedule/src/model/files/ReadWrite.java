@@ -135,6 +135,8 @@ public class ReadWrite
             + "</Course>";
         xml += "\n    <Class>" + sessions.get(i).getCourse().getClassGroup()
             + "</Class>";
+        xml += "\n    <Teachers>" + sessions.get(i).getCourse().getTeachers()
+            + "</Teacher>";
 
         xml += "\n    <Date>" + sessions.get(i).getDate()
             + "</Date>";

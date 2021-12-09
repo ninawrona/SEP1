@@ -87,6 +87,36 @@ public class SessionList
   }
 
   /**
+   * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
+   * @param date
+   *          a Date object representing the date.
+   * @param classGroup
+   *          a ClassGroup object representing the ClassGroup.
+   * @return a list of Session objects (if there are any) with the same date and classGroup.
+   */
+  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup)
+  {
+    SessionList list= new SessionList();
+    SessionList listsorted=new SessionList();
+
+
+    for (int i=0;i<sessions.size();i++){
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup)){
+        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+      }
+      if (list.size() == 0)
+      {
+        throw new NullPointerException(
+            "The list is empty! You cannot remove anything!");
+      }
+      for (int j=0; j<list.size();j++){
+        list.get(j).getStartTime().getTimeInSeconds()
+      }
+
+
+    } return list;
+  }
+  /**
    * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
    *
    * @param session the Session object to be removed from the list.

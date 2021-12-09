@@ -100,8 +100,10 @@ public class SessionList
     SessionList listsorted=new SessionList();
 
 
-    for (int i=0;i<sessions.size();i++){
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup)){
+    for (int i=0;i<sessions.size();i++)
+    {
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup))
+      {
         list.addSession(sessions.get(i), sessions.get(i).getRoom());
       }
       if (list.size() == 0)
@@ -109,12 +111,65 @@ public class SessionList
         throw new NullPointerException(
             "The list is empty! You cannot remove anything!");
       }
-      for (int j=0; j<list.size();j++){
-        list.get(j).getStartTime().getTimeInSeconds();
+    }
+
+    listsorted.addSession(list.get(0), list.get(0).getRoom());
+    list.removeSession(list.get(0));
+    System.out.println("The list with sessions on the same day: "+list.toString());
+
+      for (int j=0; j<list.size()-1;j++){
+        if (listsorted.get(j).getStartTime().getTimeInSeconds()>list.get(0).getStartTime().getTimeInSeconds())
+        {
+          listsorted.addSession(j, list.get(0), list.get(0).getRoom());
+          list.removeSession(list.get(j));
+        }else {
+        listsorted.addSession(j+1, list.get(0), list.get(0).getRoom());
+          list.removeSession(list.get(0));
+        }
       }
 
+      
 
-    } return list;
+     return listsorted;
+  }
+
+  // TODO: 09/12/2021 COMMENTS FOR THIS
+  /**
+   *
+   * @param index
+   * @param session
+   * @param room
+   */
+  public void addSession(int index,Session session, Room room){
+    try
+    {
+
+      if (session == null)
+      {
+        throw new IllegalArgumentException("Session cannot be null!");
+      }
+      if (!(isTeacherAvailable(session)))
+      {
+        throw new IllegalCallerException("Teacher not available!");
+      }
+      if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),
+          session)))
+      {
+        throw new IllegalCallerException(
+            "This would overlap one of the ClassGroup's existing Sessions!");
+      }
+      // assign room with the session itself
+      // session.bookRoom(room);
+      bookRoomForASession(room, session);//Exceptions inside this method
+      sessions.add(index, session);
+    }
+    catch (Exception e)
+    {
+      System.out.println("There was an issue adding the session.");
+      System.out.println(e.getMessage());
+      e.printStackTrace();
+      throw new IllegalStateException("There was an issue adding the session.");
+    }
   }
   /**
    * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
@@ -607,6 +662,7 @@ public class SessionList
   public static void main(String[] args)
   {
     Teacher teacher1 = new Teacher("SVA");
+
     TeacherList teacherList1 = new TeacherList();
     teacherList1.addTeacher(teacher1);
     Student student1 = new Student(1, "Bob", 654654);
@@ -614,7 +670,8 @@ public class SessionList
     Room room1 = new Room(5, 'C', 16, 45);
     Room room2 = new Room(5, 'C', 14, 45);
     Time time1 = new Time(9, 15);
-    Time time2 = new Time(17, 20);
+    Time time2 = new Time(12, 45);
+    Time time3= new Time(15,30);
 
     Date date1 = new Date(10, 10, 2022);
     Date date2 = new Date(11, 11, 2022);
@@ -624,15 +681,17 @@ public class SessionList
     studentList1.addStudent(student2);
     ClassGroup group1 = new ClassGroup(1, "Y", studentList1);
     Course course1 = new Course("SDJ", group1, teacherList1, 1, 10);
+    Course course2= new Course("DMA",group1,teacherList1,1,10);
+    Course course3=new Course("RWD",group1,teacherList1,1,10);
     SessionList sessionList1 = new SessionList();
-    Session session1 = new Session(course1, date1, time2, 4);
-    Session session2 = new Session(course1, date1, time1, 2);
+    Session session1 = new Session(course1, date1, time2, 1);
+    Session session2 = new Session(course2, date1, time1, 1);
+    Session session3 = new Session(course3, date1, time3, 1);
+    sessionList1.addSession(session3,room1);
+    sessionList1.addSession(session1,room2);
+    sessionList1.addSession(session2,room1);
+    System.out.println(sessionList1.getSessionsByDateAndClassGroup(date1,group1));
 
-    System.out.println("Session1 : " + session1.toString());
-    System.out.println("Session2 : " + session2.toString());
-    System.out.println(
-        "Session 1 is overlapped by session 2: " + session1.isOverlapped(
-            session2));
 
   }
 }

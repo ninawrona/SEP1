@@ -15,7 +15,7 @@
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER"
                        prefHeight="104.0" prefWidth="633.0"
-                       text="Choose Class or Teacher" textAlignment="CENTER">
+                       text="Choose Class" textAlignment="CENTER">
                     <font>
                         <Font name="Bell MT" size="21.0"/>
                     </font>

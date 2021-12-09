@@ -126,7 +126,7 @@ public class Session
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
 
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -135,7 +135,7 @@ public class Session
     {
       endMinute = endMinute + 45;
     }
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -508,7 +508,7 @@ public class Session
       endMinute -= 10;
     }
 
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -517,7 +517,7 @@ public class Session
     {
       endMinute = endMinute + 45;
     }
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -562,7 +562,7 @@ public class Session
       endMinute -= 10;
     }
 
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;
@@ -571,7 +571,7 @@ public class Session
     {
       endMinute = endMinute + 45;
     }
-    if (endMinute > 60)
+    if (endMinute > 59)
     {
       endMinute = endMinute % 60;
       endHour++;

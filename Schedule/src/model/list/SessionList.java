@@ -66,9 +66,11 @@ public class SessionList
       {
         throw new IllegalCallerException("Teacher not available!");
       }
-      if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),session)))
+      if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),
+          session)))
       {
-        throw new IllegalCallerException("This would overlap one of the ClassGroup's existing Sessions!");
+        throw new IllegalCallerException(
+            "This would overlap one of the ClassGroup's existing Sessions!");
       }
       // assign room with the session itself
       // session.bookRoom(room);
@@ -218,10 +220,9 @@ public class SessionList
    * A method that checks if a ClassGroup could have a session without overlaps. The method takes all the sessions from
    * the SessionList for the ClassGroup specified in the parameter and checking if the Session from the parameter
    * is overlapping any of these, returning "False" if it is, or "True" if it is not.
-   * @param classgroup
-   *                the ClassGroup object to be booked a Session for.
-   * @param session
-   *            the Session to be booked for the ClassGroup object.
+   *
+   * @param classgroup the ClassGroup object to be booked a Session for.
+   * @param session    the Session to be booked for the ClassGroup object.
    * @return "False" if the ClassGroup's new Session overlaps with an existing Session, or "True" if it does not.
    */
   public boolean isClassGroupAvailable(ClassGroup classgroup, Session session)
@@ -234,7 +235,7 @@ public class SessionList
       {
         if (list.get(i).isOverlapped(session))
         {
-        return false;
+          return false;
         }
       }
     }
@@ -255,6 +256,9 @@ public class SessionList
   {
     System.out.println("I am checking if the below teachers are available");
     System.out.println(session.getTeachers());
+
+    //Old code
+   /*
     for (int i = 0;
          i < sessions.size(); i++)   //O(N) where N is the size of the sessions
     {
@@ -268,8 +272,34 @@ public class SessionList
             if ((sessions.get(i).getCourse().getTeachers() //O(1)
                 .contains(session.getTeachers().get(j)))) //O(1)
             {
-              System.out.println("That teacher is not available :(");
-              return false; //O(1)
+              if (sessions.get(i).getStartTime().getTimeInSeconds() + sessions.get(i).totalSessionLength() < session.getStartTime().getTimeInSeconds()){
+                return true;
+              } else {
+                System.out.println("That teacher is not available :(");
+                return false; //O(1)
+              }
+            }
+          }
+        }
+      }
+    }
+    */
+    //changed the format of the code to fix overlap issue
+    for (int i = 0;
+         i < sessions.size(); i++)   //O(N) where N is the size of the sessions
+    {
+      if (sessions.get(i).getDate().equals(     //O(1)
+          session.getDate()))//Another isOverlapped method possible to use    //O(1)
+      {
+        if (sessions.get(i).isOverlapped(session))     //O(1)
+        {
+          for (int j = 0; j < session.getTeachers().size(); j++) //O(N)
+          {
+            if ((sessions.get(i).getCourse().getTeachers() //O(1)
+                .contains(session.getTeachers().get(j)))) //O(1)
+            {
+              System.out.println("Teacher is unavailable :(");
+              return false;
             }
           }
         }
@@ -281,12 +311,10 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects on a specified date and time with a certain number of lessons. The variables cannot be null.
-   * @param date
-   *          a Date object representing the date
-   * @param startTime
-   *          A Time object representing the time
-   * @param numberOfLessons
-   *          an int representing the number of lessons
+   *
+   * @param date            a Date object representing the date
+   * @param startTime       A Time object representing the time
+   * @param numberOfLessons an int representing the number of lessons
    * @return A list of Sessions (if there are any) on the given date and time with the specified number of lessons
    */
   public SessionList getSessionsByTimeDate(Date date, Time startTime,
@@ -320,8 +348,8 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects in a chosen room (cannot be null).
-   * @param room
-   *          a Room object representing the room to be checked.
+   *
+   * @param room a Room object representing the room to be checked.
    * @return a list of Sessions (if there are any) that are held in the previously specified Room.
    */
   public SessionList getSessionsByRoom(Room room)
@@ -352,8 +380,8 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects with the same selected course (the course cannot be null).
-   * @param course
-   *            a Course object by which the Sessions will be sorted.
+   *
+   * @param course a Course object by which the Sessions will be sorted.
    * @return A list of all the Sessions (if there are any) for the same, previously specified course.
    */
   public SessionList getSessionsByCourse(Course course)
@@ -384,12 +412,10 @@ public class SessionList
 
   /**
    * A getter method returning the Session at the chosen time and date, from a chosen room.
-   * @param time
-   *          a Time object representing the time of the session.
-   * @param room
-   *          a Room object representing the room of the session.
-   * @param date
-   *          a Date object representing the date of the session.
+   *
+   * @param time a Time object representing the time of the session.
+   * @param room a Room object representing the room of the session.
+   * @param date a Date object representing the date of the session.
    * @return a Session object if there is any.
    */
   public Session getExactSession(Time time, Room room, Date date)
@@ -418,10 +444,9 @@ public class SessionList
 
   /**
    * A getter method returning a session with a specified teacher.
-   * @param teacher
-   *              a Teacher object representing the teacher to search the sessions by.
-   * @param date
-   *          a Date object representing the date to search the session by.
+   *
+   * @param teacher a Teacher object representing the teacher to search the sessions by.
+   * @param date    a Date object representing the date to search the session by.
    * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
    */
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)
@@ -452,15 +477,15 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects with the specified ClassGroup.
-   * @param classGroup
-   *                a ClassGroup object representing the ClassGroup by which the sessions are sorted.
+   *
+   * @param classGroup a ClassGroup object representing the ClassGroup by which the sessions are sorted.
    * @return A list of Sessions (if there are any) with the same ClassGroup as the one specified in the parameter.
    */
   public SessionList getSessionsByClassGroup(ClassGroup classGroup)
   {
     if (classGroup == null)
     {
-     throw new IllegalArgumentException("Parameter cannot be null!");
+      throw new IllegalArgumentException("Parameter cannot be null!");
     }
     SessionList sessionListClassGroup = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
@@ -476,8 +501,8 @@ public class SessionList
 
   /**
    * A getter method returning a list of Session objects with the same student.
-   * @param student
-   *              a Student object representing the student to search by.
+   *
+   * @param student a Student object representing the student to search by.
    * @return A list of Sessions (if there are any) with the same student.
    */
   public SessionList getSessionsByStudent(Student student)
@@ -506,6 +531,7 @@ public class SessionList
 
   /**
    * A method returning a String representation of the Session List.
+   *
    * @return A String object containing all the sessions.
    */
   public String toString()
@@ -520,8 +546,8 @@ public class SessionList
 
   /**
    * A method comparing two objects.
-   * @param obj
-   *          the object to be compared with
+   *
+   * @param obj the object to be compared with
    * @return "True" if the two SessionList objects are identical, "False" if they are not.
    */
   public boolean equals(Object obj)
@@ -556,7 +582,7 @@ public class SessionList
     Student student2 = new Student(1, "Wendy", 655655);
     Room room1 = new Room(5, 'C', 16, 45);
     Room room2 = new Room(5, 'C', 14, 45);
-    Time time1 = new Time(8, 20);
+    Time time1 = new Time(9, 15);
     Time time2 = new Time(12, 45);
 
     Date date1 = new Date(10, 10, 2022);

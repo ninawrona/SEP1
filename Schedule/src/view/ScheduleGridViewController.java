@@ -392,6 +392,24 @@ public class ScheduleGridViewController {
         viewHandler.openView("fileView");
     }
 
+    @FXML void chooseWeekButton()
+    {
+        if (model.getChosenClassGroup() != null)
+        {
+            if (model.getChosenClassGroup().getStudents().size() == 0)
+            {
+                errorLabel.setText("Please upload the text files");
+            }
+            else
+            {
+                viewHandler.openView("chooseWeek");
+            }
+        }
+        else
+        {
+            errorLabel.setText("Please select a class");
+        }
+    }
     @FXML
     private void addSessionButton() {
         if (model.getChosenClassGroup() == null) {
@@ -419,15 +437,6 @@ public class ScheduleGridViewController {
         // XMLParser.toXML(allAddedSessions,"SessionList.XML");
         ReadWrite.manualWriteSessionList(allAddedSessions);
         //  System.out.println(allAddedSessions);
-    }
-
-    @FXML
-    private void sessionDetailsButton() {
-        if (model.getChosenSession() == null) {
-            errorLabel.setText("Choose a session first.");
-        } else {
-            viewHandler.openView("sessionDetails");
-        }
     }
 
     @FXML

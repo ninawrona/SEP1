@@ -5,9 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import javafx.beans.property.StringProperty;
 
-import model.basic.ClassGroup;
 import model.list.ScheduleModel;
 
 public class ViewHandler
@@ -23,6 +21,7 @@ public class ViewHandler
   private FileViewController fileViewController;
   private SessionDetailsViewController sessionDetailsViewController;
   private ScheduleGridViewController scheduleGridViewController;
+  private ChooseWeekViewController chooseWeekViewController;
   // more controllers here
 
   public ViewHandler(ScheduleModel model)
@@ -86,6 +85,9 @@ public class ViewHandler
         break;
       case "courseDetails":
         root = loadCourseDetailsView("CourseDetailsView.fxml");
+        break;
+      case "chooseWeek":
+        root = loadChooseWeekView("ChooseWeekView.fxml");
         break;
     }
 
@@ -298,6 +300,30 @@ public class ViewHandler
       addTeacherViewController.reset();
     }
     return addTeacherViewController.getRoot();
+  }
+
+  private Region loadChooseWeekView(String fxmlFile)
+  {
+    if (chooseWeekViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        chooseWeekViewController = loader.getController();
+        chooseWeekViewController.init(this, model, root);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      chooseWeekViewController.reset();
+    }
+    return chooseWeekViewController.getRoot();
   }
 
 }

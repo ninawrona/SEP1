@@ -172,7 +172,7 @@ public class SessionList
     if (isRoomAvailable(room, session.getStartTime(),
         session.getNumberOfLessons(), session.getDate()))
     {
-      if (room.getCapacity()>100) // TODO: 09/12/2021 AUDITORIUM WARNING IN PROGRESS. 
+
       session.bookRoom(room);
     }
     else

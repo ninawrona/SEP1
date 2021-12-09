@@ -55,6 +55,7 @@ public class RoomList
     {
       throw new IllegalArgumentException("Parameter cannot be null");
     }
+
     rooms.add(room);
   }
 

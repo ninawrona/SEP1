@@ -57,7 +57,7 @@ public class SessionDetailsViewController
     System.out.println("This is the chosen session before removing: "+chosenSession);
     model.removeSession(chosenSession);
     System.out.println("My sessions: " +model.getSessionsByClassGroup(model.getChosenClassGroup()) );
-
+    viewHandler.openView("schedule");
   }
 
   // @FXML methods here

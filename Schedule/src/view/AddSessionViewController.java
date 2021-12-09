@@ -252,7 +252,7 @@ public class AddSessionViewController
       {
         System.out.println("I put that session in room " + session.getRoom());
       }
-      scheduleViewModel.addSession(session);
+      model.addSession(session, session.getRoom());
       reset();
     }
     catch (Exception e)

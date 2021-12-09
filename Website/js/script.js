@@ -12,7 +12,8 @@ var hour1435 = document.getElementById("14:35").getElementsByTagName("td");
 var hour1530 = document.getElementById("15:30").getElementsByTagName("td");
 var hour1625 = document.getElementById("16:25").getElementsByTagName("td");
 var hour1720 = document.getElementById("17:20").getElementsByTagName("td");
-
+var timeList =[hour820,hour915,hour1010,hour1105,hour1200,hour1245,hour1340,hour1435,
+hour1530,hour1625,hour1720]
 readXML();
 
 //Write your function declarations below this line
@@ -98,7 +99,14 @@ function showData(xml) {
                                         break;
                                 }
                                 hour820[1].classList.add("pt-" + numberOfLessons)
-                                hour820[1].rowSpan = "" + numberOfLessons
+                                hour820[1].rowSpan = "" + numberOfLessons;
+
+                                
+                                for(var k=numberOfLessons; k>=1; k--)
+                                {
+                                    timeList[k][1].remove()
+                                }
+                                
                             }
                             break;
                         case ("TUESDAY"):
@@ -131,6 +139,10 @@ function showData(xml) {
                                 }
                                 hour820[2].classList.add("pt-" + numberOfLessons)
                                 hour820[2].rowSpan = "" + numberOfLessons
+                                for(var k=numberOfLessons; k>=1; k--)
+                                {
+                                    timeList[k][2].remove()
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -435,6 +447,7 @@ function showData(xml) {
                             break;
                         case ("TUESDAY"):
                             {
+                                test.innerHTML="I feel inside here!"
                                 hour1010[2].innerHTML = course + "<br>" + room + "<br>"
                                 for (var j = 0; j < teachers.length; j++) {
                                     hour1010[2].innerHTML += teachers[j] + "  ";
@@ -463,10 +476,17 @@ function showData(xml) {
                                 }
                                 hour1010[2].classList.add("pt-" + numberOfLessons)
                                 hour1010[2].rowSpan = "" + numberOfLessons
+
+                                for(var k=numberOfLessons; k>2; k--)
+                                {
+                                    timeList[k][2].remove()
+                                }
+                                
                             }
                             break;
                         case ("WEDNESDAY"):
                             {
+                                
                                 hour1010[3].innerHTML = course + "<br>" + room + "<br>"
                                 for (var j = 0; j < teachers.length; j++) {
                                     hour1010[3].innerHTML += teachers[j] + "  ";

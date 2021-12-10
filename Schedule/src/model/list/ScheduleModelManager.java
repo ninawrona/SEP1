@@ -7,6 +7,7 @@ import java.io.File;
 public class ScheduleModelManager implements ScheduleModel
 {
   private TeacherList teacherList;
+  private TeacherList allTeachers;
   private CourseList courseList;
   private SessionList sessionList;
   private ClassGroupList classList;
@@ -21,6 +22,7 @@ public class ScheduleModelManager implements ScheduleModel
   public ScheduleModelManager()
   {
     this.teacherList = new TeacherList();
+    this.allTeachers = new TeacherList();
     this.courseList = new CourseList();
     this.sessionList = new SessionList();
     this.classList = new ClassGroupList();
@@ -38,12 +40,12 @@ public class ScheduleModelManager implements ScheduleModel
   }
 
   public TeacherList getAllTeachers(){
-    return teacherList;
+    return allTeachers;
   }
 
   public void setAllTeachers(TeacherList list){
-    this.teacherList = list;
-    System.out.println("I set my teacherList: " + teacherList);
+    this.allTeachers = list;
+    System.out.println("I set my teacherList: " + allTeachers);
   }
   public void addTeacher(Teacher teacher)
   {

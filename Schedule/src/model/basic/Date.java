@@ -64,6 +64,12 @@ public class Date
     weekdayName = date.getDayOfWeek().toString();
     return weekdayName;
   }
+//todo java doc
+  public int getWeekNumber()
+  {
+    LocalDate date = LocalDate.of(year, month, day);
+    return date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+  }
 
   /**
    * A boolean method checking if this Date object is a weekend.

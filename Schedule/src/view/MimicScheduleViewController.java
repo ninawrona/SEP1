@@ -98,38 +98,59 @@ public class MimicScheduleViewController
 
     while (!startMonday.equals(endMonday))
     {
-      SessionList sessionListForDay = model
-          .getSessionsByDateAndClassGroup(dateHolder,
-              model.getChosenClassGroup());
-      for (int i = 0; i < sessionListForDay.size(); i++)
+      boolean isHoliday = false;
+      if (startMonday.getWeekday().equals("MONDAY"))
       {
-        Session sessionCopy = sessionListForDay.get(i).copySessionToDate(startMonday);
-        model.addSession(sessionCopy, sessionCopy.getRoom());
-        System.out.println("Session added to model: "+sessionCopy);
+        for (int j = 0; j < weekHoliday.size(); j++)
+        {
+          if (startMonday.getWeekNumber() == weekHoliday.get(j))
+          {
+            startMonday.stepForward(7);
+            isHoliday = true;
+            break;
+          }
+        }
       }
-      System.out.println("Moving origin date");
-      System.out.println("Old origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
-      dateHolder.stepForwardOneDay();
-      System.out.println("New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
-      System.out.println("Moving target date");
-      System.out.println("Old target: " + startMonday + ", weekday : " + startMonday.getWeekday());
-      startMonday.stepForwardOneDay();
-      System.out.println("New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
-
-      if(startMonday.getWeekday().equals("SATURDAY"))
+      if (!isHoliday)
       {
-        System.out.println("I got to Saturday! Moving origin back to Monday and target forward to Monday");
-        dateHolder = model.getChosenMonday().copy();
-        startMonday.stepForward(2);
-        System.out.println("New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
-        System.out.println("New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
+        SessionList sessionListForDay = model
+            .getSessionsByDateAndClassGroup(dateHolder, model.getChosenClassGroup());
+        for (int i = 0; i < sessionListForDay.size(); i++)
+        {
+          Session sessionCopy = sessionListForDay.get(i).copySessionToDate(startMonday);
+          model.addSession(sessionCopy, sessionCopy.getRoom());
+          System.out.println("Session added to model: " + sessionCopy);
+        }
+        System.out.println("Moving origin date");
+        System.out.println(
+            "Old origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+        dateHolder.stepForwardOneDay();
+        System.out.println(
+            "New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+        System.out.println("Moving target date");
+        System.out.println(
+            "Old target: " + startMonday + ", weekday : " + startMonday.getWeekday());
+        startMonday.stepForwardOneDay();
+        System.out.println(
+            "New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
 
+        if (startMonday.getWeekday().equals("SATURDAY"))
+        {
+          System.out.println(
+              "I got to Saturday! Moving origin back to Monday and target forward to Monday");
+          dateHolder = model.getChosenMonday().copy();
+          startMonday.stepForward(2);
+          System.out.println(
+              "New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+          System.out.println(
+              "New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
 
+        }
       }
     }
 
     //Then we are closing the view and openingView
-    //viewHandler.openView("schedule");
+    viewHandler.openView("schedule");
   }
 
   @FXML void cancelButton()

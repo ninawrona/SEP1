@@ -1,9 +1,7 @@
 package view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.basic.Date;
 import model.basic.Session;
@@ -17,7 +15,7 @@ public class MimicScheduleViewController
 {
     @FXML private Label errorLabel;
     @FXML private DatePicker datePicker;
-    @FXML private ListView<Integer> holidayPicker;
+    @FXML private ListView holidayPicker;
 
     private int chosenWeekNumber;
     ArrayList<Integer> weekArray = new ArrayList<>();

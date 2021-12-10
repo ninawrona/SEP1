@@ -200,7 +200,7 @@ public class AddSessionViewController
           numberOfLessonsChoiceBox.getValue());
       System.out.println("I just created the following session:\n");
       System.out.println(session);
-<<<<<<< HEAD
+
 
       //GAP checker:
 
@@ -225,8 +225,7 @@ public class AddSessionViewController
           }
         }
       }
-=======
->>>>>>> parent of f641d1c (getSessionsByDateAndClassGroup)
+
       loadRoomArray();
     }
     catch (IllegalArgumentException a){

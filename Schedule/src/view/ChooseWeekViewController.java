@@ -7,6 +7,7 @@ import javafx.scene.layout.Region;
 import model.basic.*;
 import model.list.*;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalField;
@@ -54,12 +55,12 @@ public class ChooseWeekViewController {
         // Holder
         System.out.println("I'm finding the monday");
         LocalDate mondayHolder = date;
-        while (true) {
             while (mondayHolder.getDayOfWeek().getValue() != 1) {
-                mondayHolder.minusDays(1);
+                System.out.println(mondayHolder);
+                mondayHolder = mondayHolder.minusDays(1);
+                System.out.println("I just moved back one day");
+                System.out.println("Holder is now " + mondayHolder);
             }
-            break;
-        }
         Date monday = new Date(mondayHolder.getDayOfMonth(), mondayHolder.getMonthValue(), mondayHolder.getYear());
         model.setChosenMonday(monday);
         System.out.println("I just set the Monday to " + monday);

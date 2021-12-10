@@ -260,7 +260,7 @@ public class AddSessionViewController
     try
     {
       session.bookRoom(roomsChoiceBox.getValue());
-      model.addSession(session, roomsChoiceBox.getValue());
+      //model.addSession(session, roomsChoiceBox.getValue());
       if (session.getRoom() == null)
       {
         System.out.println("Hey! The room for this session is null!");

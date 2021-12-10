@@ -593,7 +593,14 @@ public class Session implements Comparable<Session>
     s += endMinute;
     return s;
   }
+//TODO javaDoc
 
+  public Session copySessionToDate(Date otherDate)
+  {
+    Session other = new Session(course, otherDate, startTime, numberOfLessons);
+    other.bookRoom(room);
+    return other;
+  }
   /**
    * A method returning the string representation of the session's details.
    *

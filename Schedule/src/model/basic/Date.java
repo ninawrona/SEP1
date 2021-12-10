@@ -71,11 +71,7 @@ public class Date
    */
   public boolean isWeekend()
   {
-    if(getWeekday().equals("SATURDAY") || getWeekday().equals("SUNDAY"))
-    {
-      return true;
-    }
-    return true;
+    return (getWeekday().equals("SATURDAY") || getWeekday().equals("SUNDAY"));
   }
 
   /**

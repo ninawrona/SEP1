@@ -2,9 +2,10 @@ package model.list;
 
 import model.basic.*;
 
+import java.io.File;
+
 public interface ScheduleModel
 {
-  public TeacherList getAllTeachers();
   public void addTeacher(Teacher teacher);
   public void removeTeacher(Teacher teacher);
   public void addCourse(Course course);
@@ -39,4 +40,6 @@ public interface ScheduleModel
   public void setChosenTeacher(Teacher chosenTeacher);
   public Teacher getChosenTeacher();
   public CourseList getCoursesByTeacher(Teacher teacher);
+  public void setAllTeachers(TeacherList list);
+  public TeacherList getAllTeachers();
 }

@@ -88,6 +88,7 @@ public class SessionList
   }
 
   /**
+<<<<<<< HEAD
    * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
    *
    * @param date       a Date object representing the date.
@@ -163,6 +164,8 @@ public class SessionList
   }
 
   /**
+=======
+>>>>>>> parent of f641d1c (getSessionsByDateAndClassGroup)
    * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
    *
    * @param session the Session object to be removed from the list.

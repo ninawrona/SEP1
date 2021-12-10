@@ -156,11 +156,6 @@ public class ScheduleModelManager implements ScheduleModel
     return sessionList.getSessionsByTimeDate(date, startTime, numberOfLessons);
   }
 
-  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup)
-  {
-    return sessionList.getSessionsByDateAndClassGroup(date,classGroup);
-  }
-
   public SessionList getSessionsByRoom(Room room)
   {
     return sessionList.getSessionsByRoom(room);

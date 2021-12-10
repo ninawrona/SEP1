@@ -44,7 +44,6 @@ public class ClassSelectViewController
         this.chosenClass = null;
         reset();
         loadAllCoursesArray();
-        loadAllTeachersArray();
     }
 
     public Region getRoot()
@@ -70,17 +69,6 @@ public class ClassSelectViewController
             allClassesArray.add(model.getAllClasses().get(i));
         }
         classChoiceBox.getItems().addAll(allClassesArray);
-        chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
-
-    }
-
-    private void loadAllTeachersArray(){
-        allTeachersArray.removeAll(allTeachersArray);
-        // Made a simple array to add
-        for (int i = 0; i < model.getAllTeachers().size(); i++) {
-            allTeachersArray.add(model.getAllTeachers().get(i));
-        }
-        teacherChoiceBox.getItems().addAll(allTeachersArray);
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
 
     }

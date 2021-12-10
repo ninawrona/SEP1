@@ -169,8 +169,10 @@ public class SessionList
       }
       if (list.size() == 0)
       {
-        throw new NullPointerException(
-            "The list is empty! You cannot remove anything!");
+        //throw new NullPointerException(
+           // "The sessionlist of this class at this date is empty");
+        System.out.println("The sessionlist from class and date is empty");
+        System.out.println("Date: " + date);
       }
 
 

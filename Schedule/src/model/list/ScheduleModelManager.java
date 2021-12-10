@@ -233,4 +233,9 @@ public class ScheduleModelManager implements ScheduleModel
     }
     throw new NullPointerException("There are no students with this VIA ID.");
   }
+
+    @Override
+    public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup) {
+        return sessionList.getSessionsByDateAndClassGroup(date, classGroup);
+    }
 }

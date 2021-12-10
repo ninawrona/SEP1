@@ -35,4 +35,5 @@ public interface ScheduleModel
   public void addStudentToCourse(Student student, Course course);
   public void removeStudentFromCourse(Student student, Course course);
   public Student getStudentByViaId(int viaId);
+  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup);
 }

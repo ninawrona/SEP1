@@ -81,7 +81,7 @@
                               <Font size="11.0" />
                            </font>
                         </Button>
-                        <Button layoutX="15.0" layoutY="115.0" mnemonicParsing="false" onAction="#chooseWeekButton" prefHeight="30.0" prefWidth="100.0" text="Mimic schedule">
+                        <Button layoutX="15.0" layoutY="115.0" mnemonicParsing="false" onAction="#mimicScheduleButton" prefHeight="30.0" prefWidth="100.0" text="Mimic schedule">
                            <font>
                               <Font size="11.0" />
                            </font>

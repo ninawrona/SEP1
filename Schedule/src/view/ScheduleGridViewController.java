@@ -457,6 +457,19 @@ public class ScheduleGridViewController
     }
   }
 
+  @FXML private void mimicScheduleButton()
+  {
+    if (model.getSessionsByClassGroup(model.getChosenClassGroup()) == null)
+    {
+      System.out.println("Sessions empty for classgroup");
+      errorLabel.setText("No sessions to mimic for the chosen classgroup");
+    }
+    else
+    {
+      viewHandler.openView("mimicSchedule");
+    }
+  }
+
   @FXML private void toXML()
   {
     SessionList allAddedSessions = new SessionList();

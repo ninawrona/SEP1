@@ -567,6 +567,48 @@ public class ReadWrite
     return courses;
   }
 
+  //Reads in a file of Courses and turns it into a teacherList
+  public static TeacherList manualReadMasterTeacherList(File file)
+  {
+    TeacherList masterTeacherList = new TeacherList();
+    try
+    {
+      Scanner in = new Scanner(file);
+      String[] parts;
+
+      while (in.hasNext())
+      {
+        String line = in.nextLine();
+
+        if (line.contains(","))
+        {
+
+          parts = line.split(",");
+          if (parts.length == 5)
+          {
+            if (!(masterTeacherList.contains(new Teacher(parts[3]))))
+            {
+              masterTeacherList.addTeacher(new Teacher(parts[3]));
+            }
+          }
+          else
+          {
+            throw new IllegalArgumentException("Unable to read line" + line);
+          }
+        }
+      }
+    }
+    catch (FileNotFoundException e)
+    {
+      e.printStackTrace();
+    }
+    return masterTeacherList;
+  }
+
+
+
+
+
   public static RoomList manualReadRooms(File file)
   {
 

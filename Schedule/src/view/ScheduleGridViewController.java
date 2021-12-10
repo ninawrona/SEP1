@@ -417,7 +417,11 @@ public class ScheduleGridViewController
 
   @FXML private void chooseClassButton()
   {
-    viewHandler.openView("classSelect");
+    if(model.getChosenTeacher() == null){
+    viewHandler.openView("classSelect");}
+    else{
+      errorLabel.setText("You cannot select both class and a teacher.");
+    }
   }
 
   @FXML private void uploadFilesButton()
@@ -495,4 +499,13 @@ public class ScheduleGridViewController
     viewHandler.closeView();
   }
 
+  @FXML private void chooseTeacherButton(){
+    if(model.getChosenClassGroup() == null)
+    {
+      viewHandler.openView("selectTeacher");
+    }
+    else{
+      errorLabel.setText("You cannot select both class and a teacher.");
+    }
+  }
 }

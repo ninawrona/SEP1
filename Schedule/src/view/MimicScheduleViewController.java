@@ -15,12 +15,12 @@ import java.util.ArrayList;
 
 public class MimicScheduleViewController
 {
-  @FXML private Label errorLabel;
-  @FXML private DatePicker datePicker;
-  @FXML private ComboBox<Integer> holidayPicker;
+    @FXML private Label errorLabel;
+    @FXML private DatePicker datePicker;
+    @FXML private ListView<Integer> holidayPicker;
 
-  private int chosenWeekNumber;
-  ArrayList<Integer> weekArray = new ArrayList<>();
+    private int chosenWeekNumber;
+    ArrayList<Integer> weekArray = new ArrayList<>();
 
   private ScheduleModel model;
   private ViewHandler viewHandler;
@@ -31,38 +31,39 @@ public class MimicScheduleViewController
     // Called by FXMLLoader
   }
 
-  public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
-  {
-    this.viewHandler = viewHandler;
-    this.model = model;
-    this.root = root;
-    this.chosenWeekNumber = 0;
-    reset();
-  }
+    public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
+    {
+        this.viewHandler = viewHandler;
+        this.model = model;
+        this.root = root;
+        holidayPicker.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        reset();
+
+    }
 
   public Region getRoot()
   {
     return root;
   }
 
-  public void reset()
-  {
-    errorLabel.setText("");
-    loadHolidayPicker();
-  }
+    public void reset()
+    {
+        errorLabel.setText("");
+        loadHolidayPicker();
+    }
 
-  public void loadHolidayPicker()
-  {
-    weekArray.remove(weekArray);
-    for (int i = 1; i <= 52; i++)
+    public void loadHolidayPicker()
     {
-      weekArray.add(i);
+        weekArray.remove(weekArray);
+        for(int i=1; i<=52; i++)
+        {
+            weekArray.add(i);
+        }
+        if(weekArray.size()!=0)
+        {
+            holidayPicker.getItems().addAll(weekArray);
+        }
     }
-    if (weekArray.size() != 0)
-    {
-      holidayPicker.getItems().addAll(weekArray);
-    }
-  }
 
   @FXML void confirmButton()
   {

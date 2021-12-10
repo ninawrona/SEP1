@@ -9,7 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.basic.ClassGroup;
 import model.basic.Course;
+import model.basic.Teacher;
 import model.list.ScheduleModel;
+import model.list.TeacherList;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -20,12 +22,14 @@ public class ClassSelectViewController
     //@FXML private methods here
     @FXML private Label errorLabel;
     @FXML private ChoiceBox<ClassGroup> classChoiceBox;
+    @FXML private ChoiceBox<Teacher> teacherChoiceBox;
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
     private ClassGroup chosenClass;
 
     ArrayList<ClassGroup> allClassesArray = new ArrayList<>();
+    ArrayList<Teacher> allTeachersArray = new ArrayList<>();
 
     public ClassSelectViewController()
     {
@@ -40,6 +44,7 @@ public class ClassSelectViewController
         this.chosenClass = null;
         reset();
         loadAllCoursesArray();
+        loadAllTeachersArray();
     }
 
     public Region getRoot()
@@ -65,6 +70,17 @@ public class ClassSelectViewController
             allClassesArray.add(model.getAllClasses().get(i));
         }
         classChoiceBox.getItems().addAll(allClassesArray);
+        chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
+
+    }
+
+    private void loadAllTeachersArray(){
+        allTeachersArray.removeAll(allTeachersArray);
+        // Made a simple array to add
+        for (int i = 0; i < model.getAllTeachers().size(); i++) {
+            allTeachersArray.add(model.getAllTeachers().get(i));
+        }
+        teacherChoiceBox.getItems().addAll(allTeachersArray);
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
 
     }

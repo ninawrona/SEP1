@@ -22,6 +22,7 @@ public class ViewHandler
   private SessionDetailsViewController sessionDetailsViewController;
   private ScheduleGridViewController scheduleGridViewController;
   private ChooseWeekViewController chooseWeekViewController;
+  private SelectTeacherViewController selectTeacherViewController;
   private MimicScheduleViewController mimicScheduleViewController;
   // more controllers here
 
@@ -90,9 +91,15 @@ public class ViewHandler
       case "chooseWeek":
         root = loadChooseWeekView("ChooseWeekView.fxml");
         break;
+
+      case "selectTeacher":
+        root = loadSelectTeacherView("SelectTeacher.fxml");
+        break;
+
       case "mimicSchedule":
         root = loadMimicScheduleView("MimicScheduleView.fxml");
         break;
+
     }
 
     currentScene.setRoot(root);
@@ -106,6 +113,30 @@ public class ViewHandler
     primaryStage.setWidth(root.getPrefWidth());
     primaryStage.setHeight(root.getPrefHeight());
     primaryStage.show();
+  }
+
+  private Region loadSelectTeacherView(String fxmlFile)
+  {
+    if (selectTeacherViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        selectTeacherViewController = loader.getController();
+        selectTeacherViewController.init(this, model, root);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      selectTeacherViewController.reset();
+    }
+    return selectTeacherViewController.getRoot();
   }
 
   private Region loadAddSessionView(String fxmlFile)

@@ -14,6 +14,7 @@ public class ScheduleModelManager implements ScheduleModel
   private Session chosenSession;
   private int chosenWeekNumber;
   private Date chosenMonday;
+  private Teacher chosenTeacher;
 
   public ScheduleModelManager()
   {
@@ -26,11 +27,16 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenClassGroup = null;
     this.chosenSession = null;
     this.chosenWeekNumber = 0;
+    this.chosenTeacher = null;
   }
 
   public ClassGroupList getAllClasses()
   {
     return classList;
+  }
+
+  public TeacherList getAllTeachers(){
+    return teacherList;
   }
 
   public void addTeacher(Teacher teacher)
@@ -238,5 +244,19 @@ public class ScheduleModelManager implements ScheduleModel
     @Override
     public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup) {
         return sessionList.getSessionsByDateAndClassGroup(date, classGroup);
+    }
+
+  @Override public void setChosenTeacher(Teacher chosenTeacher)
+  {
+    this.chosenTeacher = chosenTeacher;
+  }
+
+  @Override public Teacher getChosenTeacher()
+  {
+    return chosenTeacher;
+  }
+
+  public CourseList getCoursesByTeacher(Teacher teacher){
+    return courseList.getCoursesByTeacher(teacher);
     }
 }

@@ -10,10 +10,9 @@ import model.list.*;
 
 public class MimicScheduleViewController
 {
-    @FXML Label errorLabel;
-    @FXML DatePicker datePicker;
-    @FXML
-    ComboBox comboBox;
+    @FXML private Label errorLabel;
+    @FXML private DatePicker datePicker;
+    @FXML private ComboBox holidayPicker;
 
 
     private ScheduleModel model;
@@ -41,6 +40,12 @@ public class MimicScheduleViewController
     {
         errorLabel.setText("");
     }
+
+    public void loadHolidayPicker()
+    {
+
+    }
+
 
     @FXML void confirmButton()
     {

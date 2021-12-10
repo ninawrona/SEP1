@@ -20,6 +20,9 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
                   </Label>
                   <Label prefHeight="50.0" prefWidth="113.0" text="Schedule">
                      <font>
@@ -42,10 +45,13 @@
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
                         </Label>
                         <Button mnemonicParsing="false" onAction="#chooseClassButton" prefHeight="30.0" prefWidth="100.0" text="Choose Class">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                            <font>
                               <Font size="11.0" />
@@ -53,7 +59,7 @@
                         </Button>
                         <Button mnemonicParsing="false" onAction="#uploadFilesButton" prefHeight="30.0" prefWidth="100.0" text="Upload Files">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                            <font>
                               <Font size="11.0" />
@@ -64,20 +70,28 @@
                               <Font size="11.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Button>
                         <Button layoutX="15.0" layoutY="55.0" mnemonicParsing="false" onAction="#addSessionButton" prefHeight="30.0" prefWidth="100.0" text="Add Session">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Button>
+                        <Button layoutX="15.0" layoutY="115.0" mnemonicParsing="false" onAction="#chooseWeekButton" prefHeight="30.0" prefWidth="100.0" text="Mimic schedule">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button layoutX="15.0" layoutY="95.0" mnemonicParsing="false" onAction="#toXML" prefHeight="30.0" prefWidth="100.0" text="Export to XML">
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                            <font>
                               <Font size="11.0" />
@@ -88,7 +102,7 @@
                               <Font size="11.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Button>
                      </children>
@@ -201,6 +215,12 @@
             </HBox>
          </children>
       </VBox>
-      <Label fx:id="errorLabel" prefHeight="50.0" prefWidth="689.0" text="Error Label" textFill="#da2222" />
+      <Label fx:id="errorLabel" prefHeight="50.0" prefWidth="689.0" text="Error Label" textFill="#da2222">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+         <font>
+            <Font size="20.0" />
+         </font></Label>
    </children>
 </VBox>

@@ -19,6 +19,7 @@ public class MimicScheduleViewController
 
     private int chosenWeekNumber;
     ArrayList<Integer> weekArray = new ArrayList<>();
+    ArrayList<Integer> weekHoliday = new ArrayList<>();
 
   private ScheduleModel model;
   private ViewHandler viewHandler;
@@ -65,6 +66,15 @@ public class MimicScheduleViewController
 
   @FXML void confirmButton()
   {
+    // Do the holidays here
+    for(int i=0; i<holidayPicker.getSelectionModel().getSelectedIndices().size(); i++)
+    {
+      weekHoliday.add(Integer.parseInt(holidayPicker.getSelectionModel().getSelectedIndices().get(i).toString())+1);
+    }
+    System.out.println(weekHoliday);
+
+
+
     // Do the mimicking here
     LocalDate date = datePicker.getValue();
     chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
@@ -85,6 +95,7 @@ public class MimicScheduleViewController
     Date startMonday = model.getChosenMonday().copy();
     startMonday.stepForward(7);
     Date dateHolder = model.getChosenMonday().copy();
+
     while (!startMonday.equals(endMonday))
     {
       SessionList sessionListForDay = model
@@ -112,6 +123,7 @@ public class MimicScheduleViewController
         startMonday.stepForward(2);
         System.out.println("New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
         System.out.println("New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
+
 
       }
     }

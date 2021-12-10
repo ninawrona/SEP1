@@ -171,8 +171,8 @@ public class SessionList
       {
         //throw new NullPointerException(
            // "The sessionlist of this class at this date is empty");
-        System.out.println("The sessionlist from class and date is empty");
-        System.out.println("Date: " + date);
+        //System.out.println("The sessionlist from class and date is empty");
+        //System.out.println("Date: " + date);
       }
 
 

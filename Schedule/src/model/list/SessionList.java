@@ -111,7 +111,7 @@ public class SessionList
         throw new NullPointerException(
             "The list is empty! You cannot remove anything!");
       }
-<<<<<<< HEAD
+
 
     }
     Collections.sort(list.sessions);
@@ -119,11 +119,8 @@ public class SessionList
   }
 
 
-=======
-      for (int j=0; j<list.size();j++){
-        list.get(j).getStartTime().getTimeInSeconds()
-      }
->>>>>>> parent of db056d8 (semicolon)
+
+
 
 
 

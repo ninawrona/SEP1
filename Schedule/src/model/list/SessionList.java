@@ -3,6 +3,7 @@ package model.list;
 import model.basic.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A class representing a list of all the sessions.
@@ -114,14 +115,15 @@ public class SessionList
    *          a ClassGroup object representing the ClassGroup.
    * @return a list of Session objects (if there are any) with the same date and classGroup.
    */
-  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup)
+  public SessionList getSessionsByDateAndClassGroup(Date date,
+      ClassGroup classGroup)
   {
-    SessionList list= new SessionList();
-    SessionList listsorted=new SessionList();
-
-
-    for (int i=0;i<sessions.size();i++){
-      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse().getClassGroup().equals(classGroup)){
+    SessionList list = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
+          .getClassGroup().equals(classGroup))
+      {
         list.addSession(sessions.get(i), sessions.get(i).getRoom());
       }
       if (list.size() == 0)
@@ -131,8 +133,9 @@ public class SessionList
       }
 
 
-
-    } return list;
+    }
+    Collections.sort(list.sessions);
+    return list;
   }
 
   /**

@@ -99,7 +99,6 @@ public class AddSessionViewController
     loadNumberOfLessonsArray();
   }
 
-
   // Load the courses into the arrayList
   // ? How will this look on the list? Will it use the toString method?
   private void loadAllCourseArray()
@@ -200,7 +199,8 @@ public class AddSessionViewController
       System.out.println(session);
       loadRoomArray();
     }
-    catch (IllegalArgumentException a){
+    catch (IllegalArgumentException a)
+    {
       errorLabel.setText("The last lesson has to end before 18:00.");
     }
     catch (Exception e)
@@ -208,15 +208,29 @@ public class AddSessionViewController
       errorLabel.setText(e.getMessage());
     }
 
-
   }
-  private boolean confirmation() {
+
+  private boolean confirmation()
+  {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
-    alert.setHeaderText("Are you sure you want to book: " + session.getRoom() + " for less than 45 students?");
+    alert.setHeaderText("Are you sure you want to book: " + session.getRoom()
+        + " for less than 45 students?");
     Optional<ButtonType> result = alert.showAndWait();
-    return (((Optional<?>) result).isPresent()) && (result.get() == ButtonType.OK);
+    return (((Optional<?>) result).isPresent()) && (result.get()
+        == ButtonType.OK);
   }
+
+  private boolean gapConfirmation()
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "You have a gap between the sessions.");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
   @FXML private void addSessionButton()
   {
     try
@@ -249,13 +263,32 @@ public class AddSessionViewController
 
       {
         scheduleViewModel.addSession(session);
-        reset();
       }
     }
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }
+
+    SessionList sortedSessions = model.getSessionsByDateAndClassGroup(getDateFromDatePicker(),model.getChosenClassGroup());
+    if (sortedSessions.size()>1 ){
+      //SORTING BASED ON START TIME
+      for (int i=0; i<sortedSessions.size()-1;i++){
+        int difference=sortedSessions.get(i+1).getStartTime().getTimeInSeconds()-sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+        if (difference>600){
+          if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==3300){
+            loadRoomArray();
+          }
+          else{
+          gapConfirmation();
+          }
+        }
+      }
+    }
+
+
+    reset();
     System.out.println("I just added the following session: \n" + session);
     viewHandler.openView("schedule");
   }

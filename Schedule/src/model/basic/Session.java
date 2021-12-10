@@ -1,5 +1,5 @@
 package model.basic;
-
+import java.util.*;
 import model.list.StudentList;
 import model.list.TeacherList;
 
@@ -10,7 +10,7 @@ import model.list.TeacherList;
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021
  */
-public class Session
+public class Session implements Comparable<Session>
 {
   private Course course;
   private Time startTime;
@@ -649,6 +649,20 @@ public class Session
       str += room;
     }
     return str;
+  }
+  @Override public int compareTo(Session obj)
+  {
+    if (startTime.getTimeInSeconds() == obj.startTime.getTimeInSeconds())
+    {
+      return 0;
+    }
+    else if (startTime.getTimeInSeconds() > obj.startTime.getTimeInSeconds())
+    {
+      return 1;
+    }
+    else
+      return -1;
+
   }
 
 }

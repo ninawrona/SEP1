@@ -4,6 +4,7 @@ import model.basic.*;
 
 public interface ScheduleModel
 {
+  public TeacherList getAllTeachers();
   public void addTeacher(Teacher teacher);
   public void removeTeacher(Teacher teacher);
   public void addCourse(Course course);
@@ -35,4 +36,7 @@ public interface ScheduleModel
   public void removeStudentFromCourse(Student student, Course course);
   public Student getStudentByViaId(int viaId);
   public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup);
+  public void setChosenTeacher(Teacher chosenTeacher);
+  public Teacher getChosenTeacher();
+  public CourseList getCoursesByTeacher(Teacher teacher);
 }

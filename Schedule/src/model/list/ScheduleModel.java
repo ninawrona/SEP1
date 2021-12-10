@@ -26,7 +26,6 @@ public interface ScheduleModel
   public boolean isTeacherAvailable(Session session);
   public SessionList getSessionsByTimeDate(Date date, Time startTime,
       int numberOfLessons);
-  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup);
   public SessionList getSessionsByRoom(Room room);
   public SessionList getSessionsByTeacher(Teacher teacher, Date date);
   public SessionList getSessionsByCourse(Course course);

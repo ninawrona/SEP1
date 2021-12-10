@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.MimicScheduleViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="80.0" prefWidth="539.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="275.0" text="Week to mimic up to">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="32.0" prefWidth="275.0" text="Select holiday week number(s)">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="131.0" prefWidth="545.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="275.0">
+               <children>
+                  <DatePicker fx:id="datePicker" prefHeight="30.0" prefWidth="215.0">
+                     <VBox.margin>
+                        <Insets left="25.0" top="25.0" />
+                     </VBox.margin>
+                  </DatePicker>
+               </children>
+            </VBox>
+            <VBox prefHeight="153.0" prefWidth="275.0">
+               <children>
+                  <ComboBox fx:id="holidayPicker" prefHeight="30.0" prefWidth="215.0">
+                     <VBox.margin>
+                        <Insets left="25.0" top="25.0" />
+                     </VBox.margin>
+                  </ComboBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#confirmButton" prefHeight="25.0" prefWidth="100.0" text="Confirm" />
+            <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+         </children>
+      </HBox>
+      <HBox prefHeight="33.0" prefWidth="551.0">
+         <children>
+            <Label fx:id="errorLabel" prefHeight="14.0" prefWidth="551.0" text="Label" textFill="RED">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>

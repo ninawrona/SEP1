@@ -118,6 +118,7 @@ public class FileViewController
         model.getAllClasses().manualReadStudents(fileStudents);
         model.getAllClasses().manualReadCourses(fileCourses);
         model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
+        model.setAllTeachers(ReadWrite.manualReadMasterTeacherList(fileCourses));
       }
       viewHandler.closeView();
       viewHandler.openView("schedule");

@@ -20,11 +20,12 @@ public class ReadWrite
 
     // System.out.println(manualReadStudents());
     //  XMLParser.toXML(manualReadStudents(), "students.xml");
-    //  System.out.println(manualReadCourses());
+     // System.out.println(manualReadCourses(courses));
     //  manualWriteCourse(manualReadCourses());
-    System.out.println(manualReadRooms(rooms));
+    //System.out.println(manualReadRooms(rooms));
     //XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
     //  System.out.println( manualReadRooms(rooms)); ;
+   System.out.println(manualReadMasterTeacherList(courses));
   }
 
   /*
@@ -497,12 +498,120 @@ public class ReadWrite
             {
               course = new Course(courseName, classGroup, teacherList,
                   semesterTaught, ECTS);
-              //System.out.println("Size is 0, New Course Made:\n" + course);
+              System.out.println("Size is 0, New Course Made:\n" + course);
               for (int j = 0; j < teacherList.size(); j++)
               {
                 if (!(teacherList.get(j) == null))
                 {
                   teacherList.get(j).assignToCourseTaught(course);
+                  System.out.println(
+                      "Courses taught: " + teacherList.get(j).getCoursesTaught()
+                          + "\n--------------");
+
+
+                }
+              }
+              courses.addCourse(course);
+            }
+
+            else if (courses.size() >= 1)
+            {
+              boolean teacherFound = false;
+              for (int i = 0; i < courses.size(); i++)
+              {
+                if (courses.get(i).getClassGroup().equals(classGroup)
+                    && courses.get(i).getName().equals(courseName)
+                    && !(courses.get(i).getTeachers()
+                    .contains(new Teacher(parts[3]))))
+                {
+                  courses.get(i).addTeacher(new Teacher(parts[3]));
+                  System.out.println("I added a teacher to an existing course"
+                      + "\nEXISTING CLASS: " + courses.get(i)
+                      + "----------------");
+
+
+                  teacherFound = true;
+
+                }
+              }
+              if (!teacherFound)
+              {
+                course = new Course(courseName, classGroup, teacherList,
+                    semesterTaught, ECTS);
+                System.out.println("New Course being printed: \n" + course
+                    + "\n-----------------");
+
+
+                for (int j = 0; j < teacherList.size(); j++)
+                {
+                  if (!(teacherList.get(j) == null))
+                  {
+                    teacherList.get(j).assignToCourseTaught(course);
+                  }
+                }
+                courses.addCourse(course);
+              }
+            }
+
+          }
+          else
+          {
+            throw new IllegalArgumentException("Unable to read line" + line);
+          }
+        }
+      }
+    }
+    catch (FileNotFoundException e)
+    {
+      e.printStackTrace();
+    }
+    return courses;
+  }
+
+  //Reads in a file of Courses and turns it into a teacherList
+  public static TeacherList manualReadMasterTeacherList(File file)
+  {
+    CourseList courses = new CourseList();
+    TeacherList masterTeacherList = new TeacherList();
+    try
+    {
+      Scanner in = new Scanner(file);
+      Course course;
+      int semesterTaught = 0;
+      ClassGroup classGroup;
+      String courseName = null;
+      int ECTS = 0;
+      String[] parts;
+
+      while (in.hasNext())
+      {
+        String line = in.nextLine();
+
+        if (line.contains(","))
+        {
+
+          parts = line.split(",");
+          if (parts.length == 5)
+          {
+            semesterTaught = Integer.parseInt(parts[0]);
+            classGroup = new ClassGroup(semesterTaught, parts[1]);
+            courseName = parts[2];
+            TeacherList teacherList = new TeacherList();
+            teacherList.addTeacher(new Teacher(parts[3]));
+
+            ECTS = Integer.parseInt(parts[4]);
+
+            if (courses.size() == 0)
+            {
+              course = new Course(courseName, classGroup, teacherList,
+                  semesterTaught, ECTS);
+            //  System.out.println("Size is 0, New Course Made:\n" + course);
+              for (int j = 0; j < teacherList.size(); j++)
+              {
+                if (!(teacherList.get(j) == null))
+                {
+                  teacherList.get(j).assignToCourseTaught(course);
+              //    System.out.println(teacherList.get(j) + " added to course:" + course);
                   /*System.out.println(
                       "Courses taught: " + teacherList.get(j).getCoursesTaught()
                           + "\n--------------");
@@ -524,6 +633,7 @@ public class ReadWrite
                     .contains(new Teacher(parts[3]))))
                 {
                   courses.get(i).addTeacher(new Teacher(parts[3]));
+               //   System.out.println(new Teacher(parts[3])+ " added to course:" + courses.get(i));
                  /* System.out.println("I added a teacher to an existing course"
                       + "\nEXISTING CLASS: " + courses.get(i)
                       + "----------------");
@@ -559,41 +669,13 @@ public class ReadWrite
           }
         }
       }
-    }
-    catch (FileNotFoundException e)
-    {
-      e.printStackTrace();
-    }
-    return courses;
-  }
 
-  //Reads in a file of Courses and turns it into a teacherList
-  public static TeacherList manualReadMasterTeacherList(File file)
-  {
-    TeacherList masterTeacherList = new TeacherList();
-    try
-    {
-      Scanner in = new Scanner(file);
-      String[] parts;
-
-      while (in.hasNext())
-      {
-        String line = in.nextLine();
-
-        if (line.contains(","))
-        {
-
-          parts = line.split(",");
-          if (parts.length == 5)
+      for(int i = 0; i < courses.size(); i++){
+        for (int j= 0; j < courses.get(i).getTeachers().size(); j++){
+          if (!(masterTeacherList.contains(courses.get(i).getTeachers().get(j))))
           {
-            if (!(masterTeacherList.contains(new Teacher(parts[3]))))
-            {
-              masterTeacherList.addTeacher(new Teacher(parts[3]));
-            }
-          }
-          else
-          {
-            throw new IllegalArgumentException("Unable to read line" + line);
+            masterTeacherList.addTeacher(courses.get(i).getTeachers().get(j));
+         //   System.out.println(courses.get(i).getTeachers().get(j) + " added to masterList in size>=1");
           }
         }
       }

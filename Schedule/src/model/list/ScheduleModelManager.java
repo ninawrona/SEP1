@@ -2,6 +2,8 @@ package model.list;
 
 import model.basic.*;
 
+import java.io.File;
+
 public class ScheduleModelManager implements ScheduleModel
 {
   private TeacherList teacherList;
@@ -39,6 +41,10 @@ public class ScheduleModelManager implements ScheduleModel
     return teacherList;
   }
 
+  public void setAllTeachers(TeacherList list){
+    this.teacherList = list;
+    System.out.println("I set my teacherList: " + teacherList);
+  }
   public void addTeacher(Teacher teacher)
   {
     teacherList.addTeacher(teacher);

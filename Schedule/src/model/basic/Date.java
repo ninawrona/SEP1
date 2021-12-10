@@ -34,6 +34,11 @@ public class Date
       throw new IllegalArgumentException(
           "Date has to be today or after today.");
     }
+    if(isWeekend())
+    {
+      throw new IllegalArgumentException("You cannot book the sessions during weekend!");
+    }
+
   }
 
   /**
@@ -47,17 +52,30 @@ public class Date
   }
 
   /**
-   * A method returning a string representing the name of the week day for this Date object.
+   * A method returning a String representing the name of the week day for this Date object.
    *
-   * @return A String object.
+   * @return A String object containing the weekday name.
    */
-//todo update this
+
   public String getWeekday()
   {
     LocalDate date = LocalDate.of(year, month, day);
     String weekdayName = "";
     weekdayName = date.getDayOfWeek().toString();
     return weekdayName;
+  }
+
+  /**
+   * A boolean method checking if this Date object is a weekend.
+   * @return "True" if it is a day of the weekend, or "False" if it is not.
+   */
+  public boolean isWeekend()
+  {
+    if(getWeekday().equals("SATURDAY") || getWeekday().equals("SUNDAY"))
+    {
+      return true;
+    }
+    return true;
   }
 
   /**

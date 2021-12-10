@@ -206,7 +206,7 @@ public class ScheduleGridViewController {
         }
         else
         {
-            weekLabel.setText("Select week");
+            weekLabel.setText("Week: Test || Select week");
         }
         errorLabel.setText("");
         if (model.getChosenClassGroup() != null) {

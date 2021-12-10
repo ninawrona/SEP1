@@ -13,7 +13,7 @@ public class MimicScheduleViewController
     @FXML Label errorLabel;
     @FXML DatePicker datePicker;
     @FXML
-    ComboBox comboBox;
+    ComboBox holidayPicker;
 
 
     private ScheduleModel model;
@@ -45,6 +45,13 @@ public class MimicScheduleViewController
     @FXML void confirmButton()
     {
         // Do the mimicking here
+        // This is the date chosen by the datePicker
+        datePicker.getValue();
+        System.out.println(datePicker.getValue());
+
+        // This is the choices for holiday
+        holidayPicker.getValue();
+        
 
     }
 

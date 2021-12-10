@@ -101,7 +101,6 @@ public class AddSessionViewController
     loadNumberOfLessonsArray();
   }
 
-
   // Load the courses into the arrayList
   // ? How will this look on the list? Will it use the toString method?
   private void loadAllCourseArray()
@@ -228,7 +227,8 @@ public class AddSessionViewController
 
       loadRoomArray();
     }
-    catch (IllegalArgumentException a){
+    catch (IllegalArgumentException a)
+    {
       errorLabel.setText("The last lesson has to end before 18:00.");
     }
     catch (Exception e)
@@ -236,8 +236,8 @@ public class AddSessionViewController
       errorLabel.setText(e.getMessage());
     }
 
-
   }
+
 
   private boolean confirmation() {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -280,13 +280,55 @@ public class AddSessionViewController
       {
         System.out.println("I put that session in room " + session.getRoom());
       }
+
       model.addSession(session, session.getRoom());
       reset();
+
+
+      //warning for an auditorium
+      if (session.getRoom().getCapacity() > 100
+          && session.getCourse().getStudents().size() < 45)
+      {
+        boolean book = confirmation();
+        if (book)
+        {
+          scheduleViewModel.addSession(session);
+        }
+        else
+        {
+          reset();
+        }
+      }
+
+      {
+        scheduleViewModel.addSession(session);
+      }
+
     }
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }
+
+    SessionList sortedSessions = model.getSessionsByDateAndClassGroup(getDateFromDatePicker(),model.getChosenClassGroup());
+    if (sortedSessions.size()>1 ){
+      //SORTING BASED ON START TIME
+      for (int i=0; i<sortedSessions.size()-1;i++){
+        int difference=sortedSessions.get(i+1).getStartTime().getTimeInSeconds()-sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+        if (difference>600){
+          if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==3300){
+            loadRoomArray();
+          }
+          else{
+          gapConfirmation();
+          }
+        }
+      }
+    }
+
+
+    reset();
     System.out.println("I just added the following session: \n" + session);
     viewHandler.openView("schedule");
   }

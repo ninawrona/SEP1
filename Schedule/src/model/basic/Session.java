@@ -1,5 +1,6 @@
 package model.basic;
 
+
 import java.util.*;
 
 import model.list.StudentList;

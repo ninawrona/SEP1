@@ -5,15 +5,17 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import model.basic.*;
 import model.list.*;
+
+import java.util.ArrayList;
 
 public class MimicScheduleViewController
 {
     @FXML private Label errorLabel;
     @FXML private DatePicker datePicker;
-    @FXML private ComboBox holidayPicker;
+    @FXML private ComboBox<Integer> holidayPicker;
 
+    ArrayList<Integer> weekArray = new ArrayList<>();
 
     private ScheduleModel model;
     private ViewHandler viewHandler;
@@ -43,7 +45,15 @@ public class MimicScheduleViewController
 
     public void loadHolidayPicker()
     {
-
+        weekArray.remove(weekArray);
+        for(int i=1; i<=52; i++)
+        {
+            weekArray.add(i);
+        }
+        if(weekArray.size()!=0)
+        {
+            holidayPicker.getItems().addAll(weekArray);
+        }
     }
 
 

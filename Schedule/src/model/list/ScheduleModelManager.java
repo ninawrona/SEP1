@@ -136,6 +136,10 @@ public class ScheduleModelManager implements ScheduleModel
   {
     return sessionList.getSessionsByRoom(room);
   }
+  public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup)
+  {
+    return sessionList.getSessionsByDateAndClassGroup(date,classGroup);
+  }
 
   public SessionList getSessionsByCourse(Course course)
   {

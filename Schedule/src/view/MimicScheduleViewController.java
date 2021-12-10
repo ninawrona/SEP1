@@ -3,26 +3,31 @@ package view;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import model.basic.Date;
+import model.basic.Session;
 import model.list.*;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 
 public class MimicScheduleViewController
 {
     @FXML private Label errorLabel;
     @FXML private DatePicker datePicker;
-    @FXML private ListView<Integer> holidayPicker;
+    @FXML private ListView holidayPicker;
 
+    private int chosenWeekNumber;
     ArrayList<Integer> weekArray = new ArrayList<>();
 
-    private ScheduleModel model;
-    private ViewHandler viewHandler;
-    private Region root;
+  private ScheduleModel model;
+  private ViewHandler viewHandler;
+  private Region root;
 
-    public MimicScheduleViewController()
-    {
-        // Called by FXMLLoader
-    }
+  public MimicScheduleViewController()
+  {
+    // Called by FXMLLoader
+  }
 
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
@@ -34,9 +39,10 @@ public class MimicScheduleViewController
 
     }
 
-    public Region getRoot() {
-        return root;
-    }
+  public Region getRoot()
+  {
+    return root;
+  }
 
     public void reset()
     {
@@ -57,15 +63,65 @@ public class MimicScheduleViewController
         }
     }
 
-
-    @FXML void confirmButton()
+  @FXML void confirmButton()
+  {
+    // Do the mimicking here
+    LocalDate date = datePicker.getValue();
+    chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+    LocalDate mondayHolder = date;
+    while (mondayHolder.getDayOfWeek().getValue() != 1)
     {
-        // Do the mimicking here
+      System.out.println(mondayHolder);
+      mondayHolder = mondayHolder.minusDays(1);
+      System.out.println("I just moved back one day");
+      System.out.println("Holder is now " + mondayHolder);
+    }
+    // Monday Holder is now the monday of the week that is targeted to end the mimic
+    Date monday = new Date(mondayHolder.getDayOfMonth(),
+        mondayHolder.getMonthValue(), mondayHolder.getYear());
+    System.out.println("I just set the Monday to " + monday);
+    Date endMonday = monday.copy();
+    endMonday.stepForward(7);
+    Date startMonday = model.getChosenMonday().copy();
+    startMonday.stepForward(7);
+    Date dateHolder = model.getChosenMonday().copy();
+    while (!startMonday.equals(endMonday))
+    {
+      SessionList sessionListForDay = model
+          .getSessionsByDateAndClassGroup(dateHolder,
+              model.getChosenClassGroup());
+      for (int i = 0; i < sessionListForDay.size(); i++)
+      {
+        Session sessionCopy = sessionListForDay.get(i).copySessionToDate(startMonday);
+        model.addSession(sessionCopy, sessionCopy.getRoom());
+        System.out.println("Session added to model: "+sessionCopy);
+      }
+      System.out.println("Moving origin date");
+      System.out.println("Old origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+      dateHolder.stepForwardOneDay();
+      System.out.println("New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+      System.out.println("Moving target date");
+      System.out.println("Old target: " + startMonday + ", weekday : " + startMonday.getWeekday());
+      startMonday.stepForwardOneDay();
+      System.out.println("New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
 
+      if(startMonday.getWeekday().equals("SATURDAY"))
+      {
+        System.out.println("I got to Saturday! Moving origin back to Monday and target forward to Monday");
+        dateHolder = model.getChosenMonday().copy();
+        startMonday.stepForward(2);
+        System.out.println("New origin: " + dateHolder + ", weekday : " + dateHolder.getWeekday());
+        System.out.println("New target: " + startMonday + ", weekday : " + startMonday.getWeekday());
+
+      }
     }
 
-    @FXML void cancelButton()
-    {
-        viewHandler.openView("schedule");
-    }
+    //Then we are closing the view and openingView
+    //viewHandler.openView("schedule");
+  }
+
+  @FXML void cancelButton()
+  {
+    viewHandler.openView("schedule");
+  }
 }

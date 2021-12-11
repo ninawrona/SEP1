@@ -47,7 +47,7 @@ public class SessionDetailsViewController
   {
     chosenSession=model.getChosenSession();
     errorLabel.setText("");
-      courseDetailsField.setText("" + chosenSession.getCourse());
+      courseDetailsField.setText("" + chosenSession.getCourse().getFullName());
       classDetailsField.setText("" + chosenSession.getCourse().getClassGroup());
       startTimeField.setText("" + chosenSession.getStartTimeString());
       endTimeField.setText("" + chosenSession.getEndTimeString());

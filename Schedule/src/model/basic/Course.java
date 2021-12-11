@@ -125,6 +125,50 @@ public class Course
     return name;
   }
 
+  // todo javadoc
+  // This method returns the full name of the course with respect to the class group the student belongs in
+  // The classgroup is checked to see if it is a Danish class. If so, it returns the full Danish title.
+  // Currently only for 1st semester, but can be applied to first 4 semesters using doc on itslearning
+  public String getFullName()
+  {
+    switch (name)
+    {
+      case "SDJ":
+        if (classGroup.getClassName().equals("DK"))
+        {
+          return "Softwareudvikling med UML og Java";
+        }
+        else
+        {
+          return "Software Development with UML and Java";
+        }
+      case "RWD":
+        // The name is the same
+        return "Responsive Web Design";
+      case "DMA":
+        if (classGroup.getClassName().equals("DK"))
+        {
+          return "Diskret Matematik og Algoritmer";
+        }
+        else
+        {
+          return "Discrete Mathematics and Algorithms";
+        }
+      case "SEP":
+        if (classGroup.getClassName().equals("DK"))
+        {
+          return "Semesterprojekt";
+        }
+        else
+        {
+          return "Semester Project";
+        }
+      default:
+        System.out.println("Full name for course not found");
+        return name;
+    }
+  }
+
   /**
    * A getter method returning the class assigned to this course.
    * @return the ClassGroup object assigned to this Course.
@@ -177,6 +221,8 @@ public class Course
    * A getter method returning the ECTS value of this course.
    * @return an int representing the ECTS value of this course.
    */
+
+  // todo choose method version
   public int getECTS()
   {
     return ECTS;

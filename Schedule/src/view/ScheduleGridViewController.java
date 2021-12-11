@@ -8,10 +8,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.input.MouseEvent;
@@ -323,8 +322,9 @@ public class ScheduleGridViewController
         int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
             .getDayOfWeekProperty().getValue();
 
-        labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
-        labelTest.setMinWidth(100 - 1);
+        labelTest.setMinHeight((double)(numberOfLessonsInt * 28 - 11));
+        labelTest.setTextOverrun(OverrunStyle.CLIP);
+        labelTest.setMinWidth(98.5);
         labelTest.setTextAlignment(TextAlignment.CENTER);
         labelTest.setAlignment(Pos.CENTER);
 
@@ -332,7 +332,7 @@ public class ScheduleGridViewController
         // System.out.println("I just added this label");
         System.out.println(labelTest);
         // Move the label like 1 pixel to the right to make it centered
-        labelTest.setTranslateX(0.3);
+        labelTest.setTranslateX(0.7);
       }
     }
     catch (Exception e)

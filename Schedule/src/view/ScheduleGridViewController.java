@@ -29,6 +29,7 @@ import model.list.*;
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
+import java.time.temporal.ChronoField;
 
 public class ScheduleGridViewController
 {
@@ -36,6 +37,7 @@ public class ScheduleGridViewController
   private ScheduleModel model;
   private Region root;
   private ScheduleViewModel scheduleViewModel;
+  private int chosenWeekNumber;
   // private AddSessionViewController addSessionViewController;
 
   //@FXML
@@ -192,13 +194,53 @@ public class ScheduleGridViewController
       Date monday = model.getChosenMonday();
       Date friday = monday.copy();
       friday.stepForward(4);
-                  weekLabel.setText("Week " + model.getChosenWeekNumber() +": "+ " " + monday.getDay() + "/" + monday.getMonth()
-     + " - " + friday.getDay() + "/" + friday.getMonth());
+      weekLabel.setText(
+          "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+              .getMonth());
       //weekLabel.setText("Test");
     }
     else
     {
-      weekLabel.setText("Week: Test || Select week");
+      //The week set to the week of today's date, if it is Saturday or Sunday
+      //It is moved to next week
+      Date today = new Date();
+      if(today.getWeekday().equals("SATURDAY"))
+      {
+        today.stepForward(2);
+      }
+      else if(today.getWeekday().equals("SUNDAY"))
+      {
+        today.stepForwardOneDay();
+      }
+      LocalDate date = LocalDate
+          .of(today.getYear(), today.getMonth(), today.getDay());
+      chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+      model.setChosenWeekNumber(chosenWeekNumber);
+      System.out
+          .println("I just set the week to " + model.getChosenWeekNumber());
+      // Holder
+      System.out.println("I'm finding the monday");
+      LocalDate mondayHolder = date;
+      while (mondayHolder.getDayOfWeek().getValue() != 1)
+      {
+        System.out.println(mondayHolder);
+        mondayHolder = mondayHolder.minusDays(1);
+        System.out.println("I just moved back one day");
+        System.out.println("Holder is now " + mondayHolder);
+      }
+      Date monday = new Date(mondayHolder.getDayOfMonth(),
+          mondayHolder.getMonthValue(), mondayHolder.getYear());
+      model.setChosenMonday(monday);
+      System.out.println("I just set the Monday to " + monday);
+
+      Date friday = monday.copy();
+      friday.stepForward(4);
+      weekLabel.setText(
+          "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+              .getMonth());
+
     }
     errorLabel.setText("");
     if (model.getChosenClassGroup() != null)
@@ -418,9 +460,12 @@ public class ScheduleGridViewController
 
   @FXML private void chooseClassButton()
   {
-    if(model.getChosenTeacher() == null){
-    viewHandler.openView("classSelect");}
-    else{
+    if (model.getChosenTeacher() == null)
+    {
+      viewHandler.openView("classSelect");
+    }
+    else
+    {
       errorLabel.setText("You cannot select both class and a teacher.");
     }
   }
@@ -500,12 +545,14 @@ public class ScheduleGridViewController
     viewHandler.closeView();
   }
 
-  @FXML private void chooseTeacherButton(){
-    if(model.getChosenClassGroup() == null)
+  @FXML private void chooseTeacherButton()
+  {
+    if (model.getChosenClassGroup() == null)
     {
       viewHandler.openView("selectTeacher");
     }
-    else{
+    else
+    {
       errorLabel.setText("You cannot select both class and a teacher.");
     }
   }

@@ -29,14 +29,19 @@ public class Date
   public Date(int day, int month, int year)
   {
     set(day, month, year);
+
     if (!isValid())
     {
-      throw new IllegalArgumentException(
-          "Date has to be today or after today.");
+      /*TODO the exception is a problem when we want set the chosen week to actual week
+       TODO for example when right now is Saturday then we have to create an object with the date from past
+      */
+      //throw new IllegalArgumentException(
+      //    "Date has to be today or after today.");
     }
-    if(isWeekend())
+    if (isWeekend())
     {
-      throw new IllegalArgumentException("You cannot book the sessions during weekend!");
+      throw new IllegalArgumentException(
+          "You cannot book the sessions during weekend!");
     }
 
   }
@@ -64,7 +69,8 @@ public class Date
     weekdayName = date.getDayOfWeek().toString();
     return weekdayName;
   }
-//todo java doc
+
+  //todo java doc
   public int getWeekNumber()
   {
     LocalDate date = LocalDate.of(year, month, day);
@@ -73,6 +79,7 @@ public class Date
 
   /**
    * A boolean method checking if this Date object is a weekend.
+   *
    * @return "True" if it is a day of the weekend, or "False" if it is not.
    */
   public boolean isWeekend()

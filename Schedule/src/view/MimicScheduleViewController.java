@@ -72,7 +72,7 @@ public class MimicScheduleViewController
       weekHoliday.add(Integer.parseInt(holidayPicker.getSelectionModel().getSelectedIndices().get(i).toString())+1);
     }
     System.out.println(weekHoliday);
-
+    model.setHolidayWeeks(weekHoliday);
 
 
     // Do the mimicking here

@@ -318,7 +318,11 @@ public class AddSessionViewController
 
         if (difference>600){
           if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==3300){
-            loadRoomArray();
+            // todo bug
+            // Loading the room array throws an illegal arg exception because the session is reset and then it tries
+            // to suggest rooms based on a null session.
+            // Should this be in the find rooms button?
+            // loadRoomArray();
           }
           else{
           gapConfirmation();

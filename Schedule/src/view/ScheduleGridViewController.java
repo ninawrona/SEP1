@@ -185,6 +185,7 @@ public class ScheduleGridViewController
 
   public void reset()
   {
+    System.out.println("I am resetting the schedule grid window");
     // set text to ""
     if (model.getChosenWeekNumber() != 0)
     {

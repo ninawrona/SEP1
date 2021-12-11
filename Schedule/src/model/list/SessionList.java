@@ -137,8 +137,10 @@ public class SessionList {
      */
     public SessionList getSessionsByDateAndClassGroup(Date date,
                                                       ClassGroup classGroup) {
+        System.out.println("I am looking through the sessions for a class");
         SessionList list = new SessionList();
         for (int i = 0; i < sessions.size(); i++) {
+            System.out.println("session " + i);
             if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
                     .getClassGroup().equals(classGroup)) {
                 list.addSession(sessions.get(i), sessions.get(i).getRoom());
@@ -175,6 +177,7 @@ public class SessionList {
      * @return an ArrayList of Room objects that are available for booking.
      */
     public RoomList suggestRooms(Session session) {
+        System.out.println("I am suggesting rooms");
         if (session == null) {
             throw new IllegalArgumentException("Parameter cannot be null!");
         }
@@ -281,7 +284,7 @@ public class SessionList {
      * @return "True" if all the teachers from the Session are available, or "False" if at least one of them is unavailable.
      */
     public boolean isTeacherAvailable(Session session) {
-        // System.out.println("I am checking if the below teachers are available");
+        System.out.println("I am checking if a teacher is available");
         // System.out.println(session.getTeachers());
 
         //Old code

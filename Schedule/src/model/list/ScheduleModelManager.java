@@ -3,6 +3,7 @@ package model.list;
 import model.basic.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class ScheduleModelManager implements ScheduleModel
 {
@@ -16,6 +17,7 @@ public class ScheduleModelManager implements ScheduleModel
   private ClassGroup chosenClassGroup;
   private Session chosenSession;
   private int chosenWeekNumber;
+  private ArrayList<Integer> holidayWeeks;
   private Date chosenMonday;
   private Teacher chosenTeacher;
 
@@ -32,6 +34,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenSession = null;
     this.chosenWeekNumber = 0;
     this.chosenTeacher = null;
+    this.holidayWeeks=null;
   }
 
   public ClassGroupList getAllClasses()
@@ -131,6 +134,16 @@ public class ScheduleModelManager implements ScheduleModel
   @Override
   public void setChosenMonday(Date chosenMonday) {
     this.chosenMonday = chosenMonday;
+  }
+
+  public void setHolidayWeeks(ArrayList<Integer> holidayWeeks)
+  {
+    this.holidayWeeks=holidayWeeks;
+  }
+
+  public ArrayList<Integer> getHolidayWeeks()
+  {
+    return holidayWeeks;
   }
 
   public void addClassGroupList(ClassGroupList classList)

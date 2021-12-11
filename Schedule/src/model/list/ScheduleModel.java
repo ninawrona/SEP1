@@ -3,6 +3,7 @@ package model.list;
 import model.basic.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public interface ScheduleModel
 {
@@ -20,6 +21,8 @@ public interface ScheduleModel
   public void setChosenWeekNumber(int chosenWeekNumber);
   public Date getChosenMonday();
   public void setChosenMonday(Date date);
+  public void setHolidayWeeks(ArrayList<Integer> holidayWeeks);
+  public ArrayList<Integer> getHolidayWeeks();
   public void addClassGroupList(ClassGroupList classList);
   public void addSession(Session session, Room room);
   public void removeSession(Session session);

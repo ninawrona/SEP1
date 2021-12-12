@@ -115,9 +115,10 @@ public class ReadWrite
 
   //Parser would not work so I made a manual write.
   //Reads in a SessionList and turns it into xml format.
-  public static void manualWriteSessionList(SessionList sessions)
+  //Takes in a sessionList and a ClassGroup to print a sessionList for that specific classGroup.
+  public static void manualWriteSessionList(SessionList sessions, String chosenClassGroup)//put Semester+ClassName.
   {
-    File file = new File("SessionList.xml");
+    File file = new File("SessionList"+chosenClassGroup+".xml");
     try
 
     {

@@ -322,7 +322,7 @@ public class ScheduleGridViewController
         int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
             .getDayOfWeekProperty().getValue();
 
-        labelTest.setMinHeight((double) (numberOfLessonsInt * 28 - 11));
+        labelTest.setMinHeight((double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
         labelTest.setTextOverrun(OverrunStyle.CLIP);
         labelTest.setMinWidth(98.5);
         labelTest.setTextAlignment(TextAlignment.CENTER);
@@ -606,7 +606,7 @@ public class ScheduleGridViewController
     }
 
     // XMLParser.toXML(allAddedSessions,"SessionList.XML");
-    ReadWrite.manualWriteSessionList(allAddedSessions);
+    ReadWrite.manualWriteSessionList(allAddedSessions, new String(model.getChosenClassGroup().getSemester() + model.getChosenClassGroup().getClassName()));
     //  System.out.println(allAddedSessions);
   }
 

@@ -195,8 +195,8 @@ public class ScheduleGridViewController
       friday.stepForward(4);
       weekLabel.setText(
           "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/"
-              + friday.getMonth());
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+              .getMonth());
       //weekLabel.setText("Test");
     }
     else
@@ -212,12 +212,12 @@ public class ScheduleGridViewController
       {
         today.stepForwardOneDay();
       }
-      LocalDate date = LocalDate.of(today.getYear(), today.getMonth(),
-          today.getDay());
+      LocalDate date = LocalDate
+          .of(today.getYear(), today.getMonth(), today.getDay());
       chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
       model.setChosenWeekNumber(chosenWeekNumber);
-      System.out.println(
-          "I just set the week to " + model.getChosenWeekNumber());
+      System.out
+          .println("I just set the week to " + model.getChosenWeekNumber());
       // Holder
       System.out.println("I'm finding the monday");
       LocalDate mondayHolder = date;
@@ -237,8 +237,8 @@ public class ScheduleGridViewController
       friday.stepForward(4);
       weekLabel.setText(
           "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/"
-              + friday.getMonth());
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+              .getMonth());
 
     }
     errorLabel.setText("");
@@ -249,8 +249,8 @@ public class ScheduleGridViewController
       {
         errorLabel.setText("Please upload the text files");
       }
-      classNameLabel.setText(
-          "Class: " + model.getChosenClassGroup().toString());
+      classNameLabel
+          .setText("Class: " + model.getChosenClassGroup().toString());
     }
     else
     {
@@ -284,8 +284,8 @@ public class ScheduleGridViewController
       for (int i = 0;
            i < scheduleViewModel.getListByDateAndClassGroup().size(); i++)
       {
-        StringProperty courseName = scheduleViewModel.getListByDateAndClassGroup()
-            .get(i).getCourseProperty();
+        StringProperty courseName = scheduleViewModel
+            .getListByDateAndClassGroup().get(i).getCourseProperty();
         Label labelTest = new Label();
         labelTest.setText(courseName.get());
         // String nodeId = "session" + i;
@@ -322,7 +322,7 @@ public class ScheduleGridViewController
         int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
             .getDayOfWeekProperty().getValue();
 
-        labelTest.setMinHeight((double) (numberOfLessonsInt * 28 - 11));
+        labelTest.setMinHeight((double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
         labelTest.setTextOverrun(OverrunStyle.CLIP);
         labelTest.setMinWidth(98.5);
         labelTest.setTextAlignment(TextAlignment.CENTER);
@@ -343,21 +343,22 @@ public class ScheduleGridViewController
     //HOLIDAY WEEKS BEING SET TO SOME COLOR.
     try
     {
-
-      for (int i = 0; i < model.getHolidayWeeks().size(); i++)
+      if (model.getHolidayWeeks() != null)
       {
-        if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber())
+        for (int i = 0; i < model.getHolidayWeeks().size(); i++)
         {
-          StringProperty courseName = null;
-          courseName.setValue("HOLIDAYS");
-          Label labelTest = new Label();
-          labelTest.setText(courseName.get());
-          // String nodeId = "session" + i;
-          labelTest.setId("holidayssss" + i);
+          if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber())
+          {
+            StringProperty courseName = null;
+            courseName.setValue("HOLIDAYS");
+            Label labelTest = new Label();
+            labelTest.setText(courseName.get());
+            // String nodeId = "session" + i;
+            labelTest.setId("holidayssss" + i);
 
-          // Adds a background color to the session on the grid
-          String backColor = "chocolate";
-          String courseHolder = "HOLIDAYS";
+            // Adds a background color to the session on the grid
+            String backColor = "chocolate";
+            String courseHolder = "HOLIDAYS";
         /*
         if (courseHolder.contains("RWD"))
         {
@@ -376,35 +377,37 @@ public class ScheduleGridViewController
           backColor = "indianred";
         }
 
+
          */
-          labelTest.setBackground(new Background(
-              new BackgroundFill(Paint.valueOf(backColor), null, null)));
-          for (int j = 1; j <= 5; j++)
-          {
-            System.out.println("I am adding this holiday!");
-            int startTimeInt = 2;
-            int numberOfLessonsInt = 4;
-            int dayOfWeek = j;
+            labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+            for (int j = 1; j <= 5; j++)
+            {
+              System.out.println("I am adding this holiday!");
+              int startTimeInt = 2;
+              int numberOfLessonsInt = 4;
+              int dayOfWeek = j;
 
-            labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
-            labelTest.setMinWidth(100 - 1);
-            labelTest.setTextAlignment(TextAlignment.CENTER);
-            labelTest.setAlignment(Pos.CENTER);
+              labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
+              labelTest.setMinWidth(100 - 1);
+              labelTest.setTextAlignment(TextAlignment.CENTER);
+              labelTest.setAlignment(Pos.CENTER);
 
-            gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
-                numberOfLessonsInt);
-            // System.out.println("I just added this label");
-            System.out.println(labelTest);
-            // Move the label like 1 pixel to the right to make it centered
-            labelTest.setTranslateX(0.3);
+              gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+                  numberOfLessonsInt);
+              // System.out.println("I just added this label");
+              System.out.println(labelTest);
+              // Move the label like 1 pixel to the right to make it centered
+              labelTest.setTranslateX(0.3);
+            }
           }
         }
       }
     }
-    catch (Exception e)
-    {
-      System.out.println(e.getMessage());
-    }
+    catch(Exception e)
+      {
+        System.out.println(e.getMessage());
+      }
+
     //
 
     // System.out.println("Here are the current gridPane children");
@@ -603,9 +606,7 @@ public class ScheduleGridViewController
     }
 
     // XMLParser.toXML(allAddedSessions,"SessionList.XML");
-    ReadWrite.manualWriteSessionList(allAddedSessions, new String(
-        model.getChosenClassGroup().getSemester() + model.getChosenClassGroup()
-            .getClassName()));
+    ReadWrite.manualWriteSessionList(allAddedSessions);
     //  System.out.println(allAddedSessions);
   }
 

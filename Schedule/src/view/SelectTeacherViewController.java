@@ -36,7 +36,6 @@ public class SelectTeacherViewController
       this.model = model;
       this.chosenTeacher = null;
       reset();
-      loadAllTeachersArray();
     }
 
     public Region getRoot()
@@ -47,6 +46,7 @@ public class SelectTeacherViewController
     public void reset()
     {
       errorLabel.setText("");
+      loadAllTeachersArray();
     }
 
 
@@ -73,9 +73,12 @@ public class SelectTeacherViewController
     private void confirmInSelectTeacherButton(){
       chosenTeacher = teacherChoiceBox.getSelectionModel().getSelectedItem();
       chosenTeacher = teacherChoiceBox.getValue();
-      model.setChosenTeacher(chosenTeacher);
-      System.out.println(model.getChosenTeacher() + " courses: " + model.getCoursesByTeacher(chosenTeacher));
-      reset();
+      if(chosenTeacher!=null)
+      {
+        model.setChosenTeacher(chosenTeacher);
+        System.out.println(model.getChosenTeacher() + " courses: " + model.getCoursesByTeacher(chosenTeacher));
+        reset();
+      }
       viewHandler.openView("schedule");
     }
 

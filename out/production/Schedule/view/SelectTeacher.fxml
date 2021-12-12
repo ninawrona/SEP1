@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectTeacherViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectTeacherViewController">
     <children>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="50.0" prefWidth="437.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="104.0" prefWidth="633.0" text="Choose Teacher" textAlignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="437.0" text="Choose Teacher" textAlignment="CENTER">
                     <font>
                         <Font name="Bell MT" size="21.0" />
                     </font>
@@ -22,21 +22,21 @@
                 </Label>
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+        <HBox alignment="CENTER" prefHeight="76.0" prefWidth="447.0">
             <children>
-                <ChoiceBox fx:id="teacherChoiceBox" prefHeight="33.0" prefWidth="264.0" />
+                <ChoiceBox fx:id="teacherChoiceBox" prefHeight="58.0" prefWidth="258.0" />
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="238.0" prefWidth="414.0">
+        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="437.0">
             <children>
                 <Button mnemonicParsing="false" onAction="#confirmInSelectTeacherButton" prefHeight="35.0" prefWidth="100.0" text="Confirm">
                     <HBox.margin>
-                        <Insets right="5.0" />
+                        <Insets right="5.0" top="10.0" />
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#cancelInSelectTeacherButton" prefHeight="35.0" prefWidth="100.0" text="Cancel">
                     <HBox.margin>
-                        <Insets right="5.0" />
+                        <Insets right="5.0" top="10.0" />
                     </HBox.margin>
                 </Button>
             </children>
@@ -45,6 +45,9 @@
             <font>
                 <Font size="14.0" />
             </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
         </Label>
     </children>
 </VBox>

@@ -16,6 +16,7 @@ var timeList =[hour820,hour915,hour1010,hour1105,hour1200,hour1245,hour1340,hour
 hour1530,hour1625,hour1720]
 readXML();
 
+
 //Write your function declarations below this line
 //example of a function getting and returning the book titles from the XML "text"
 
@@ -39,7 +40,7 @@ function displayTable(){
     document.getElementById("GOT").innerHTML = table;
 }
 */
-function readXML() {
+function readXMLSessionList() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -49,6 +50,27 @@ function readXML() {
     xhttp.open("GET", "../../SessionList.xml", true);
     xhttp.send();
 }
+function readXMLStudentList() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            showData(xhttp);
+        }
+    };
+    xhttp.open("GET", "../../StudentList.xml", true);
+    xhttp.send();
+}
+function readXMLTeacherList() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            showTeachersInForm(xhttp);
+        }
+    };
+    xhttp.open("GET", "../../SessionList.xml", true);
+    xhttp.send();
+}
+
 
 function showData(xml) {
     var xmlDoc = xml.responseXML;
@@ -1929,5 +1951,24 @@ function showData(xml) {
 
         }
     }
+}
+function showTeachersInForm(xml) {
+    var xmlDoc = xml.responseXML;
+    var x = xmlDoc.getElementsByTagName("Session");
+    var listLength = x.length;
+    
+    var i;
+   
+    var text="";
+    for (var i = 0; i < listLength; i++) {
+        var teachers = x[i].getElementsByTagName("Teachers")[0].childNodes[0].nodeValue.split(",");
+        text+=teachers+"<br>";
+       
+        
+    }          document.getElementById("teacherprint").innerHTML=text;
+                
+
+        
+    
 
 }

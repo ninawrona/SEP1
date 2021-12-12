@@ -725,7 +725,7 @@ public class ReadWrite
             {
               roomParts = parts[i].split("[.]");
               block = parts[0].charAt(0);
-              System.out.println("This is the block:" + block);
+              //System.out.println("This is the block:" + block);
               capacity = Integer.parseInt(parts[1]);
               if (parts[0].charAt(1) == '0')
               {
@@ -733,8 +733,8 @@ public class ReadWrite
 
                 floorString += parts[0].charAt(2);
                 floor = Integer.parseInt(floorString);
-                System.out.println(
-                    "This is the floor when it starts with 0:" + floor);
+                //System.out.println(
+                //    "This is the floor when it starts with 0:" + floor);
               }
               else
               {
@@ -742,17 +742,17 @@ public class ReadWrite
                 floorString += parts[0].charAt(2);
 
                 floor = Integer.parseInt(floorString);
-                System.out.println(
-                    "This is the floor when it does not start with 0:" + floor);
+                //System.out.println(
+                //"This is the floor when it does not start with 0:" + floor);
               }
               if (roomParts[1].length() == 2)
               {
                 number = Integer.parseInt(roomParts[1]);
                 numberString += roomParts[1];
-                System.out.println("This is the number:" + number);
-                System.out.println("This is the number string:" + numberString);
+                //System.out.println("This is the number:" + number);
+                //System.out.println("This is the number string:" + numberString);
                 capacity = Integer.parseInt(parts[1]);
-                System.out.println("This is the capacity:" + capacity);
+                //System.out.println("This is the capacity:" + capacity);
                 room = new Room(floor, block, number, capacity);
                 rooms.addRoom(room);
               }
@@ -763,15 +763,15 @@ public class ReadWrite
                 number = Integer.parseInt(numberString);
                 roomLetter = roomParts[1].charAt(2);
                 numberString += roomLetter;
-                System.out.println(
-                    "The room number is:" + number + "\nAnd the room letter is:"
-                        + roomLetter);
+                //System.out.println(
+                //    "The room number is:" + number + "\nAnd the room letter is:"
+                //        + roomLetter);
                 capacity = Integer.parseInt(parts[1]);
-                System.out.println("This is the capacity:" + capacity);
+                //System.out.println("This is the capacity:" + capacity);
 
                 room = new FoldableRoom(floor, block, number, capacity,
                     roomLetter);
-                System.out.println("I just made a foldable room");
+                //System.out.println("I just made a foldable room");
                 if (!(rooms.contains(room)))
                 {
                   rooms.addRoom(room);
@@ -783,9 +783,9 @@ public class ReadWrite
 
               }
 
-              System.out.println(
-                  "Room:" + block + floorString + "." + numberString + ","
-                      + capacity);
+              //System.out.println(
+              //    "Room:" + block + floorString + "." + numberString + ","
+              //        + capacity);
 
             }
           }

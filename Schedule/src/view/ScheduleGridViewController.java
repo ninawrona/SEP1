@@ -606,7 +606,7 @@ public class ScheduleGridViewController
     }
 
     // XMLParser.toXML(allAddedSessions,"SessionList.XML");
-    ReadWrite.manualWriteSessionList(allAddedSessions);
+    ReadWrite.manualWriteSessionList(allAddedSessions, new String(model.getChosenClassGroup().getSemester() + model.getChosenClassGroup().getClassName()));
     //  System.out.println(allAddedSessions);
   }
 

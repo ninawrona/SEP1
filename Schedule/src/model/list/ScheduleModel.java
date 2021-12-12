@@ -45,4 +45,5 @@ public interface ScheduleModel
   public CourseList getCoursesByTeacher(Teacher teacher);
   public void setAllTeachers(TeacherList list);
   public TeacherList getAllTeachers();
+  public void setSessionList(SessionList list);
 }

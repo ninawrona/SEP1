@@ -1,5 +1,6 @@
 package model.files;
 
+import com.google.gson.JsonParser;
 import model.basic.Session;
 import model.list.SessionList;
 import model.list.StudentList;
@@ -14,13 +15,17 @@ import java.io.File;
 
 public class XMLParser
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws ParserException
   {
    // Course course = new Course("RWD", new ClassGroup(2, "Y",new StudentList()), new TeacherList(),
    //     2, 10);
    // toXML(course, "CourseTest.xml");
     //Course course2 = new Course();
     //fromXML(course2, "CourseTest.xml");
+    File file = new File("SessionList.xml");
+    XmlJsonParser parser = new XmlJsonParser();
+    SessionList list = parser.fromXml("SessionList.xml",SessionList.class);
+    System.out.println(list);
 
 
   }
@@ -40,21 +45,30 @@ public class XMLParser
 
     System.out.println("XML: " + file.getAbsolutePath());
   }
-
-  public static void fromXML(Object obj ,String fileName)
+/*
+  public static SessionList fromXML(File file)
   {
     XmlJsonParser parser = new XmlJsonParser();
+    SessionList sessionList = null;
     try
     {
-      obj = parser.fromXml(fileName, Object.class);
+      sessionList = parser.fromXml(file.getName(), SessionList.class);
     }
     catch (ParserException e)
     {
       e.printStackTrace();
     }
 
-    System.out.println(obj);
+    if(sessionList!=null)
+    {
+      System.out.println(sessionList);
+      return sessionList;
+    }
+    System.out.println("ooga booga");
+    return null;
   }
+
+ */
 
   public static void toJson(Object obj, String filename) throws ParserException
 

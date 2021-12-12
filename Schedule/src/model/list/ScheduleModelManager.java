@@ -1,6 +1,7 @@
 package model.list;
 
 import model.basic.*;
+import model.files.ReadWrite;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenSession = null;
     this.chosenWeekNumber = 0;
     this.chosenTeacher = null;
-    this.holidayWeeks=null;
+    this.holidayWeeks = null;
   }
 
   public ClassGroupList getAllClasses()
@@ -42,14 +43,17 @@ public class ScheduleModelManager implements ScheduleModel
     return classList;
   }
 
-  public TeacherList getAllTeachers(){
+  public TeacherList getAllTeachers()
+  {
     return allTeachers;
   }
 
-  public void setAllTeachers(TeacherList list){
+  public void setAllTeachers(TeacherList list)
+  {
     this.allTeachers = list;
     System.out.println("I set my teacherList: " + allTeachers);
   }
+
   public void addTeacher(Teacher teacher)
   {
     teacherList.addTeacher(teacher);
@@ -105,40 +109,40 @@ public class ScheduleModelManager implements ScheduleModel
     return chosenClassGroup;
   }
 
-  @Override
-  public Session getChosenSession() {
+  @Override public Session getChosenSession()
+  {
     return chosenSession;
   }
 
-  @Override
-  public void setChosenSession(Session session) {
+  @Override public void setChosenSession(Session session)
+  {
     this.chosenSession = session;
   }
 
-  @Override
-  public int getChosenWeekNumber() {
+  @Override public int getChosenWeekNumber()
+  {
     return chosenWeekNumber;
   }
 
-  @Override
-  public void setChosenWeekNumber(int chosenWeekNumber) {
+  @Override public void setChosenWeekNumber(int chosenWeekNumber)
+  {
     this.chosenWeekNumber = chosenWeekNumber;
   }
 
- // Bla bla
+  // Bla bla
   public Date getChosenMonday()
   {
     return chosenMonday;
   }
 
-  @Override
-  public void setChosenMonday(Date chosenMonday) {
+  @Override public void setChosenMonday(Date chosenMonday)
+  {
     this.chosenMonday = chosenMonday;
   }
 
   public void setHolidayWeeks(ArrayList<Integer> holidayWeeks)
   {
-    this.holidayWeeks=holidayWeeks;
+    this.holidayWeeks = holidayWeeks;
   }
 
   public ArrayList<Integer> getHolidayWeeks()
@@ -166,7 +170,6 @@ public class ScheduleModelManager implements ScheduleModel
     sessionList.setRoomList(roomList);
   }
 
-
   public RoomList suggestRooms(Session session)
   {
     return sessionList.suggestRooms(session);
@@ -187,7 +190,6 @@ public class ScheduleModelManager implements ScheduleModel
   {
     return sessionList.getSessionsByRoom(room);
   }
-
 
   public SessionList getSessionsByCourse(Course course)
   {
@@ -262,10 +264,11 @@ public class ScheduleModelManager implements ScheduleModel
     throw new NullPointerException("There are no students with this VIA ID.");
   }
 
-    @Override
-    public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup) {
-        return sessionList.getSessionsByDateAndClassGroup(date, classGroup);
-    }
+  @Override public SessionList getSessionsByDateAndClassGroup(Date date,
+      ClassGroup classGroup)
+  {
+    return sessionList.getSessionsByDateAndClassGroup(date, classGroup);
+  }
 
   @Override public void setChosenTeacher(Teacher chosenTeacher)
   {
@@ -277,7 +280,13 @@ public class ScheduleModelManager implements ScheduleModel
     return chosenTeacher;
   }
 
-  public CourseList getCoursesByTeacher(Teacher teacher){
+  public CourseList getCoursesByTeacher(Teacher teacher)
+  {
     return courseList.getCoursesByTeacher(teacher);
-    }
+  }
+
+  public void setSessionList(SessionList list)
+  {
+    this.sessionList = list;
+  }
 }

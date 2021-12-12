@@ -92,8 +92,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="roomsField1" prefHeight="25.0" prefWidth="300.0" />
-            <Button mnemonicParsing="false" onAction="#selectRoomsFileButton" text="Select File">
+            <TextField fx:id="xmlField" prefHeight="25.0" prefWidth="300.0" />
+            <Button mnemonicParsing="false" onAction="#selectXMLFileButton" text="Select File">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

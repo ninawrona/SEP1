@@ -20,12 +20,12 @@ public class ReadWrite
 
     // System.out.println(manualReadStudents());
     //  XMLParser.toXML(manualReadStudents(), "students.xml");
-     // System.out.println(manualReadCourses(courses));
+    // System.out.println(manualReadCourses(courses));
     //  manualWriteCourse(manualReadCourses());
     //System.out.println(manualReadRooms(rooms));
     //XMLParser.toXML(manualReadRooms(rooms),"Rooms.xml");
     //  System.out.println( manualReadRooms(rooms)); ;
-   System.out.println(manualReadMasterTeacherList(courses));
+    System.out.println(manualReadMasterTeacherList(courses));
   }
 
   /*
@@ -161,7 +161,7 @@ public class ReadWrite
         }
         else
         {
-          xml +="\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
+          xml += "\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
         }
 
         xml += "\n</Session>";
@@ -221,8 +221,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 1
-                      && classGroupList.get(i).getClassName().equals("X"))
+                  if (classGroupList.get(i).getSemester() == 1 && classGroupList
+                      .get(i).getClassName().equals("X"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -235,8 +235,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 1
-                      && classGroupList.get(i).getClassName().equals("Y"))
+                  if (classGroupList.get(i).getSemester() == 1 && classGroupList
+                      .get(i).getClassName().equals("Y"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -249,8 +249,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 1
-                      && classGroupList.get(i).getClassName().equals("Z"))
+                  if (classGroupList.get(i).getSemester() == 1 && classGroupList
+                      .get(i).getClassName().equals("Z"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -263,8 +263,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 1
-                      && classGroupList.get(i).getClassName().equals("DK"))
+                  if (classGroupList.get(i).getSemester() == 1 && classGroupList
+                      .get(i).getClassName().equals("DK"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -277,8 +277,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 2
-                      && classGroupList.get(i).getClassName().equals("X"))
+                  if (classGroupList.get(i).getSemester() == 2 && classGroupList
+                      .get(i).getClassName().equals("X"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -291,8 +291,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 2
-                      && classGroupList.get(i).getClassName().equals("Y"))
+                  if (classGroupList.get(i).getSemester() == 2 && classGroupList
+                      .get(i).getClassName().equals("Y"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -305,8 +305,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 2
-                      && classGroupList.get(i).getClassName().equals("Z"))
+                  if (classGroupList.get(i).getSemester() == 2 && classGroupList
+                      .get(i).getClassName().equals("Z"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -319,8 +319,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 2
-                      && classGroupList.get(i).getClassName().equals("DK"))
+                  if (classGroupList.get(i).getSemester() == 2 && classGroupList
+                      .get(i).getClassName().equals("DK"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -333,8 +333,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 3
-                      && classGroupList.get(i).getClassName().equals("X"))
+                  if (classGroupList.get(i).getSemester() == 3 && classGroupList
+                      .get(i).getClassName().equals("X"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -347,8 +347,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 3
-                      && classGroupList.get(i).getClassName().equals("Y"))
+                  if (classGroupList.get(i).getSemester() == 3 && classGroupList
+                      .get(i).getClassName().equals("Y"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -361,8 +361,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 3
-                      && classGroupList.get(i).getClassName().equals("Z"))
+                  if (classGroupList.get(i).getSemester() == 3 && classGroupList
+                      .get(i).getClassName().equals("Z"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -375,8 +375,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 3
-                      && classGroupList.get(i).getClassName().equals("DK"))
+                  if (classGroupList.get(i).getSemester() == 3 && classGroupList
+                      .get(i).getClassName().equals("DK"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -389,8 +389,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 4
-                      && classGroupList.get(i).getClassName().equals("X"))
+                  if (classGroupList.get(i).getSemester() == 4 && classGroupList
+                      .get(i).getClassName().equals("X"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -403,8 +403,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 4
-                      && classGroupList.get(i).getClassName().equals("Y"))
+                  if (classGroupList.get(i).getSemester() == 4 && classGroupList
+                      .get(i).getClassName().equals("Y"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -417,8 +417,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 4
-                      && classGroupList.get(i).getClassName().equals("Z"))
+                  if (classGroupList.get(i).getSemester() == 4 && classGroupList
+                      .get(i).getClassName().equals("Z"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -431,8 +431,8 @@ public class ReadWrite
               {
                 for (int i = 0; i < classGroupList.size(); i++)
                 {
-                  if (classGroupList.get(i).getSemester() == 4
-                      && classGroupList.get(i).getClassName().equals("Dk"))
+                  if (classGroupList.get(i).getSemester() == 4 && classGroupList
+                      .get(i).getClassName().equals("Dk"))
                   {
                     classGroupList.get(i).addStudent(student);
                     break;
@@ -508,7 +508,6 @@ public class ReadWrite
                       "Courses taught: " + teacherList.get(j).getCoursesTaught()
                           + "\n--------------");
 
-
                 }
               }
               courses.addCourse(course);
@@ -519,16 +518,14 @@ public class ReadWrite
               boolean teacherFound = false;
               for (int i = 0; i < courses.size(); i++)
               {
-                if (courses.get(i).getClassGroup().equals(classGroup)
-                    && courses.get(i).getName().equals(courseName)
-                    && !(courses.get(i).getTeachers()
-                    .contains(new Teacher(parts[3]))))
+                if (courses.get(i).getClassGroup().equals(classGroup) && courses
+                    .get(i).getName().equals(courseName) && !(courses.get(i)
+                    .getTeachers().contains(new Teacher(parts[3]))))
                 {
                   courses.get(i).addTeacher(new Teacher(parts[3]));
                   System.out.println("I added a teacher to an existing course"
                       + "\nEXISTING CLASS: " + courses.get(i)
                       + "----------------");
-
 
                   teacherFound = true;
 
@@ -540,7 +537,6 @@ public class ReadWrite
                     semesterTaught, ECTS);
                 System.out.println("New Course being printed: \n" + course
                     + "\n-----------------");
-
 
                 for (int j = 0; j < teacherList.size(); j++)
                 {
@@ -605,13 +601,13 @@ public class ReadWrite
             {
               course = new Course(courseName, classGroup, teacherList,
                   semesterTaught, ECTS);
-            //  System.out.println("Size is 0, New Course Made:\n" + course);
+              //System.out.println("Size is 0, New Course Made:\n" + course);
               for (int j = 0; j < teacherList.size(); j++)
               {
                 if (!(teacherList.get(j) == null))
                 {
                   teacherList.get(j).assignToCourseTaught(course);
-              //    System.out.println(teacherList.get(j) + " added to course:" + course);
+                  //    System.out.println(teacherList.get(j) + " added to course:" + course);
                   /*System.out.println(
                       "Courses taught: " + teacherList.get(j).getCoursesTaught()
                           + "\n--------------");
@@ -627,20 +623,18 @@ public class ReadWrite
               boolean teacherFound = false;
               for (int i = 0; i < courses.size(); i++)
               {
-                if (courses.get(i).getClassGroup().equals(classGroup)
-                    && courses.get(i).getName().equals(courseName)
-                    && !(courses.get(i).getTeachers()
-                    .contains(new Teacher(parts[3]))))
+                if (courses.get(i).getClassGroup().equals(classGroup) && courses
+                    .get(i).getName().equals(courseName) && !(courses.get(i)
+                    .getTeachers().contains(new Teacher(parts[3]))))
                 {
                   courses.get(i).addTeacher(new Teacher(parts[3]));
-               //   System.out.println(new Teacher(parts[3])+ " added to course:" + courses.get(i));
+                  //   System.out.println(new Teacher(parts[3])+ " added to course:" + courses.get(i));
                  /* System.out.println("I added a teacher to an existing course"
                       + "\nEXISTING CLASS: " + courses.get(i)
                       + "----------------");
 
                   */
                   teacherFound = true;
-
                 }
               }
               if (!teacherFound)
@@ -670,12 +664,16 @@ public class ReadWrite
         }
       }
 
-      for(int i = 0; i < courses.size(); i++){
-        for (int j= 0; j < courses.get(i).getTeachers().size(); j++){
-          if (!(masterTeacherList.contains(courses.get(i).getTeachers().get(j))))
+      for (int i = 0; i < courses.size(); i++)
+      {
+        for (int j = 0; j < courses.get(i).getTeachers().size(); j++)
+        {
+          if (!(masterTeacherList
+              .contains(courses.get(i).getTeachers().get(j))))
           {
             masterTeacherList.addTeacher(courses.get(i).getTeachers().get(j));
-         //   System.out.println(courses.get(i).getTeachers().get(j) + " added to masterList in size>=1");
+            //masterTeacherList.get(masterTeacherList.size()-1).assignToCourseTaught(courses.get(i));
+            System.out.println(courses.get(i).getTeachers().get(j) + " added to masterList in size>=1");
           }
         }
       }
@@ -686,10 +684,6 @@ public class ReadWrite
     }
     return masterTeacherList;
   }
-
-
-
-
 
   public static RoomList manualReadRooms(File file)
   {

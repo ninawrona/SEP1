@@ -82,8 +82,8 @@ public class AddSessionViewController
     roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
-    titleLabel.setText(
-        "Add a Session to " + model.getChosenClassGroup().toString());
+    titleLabel
+        .setText("Add a Session to " + model.getChosenClassGroup().toString());
     session = null;
     model.setChosenClassGroup(model.getChosenClassGroup());
     this.classGroup = model.getChosenClassGroup();
@@ -192,65 +192,97 @@ public class AddSessionViewController
   {
     errorLabel.setText("");
     roomsChoiceBox.getItems().removeAll(roomsArray);
-    try
+    boolean isHolidayWeek = false;
+    if (model.getHolidayWeeks() != null)
     {
-      session = new Session(courseChoiceBoxInAddSession.getValue(),
-          getDateFromDatePicker(), startTimeChoiceBox.getValue(),
-          numberOfLessonsChoiceBox.getValue());
-      System.out.println("I just created the following session:\n");
-      System.out.println(session);
+      if (model.getHolidayWeeks().size() != 0)
+      {
 
+        for (int k = 0; k < model.getHolidayWeeks().size(); k++)
+        {
+          if (model.getHolidayWeeks().get(k) == getDateFromDatePicker()
+              .getWeekNumber())
+          {
+            isHolidayWeek = true;
+            errorLabel.setText("Chosen date is during holidays.");
+          }
+        }
 
-      //GAP checker:
+      }
+    }
+    if (!isHolidayWeek)
+    {
+      try
+      {
+        session = new Session(courseChoiceBoxInAddSession.getValue(),
+            getDateFromDatePicker(), startTimeChoiceBox.getValue(),
+            numberOfLessonsChoiceBox.getValue());
+        System.out.println("I just created the following session:\n");
+        System.out.println(session);
 
+        //GAP checker:
 
-      SessionList sortedSessions = model.getSessionsByDateAndClassGroup(getDateFromDatePicker(),model.getChosenClassGroup());
-      if (sortedSessions.size()>1 ){
-        //SORTING BASED ON START TIME
-        for (int i=0; i<sortedSessions.size();i++){
-          int difference=sortedSessions.get(i+1).getStartTime().getTimeInSeconds()-sortedSessions.get(i).getEndTime().getTimeInSeconds();
+        SessionList sortedSessions = model
+            .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+                model.getChosenClassGroup());
+        if (sortedSessions.size() > 1)
+        {
+          //SORTING BASED ON START TIME
+          for (int i = 0; i < sortedSessions.size(); i++)
+          {
+            int difference =
+                sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                    - sortedSessions.get(i).getEndTime().getTimeInSeconds();
 
-          if (difference>10){
-            if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==55){
-              loadRoomArray();
-            }
-            boolean gap = gapConfirmation();
-            if (gapConfirmation()){
-              loadRoomArray();
-            }
-            else{
-              reset();
+            if (difference > 10)
+            {
+              if (sortedSessions.get(i).getEndTimeString().equals("11:50")
+                  && difference == 55)
+              {
+                loadRoomArray();
+              }
+              boolean gap = gapConfirmation();
+              if (gapConfirmation())
+              {
+                loadRoomArray();
+              }
+              else
+              {
+                reset();
+              }
             }
           }
         }
+
+        loadRoomArray();
       }
-
-      loadRoomArray();
+      catch (IllegalArgumentException a)
+      {
+        errorLabel.setText("The last lesson has to end before 18:00.");
+      }
+      catch (Exception e)
+      {
+        errorLabel.setText(e.getMessage());
+      }
     }
-    catch (IllegalArgumentException a)
-    {
-      errorLabel.setText("The last lesson has to end before 18:00.");
-    }
-    catch (Exception e)
-    {
-      errorLabel.setText(e.getMessage());
-    }
-
   }
 
-
-  private boolean confirmation() {
+  private boolean confirmation()
+  {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
-    alert.setHeaderText("Are you sure you want to book: " + session.getRoom() + " for less than 45 students?");
+    alert.setHeaderText("Are you sure you want to book: " + session.getRoom()
+        + " for less than 45 students?");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
-  private boolean gapConfirmation() {
+  private boolean gapConfirmation()
+  {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
-    alert.setHeaderText("You have a gap between the sessions. Do you want to continue?");
+    alert.setHeaderText(
+        "You have a gap between the sessions. Do you want to continue?");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
@@ -265,13 +297,17 @@ public class AddSessionViewController
       {
         System.out.println("Hey! The room for this session is null!");
       }
-      if (session.getRoom().getCapacity()>100&&session.getCourse().getStudents().size()<45){
+      if (session.getRoom().getCapacity() > 100
+          && session.getCourse().getStudents().size() < 45)
+      {
         boolean book = confirmation();
-        if(book){
+        if (book)
+        {
           scheduleViewModel.addSession(session);
           reset();
         }
-        else{
+        else
+        {
           session.bookRoom(null);
         }
         //errorLabel.setText("Are you sure you want to book the auditorium for less than 45 students?");
@@ -283,7 +319,6 @@ public class AddSessionViewController
 
       model.addSession(session, session.getRoom());
       reset();
-
 
       //warning for an auditorium
       if (session.getRoom().getCapacity() > 100
@@ -310,27 +345,36 @@ public class AddSessionViewController
       errorLabel.setText(e.getMessage());
     }
 
-    SessionList sortedSessions = model.getSessionsByDateAndClassGroup(getDateFromDatePicker(),model.getChosenClassGroup());
-    if (sortedSessions.size()>1 ){
+    SessionList sortedSessions = model
+        .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+            model.getChosenClassGroup());
+    if (sortedSessions.size() > 1)
+    {
       //SORTING BASED ON START TIME
-      for (int i=0; i<sortedSessions.size()-1;i++){
-        int difference=sortedSessions.get(i+1).getStartTime().getTimeInSeconds()-sortedSessions.get(i).getEndTime().getTimeInSeconds();
+      for (int i = 0; i < sortedSessions.size() - 1; i++)
+      {
+        int difference =
+            sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                - sortedSessions.get(i).getEndTime().getTimeInSeconds();
 
-        if (difference>600){
-          if (sortedSessions.get(i).getEndTimeString().equals("11:50")&& difference==3300){
+        if (difference > 600)
+        {
+          if (sortedSessions.get(i).getEndTimeString().equals("11:50")
+              && difference == 3300)
+          {
             // todo bug
             // Loading the room array throws an illegal arg exception because the session is reset and then it tries
             // to suggest rooms based on a null session.
             // Should this be in the find rooms button?
             // loadRoomArray();
           }
-          else{
-          gapConfirmation();
+          else
+          {
+            gapConfirmation();
           }
         }
       }
     }
-
 
     reset();
     System.out.println("I just added the following session: \n" + session);

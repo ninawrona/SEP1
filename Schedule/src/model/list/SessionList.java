@@ -544,6 +544,7 @@ public class SessionList
    */
   public SessionList getSessionsByTeacher(Teacher teacher, Date date)
   {
+    System.out.println("These are the sessions (getSessionsByTeacher()): "+sessions);
     SessionList sessionsByTeacher = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
     {

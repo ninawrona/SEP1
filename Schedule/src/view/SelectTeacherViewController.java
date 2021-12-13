@@ -76,7 +76,7 @@ public class SelectTeacherViewController
       if(chosenTeacher!=null)
       {
         model.setChosenTeacher(chosenTeacher);
-        System.out.println(model.getChosenTeacher() + " courses: " + model.getCoursesByTeacher(chosenTeacher));
+        //System.out.println(model.getChosenTeacher() + " courses: " + model.getCoursesByTeacher(chosenTeacher));
         reset();
       }
       viewHandler.openView("schedule");

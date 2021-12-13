@@ -280,8 +280,10 @@ public class ScheduleModelManager implements ScheduleModel
     return chosenTeacher;
   }
 
-  public CourseList getCoursesByTeacher(Teacher teacher)
+  /*public CourseList getCoursesByTeacher(Teacher teacher)
   {
     return courseList.getCoursesByTeacher(teacher);
   }
+
+   */
 }

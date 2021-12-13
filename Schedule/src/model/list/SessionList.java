@@ -463,6 +463,7 @@ public class SessionList {
      * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
      */
     public SessionList getSessionsByTeacher(Teacher teacher, Date date) {
+        System.out.println("These are all the sessions(getSessionsByTeacher()) "+sessions);
         SessionList sessionsByTeacher = new SessionList();
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getDate().equals(date)) {

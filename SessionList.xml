@@ -7,7 +7,7 @@
         <Teachers>SVA,</Teachers>
         <Date>13/12/2021</Date>
         <WeekDay>MONDAY</WeekDay>
-        <StartTime>8:20</StartTime>
+        <StartTime>9:15</StartTime>
         <NumberOfLessons>4</NumberOfLessons>
         <EndTime>11:50</EndTime>
         <Room>C05.15</Room>
@@ -39,9 +39,9 @@
         <Class>1Y</Class>
         <Teachers>MONA,</Teachers>
         <Date>13/12/2021</Date>
-        <WeekDay>FRIDAY</WeekDay>
-        <StartTime>8:20</StartTime>
-        <NumberOfLessons>4</NumberOfLessons>
+        <WeekDay>TUESDAY</WeekDay>
+        <StartTime>16:25</StartTime>
+        <NumberOfLessons>1</NumberOfLessons>
         <EndTime>11:50</EndTime>
         <Room>C05.15</Room>
     </Session>

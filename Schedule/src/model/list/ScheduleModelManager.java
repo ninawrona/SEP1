@@ -284,9 +284,4 @@ public class ScheduleModelManager implements ScheduleModel
   {
     return courseList.getCoursesByTeacher(teacher);
   }
-
-  public void setSessionList(SessionList list)
-  {
-    this.sessionList = list;
-  }
 }

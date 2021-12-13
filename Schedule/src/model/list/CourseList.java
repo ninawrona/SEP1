@@ -98,7 +98,7 @@ public class CourseList
    * @return a Room object.
    */
 
-  public CourseList getCoursesByTeacher(Teacher teacher)
+  /*public CourseList getCoursesByTeacher(Teacher teacher)
   {
     if(teacher==null)
     {
@@ -121,7 +121,9 @@ public class CourseList
     {
       throw new NullPointerException("No courses are taught by this teacher");
     }
+
   }
+  */
   /**
    * A method returning a String representation of the ArrayList "rooms".
    * @return a String containing all the rooms and their information.

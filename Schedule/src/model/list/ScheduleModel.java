@@ -42,7 +42,8 @@ public interface ScheduleModel
   public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup);
   public void setChosenTeacher(Teacher chosenTeacher);
   public Teacher getChosenTeacher();
-  public CourseList getCoursesByTeacher(Teacher teacher);
+  //public CourseList getCoursesByTeacher(Teacher teacher);
   public void setAllTeachers(TeacherList list);
   public TeacherList getAllTeachers();
+  public void setSessionList(SessionList list);
 }

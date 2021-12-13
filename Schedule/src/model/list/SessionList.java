@@ -1,5 +1,5 @@
 package model.list;
-// TODO: 06/12/2021 CONTINUE DOCUMENTING ON TUESDAY 07/12. 
+// TODO: 06/12/2021 CONTINUE DOCUMENTING ON TUESDAY 07/12.
 
 import model.basic.*;
 
@@ -61,9 +61,9 @@ public class SessionList {
                 throw new IllegalCallerException("Teacher not available!");
             }
             if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),
-                    session))) {
+                session))) {
                 throw new IllegalCallerException(
-                        "This would overlap one of the ClassGroup's existing Sessions!");
+                    "This would overlap one of the ClassGroup's existing Sessions!");
             }
             // assign room with the session itself
             // session.bookRoom(room);
@@ -75,9 +75,7 @@ public class SessionList {
             e.printStackTrace();
             throw new IllegalStateException("There was an issue adding the session.");
         }
-<<<<<<< HEAD
     }
-<<<<<<< HEAD
 
 
     // TODO: 09/12/2021 COMMENTS FOR THIS
@@ -97,9 +95,9 @@ public class SessionList {
                 throw new IllegalCallerException("Teacher not available!");
             }
             if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),
-                    session))) {
+                session))) {
                 throw new IllegalCallerException(
-                        "This would overlap one of the ClassGroup's existing Sessions!");
+                    "This would overlap one of the ClassGroup's existing Sessions!");
             }
             // assign room with the session itself
             // session.bookRoom(room);
@@ -121,7 +119,7 @@ public class SessionList {
     public void removeSession(Session session) {
         if (size() == 0) {
             throw new NullPointerException(
-                    "The list is empty! You cannot remove anything!");
+                "The list is empty! You cannot remove anything!");
         }
         if (session == null) {
             throw new IllegalArgumentException("Session cannot be null!");
@@ -138,13 +136,13 @@ public class SessionList {
      * @return a list of Session objects (if there are any) with the same date and classGroup.
      */
     public SessionList getSessionsByDateAndClassGroup(Date date,
-                                                      ClassGroup classGroup) {
+        ClassGroup classGroup) {
         //System.out.println("I am looking through the sessions for a class");
         SessionList list = new SessionList();
         for (int i = 0; i < sessions.size(); i++) {
             //System.out.println("session " + i);
             if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
-                    .getClassGroup().equals(classGroup)) {
+                .getClassGroup().equals(classGroup)) {
                 list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
             if (list.size() == 0) {
@@ -154,134 +152,6 @@ public class SessionList {
                 //System.out.println("Date: " + date);
             }
 
-=======
-
-
-=======
-    }
-
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-    // TODO: 09/12/2021 COMMENTS FOR THIS
-
-    /**
-     * @param index
-     * @param session
-     * @param room
-     */
-    public void addSession(int index, Session session, Room room) {
-        try {
-
-            if (session == null) {
-                throw new IllegalArgumentException("Session cannot be null!");
-            }
-            if (!(isTeacherAvailable(session))) {
-                throw new IllegalCallerException("Teacher not available!");
-            }
-            if (!(isClassGroupAvailable(session.getCourse().getClassGroup(),
-                    session))) {
-                throw new IllegalCallerException(
-                        "This would overlap one of the ClassGroup's existing Sessions!");
-            }
-            // assign room with the session itself
-            // session.bookRoom(room);
-            bookRoomForASession(room, session);//Exceptions inside this method
-            sessions.add(index, session);
-        } catch (Exception e) {
-            System.out.println("There was an issue adding the session.");
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-            throw new IllegalStateException("There was an issue adding the session.");
-        }
-    }
-<<<<<<< HEAD
-
-    /**
-     * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
-     *
-     * @param session the Session object to be removed from the list.
-     */
-    public void removeSession(Session session) {
-        if (size() == 0) {
-            throw new NullPointerException(
-                    "The list is empty! You cannot remove anything!");
-        }
-        if (session == null) {
-            throw new IllegalArgumentException("Session cannot be null!");
-        }
-
-        sessions.remove(session);
-    }
-
-    /**
-     * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
-     *
-     * @param date       a Date object representing the date.
-     * @param classGroup a ClassGroup object representing the ClassGroup.
-     * @return a list of Session objects (if there are any) with the same date and classGroup.
-     */
-    public SessionList getSessionsByDateAndClassGroup(Date date,
-                                                      ClassGroup classGroup) {
-        //System.out.println("I am looking through the sessions for a class");
-        SessionList list = new SessionList();
-        for (int i = 0; i < sessions.size(); i++) {
-            //System.out.println("session " + i);
-            if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
-                    .getClassGroup().equals(classGroup)) {
-                list.addSession(sessions.get(i), sessions.get(i).getRoom());
-            }
-            if (list.size() == 0) {
-                //throw new NullPointerException(
-                // "The sessionlist of this class at this date is empty");
-                //System.out.println("The sessionlist from class and date is empty");
-                //System.out.println("Date: " + date);
-            }
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-=======
-
-    /**
-     * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
-     *
-     * @param session the Session object to be removed from the list.
-     */
-    public void removeSession(Session session) {
-        if (size() == 0) {
-            throw new NullPointerException(
-                    "The list is empty! You cannot remove anything!");
-        }
-        if (session == null) {
-            throw new IllegalArgumentException("Session cannot be null!");
-        }
-
-        sessions.remove(session);
-    }
-
-    /**
-     * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
-     *
-     * @param date       a Date object representing the date.
-     * @param classGroup a ClassGroup object representing the ClassGroup.
-     * @return a list of Session objects (if there are any) with the same date and classGroup.
-     */
-    public SessionList getSessionsByDateAndClassGroup(Date date,
-                                                      ClassGroup classGroup) {
-        //System.out.println("I am looking through the sessions for a class");
-        SessionList list = new SessionList();
-        for (int i = 0; i < sessions.size(); i++) {
-            //System.out.println("session " + i);
-            if (sessions.get(i).getDate().equals(date) && sessions.get(i).getCourse()
-                    .getClassGroup().equals(classGroup)) {
-                list.addSession(sessions.get(i), sessions.get(i).getRoom());
-            }
-            if (list.size() == 0) {
-                //throw new NullPointerException(
-                // "The sessionlist of this class at this date is empty");
-                //System.out.println("The sessionlist from class and date is empty");
-                //System.out.println("Date: " + date);
-            }
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
 
         }
         Collections.sort(list.sessions);
@@ -313,14 +183,12 @@ public class SessionList {
         }
 
         RoomList suggestedRoomList = new RoomList();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         for (int i = 0; i < roomList.size(); i++) {
             if (isRoomAvailable(roomList.get(i), session.getStartTime(),
-                    session.getNumberOfLessons(), session.getDate())) {
+                session.getNumberOfLessons(), session.getDate())) {
                 if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
-                        .getStudents().size()) {
+                    .getStudents().size()) {
                     suggestedRoomList.addRoom(roomList.get(i));
                 }
 
@@ -330,7 +198,7 @@ public class SessionList {
             return suggestedRoomList;
         }
         throw new NullPointerException(
-                "There are no rooms found fulfilling given values!");
+            "There are no rooms found fulfilling given values!");
 
     }
 
@@ -344,71 +212,13 @@ public class SessionList {
         if (session == null || room == null) {
             throw new IllegalArgumentException("Parameters cannot be null!");
         }
-=======
-
-        for (int i = 0; i < roomList.size(); i++) {
-            if (isRoomAvailable(roomList.get(i), session.getStartTime(),
-                    session.getNumberOfLessons(), session.getDate())) {
-                if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
-                        .getStudents().size()) {
-                    suggestedRoomList.addRoom(roomList.get(i));
-                }
-
-            }
-        }
-        if (suggestedRoomList.size() > 0) {
-            return suggestedRoomList;
-        }
-=======
-
-        for (int i = 0; i < roomList.size(); i++) {
-            if (isRoomAvailable(roomList.get(i), session.getStartTime(),
-                    session.getNumberOfLessons(), session.getDate())) {
-                if (roomList.get(i).getCapacity() >= session.getCourse().getClassGroup()
-                        .getStudents().size()) {
-                    suggestedRoomList.addRoom(roomList.get(i));
-                }
-
-            }
-        }
-        if (suggestedRoomList.size() > 0) {
-            return suggestedRoomList;
-        }
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-        throw new NullPointerException(
-                "There are no rooms found fulfilling given values!");
-
-    }
-
-    /**
-     * A void method that books a room for a session. The parameters cannot be null, and booking is only done if the room is available.
-     *
-     * @param room    the Room object to be booked for the Session object.
-     * @param session the Session object that needs a room booking.
-     */
-    public void bookRoomForASession(Room room, Session session) {
-        if (session == null || room == null) {
-            throw new IllegalArgumentException("Parameters cannot be null!");
-<<<<<<< HEAD
-        }
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
         if (isRoomAvailable(room, session.getStartTime(),
-                session.getNumberOfLessons(), session.getDate())) {
+            session.getNumberOfLessons(), session.getDate())) {
 
             session.bookRoom(room);
         } else {
             throw new IllegalCallerException("Booking not possible!");
         }
-=======
-        }
-        if (isRoomAvailable(room, session.getStartTime(),
-                session.getNumberOfLessons(), session.getDate())) {
-
-            session.bookRoom(room);
-        } else {
-            throw new IllegalCallerException("Booking not possible!");
-        }
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
     }
 
     /**
@@ -423,12 +233,12 @@ public class SessionList {
      * @return "True" if there is no overlap in the second for loop, "False" if there is an overlap.
      */
     public boolean isRoomAvailable(Room room, Time timeStart, int numberOfLessons,
-                                   Date date) {
+        Date date) {
         SessionList list = new SessionList();
         if (sessions.size() != 0) {
             for (int i = 0; i < sessions.size(); i++) {
                 if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
-                        .equals(date)) {
+                    .equals(date)) {
                     list.addSession(sessions.get(i), sessions.get(i).getRoom());
                 }
             }
@@ -509,14 +319,14 @@ public class SessionList {
             for (int i = 0; i < sessions.size(); i++)   //O(N) where N is the size of the sessions
             {
                 if (sessions.get(i).getDate().equals(     //O(1)
-                        session.getDate()))//Another isOverlapped method possible to use    //O(1)
+                    session.getDate()))//Another isOverlapped method possible to use    //O(1)
                 {
                     if (sessions.get(i).isOverlapped(session))     //O(1)
                     {
                         for (int j = 0; j < session.getTeachers().size(); j++) //O(N)
                         {
                             if ((sessions.get(i).getCourse().getTeachers() //O(1)
-                                    .contains(session.getTeachers().get(j)))) //O(1)
+                                .contains(session.getTeachers().get(j)))) //O(1)
                             {
                                 // System.out.println("Teacher is unavailable :(");
                                 return false;
@@ -548,21 +358,17 @@ public class SessionList {
      * @return A list of Sessions (if there are any) on the given date and time with the specified number of lessons
      */
     public SessionList getSessionsByTimeDate(Date date, Time startTime,
-                                             int numberOfLessons) {
+        int numberOfLessons) {
         SessionList list = new SessionList();
 
         if (startTime == null || date == null || numberOfLessons == 0) {
             throw new IllegalArgumentException("None of the variables can be null");
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
 
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getDate().equals(date) && sessions.get(i)
-                    .getStartTime().equals(startTime)
-                    && sessions.get(i).getNumberOfLessons() == numberOfLessons) {
+                .getStartTime().equals(startTime)
+                && sessions.get(i).getNumberOfLessons() == numberOfLessons) {
                 list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
@@ -573,24 +379,6 @@ public class SessionList {
         }
     }
 
-<<<<<<< HEAD
-=======
-
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getDate().equals(date) && sessions.get(i)
-                    .getStartTime().equals(startTime)
-                    && sessions.get(i).getNumberOfLessons() == numberOfLessons) {
-                list.addSession(sessions.get(i), sessions.get(i).getRoom());
-            }
-        }
-        if (list.size() > 0) {
-            return list;
-        } else {
-            throw new NullPointerException("No sessions at this time interval");
-        }
-    }
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
     /**
      * A getter method returning a list of Session objects in a chosen room (cannot be null).
      *
@@ -600,17 +388,6 @@ public class SessionList {
     public SessionList getSessionsByRoom(Room room) {
         SessionList list = new SessionList();
 
-=======
-    /**
-     * A getter method returning a list of Session objects in a chosen room (cannot be null).
-     *
-     * @param room a Room object representing the room to be checked.
-     * @return a list of Sessions (if there are any) that are held in the previously specified Room.
-     */
-    public SessionList getSessionsByRoom(Room room) {
-        SessionList list = new SessionList();
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
         if (room == null) {
             throw new IllegalArgumentException("Room cannot be null");
         }
@@ -620,50 +397,10 @@ public class SessionList {
                 list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      }
-    }
-    throw new NullPointerException("There is no such session");
-
-  }
-
-  /**
-   * A getter method returning a session with a specified teacher.
-   *
-   * @param teacher a Teacher object representing the teacher to search the sessions by.
-   * @param date    a Date object representing the date to search the session by.
-   * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
-   */
-  public SessionList getSessionsByTeacher(Teacher teacher, Date date)
-  {
-    System.out.println("These are the sessions (getSessionsByTeacher()): "+sessions);
-    SessionList sessionsByTeacher = new SessionList();
-    for (int i = 0; i < sessions.size(); i++)
-    {
-      if (sessions.get(i).getDate().equals(date))
-      {
-        if (sessions.get(i).getCourse().getTeachers().contains(teacher))
-        {
-          sessionsByTeacher.addSession(sessions.get(i),
-              sessions.get(i).getRoom());
-=======
-=======
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-=======
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
         if (list.size() > 0) {
             return list;
         } else {
             throw new NullPointerException("There are no sessions in that room");
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-=======
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-=======
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
         }
     }
 
@@ -675,8 +412,6 @@ public class SessionList {
      */
     public SessionList getSessionsByCourse(Course course) {
         SessionList list = new SessionList();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         if (course == null) {
             throw new IllegalArgumentException("Course can not be null");
@@ -692,237 +427,6 @@ public class SessionList {
         } else {
             throw new NullPointerException("There are no sessions for that course");
         }
-    }
-
-=======
-
-=======
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-        if (course == null) {
-            throw new IllegalArgumentException("Course can not be null");
-        }
-
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getCourse().equals(course)) {
-                list.addSession(sessions.get(i), sessions.get(i).getRoom());
-            }
-        }
-        if (list.size() > 0) {
-            return list;
-        } else {
-            throw new NullPointerException("There are no sessions for that course");
-        }
-<<<<<<< HEAD
-    }
-
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-    /**
-     * A getter method returning the Session at the chosen time and date, from a chosen room.
-     *
-     * @param time a Time object representing the time of the session.
-     * @param room a Room object representing the room of the session.
-     * @param date a Date object representing the date of the session.
-     * @return a Session object if there is any.
-     */
-    public Session getExactSession(Time time, Room room, Date date) {
-        if (time == null || room == null) {
-            throw new IllegalArgumentException("Parameters can not be null");
-        }
-
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getDate().equals(date)) {
-                if (sessions.get(i).getStartTime().equals(time)) {
-                    if (sessions.get(i).getRoom().equals(room)) {
-                        return sessions.get(i);
-                    }
-                }
-            }
-        }
-        throw new NullPointerException("There is no such session");
-
-    }
-
-    /**
-     * A getter method returning a session with a specified teacher.
-     *
-     * @param teacher a Teacher object representing the teacher to search the sessions by.
-     * @param date    a Date object representing the date to search the session by.
-     * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
-     */
-    public SessionList getSessionsByTeacher(Teacher teacher, Date date) {
-        SessionList sessionsByTeacher = new SessionList();
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getDate().equals(date)) {
-                if (sessions.get(i).getCourse().getTeachers().contains(teacher)) {
-                    sessionsByTeacher.addSession(sessions.get(i),
-                            sessions.get(i).getRoom());
-                }
-            }
-        }
-        if (sessionsByTeacher.size() > 0) {
-            return sessionsByTeacher;
-        } else {
-            throw new NullPointerException(
-                    "There are no sessions for that teacher during this day.");
-        }
-
-    }
-
-    /**
-     * A getter method returning a list of Session objects with the specified ClassGroup.
-     *
-     * @param classGroup a ClassGroup object representing the ClassGroup by which the sessions are sorted.
-     * @return A list of Sessions (if there are any) with the same ClassGroup as the one specified in the parameter.
-     */
-    public SessionList getSessionsByClassGroup(ClassGroup classGroup) {
-        if (classGroup == null) {
-            throw new IllegalArgumentException("Parameter cannot be null!");
-        }
-        SessionList sessionListClassGroup = new SessionList();
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getCourse().getClassGroup().equals(classGroup)) {
-                sessionListClassGroup.addSession(sessions.get(i),
-                        sessions.get(i).getRoom());
-            }
-        }
-        return sessionListClassGroup;
-    }
-
-    /**
-     * A getter method returning a list of Session objects with the same student.
-     *
-     * @param student a Student object representing the student to search by.
-     * @return A list of Sessions (if there are any) with the same student.
-     */
-    public SessionList getSessionsByStudent(Student student) {
-        if (student == null) {
-            throw new IllegalArgumentException("Parameter cannot be null!");
-        }
-        SessionList sessionListOfStudent = new SessionList();
-
-        for (int i = 0; i < sessions.size(); i++) {
-            if (sessions.get(i).getCourse().getClassGroup().getStudents()
-                    .contains(student)) {
-                sessionListOfStudent.addSession(sessions.get(i),
-                        sessions.get(i).getRoom());
-            }
-<<<<<<< HEAD
-        }
-        if (sessionListOfStudent.size() > 0) {
-            return sessionListOfStudent;
-        }
-        throw new NullPointerException("There are no sessions for this student.");
-    }
-
-    /**
-     * A method returning a String representation of the Session List.
-     *
-     * @return A String object containing all the sessions.
-     */
-    public String toString() {
-        String str = "";
-        for (int i = 0; i < sessions.size(); i++) {
-            str += sessions.get(i);
-        }
-        return str;
-    }
-
-    /**
-     * A method comparing two objects.
-     *
-     * @param obj the object to be compared with
-     * @return "True" if the two SessionList objects are identical, "False" if they are not.
-     */
-    public boolean equals(Object obj) {
-        if (!(obj instanceof SessionList)) {
-            return false;
-        }
-=======
-        }
-        if (sessionListOfStudent.size() > 0) {
-            return sessionListOfStudent;
-        }
-        throw new NullPointerException("There are no sessions for this student.");
-    }
-
-    /**
-     * A method returning a String representation of the Session List.
-     *
-     * @return A String object containing all the sessions.
-     */
-    public String toString() {
-        String str = "";
-        for (int i = 0; i < sessions.size(); i++) {
-            str += sessions.get(i);
-        }
-        return str;
-    }
-
-    /**
-     * A method comparing two objects.
-     *
-     * @param obj the object to be compared with
-     * @return "True" if the two SessionList objects are identical, "False" if they are not.
-     */
-    public boolean equals(Object obj) {
-        if (!(obj instanceof SessionList)) {
-            return false;
-        }
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
-
-        SessionList other = (SessionList) obj;
-
-        if (sessions.size() == other.size()) {
-            for (int i = 0; i < sessions.size(); i++) {
-                if (!(sessions.get(i).equals(other.get(i)))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        Teacher teacher1 = new Teacher("SVA");
-
-        TeacherList teacherList1 = new TeacherList();
-        teacherList1.addTeacher(teacher1);
-        Student student1 = new Student(1, "Bob", 654654);
-        Student student2 = new Student(1, "Wendy", 655655);
-        Room room1 = new Room(5, 'C', 16, 45);
-        Room room2 = new Room(5, 'C', 14, 45);
-        Time time1 = new Time(9, 15);
-        Time time2 = new Time(12, 45);
-        Time time3 = new Time(15, 30);
-
-        Date date1 = new Date(10, 10, 2022);
-        Date date2 = new Date(11, 11, 2022);
-        System.out.println(date1);
-        StudentList studentList1 = new StudentList();
-        studentList1.addStudent(student1);
-        studentList1.addStudent(student2);
-        ClassGroup group1 = new ClassGroup(1, "Y", studentList1);
-        Course course1 = new Course("SDJ", group1, teacherList1, 1, 10);
-        Course course2 = new Course("DMA", group1, teacherList1, 1, 10);
-        Course course3 = new Course("RWD", group1, teacherList1, 1, 10);
-        SessionList sessionList1 = new SessionList();
-        Session session1 = new Session(course1, date1, time2, 1);
-        Session session2 = new Session(course2, date1, time1, 1);
-        Session session3 = new Session(course3, date1, time3, 1);
-        sessionList1.addSession(session3, room1);
-        sessionList1.addSession(session1, room2);
-        sessionList1.addSession(session2, room1);
-
-        System.out.println("This is the list: " +
-                sessionList1.getSessionsByDateAndClassGroup(date1, group1));
-
-        System.out.println(sessionList1.getSessionsByDateAndClassGroup(date1, group1));
-
-
-    }
-=======
     }
 
     /**
@@ -964,7 +468,7 @@ public class SessionList {
             if (sessions.get(i).getDate().equals(date)) {
                 if (sessions.get(i).getCourse().getTeachers().contains(teacher)) {
                     sessionsByTeacher.addSession(sessions.get(i),
-                            sessions.get(i).getRoom());
+                        sessions.get(i).getRoom());
                 }
             }
         }
@@ -972,7 +476,7 @@ public class SessionList {
             return sessionsByTeacher;
         } else {
             throw new NullPointerException(
-                    "There are no sessions for that teacher during this day.");
+                "There are no sessions for that teacher during this day.");
         }
 
     }
@@ -991,7 +495,7 @@ public class SessionList {
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getCourse().getClassGroup().equals(classGroup)) {
                 sessionListClassGroup.addSession(sessions.get(i),
-                        sessions.get(i).getRoom());
+                    sessions.get(i).getRoom());
             }
         }
         return sessionListClassGroup;
@@ -1011,9 +515,9 @@ public class SessionList {
 
         for (int i = 0; i < sessions.size(); i++) {
             if (sessions.get(i).getCourse().getClassGroup().getStudents()
-                    .contains(student)) {
+                .contains(student)) {
                 sessionListOfStudent.addSession(sessions.get(i),
-                        sessions.get(i).getRoom());
+                    sessions.get(i).getRoom());
             }
         }
         if (sessionListOfStudent.size() > 0) {
@@ -1091,11 +595,10 @@ public class SessionList {
         sessionList1.addSession(session2, room1);
 
         System.out.println("This is the list: " +
-                sessionList1.getSessionsByDateAndClassGroup(date1, group1));
+            sessionList1.getSessionsByDateAndClassGroup(date1, group1));
 
         System.out.println(sessionList1.getSessionsByDateAndClassGroup(date1, group1));
 
 
     }
->>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
 }

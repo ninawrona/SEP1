@@ -242,23 +242,25 @@ public class ScheduleGridViewController
               .getMonth());
 
     }
-    errorLabel.setText("");
-    if (model.getChosenClassGroup() != null)
+    errorLabel.setText("Please upload the text files.");
+    if (model.getAllTeachers().size()!=0)
     {
-      // System.out.println("Tried");
-      if (model.getChosenClassGroup().getStudents().size() == 0)
+
+      errorLabel.setText("Please select a Class or a Teacher.");
+      if(model.getChosenClassGroup()!=null)
       {
-        errorLabel.setText("Please upload the text files");
+        classNameLabel
+            .setText("Class: " + model.getChosenClassGroup().toString());
       }
-      classNameLabel
-          .setText("Class: " + model.getChosenClassGroup().toString());
     }
+    /*
     else
     {
-      //  System.out.println("class not chosen yet");
       classNameLabel.setText("Class: ");
       errorLabel.setText("Please select a class");
     }
+
+     */
 
     // Clear the grid
     for (int i = 0; i < gridPane.getChildren().size(); i++)

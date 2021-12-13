@@ -22,12 +22,14 @@ public class ClassSelectViewController
     //@FXML private methods here
     @FXML private Label errorLabel;
     @FXML private ChoiceBox<ClassGroup> classChoiceBox;
+    @FXML private ChoiceBox<Teacher> teacherChoiceBox;
     private Region root;
     private ViewHandler viewHandler;
     private ScheduleModel model;
     private ClassGroup chosenClass;
 
     ArrayList<ClassGroup> allClassesArray = new ArrayList<>();
+    ArrayList<Teacher> allTeachersArray = new ArrayList<>();
 
     public ClassSelectViewController()
     {
@@ -76,18 +78,10 @@ public class ClassSelectViewController
     private void confirmInChooseClassButton(){
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
         chosenClass = classChoiceBox.getValue();
-        if(chosenClass!=null)
-        {
-            model.setChosenClassGroup(chosenClass);
-            System.out.println(model.getChosenClassGroup() + "courses: " + model
-                .getChosenClassGroup().getCourses());
-            reset();
-            viewHandler.openView("schedule");
-        }
-        else
-        {
-            errorLabel.setText("Would you kindly choose a class?");
-        }
+        model.setChosenClassGroup(chosenClass);
+        System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
+        reset();
+        viewHandler.openView("schedule");
     }
 
     @FXML

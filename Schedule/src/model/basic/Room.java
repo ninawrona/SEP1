@@ -12,7 +12,6 @@ public class Room
   private char block;
   private int number;
   private int capacity;
-  private String zoom;
 
   /**
    * Four-argument constructor. The floor must be 1 or greater. The room number must be 0 or greater. The capacity of the room must be a positive number.
@@ -44,21 +43,7 @@ public class Room
     this.block = block;
     this.number = number;
     this.capacity = capacity;
-    this.zoom="";
 
-  }
-  /**
-   * Zero-argument constructor setting all the values to their default state and capacity to 99,
-   * this constructor is used to create a Zoom meeting.
-   *
-   */
-  public Room()
-  {
-    this.floor = 0;
-    this.block = ' ';
-    this.number = 0;
-    this.capacity = 99;
-    this.zoom="Zoom";
   }
 
   /**
@@ -105,30 +90,23 @@ public class Room
    * A method returning the String representation of the Room object.
    *
    * @return A string containing the block, the floor, the number and the capacity of the room in
-   * a correct format (for example C05.16a, or C05.08) or a "Zoom".
+   * a correct format (for example C05.16a, or C05.08).
    */
   public String toString()
   {
-    if(zoom.equals("Zoom"))
+    String str = "";
+    str += block;
+    if (floor < 10)
     {
-      return zoom;
+      str += 0;
     }
-    else
+    str += floor + ".";
+    if (number < 10)
     {
-      String str = "";
-      str += block;
-      if (floor < 10)
-      {
-        str += 0;
-      }
-      str += floor + ".";
-      if (number < 10)
-      {
-        str += 0;
-      }
-      str += number;
-      return str;
+      str += 0;
     }
+    str += number;
+    return str;
   }
 
   /**

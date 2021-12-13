@@ -173,7 +173,6 @@ public class AddSessionViewController
     {
       roomsArray.add(model.suggestRooms(session).get(i));
     }
-    roomsArray.add(new Room());
     roomsChoiceBox.getItems().addAll(roomsArray);
     System.out.println("Those are the rooms displayed:" + "\n" + roomsArray);
     System.out.println("Here are the rooms!");
@@ -305,7 +304,6 @@ public class AddSessionViewController
         if (book)
         {
           scheduleViewModel.addSession(session);
-          model.getChosenTeacher().addSession(session);
           reset();
         }
         else

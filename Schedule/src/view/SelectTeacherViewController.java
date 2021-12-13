@@ -36,7 +36,6 @@ public class SelectTeacherViewController
       this.model = model;
       this.chosenTeacher = null;
       reset();
-      loadAllTeachersArray();
     }
 
     public Region getRoot()
@@ -47,8 +46,7 @@ public class SelectTeacherViewController
     public void reset()
     {
       errorLabel.setText("");
-      allTeachersArray.removeAll(allTeachersArray);
-      teacherChoiceBox.getItems().removeAll(allTeachersArray);
+      loadAllTeachersArray();
     }
 
 
@@ -60,7 +58,6 @@ public class SelectTeacherViewController
 
     private void loadAllTeachersArray(){
       allTeachersArray.removeAll(allTeachersArray);
-      teacherChoiceBox.getItems().removeAll(allTeachersArray);
       // Made a simple array to add
       for (int i = 0; i < model.getAllTeachers().size(); i++) {
         allTeachersArray.add(model.getAllTeachers().get(i));
@@ -79,7 +76,7 @@ public class SelectTeacherViewController
       if(chosenTeacher!=null)
       {
         model.setChosenTeacher(chosenTeacher);
-        System.out.println(model.getChosenTeacher() + " courses: " + model.getChosenTeacher().getCoursesTaught());
+        System.out.println(model.getChosenTeacher() + " courses: " + model.getCoursesByTeacher(chosenTeacher));
         reset();
       }
       viewHandler.openView("schedule");

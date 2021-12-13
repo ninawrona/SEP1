@@ -34,8 +34,10 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenClassGroup = null;
     this.chosenSession = null;
     this.chosenWeekNumber = 0;
-    this.chosenTeacher = null;
     this.holidayWeeks = null;
+    this.chosenMonday=null;
+    this.chosenTeacher = null;
+
   }
 
   public ClassGroupList getAllClasses()

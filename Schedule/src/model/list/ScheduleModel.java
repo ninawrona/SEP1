@@ -4,9 +4,17 @@ import model.basic.*;
 
 import java.io.File;
 import java.util.ArrayList;
-
+//TODO
+/**
+ * Interface class
+ */
 public interface ScheduleModel
 {
+  /**
+   * A void method adding a Teacher object to the teacher
+   *
+   * @param teacher
+   */
   public void addTeacher(Teacher teacher);
   public void removeTeacher(Teacher teacher);
   public void addCourse(Course course);

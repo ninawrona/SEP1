@@ -397,10 +397,38 @@ public class SessionList {
                 list.addSession(sessions.get(i), sessions.get(i).getRoom());
             }
         }
+<<<<<<< HEAD
+      }
+    }
+    throw new NullPointerException("There is no such session");
+
+  }
+
+  /**
+   * A getter method returning a session with a specified teacher.
+   *
+   * @param teacher a Teacher object representing the teacher to search the sessions by.
+   * @param date    a Date object representing the date to search the session by.
+   * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
+   */
+  public SessionList getSessionsByTeacher(Teacher teacher, Date date)
+  {
+    System.out.println("These are the sessions (getSessionsByTeacher()): "+sessions);
+    SessionList sessionsByTeacher = new SessionList();
+    for (int i = 0; i < sessions.size(); i++)
+    {
+      if (sessions.get(i).getDate().equals(date))
+      {
+        if (sessions.get(i).getCourse().getTeachers().contains(teacher))
+        {
+          sessionsByTeacher.addSession(sessions.get(i),
+              sessions.get(i).getRoom());
+=======
         if (list.size() > 0) {
             return list;
         } else {
             throw new NullPointerException("There are no sessions in that room");
+>>>>>>> parent of 9558aad (Update Astah with new methods +some todos)
         }
     }
 

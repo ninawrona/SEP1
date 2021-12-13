@@ -50,7 +50,6 @@ public class ScheduleModelManager implements ScheduleModel
 
   public void setAllTeachers(TeacherList list)
   {
-    this.allTeachers.clear();
     this.allTeachers = list;
     System.out.println("I set my teacherList: " + allTeachers);
   }
@@ -281,13 +280,8 @@ public class ScheduleModelManager implements ScheduleModel
     return chosenTeacher;
   }
 
-  /*public CourseList getCoursesByTeacher(Teacher teacher)
+  public CourseList getCoursesByTeacher(Teacher teacher)
   {
     return courseList.getCoursesByTeacher(teacher);
-  }
-   */
-  @Override public void setSessionList(SessionList sessionList)
-  {
-    this.sessionList = sessionList;
   }
 }

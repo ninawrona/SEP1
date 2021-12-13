@@ -21,7 +21,7 @@ public class ScheduleViewModel
     update();
   }
 
-  public ObservableList<SessionViewModel> getListByClassGroup()
+ /* public ObservableList<SessionViewModel> getListByClassGroup()
   {
     ObservableList<SessionViewModel> holder = FXCollections
         .observableArrayList();
@@ -31,6 +31,27 @@ public class ScheduleViewModel
     {
       holder.add(new SessionViewModel(
           model.getSessionsByClassGroup(model.getChosenClassGroup()).get(i)));
+    }
+    return holder;
+  }
+  */
+
+  public ObservableList<SessionViewModel> getListByTeacher(){
+    System.out.println("In get LIst by teacher a teacher is: " + model.getChosenTeacher());
+    ObservableList<SessionViewModel> holder = FXCollections.observableArrayList();
+    Date dateHolder = model.getChosenMonday().copy();
+    for (int i = 0; i < 5; i++)
+    {
+      // Loop through list by date and classGroup
+      if (model.getSessionsByTeacher(model.getChosenTeacher(), dateHolder) != null)
+      {
+        for (int j = 0; j < model.getSessionsByTeacher(model.getChosenTeacher(), dateHolder).size(); j++)
+        {
+          holder.add(new SessionViewModel(model
+                  .getSessionsByTeacher(model.getChosenTeacher(), dateHolder).get(j)));
+        }
+      }
+      dateHolder.stepForward(1);
     }
     return holder;
   }
@@ -65,6 +86,21 @@ public class ScheduleViewModel
   {
     list.clear();
 
+    if(model.getChosenTeacher()!= null){
+      try
+      {
+        list.addAll(getListByTeacher());
+      }
+      catch (IllegalArgumentException e)
+      {
+        System.out.println("The teacher is not set yet, or sessions don't exist");
+      }
+      catch (NullPointerException e)
+      {
+        System.out.println("That teacher does not have sessions yet");
+      }
+    }
+    else{
     try
     {
       list.addAll(getListByDateAndClassGroup());
@@ -76,7 +112,7 @@ public class ScheduleViewModel
     catch (NullPointerException e)
     {
       System.out.println("That class does not have sessions yet");
-    }
+    }}
 
   }
 

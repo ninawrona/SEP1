@@ -30,8 +30,7 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 
-public class ScheduleGridViewController
-{
+public class ScheduleGridViewController {
   private ViewHandler viewHandler;
   private ScheduleModel model;
   private Region root;
@@ -42,34 +41,52 @@ public class ScheduleGridViewController
   //@FXML
   //private Label weekLabel;
 
-  @FXML private Label weekLabel;
-  @FXML private Label errorLabel;
-  @FXML private Label classNameLabel;
-  @FXML private Label label11;
-  @FXML private Label label12;
-  @FXML private Label label13;
-  @FXML private Label label14;
-  @FXML private Label label15;
-  @FXML private Label label20;
-  @FXML private Label label30;
-  @FXML private Label label40;
-  @FXML private Label label50;
-  @FXML private Label label60;
-  @FXML private Label label70;
-  @FXML private Label label80;
-  @FXML private Label label90;
-  @FXML private Label label100;
-  @FXML private Label label110;
-  @FXML private Label label120;
-  @FXML private GridPane gridPane;
+  @FXML
+  private Label weekLabel;
+  @FXML
+  private Label errorLabel;
+  @FXML
+  private Label classNameLabel;
+  @FXML
+  private Label label11;
+  @FXML
+  private Label label12;
+  @FXML
+  private Label label13;
+  @FXML
+  private Label label14;
+  @FXML
+  private Label label15;
+  @FXML
+  private Label label20;
+  @FXML
+  private Label label30;
+  @FXML
+  private Label label40;
+  @FXML
+  private Label label50;
+  @FXML
+  private Label label60;
+  @FXML
+  private Label label70;
+  @FXML
+  private Label label80;
+  @FXML
+  private Label label90;
+  @FXML
+  private Label label100;
+  @FXML
+  private Label label110;
+  @FXML
+  private Label label120;
+  @FXML
+  private GridPane gridPane;
 
-  public ScheduleGridViewController()
-  {
+  public ScheduleGridViewController() {
     // Called by FXMLLoader
   }
 
-  public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
-  {
+  public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
@@ -158,19 +175,15 @@ public class ScheduleGridViewController
   }
 
   public Node getNodeByRowColumnIndex(final int row, final int column,
-      GridPane gridPane)
-  {
+                                      GridPane gridPane) {
     Node result = null;
     ObservableList<Node> childrens = gridPane.getChildren();
 
-    if (childrens.size() != 0)
-    {
+    if (childrens.size() != 0) {
 
-      for (Node node : childrens)
-      {
+      for (Node node : childrens) {
         if (gridPane.getRowIndex(node) == row
-            && gridPane.getColumnIndex(node) == column)
-        {
+                && gridPane.getColumnIndex(node) == column) {
           result = node;
           break;
         }
@@ -179,95 +192,79 @@ public class ScheduleGridViewController
     return result;
   }
 
-  public Region getRoot()
-  {
+  public Region getRoot() {
     return root;
   }
 
-  public void reset()
-  {
+  public void reset() {
     System.out.println("I am resetting the schedule grid window");
     // set text to ""
-    if (model.getChosenWeekNumber() != 0)
-    {
+    if (model.getChosenWeekNumber() != 0) {
       Date monday = model.getChosenMonday();
       Date friday = monday.copy();
       friday.stepForward(4);
       weekLabel.setText(
-          "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
-              .getMonth());
+              "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
+                      + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+                      .getMonth());
       //weekLabel.setText("Test");
-    }
-    else
-    {
+    } else {
       //The week set to the week of today's date, if it is Saturday or Sunday
       //It is moved to next week
       Date today = new Date();
-      if (today.getWeekday().equals("SATURDAY"))
-      {
+      if (today.getWeekday().equals("SATURDAY")) {
         today.stepForward(2);
-      }
-      else if (today.getWeekday().equals("SUNDAY"))
-      {
+      } else if (today.getWeekday().equals("SUNDAY")) {
         today.stepForwardOneDay();
       }
       LocalDate date = LocalDate
-          .of(today.getYear(), today.getMonth(), today.getDay());
+              .of(today.getYear(), today.getMonth(), today.getDay());
       chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
       model.setChosenWeekNumber(chosenWeekNumber);
       System.out
-          .println("I just set the week to " + model.getChosenWeekNumber());
+              .println("I just set the week to " + model.getChosenWeekNumber());
       // Holder
       System.out.println("I'm finding the monday");
       LocalDate mondayHolder = date;
-      while (mondayHolder.getDayOfWeek().getValue() != 1)
-      {
+      while (mondayHolder.getDayOfWeek().getValue() != 1) {
         System.out.println(mondayHolder);
         mondayHolder = mondayHolder.minusDays(1);
         System.out.println("I just moved back one day");
         System.out.println("Holder is now " + mondayHolder);
       }
       Date monday = new Date(mondayHolder.getDayOfMonth(),
-          mondayHolder.getMonthValue(), mondayHolder.getYear());
+              mondayHolder.getMonthValue(), mondayHolder.getYear());
       model.setChosenMonday(monday);
       System.out.println("I just set the Monday to " + monday);
 
       Date friday = monday.copy();
       friday.stepForward(4);
       weekLabel.setText(
-          "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
-              .getMonth());
+              "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
+                      + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
+                      .getMonth());
 
     }
     errorLabel.setText("");
-    if (model.getChosenClassGroup() != null)
-    {
+    if (model.getChosenClassGroup() != null) {
       // System.out.println("Tried");
-      if (model.getChosenClassGroup().getStudents().size() == 0)
-      {
+      if (model.getChosenClassGroup().getStudents().size() == 0) {
         errorLabel.setText("Please upload the text files");
       }
       classNameLabel
-          .setText("Class: " + model.getChosenClassGroup().toString());
-    }
-    else
-    {
+              .setText("Class: " + model.getChosenClassGroup().toString());
+    } else {
       //  System.out.println("class not chosen yet");
       classNameLabel.setText("Class: ");
       errorLabel.setText("Please select a class");
     }
 
     // Clear the grid
-    for (int i = 0; i < gridPane.getChildren().size(); i++)
-    {
+    for (int i = 0; i < gridPane.getChildren().size(); i++) {
       // System.out.println("I'm looking at " + gridPane.getChildren().get(i));
-      if (gridPane.getChildren().get(i).getId() != null)
-      {
+      if (gridPane.getChildren().get(i).getId() != null) {
         // System.out.println("The id is " + gridPane.getChildren().get(i).getId());
-        if (gridPane.getChildren().get(i).getId().contains("session"))
-        {
+        if (gridPane.getChildren().get(i).getId().contains("session")) {
           // System.out.println("removing");
           gridPane.getChildren().remove(i);
           i--;
@@ -279,14 +276,11 @@ public class ScheduleGridViewController
 
     scheduleViewModel.update();
     // Populate the grid
-    if(model.getChosenTeacher() == null)
-    {
-      try
-      {
-        for (int i = 0; i < scheduleViewModel.getListByDateAndClassGroup().size(); i++)
-        {
+    if (model.getChosenTeacher() == null) {
+      try {
+        for (int i = 0; i < scheduleViewModel.getListByDateAndClassGroup().size(); i++) {
           StringProperty courseName = scheduleViewModel.getListByDateAndClassGroup()
-              .get(i).getCourseProperty();
+                  .get(i).getCourseProperty();
           Label labelTest = new Label();
           labelTest.setText(courseName.get());
           // String nodeId = "session" + i;
@@ -295,32 +289,28 @@ public class ScheduleGridViewController
           // Adds a background color to the session on the grid
           String backColor = "lavender";
           String courseHolder =
-              "" + scheduleViewModel.getListByDateAndClassGroup().get(i).getCourseProperty();
-          if (courseHolder.contains("RWD"))
-          {
+                  "" + scheduleViewModel.getListByDateAndClassGroup().get(i).getCourseProperty();
+          if (courseHolder.contains("RWD")) {
             backColor = "lightblue";
           }
-          if (courseHolder.contains("DMA"))
-          {
+          if (courseHolder.contains("DMA")) {
             backColor = "lightseagreen";
           }
-          if (courseHolder.contains("SDJ"))
-          {
+          if (courseHolder.contains("SDJ")) {
             backColor = "burlywood";
           }
-          if (courseHolder.contains("SEP"))
-          {
+          if (courseHolder.contains("SEP")) {
             backColor = "indianred";
           }
           labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
           int startTimeInt = scheduleViewModel.getListByDateAndClassGroup().get(i).getStartTimeIntProperty();
           int numberOfLessonsInt = scheduleViewModel.getListByDateAndClassGroup()
-              .get(i).getNumberOfLessonsProperty().intValue();
+                  .get(i).getNumberOfLessonsProperty().intValue();
           int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i).getDayOfWeekProperty().getValue();
 
           labelTest.setMinHeight(
-              (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
+                  (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
           labelTest.setTextOverrun(OverrunStyle.CLIP);
           labelTest.setMinWidth(98.5);
           labelTest.setTextAlignment(TextAlignment.CENTER);
@@ -332,20 +322,14 @@ public class ScheduleGridViewController
           // Move the label like 1 pixel to the right to make it centered
           labelTest.setTranslateX(0.7);
         }
-      }
-      catch (Exception e)
-      {
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
-    }
-    else{
-      try
-      {
-        for (int i = 0; i < scheduleViewModel.getList().size(); i++)
-        {
+    } else {
+      try {
+        for (int i = 0; i < scheduleViewModel.getList().size(); i++) {
           if (scheduleViewModel.getList().get(i).getTeacher()
-              .contains(model.getChosenTeacher().toString()))
-          {
+                  .contains(model.getChosenTeacher().toString())) {
             StringProperty courseName = scheduleViewModel.getList().get(i).getCourseProperty();
             Label labelTest = new Label();
             labelTest.setText(courseName.get());
@@ -355,20 +339,16 @@ public class ScheduleGridViewController
             // Adds a background color to the session on the grid
             String backColor = "lavender";
             String courseHolder = "" + scheduleViewModel.getList().get(i).getCourseProperty();
-            if (courseHolder.contains("RWD"))
-            {
+            if (courseHolder.contains("RWD")) {
               backColor = "lightblue";
             }
-            if (courseHolder.contains("DMA"))
-            {
+            if (courseHolder.contains("DMA")) {
               backColor = "lightseagreen";
             }
-            if (courseHolder.contains("SDJ"))
-            {
+            if (courseHolder.contains("SDJ")) {
               backColor = "burlywood";
             }
-            if (courseHolder.contains("SEP"))
-            {
+            if (courseHolder.contains("SEP")) {
               backColor = "indianred";
             }
             labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
@@ -378,14 +358,14 @@ public class ScheduleGridViewController
             int dayOfWeek = scheduleViewModel.getList().get(i).getDayOfWeekProperty().getValue();
 
             labelTest.setMinHeight(
-                (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
+                    (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
             labelTest.setTextOverrun(OverrunStyle.CLIP);
             labelTest.setMinWidth(98.5);
             labelTest.setTextAlignment(TextAlignment.CENTER);
             labelTest.setAlignment(Pos.CENTER);
 
             gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
-                numberOfLessonsInt);
+                    numberOfLessonsInt);
             // System.out.println("I just added this label");
             System.out.println(labelTest);
             // Move the label like 1 pixel to the right to make it centered
@@ -393,31 +373,25 @@ public class ScheduleGridViewController
           }
 
         }
-    }
-      catch(Exception e)
-      {
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
 
-    //HOLIDAY WEEKS BEING SET TO SOME COLOR.
-    try
-    {
-      if (model.getHolidayWeeks() != null)
-      {
-        for (int i = 0; i < model.getHolidayWeeks().size(); i++)
-        {
-          if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber())
-          {
-            StringProperty courseName = null;
-            courseName.setValue("HOLIDAYS");
-            Label labelTest = new Label();
-            labelTest.setText(courseName.get());
-            // String nodeId = "session" + i;
-            labelTest.setId("holidayssss" + i);
+      //HOLIDAY WEEKS BEING SET TO SOME COLOR.
+      try {
+        if (model.getHolidayWeeks() != null) {
+          for (int i = 0; i < model.getHolidayWeeks().size(); i++) {
+            if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber()) {
+              StringProperty courseName = null;
+              courseName.setValue("HOLIDAYS");
+              Label labelTest = new Label();
+              labelTest.setText(courseName.get());
+              // String nodeId = "session" + i;
+              labelTest.setId("holidayssss" + i);
 
-            // Adds a background color to the session on the grid
-            String backColor = "chocolate";
-            String courseHolder = "HOLIDAYS";
+              // Adds a background color to the session on the grid
+              String backColor = "chocolate";
+              String courseHolder = "HOLIDAYS";
         /*
         if (courseHolder.contains("RWD"))
         {
@@ -438,80 +412,72 @@ public class ScheduleGridViewController
 
 
          */
-            labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
-            for (int j = 1; j <= 5; j++)
-            {
-              System.out.println("I am adding this holiday!");
-              int startTimeInt = 2;
-              int numberOfLessonsInt = 4;
-              int dayOfWeek = j;
+              labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+              for (int j = 1; j <= 5; j++) {
+                System.out.println("I am adding this holiday!");
+                int startTimeInt = 2;
+                int numberOfLessonsInt = 4;
+                int dayOfWeek = j;
 
-              labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
-              labelTest.setMinWidth(100 - 1);
-              labelTest.setTextAlignment(TextAlignment.CENTER);
-              labelTest.setAlignment(Pos.CENTER);
+                labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
+                labelTest.setMinWidth(100 - 1);
+                labelTest.setTextAlignment(TextAlignment.CENTER);
+                labelTest.setAlignment(Pos.CENTER);
 
-              gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
-                  numberOfLessonsInt);
-              // System.out.println("I just added this label");
-              System.out.println(labelTest);
-              // Move the label like 1 pixel to the right to make it centered
-              labelTest.setTranslateX(0.3);
+                gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+                        numberOfLessonsInt);
+                // System.out.println("I just added this label");
+                System.out.println(labelTest);
+                // Move the label like 1 pixel to the right to make it centered
+                labelTest.setTranslateX(0.3);
+              }
             }
           }
         }
-      }
-    }
-    catch(Exception e)
-      {
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
+    }
 
-    //
+      //
 
-    // System.out.println("Here are the current gridPane children");
-    // for (int i = 0; i < gridPane.getChildren().size(); i++) {
-    //   System.out.println(gridPane.getChildren().get(i));
-    // }
+      // System.out.println("Here are the current gridPane children");
+      // for (int i = 0; i < gridPane.getChildren().size(); i++) {
+      //   System.out.println(gridPane.getChildren().get(i));
+      // }
 
-    // Chris attempts remove on click
-    gridPane.setOnMouseClicked(new EventHandler<MouseEvent>()
-    {
-      @Override public void handle(MouseEvent mouseEvent)
-      {
-        String selected = mouseEvent.getTarget().toString();
-        System.out.println("I just selected" + selected);
-        Object target = mouseEvent.getTarget();
-        String compare = "";
-        if (target instanceof Text)
-        {
-          Text targetTextObject = (Text) target;
-          compare = targetTextObject.getText();
-        }
-        else if (target instanceof Label)
-        {
-          Label targetLabel = (Label) target;
-          compare = targetLabel.getText();
-        }
-
-        // Choosing the session by clicking
-        for (int j = 0;
-             j < model.getSessionsByClassGroup(model.getChosenClassGroup())
-                 .size(); j++)
-        {
-          if (model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
-              .shortString().equals(compare))
-          {
-            // System.out.println("Found the target in the list in model");
-            // System.out.println("Setting to chosen session");
-            model.setChosenSession(
-                model.getSessionsByClassGroup(model.getChosenClassGroup())
-                    .get(j));
-            System.out.println(
-                "TEST* The chosen session is: " + model.getChosenSession());
-            viewHandler.openView("sessionDetails");
+      // Chris attempts remove on click
+      gridPane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent mouseEvent) {
+          String selected = mouseEvent.getTarget().toString();
+          System.out.println("I just selected" + selected);
+          Object target = mouseEvent.getTarget();
+          String compare = "";
+          if (target instanceof Text) {
+            Text targetTextObject = (Text) target;
+            compare = targetTextObject.getText();
+          } else if (target instanceof Label) {
+            Label targetLabel = (Label) target;
+            compare = targetLabel.getText();
           }
-        }
+
+          // Choosing the session by clicking
+          for (int j = 0;
+               j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+                       .size(); j++) {
+            if (model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
+                    .shortString().equals(compare)) {
+              // System.out.println("Found the target in the list in model");
+              // System.out.println("Setting to chosen session");
+              model.setChosenSession(
+                      model.getSessionsByClassGroup(model.getChosenClassGroup())
+                              .get(j));
+              System.out.println(
+                      "TEST* The chosen session is: " + model.getChosenSession());
+              viewHandler.openView("sessionDetails");
+            }
+          }
 
           /* slow version
           // System.out.println("I found text!");
@@ -545,8 +511,8 @@ public class ScheduleGridViewController
           }
 
            */
-      }
-    });
+        }
+      });
 
     /*
     gridPane.setOnMouseClicked(new EventHandler<MouseEvent>())
@@ -579,104 +545,89 @@ public class ScheduleGridViewController
                     }
 
                      */
-    // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
-    //}
+      // gridPane.getChildren().remove(gridPane.getChildren().getLayoutX(), startTimeInt);
+      //}
 
-    //});
-  }
-
-  // @FXML methods here
-
-  @FXML private void chooseClassButton()
-  {
-    if (model.getChosenTeacher() == null)
-    {
-      viewHandler.openView("classSelect");
+      //});
     }
-    else
-    {
-      errorLabel.setText("You cannot select both class and a teacher.");
-    }
-  }
 
-  @FXML private void uploadFilesButton()
-  {
-    viewHandler.openView("fileView");
-  }
+    // @FXML methods here
 
-  @FXML void chooseWeekButton()
-  {
-    if (model.getChosenClassGroup() != null)
+    @FXML private void chooseClassButton ()
     {
-      if (model.getChosenClassGroup().getStudents().size() == 0)
-      {
-        errorLabel.setText("Please upload the text files");
-      }
-      else
-      {
-        viewHandler.openView("chooseWeek");
+      if (model.getChosenTeacher() == null) {
+        viewHandler.openView("classSelect");
+      } else {
+        errorLabel.setText("You cannot select both class and a teacher.");
       }
     }
-    else
-    {
-      errorLabel.setText("Please select a class");
-    }
-  }
 
-  @FXML private void addSessionButton()
-  {
-    if (model.getChosenClassGroup() == null)
+    @FXML private void uploadFilesButton ()
     {
-      errorLabel.setText("Please select a class before adding sessions");
-    }
-    else
-    {
-      model.setChosenClassGroup(model.getChosenClassGroup());
-      viewHandler.openView("addSession");
-    }
-  }
-
-  @FXML private void mimicScheduleButton()
-  {
-    if (model.getSessionsByClassGroup(model.getChosenClassGroup()) == null)
-    {
-      System.out.println("Sessions empty for classgroup");
-      errorLabel.setText("No sessions to mimic for the chosen classgroup");
-    }
-    else
-    {
-      viewHandler.openView("mimicSchedule");
-    }
-  }
-
-  @FXML private void toXML()
-  {
-    SessionList allAddedSessions = new SessionList();
-
-    for (int j = 0;
-         j < model.getSessionsByClassGroup(model.getChosenClassGroup())
-             .size(); j++)
-    {
-
-      allAddedSessions.addSession(
-          model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
-          model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
-              .getRoom());
+      viewHandler.openView("fileView");
     }
 
-    // XMLParser.toXML(allAddedSessions,"SessionList.XML");
-    ReadWrite.manualWriteSessionList(allAddedSessions, new String(model.getChosenClassGroup().getSemester() + model.getChosenClassGroup().getClassName()));
-    //  System.out.println(allAddedSessions);
-  }
+    @FXML void chooseWeekButton ()
+    {
+      if (model.getChosenClassGroup() != null) {
+        if (model.getChosenClassGroup().getStudents().size() == 0) {
+          errorLabel.setText("Please upload the text files");
+        } else {
+          viewHandler.openView("chooseWeek");
+        }
+      } else {
+        errorLabel.setText("Please select a class");
+      }
+    }
 
-  @FXML private void exitButton()
-  {
-    viewHandler.closeView();
-  }
+    @FXML private void addSessionButton ()
+    {
+      if (model.getChosenClassGroup() == null) {
+        errorLabel.setText("Please select a class before adding sessions");
+      } else {
+        model.setChosenClassGroup(model.getChosenClassGroup());
+        viewHandler.openView("addSession");
+      }
+    }
 
-  @FXML private void chooseTeacherButton()
-  {
+    @FXML private void mimicScheduleButton ()
+    {
+      if (model.getSessionsByClassGroup(model.getChosenClassGroup()) == null) {
+        System.out.println("Sessions empty for classgroup");
+        errorLabel.setText("No sessions to mimic for the chosen classgroup");
+      } else {
+        viewHandler.openView("mimicSchedule");
+      }
+    }
+
+    @FXML private void toXML ()
+    {
+      SessionList allAddedSessions = new SessionList();
+
+      for (int j = 0;
+           j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+                   .size(); j++) {
+
+        allAddedSessions.addSession(
+                model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
+                model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
+                        .getRoom());
+      }
+
+      // XMLParser.toXML(allAddedSessions,"SessionList.XML");
+      ReadWrite.manualWriteSessionList(allAddedSessions, new String(model.getChosenClassGroup().getSemester() + model.getChosenClassGroup().getClassName()));
+      //  System.out.println(allAddedSessions);
+    }
+
+    @FXML private void exitButton ()
+    {
+      viewHandler.closeView();
+    }
+
+    @FXML private void chooseTeacherButton ()
+    {
 
       viewHandler.openView("selectTeacher");
-  }
+    }
+
 }

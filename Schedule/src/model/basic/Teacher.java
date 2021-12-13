@@ -122,5 +122,13 @@ public class Teacher
     return viaId.equals(other.viaId);
 
   }
+
+  public SessionList getSessions(){
+    return sessions;
+  }
+
+  public void addSession(Session session){
+    sessions.addSession(session, session.getRoom());
+  }
 }
 

@@ -304,6 +304,7 @@ public class AddSessionViewController
         if (book)
         {
           scheduleViewModel.addSession(session);
+          model.getChosenTeacher().addSession(session);
           reset();
         }
         else

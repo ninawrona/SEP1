@@ -279,86 +279,75 @@ public class ScheduleGridViewController
 
     scheduleViewModel.update();
     // Populate the grid
-    try
-    {
-      for (int i = 0;
-           i < scheduleViewModel.getListByDateAndClassGroup().size(); i++)
-      {
-        StringProperty courseName = scheduleViewModel
-            .getListByDateAndClassGroup().get(i).getCourseProperty();
-        Label labelTest = new Label();
-        labelTest.setText(courseName.get());
-        // String nodeId = "session" + i;
-        labelTest.setId("session" + i);
+    if(model.getChosenTeacher() != null){
+      try {
+        for (int i = 0;
+             i < scheduleViewModel.getListByTeacher().size(); i++) {
+          StringProperty courseName = scheduleViewModel
+                  .getListByTeacher().get(i).getCourseProperty();
+          Label labelTest = new Label();
+          labelTest.setText(courseName.get());
+          // String nodeId = "session" + i;
+          labelTest.setId("session" + i);
 
-        // Adds a background color to the session on the grid
-        String backColor = "lavender";
-        String courseHolder =
-            "" + scheduleViewModel.getListByDateAndClassGroup().get(i)
-                .getCourseProperty();
-        if (courseHolder.contains("RWD"))
-        {
-          backColor = "lightblue";
-        }
-        if (courseHolder.contains("DMA"))
-        {
-          backColor = "lightseagreen";
-        }
-        if (courseHolder.contains("SDJ"))
-        {
-          backColor = "burlywood";
-        }
-        if (courseHolder.contains("SEP"))
-        {
-          backColor = "indianred";
-        }
-        labelTest.setBackground(new Background(
-            new BackgroundFill(Paint.valueOf(backColor), null, null)));
+          // Adds a background color to the session on the grid
+          String backColor = "lavender";
+          String courseHolder =
+                  "" + scheduleViewModel.getListByTeacher().get(i)
+                          .getCourseProperty();
+          if (courseHolder.contains("RWD")) {
+            backColor = "lightblue";
+          }
+          if (courseHolder.contains("DMA")) {
+            backColor = "lightseagreen";
+          }
+          if (courseHolder.contains("SDJ")) {
+            backColor = "burlywood";
+          }
+          if (courseHolder.contains("SEP")) {
+            backColor = "indianred";
+          }
+          labelTest.setBackground(new Background(
+                  new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
-        int startTimeInt = scheduleViewModel.getListByDateAndClassGroup().get(i)
-            .getStartTimeIntProperty();
-        int numberOfLessonsInt = scheduleViewModel.getListByDateAndClassGroup()
-            .get(i).getNumberOfLessonsProperty().intValue();
-        int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
-            .getDayOfWeekProperty().getValue();
+          int startTimeInt = scheduleViewModel.getListByTeacher().get(i)
+                  .getStartTimeIntProperty();
+          int numberOfLessonsInt = scheduleViewModel.getListByTeacher()
+                  .get(i).getNumberOfLessonsProperty().intValue();
+          int dayOfWeek = scheduleViewModel.getListByTeacher().get(i)
+                  .getDayOfWeekProperty().getValue();
 
-        labelTest.setMinHeight((double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
-        labelTest.setTextOverrun(OverrunStyle.CLIP);
-        labelTest.setMinWidth(98.5);
-        labelTest.setTextAlignment(TextAlignment.CENTER);
-        labelTest.setAlignment(Pos.CENTER);
+          labelTest.setMinHeight((double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
+          labelTest.setTextOverrun(OverrunStyle.CLIP);
+          labelTest.setMinWidth(98.5);
+          labelTest.setTextAlignment(TextAlignment.CENTER);
+          labelTest.setAlignment(Pos.CENTER);
 
-        gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
-        // System.out.println("I just added this label");
-        System.out.println(labelTest);
-        // Move the label like 1 pixel to the right to make it centered
-        labelTest.setTranslateX(0.7);
+          gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+          // System.out.println("I just added this label");
+          System.out.println(labelTest);
+          // Move the label like 1 pixel to the right to make it centered
+          labelTest.setTranslateX(0.7);
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
       }
-    }
-    catch (Exception e)
-    {
-      System.out.println(e.getMessage());
-    }
 
-    //HOLIDAY WEEKS BEING SET TO SOME COLOR.
-    try
-    {
-      if (model.getHolidayWeeks() != null)
-      {
-        for (int i = 0; i < model.getHolidayWeeks().size(); i++)
-        {
-          if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber())
-          {
-            StringProperty courseName = null;
-            courseName.setValue("HOLIDAYS");
-            Label labelTest = new Label();
-            labelTest.setText(courseName.get());
-            // String nodeId = "session" + i;
-            labelTest.setId("holidayssss" + i);
+      //HOLIDAY WEEKS BEING SET TO SOME COLOR.
+      try {
+        if (model.getHolidayWeeks() != null) {
+          for (int i = 0; i < model.getHolidayWeeks().size(); i++) {
+            if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber()) {
+              StringProperty courseName = null;
+              courseName.setValue("HOLIDAYS");
+              Label labelTest = new Label();
+              labelTest.setText(courseName.get());
+              // String nodeId = "session" + i;
+              labelTest.setId("holidayssss" + i);
 
-            // Adds a background color to the session on the grid
-            String backColor = "chocolate";
-            String courseHolder = "HOLIDAYS";
+              // Adds a background color to the session on the grid
+              String backColor = "chocolate";
+              String courseHolder = "HOLIDAYS";
         /*
         if (courseHolder.contains("RWD"))
         {
@@ -379,35 +368,147 @@ public class ScheduleGridViewController
 
 
          */
-            labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
-            for (int j = 1; j <= 5; j++)
-            {
-              System.out.println("I am adding this holiday!");
-              int startTimeInt = 2;
-              int numberOfLessonsInt = 4;
-              int dayOfWeek = j;
+              labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+              for (int j = 1; j <= 5; j++) {
+                System.out.println("I am adding this holiday!");
+                int startTimeInt = 2;
+                int numberOfLessonsInt = 4;
+                int dayOfWeek = j;
 
-              labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
-              labelTest.setMinWidth(100 - 1);
-              labelTest.setTextAlignment(TextAlignment.CENTER);
-              labelTest.setAlignment(Pos.CENTER);
+                labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
+                labelTest.setMinWidth(100 - 1);
+                labelTest.setTextAlignment(TextAlignment.CENTER);
+                labelTest.setAlignment(Pos.CENTER);
 
-              gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
-                  numberOfLessonsInt);
-              // System.out.println("I just added this label");
-              System.out.println(labelTest);
-              // Move the label like 1 pixel to the right to make it centered
-              labelTest.setTranslateX(0.3);
+                gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+                        numberOfLessonsInt);
+                // System.out.println("I just added this label");
+                System.out.println(labelTest);
+                // Move the label like 1 pixel to the right to make it centered
+                labelTest.setTranslateX(0.3);
+              }
             }
           }
         }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
       }
     }
-    catch(Exception e)
-      {
+    else {
+      try {
+        for (int i = 0;
+             i < scheduleViewModel.getListByDateAndClassGroup().size(); i++) {
+          StringProperty courseName = scheduleViewModel
+                  .getListByDateAndClassGroup().get(i).getCourseProperty();
+          Label labelTest = new Label();
+          labelTest.setText(courseName.get());
+          // String nodeId = "session" + i;
+          labelTest.setId("session" + i);
+
+          // Adds a background color to the session on the grid
+          String backColor = "lavender";
+          String courseHolder =
+                  "" + scheduleViewModel.getListByDateAndClassGroup().get(i)
+                          .getCourseProperty();
+          if (courseHolder.contains("RWD")) {
+            backColor = "lightblue";
+          }
+          if (courseHolder.contains("DMA")) {
+            backColor = "lightseagreen";
+          }
+          if (courseHolder.contains("SDJ")) {
+            backColor = "burlywood";
+          }
+          if (courseHolder.contains("SEP")) {
+            backColor = "indianred";
+          }
+          labelTest.setBackground(new Background(
+                  new BackgroundFill(Paint.valueOf(backColor), null, null)));
+
+          int startTimeInt = scheduleViewModel.getListByDateAndClassGroup().get(i)
+                  .getStartTimeIntProperty();
+          int numberOfLessonsInt = scheduleViewModel.getListByDateAndClassGroup()
+                  .get(i).getNumberOfLessonsProperty().intValue();
+          int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
+                  .getDayOfWeekProperty().getValue();
+
+          labelTest.setMinHeight((double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt - 5));
+          labelTest.setTextOverrun(OverrunStyle.CLIP);
+          labelTest.setMinWidth(98.5);
+          labelTest.setTextAlignment(TextAlignment.CENTER);
+          labelTest.setAlignment(Pos.CENTER);
+
+          gridPane.add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+          // System.out.println("I just added this label");
+          System.out.println(labelTest);
+          // Move the label like 1 pixel to the right to make it centered
+          labelTest.setTranslateX(0.7);
+        }
+      } catch (Exception e) {
         System.out.println(e.getMessage());
       }
 
+      //HOLIDAY WEEKS BEING SET TO SOME COLOR.
+      try {
+        if (model.getHolidayWeeks() != null) {
+          for (int i = 0; i < model.getHolidayWeeks().size(); i++) {
+            if (model.getHolidayWeeks().get(i) == model.getChosenWeekNumber()) {
+              StringProperty courseName = null;
+              courseName.setValue("HOLIDAYS");
+              Label labelTest = new Label();
+              labelTest.setText(courseName.get());
+              // String nodeId = "session" + i;
+              labelTest.setId("holidayssss" + i);
+
+              // Adds a background color to the session on the grid
+              String backColor = "chocolate";
+              String courseHolder = "HOLIDAYS";
+        /*
+        if (courseHolder.contains("RWD"))
+        {
+          backColor = "lightblue";
+        }
+        if (courseHolder.contains("DMA"))
+        {
+          backColor = "lightseagreen";
+        }
+        if (courseHolder.contains("SDJ"))
+        {
+          backColor = "burlywood";
+        }
+        if (courseHolder.contains("SEP"))
+        {
+          backColor = "indianred";
+        }
+
+
+         */
+              labelTest.setBackground(new Background(new BackgroundFill(Paint.valueOf(backColor), null, null)));
+              for (int j = 1; j <= 5; j++) {
+                System.out.println("I am adding this holiday!");
+                int startTimeInt = 2;
+                int numberOfLessonsInt = 4;
+                int dayOfWeek = j;
+
+                labelTest.setMinHeight((double) (numberOfLessonsInt * 25) - 2);
+                labelTest.setMinWidth(100 - 1);
+                labelTest.setTextAlignment(TextAlignment.CENTER);
+                labelTest.setAlignment(Pos.CENTER);
+
+                gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+                        numberOfLessonsInt);
+                // System.out.println("I just added this label");
+                System.out.println(labelTest);
+                // Move the label like 1 pixel to the right to make it centered
+                labelTest.setTranslateX(0.3);
+              }
+            }
+          }
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
+      }
+    }
     //
 
     // System.out.println("Here are the current gridPane children");
@@ -617,13 +718,6 @@ public class ScheduleGridViewController
 
   @FXML private void chooseTeacherButton()
   {
-    if (model.getChosenClassGroup() == null)
-    {
       viewHandler.openView("selectTeacher");
-    }
-    else
-    {
-      errorLabel.setText("You cannot select both class and a teacher.");
-    }
   }
 }

@@ -286,4 +286,8 @@ public class ScheduleModelManager implements ScheduleModel
     return courseList.getCoursesByTeacher(teacher);
   }
    */
+  @Override public void setSessionList(SessionList sessionList)
+  {
+    this.sessionList = sessionList;
+  }
 }

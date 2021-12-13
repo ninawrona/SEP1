@@ -16,7 +16,7 @@ public class Teacher
   private SessionList sessions;
 
   /**
-   * One-argument constructor taking only the teacher's VIA ID as a parameter.
+   * One-argument constructor taking the teacher's VIA ID.
    *
    * @param viaId the VIA ID of the teacher.
    */
@@ -28,10 +28,17 @@ public class Teacher
       throw new IllegalArgumentException("Via ID can not be null");
     }
 
+    if (viaId == (null))
+    {
+      throw new IllegalArgumentException("VIA ID can not be null");
+    }
+
     this.viaId = viaId;
     this.sessions = new SessionList();
     this.coursesTaught = new CourseList();
+
     this.viaId = viaId;
+    //coursesTaught = new CourseList();
 
   }
 
@@ -92,6 +99,13 @@ public class Teacher
   }
 
   /**
+   * A method comparing two objects
+   *
+   * @param obj an object representing the other object to be compared.
+   * @return "True" if the two Teacher objects are identical, "False" if they are not.
+   */
+
+  /**
    * A method comparing two objects.
    *
    * @param obj an object representing the other object to be compared.
@@ -102,6 +116,7 @@ public class Teacher
     if (!(obj instanceof Teacher))
     {
       return false;
+
     }
     Teacher other = (Teacher) obj;
     return viaId.equals(other.viaId);

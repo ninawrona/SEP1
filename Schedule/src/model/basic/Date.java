@@ -29,6 +29,15 @@ public class Date
   public Date(int day, int month, int year)
   {
     set(day, month, year);
+
+    if (!isValid())
+    {
+      /*TODO the exception is a problem when we want set the chosen week to actual week
+       TODO for example when right now is Saturday then we have to create an object with the date from past
+      */
+      //throw new IllegalArgumentException(
+      //    "Date has to be today or after today.");
+    }
     if (isWeekend())
     {
       throw new IllegalArgumentException(
@@ -61,11 +70,7 @@ public class Date
     return weekdayName;
   }
 
-  /**
-   * A getter method returning the week number from the current date.
-   *
-   * @return an int representing the week number.
-   */
+  //todo java doc
   public int getWeekNumber()
   {
     LocalDate date = LocalDate.of(year, month, day);
@@ -172,7 +177,7 @@ public class Date
 
   public void set(int day, int month, int year)
   {
-    if (day < 1 || month < 1 || month > 12 || year < 1)
+    if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1)
     {
       throw new IllegalArgumentException("Entered values are illegal.");
     }
@@ -194,22 +199,21 @@ public class Date
           }
         }
       }
-
-    }
-    else if (month == 4 || month == 6 || month == 9 || month == 11)
-    {
-      if (day > 30)
+      else if (month == 4 || month == 6 || month == 9 || month == 11)
       {
-        throw new IllegalArgumentException(
-            "There are 30 days in the chosen month.");
+        if (day > 30)
+        {
+          throw new IllegalArgumentException(
+              "There are 30 days in chosen month.");
+        }
       }
-    }
-    else
-    {
-      if (day > 31)
+      else
       {
-        throw new IllegalArgumentException(
-            "There are 31 days in chosen month.");
+        if (day > 31)
+        {
+          throw new IllegalArgumentException(
+              "There are 31 days in chosen month.");
+        }
       }
     }
     this.day = day;

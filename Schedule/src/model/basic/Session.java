@@ -593,13 +593,8 @@ public class Session implements Comparable<Session>
     s += endMinute;
     return s;
   }
+//TODO javaDoc
 
-  /**
-   * A method creating a copy of a Session object with a different date.
-   * @param otherDate
-   *                a Date object representing the date onto which the session will be copied.
-   * @return a Session object with the same details on a different date.
-   */
   public Session copySessionToDate(Date otherDate)
   {
     Session other = new Session(course, otherDate, startTime, numberOfLessons);
@@ -650,11 +645,7 @@ public class Session implements Comparable<Session>
         && numberOfLessons == other.numberOfLessons;
   }
 
-  /**
-   * A method returning a String object representing a short description of the Session object.
-   * @return
-   *        a String representation of the Course taught at the session, the date, and the room.
-   */
+  // todo add to javadoc
   public String shortString()
   {
     String str = "";
@@ -670,13 +661,6 @@ public class Session implements Comparable<Session>
     return str;
   }
 
-  /**
-   * An overridden method comparing two Session objects based on their start time. This method is used when sorting the
-   * SessionList array based on the start time of the sessions, in order to check for time gaps between them.
-   * @param obj
-   *          the Session object to be compared.
-   * @return 0 if the start time of the two objects is the same, 1 if this Session starts earlier, -1 if later.
-   */
   @Override public int compareTo(Session obj)
   {
     if (startTime.getTimeInSeconds() == obj.startTime.getTimeInSeconds())

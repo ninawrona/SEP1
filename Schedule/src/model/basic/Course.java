@@ -54,6 +54,16 @@ public class Course
     this.ECTS = ECTS;
   }
 
+  // Debugging constructor
+  public Course(String name)
+  {
+    this.name = name;
+    classGroup = null;
+    teachers = null;
+    semesterTaught = 0;
+    ECTS = 0;
+  }
+
   /**
    * A void method that adds a teacher to the course. A course may not have more than 3 teachers.
    * @param teacher
@@ -115,12 +125,10 @@ public class Course
     return name;
   }
 
-
-  /**
-   * A method returning the full name of the course with respect to the class group the student belongs in.
-   * The ClassGroup is checked to see if it is a Danish class. If so, it returns the full Danish title
-   * @return A String representing the full name of the course
-   */
+  // todo javadoc
+  // This method returns the full name of the course with respect to the class group the student belongs in
+  // The classgroup is checked to see if it is a Danish class. If so, it returns the full Danish title.
+  // Currently only for 1st semester, but can be applied to first 4 semesters using doc on itslearning
   public String getFullName()
   {
     switch (name)
@@ -214,7 +222,7 @@ public class Course
    * @return an int representing the ECTS value of this course.
    */
 
-
+  // todo choose method version
   public int getECTS()
   {
     return ECTS;
@@ -226,7 +234,7 @@ public class Course
    */
   public String toString()
  {
-
+   //TODO agree whether we display it like this???
    return getName();
    /*
     String s = "";
@@ -242,8 +250,13 @@ public class Course
     */
   }
 
-
-
+  //todo: Agree on the redundancy of this overridden toString method. @see getName();  Robert agrees, ...
+  /*
+  @Override public String toString()
+  {
+    return name;
+  }
+*/
 
   /**
    * A method comparing two objects.

@@ -37,9 +37,9 @@ public class FoldableRoom extends Room
   }
 
   /**
-   * A getter method returning the letter of the room.
+   * A getter method.
    *
-   * @return a char representing the letter of the room.
+   * @return the letter of the room.
    */
   public char getLetter()
   {

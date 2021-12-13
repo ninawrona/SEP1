@@ -39,12 +39,6 @@ public class Student
     this.viaId = viaId;
   }
 
-  /**
-   * Two-argument overloaded constructor. The name cannot be null
-   *    * and the VIA ID has to be an integer with a length of 6.
-   * @param name the name of the Student.
-   * @param viaId the VIA ID of the Student.
-   */
   public Student(String name, int viaId){
     if (name == null)
     {

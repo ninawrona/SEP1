@@ -144,7 +144,11 @@ public class TeacherList
     {
       throw new NullPointerException("Parameter cannot be null!");
     }
-    return teachers.contains(teacher);
+    if (teachers.contains(teacher))
+    {
+      return true;
+    }
+    return false;
   }
 
   /**

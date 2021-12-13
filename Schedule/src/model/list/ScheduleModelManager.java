@@ -6,6 +6,13 @@ import model.files.ReadWrite;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * A class implementing all the methods from ScheduleModel interface.
+ * It also has all the needed associations as instance variables.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version  3 - December 2021
+ */
 public class ScheduleModelManager implements ScheduleModel
 {
   private TeacherList teacherList;
@@ -22,8 +29,13 @@ public class ScheduleModelManager implements ScheduleModel
   private Date chosenMonday;
   private Teacher chosenTeacher;
 
+  /**
+   * A constructor taking no arguments that initializes all the instance variables -
+   * - either creating a new list object or set the values to default.
+   */
   public ScheduleModelManager()
   {
+    //TODO What is the difference with 'teacherList' and 'allTeachers' variables? Why do we need both?
     this.teacherList = new TeacherList();
     this.allTeachers = new TeacherList();
     this.courseList = new CourseList();
@@ -39,23 +51,42 @@ public class ScheduleModelManager implements ScheduleModel
     this.chosenTeacher = null;
 
   }
+  /**
+   * A getter method returning all classes in this object.
+   *
+   * @return ClassGroupList object containing all the ClassGroup objects in this ScheduleModelManager.
+   */
 
   public ClassGroupList getAllClasses()
   {
     return classList;
   }
 
+  /**
+   * A getter method returning all teachers in this object.
+   *
+   * @return TeacherList object containing all the Teacher objects in this ScheduleModelManager.
+   */
+
   public TeacherList getAllTeachers()
   {
     return allTeachers;
   }
 
+  /**
+   * A setter method assigning the given TeacherList object to the 'allTeachers' variable.
+   * @param list a TeacherList object which will be used to set.
+   */
   public void setAllTeachers(TeacherList list)
   {
     this.allTeachers = list;
     System.out.println("I set my teacherList: " + allTeachers);
   }
-
+//TODO Why do we add and remove teacher to/from the list if we are not using it.
+  /**
+   * A void method adding a Teacher to the 'teacherList' variable.
+   * @param teacher a Teacher object to be added.
+   */
   public void addTeacher(Teacher teacher)
   {
     teacherList.addTeacher(teacher);

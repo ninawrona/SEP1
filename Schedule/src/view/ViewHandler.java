@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 
 import model.list.ScheduleModel;
 
+/**
+ * A class handling all the occurring views in the system.
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 3-10 December 2021
+ */
 public class ViewHandler
 {
   private Scene currentScene;
@@ -26,43 +31,40 @@ public class ViewHandler
   private MimicScheduleViewController mimicScheduleViewController;
   // more controllers here
 
+  /**
+   * A one argument constructor intializing currentScene and setting the variable model to given model.
+   * @param model A ScheduleModel object which is used to set ViewHandler's model variable.
+   */
   public ViewHandler(ScheduleModel model)
   {
     this.currentScene = new Scene(new Region());
     this.model = model;
   }
 
+  /**
+   * A void method starting the system and setting the primary stage variable to given primaryStage.
+   * @param primaryStage a Stage object which is used to set ViewHandler's primaryStage variable.
+   */
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
     openView("schedule");
-
-    Image icon = new Image("gingerbread.png");
+    //TODO maybe write the reference in project report
     //Icon made By jocularityart
+    Image icon = new Image("gingerbread.png");
     primaryStage.getIcons().add(icon);
-    //controllers here
-
     scheduleGridViewController.reset();
-    // Only above should be reset
-        /*
-        addSessionViewController.reset();
-        addStudentViewController.reset();
-        addTeacherViewController.reset();
-        classSelectViewController.reset();
-        confirmationViewController.reset();
-        courseDetailsViewController.reset();
-        fileViewController.reset();
-        scheduleViewController.reset();
-        sessionDetailsViewController.reset();
-
-         */
   }
 
+  /**
+   * A void method opening the view with the given name. Legal names are:[addSession, addStudent, addTeacher, chooseWeek, classSelect, courseDetails, fileView, mimicSchedule, schedule, selectTeacher, sessionDetails]
+   * @param name a String object
+   */
   // View strings: addSession, addStudent, addTeacher, classSelect, confirmation, courseDetails, fileView, schedule, sessionDetails
-  public void openView(String id)
+  public void openView(String name)
   {
     Region root = null;
-    switch (id)
+    switch (name)
     {
       case "addSession":
         root = loadAddSessionView("AddSessionView.fxml");

@@ -4,7 +4,7 @@ import model.basic.*;
 
 import java.io.File;
 import java.util.ArrayList;
-//TODO
+//TODO Work on this and discuss the not used methods. Once the interface is agreed on we can continue with manager.
 /**
  * Interface class
  */

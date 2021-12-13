@@ -251,6 +251,7 @@ public class ScheduleGridViewController
       {
         classNameLabel
             .setText("Class: " + model.getChosenClassGroup().toString());
+        errorLabel.setText("");
       }
     }
     /*

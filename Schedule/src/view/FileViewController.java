@@ -24,6 +24,7 @@ public class FileViewController
   @FXML private TextField studentsField;
   @FXML private TextField coursesField;
   @FXML private TextField roomsField;
+  @FXML private TextField xmlField;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
@@ -35,7 +36,7 @@ public class FileViewController
   private File fileStudents = null;
   private File fileCourses = null;
   private File fileRooms = null;
-
+  private File fileXML = null;
 
   public FileViewController()
   {
@@ -121,6 +122,8 @@ public class FileViewController
         model.getAllClasses().manualReadCourses(fileCourses);
         model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
         model.setAllTeachers(ReadWrite.manualReadMasterTeacherList(fileCourses));
+        //has to set model sessionlist to xml file of sessionlist
+      //  model.setSessionList(XMLParser.fromXML(fileXML));
       }
       viewHandler.closeView();
       viewHandler.openView("schedule");
@@ -136,5 +139,19 @@ public class FileViewController
     viewHandler.openView("schedule");
   }
 
+  @FXML void selectXMLFileButton(){
+    FileChooser fileChooser = new FileChooser();
+    fileXML = fileChooser.showOpenDialog(null);
+    if (fileXML != null)
+    {
+      char[] fileNameArray = fileXML.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 'x'
+          && fileNameArray[fileNameArray.length - 2] == 'm'
+          && fileNameArray[fileNameArray.length - 1] == 'l')
+      {
+        xmlField.setText(fileXML.getAbsolutePath());
+      }
+    }
+  }
 }
 

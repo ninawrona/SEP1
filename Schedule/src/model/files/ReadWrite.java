@@ -140,8 +140,14 @@ public class ReadWrite
         for (int j = 0;
              j < sessions.get(i).getCourse().getTeachers().size(); j++)
         {
-          xml +=
-              sessions.get(j).getCourse().getTeachers().get(j).getViaId() + ",";
+          if (sessions.get(i).getCourse().getTeachers().size() == 1){
+            xml +=
+                sessions.get(i).getCourse().getTeachers().get(0).getViaId();
+          } else {
+            xml +=
+                sessions.get(i).getCourse().getTeachers().get(j).getViaId() + ",";
+          }
+
         }
         xml += "</Teachers>";
 

@@ -18,6 +18,8 @@ import java.util.Locale;
  *
  * A class which handles the choosing of a week
  * that we are looking at in the displayed Schedule.
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 3-10 December 2021
  */
 public class ChooseWeekViewController
 {

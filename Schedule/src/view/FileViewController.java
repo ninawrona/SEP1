@@ -15,7 +15,11 @@ import model.list.RoomList;
 import model.list.ScheduleModel;
 
 import java.io.File;
-
+/**
+ * A class allowing the user to upload text files.
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 3-10 December 2021
+ */
 public class FileViewController
 {
   //@FXML private methods here
@@ -36,12 +40,21 @@ public class FileViewController
   private File fileCourses = null;
   private File fileRooms = null;
 
-
+  /**
+   *  A zero-argument constructor called by FXML Loader.
+   */
   public FileViewController()
   {
     // Called by FXMLLoader
   }
 
+  /**
+   * A void method initializing all the non-FXML variables.
+   *
+   * @param viewHandler A ViewHandler object which will be used to set this class 'viewHandler' variable.
+   * @param model       A ScheduleModel object which will be used to set this class 'model' variable.
+   * @param root        A Region object which will be used to set this class 'root' variable.
+   */
   public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
   {
     this.viewHandler = viewHandler;
@@ -50,18 +63,31 @@ public class FileViewController
     fileChooser = new FileChooser();
     reset();
   }
-
+  /**
+   * A getter method of Region object.
+   * @return A Region object - 'root'.
+   */
   public Region getRoot()
   {
     return root;
   }
 
+  /**
+   * A void method setting the error label to empty String.
+   */
   public void reset()
   {
     errorLabel.setText("");
   }
 
   // @FXML methods here
+
+  /**
+   *
+   *  A void FXML method controlling the button.
+   *  When clicked in GUI it opens a file browser.
+   *  
+   */
 
   @FXML private void selectStudentsFileButton()
   {

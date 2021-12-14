@@ -29,11 +29,20 @@ public class AddStudentViewController
   private int viaId = 0;
   private String className = null;
 
+  /**
+   * Constructor for AddStudentViewController, called by the FXMLLoader.
+   */
   public AddStudentViewController()
   {
     // Called by FXMLLoader
   }
 
+  /**
+   * Method for initializing all the variables
+   * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this.
+   * @param model A ScheduleModel object that we set the AddSessionViewController model's to.
+   * @param root A Region root that we set AddSessionViewController's Region root to.
+   */
   public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
   {
     this.viewHandler = viewHandler;
@@ -42,11 +51,18 @@ public class AddStudentViewController
     reset();
   }
 
+  /**
+   * Method for getting the Region root.
+   * @return returns Region root.
+   */
   public Region getRoot()
   {
     return root;
   }
 
+  /**
+   * Method for reset. Sets all the labels and fields to empty.
+   */
   public void reset()
   {
     errorLabel.setText("");
@@ -55,6 +71,10 @@ public class AddStudentViewController
     classField.setText("");
   }
 
+  /**
+   * Boolean Method for whether the user confirms.
+   * @return returns either true or false depending on what button picked.
+   */
   private boolean confirmation() {
     Student student = new Student(studentsNameField.getText(), parseInt(studentsViaIdField.getText()));
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -66,6 +86,11 @@ public class AddStudentViewController
 
   // @FXML methods here
 
+  /**
+   * Method for what to do when the confirmAddAStudentButton is pressed.
+   * A Student is made out of the Students VIA ID field, studentsNameField, and model's chosenClassGroup and it is then added to the model's course.
+   * The viewHandler closes the view and then opens the view for "courseDetails".
+   */
   @FXML private void confirmAddAStudentButton()
   {
     try
@@ -92,6 +117,10 @@ public class AddStudentViewController
 
   }
 
+  /**
+   * Method for the cancelAddAStudentButton. calls the Reset() method
+   * ViewHandler closes the view and then opens the view for "courseDetails"
+   */
   @FXML private void cancelAddAStudentButton()
   {
     reset();

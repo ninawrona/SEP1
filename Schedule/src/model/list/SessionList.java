@@ -129,7 +129,8 @@ public class SessionList {
     }
 
     /**
-     * A getter method returning a list of Session objects with the same date for a chosen ClassGroup.
+     * A getter method returning a list of Session objects with the same date for a chosen ClassGroup
+     * and sorting the sessions based on their starting time.
      *
      * @param date       a Date object representing the date.
      * @param classGroup a ClassGroup object representing the ClassGroup.

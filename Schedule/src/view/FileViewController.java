@@ -15,53 +15,79 @@ import model.list.RoomList;
 import model.list.ScheduleModel;
 
 import java.io.File;
+/**
+ * A class allowing the user to upload text files.
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 3-10 December 2021
+ */
+public class FileViewController
+{
+  //@FXML private methods here
+  @FXML private Label errorLabel;@FXML private TextField studentsField;
+  @FXML private TextField coursesField;
+  @FXML private TextField roomsField;
+  private Region root;
+  private ViewHandler viewHandler;
+  private ScheduleModel model;
 
-public class FileViewController {
-    //@FXML private methods here
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private TextField studentsField;
-    @FXML
-    private TextField coursesField;
-    @FXML
-    private TextField roomsField;
-    private Region root;
-    private ViewHandler viewHandler;
-    private ScheduleModel model;
+  private int counter = 0; //it is done so we dont add files twice
 
-    private int counter = 0; //it is done so we don't add files twice
+  private File fileStudents = null;
+  private File fileCourses = null;
+  private File fileRooms = null;
 
-    private File fileStudents = null;
-    private File fileCourses = null;
-    private File fileRooms = null;
+  /**
+   *  A zero-argument constructor called by FXML Loader.
+   */
+  public FileViewController()
+  {
+    // Called by FXMLLoader
+  }
 
+  /**
+   * A void method initializing all the non-FXML variables.
+   *
+   * @param viewHandler A ViewHandler object which will be used to set this class 'viewHandler' variable.
+   * @param model       A ScheduleModel object which will be used to set this class 'model' variable.
+   * @param root        A Region object which will be used to set this class 'root' variable.
+   */
+  public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
+  {
+    this.viewHandler = viewHandler;
+    this.root = root;
+    this.model = model;
+    reset();
+  }
+  /**
+   * A getter method of Region object.
+   * @return A Region object - 'root'.
+   */
+  public Region getRoot()
+  {
+    return root;
+  }
 
-    public FileViewController() {
-        // Called by FXMLLoader
-    }
-
-    public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
-        this.viewHandler = viewHandler;
-        this.root = root;
-        this.model = model;
-        reset();
-    }
-
-    public Region getRoot() {
-        return root;
-    }
-
-    public void reset() {
-        errorLabel.setText("");
-    }
+  /**
+   * A void method setting the error label to empty String.
+   */
+  public void reset()
+  {
+    errorLabel.setText("");
+  }
 
     // @FXML methods here
 
-    @FXML
-    private void selectStudentsFileButton() {
-        FileChooser fileChooser = new FileChooser();
-        fileStudents = fileChooser.showOpenDialog(null);
+  /**
+   *
+   *  A void FXML method controlling the button.
+   *  When clicked in GUI it opens a file browser.
+   *
+   */
+
+  @FXML private void selectStudentsFileButton()
+  {
+    FileChooser fileChooser = new FileChooser();
+    fileStudents = fileChooser.showOpenDialog(null);
 
         if (fileStudents != null) {
             char[] fileNameArray = fileStudents.getName().toCharArray();

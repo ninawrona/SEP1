@@ -14,6 +14,9 @@ import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 
+/**
+ * A class which handles the choosing of a week that we are looking at in the grid.
+ */
 public class ChooseWeekViewController {
     //FXML instance variable here
     @FXML

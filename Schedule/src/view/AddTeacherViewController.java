@@ -11,7 +11,7 @@ import model.list.ScheduleModel;
 
 import java.util.Optional;
 /**
- *
+ *The AddTeacherViewController class handles the functionality of the window wherein the planner can add teachers to sessions.
  *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021

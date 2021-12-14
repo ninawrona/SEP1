@@ -14,6 +14,12 @@ import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ *The AddStudentViewController class handles the functionality of the window wherein the planner can add Students to courses.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class AddStudentViewController
 {
 

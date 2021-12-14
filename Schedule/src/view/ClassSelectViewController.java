@@ -31,6 +31,9 @@ public class ClassSelectViewController
     ArrayList<ClassGroup> allClassesArray = new ArrayList<>();
     ArrayList<Teacher> allTeachersArray = new ArrayList<>();
 
+    /**
+     * 
+     */
     public ClassSelectViewController()
     {
         // Called by FXMLLoader

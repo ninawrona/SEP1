@@ -1073,10 +1073,7 @@ function showData(xml) {
                                 hour1245[2].classList.add("pt-" + numberOfLessons);
                                 hour1245[2].rowSpan = "" + numberOfLessons;
                                 for (var bm = numberOfLessons + 4; bm >= 6; bm--) {
-                                    console.log("before");
-                                    console.log(timeList[bm]);
                                     timeList[bm][2].remove();
-                                    console.log("after" + timeList[bm]);
                                 }
                             }
                             break;
@@ -1181,7 +1178,7 @@ function showData(xml) {
                                 hour1245[5].classList.add("pt-" + numberOfLessons);
                                 hour1245[5].rowSpan = "" + numberOfLessons;
                                 for (var bs = numberOfLessons + 4; bs >= 6; bs--) {
-                                    console.log(bs);
+   // Problem here                                 console.log(bs);
                                     console.log(timeList[bs]);
                                     timeList[bs][5].remove();
                                 }

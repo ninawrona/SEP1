@@ -117,6 +117,12 @@ public class ViewHandler
     primaryStage.show();
   }
 
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadSelectTeacherView(String fxmlFile)
   {
     if (selectTeacherViewController == null)
@@ -140,7 +146,12 @@ public class ViewHandler
     }
     return selectTeacherViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadAddSessionView(String fxmlFile)
   {
     if (addSessionViewController == null)
@@ -164,7 +175,12 @@ public class ViewHandler
     }
     return addSessionViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadScheduleGridView(String fxmlFile)
   {
     if (scheduleGridViewController == null)
@@ -188,7 +204,12 @@ public class ViewHandler
     }
     return scheduleGridViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadSessionDetailsView(String fxmlFile)
   {
     if (sessionDetailsViewController == null)
@@ -212,7 +233,12 @@ public class ViewHandler
     }
     return sessionDetailsViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadFileView(String fxmlFile)
   {
     if (fileViewController == null)
@@ -236,7 +262,12 @@ public class ViewHandler
     }
     return fileViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadCourseDetailsView(String fxmlFile)
   {
     if (courseDetailsViewController == null)
@@ -262,11 +293,12 @@ public class ViewHandler
 
   }
 
-  public void closeView()
-  {
-    primaryStage.close();
-  }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadClassSelectView(String fxmlFile)
   {
     if (classSelectViewController == null)
@@ -290,7 +322,12 @@ public class ViewHandler
     }
     return classSelectViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadAddStudentView(String fxmlFile)
   {
     if (addStudentViewController == null)
@@ -314,7 +351,12 @@ public class ViewHandler
     }
     return addStudentViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadAddTeacherView(String fxmlFile)
   {
     if (addTeacherViewController == null)
@@ -338,7 +380,12 @@ public class ViewHandler
     }
     return addTeacherViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadChooseWeekView(String fxmlFile)
   {
     if (chooseWeekViewController == null)
@@ -362,7 +409,12 @@ public class ViewHandler
     }
     return chooseWeekViewController.getRoot();
   }
-
+  /**
+   * A method loading a view by given String object name of the file.
+   *
+   * @param fxmlFile A String object which is a name of the file.
+   * @return A Region Object of this specific view.
+   */
   private Region loadMimicScheduleView(String fxmlFile)
   {
     if (mimicScheduleViewController == null)
@@ -385,6 +437,13 @@ public class ViewHandler
       mimicScheduleViewController.reset();
     }
     return mimicScheduleViewController.getRoot();
+  }
+/**
+ * A void method closing the current view.
+ */
+  public void closeView()
+  {
+    primaryStage.close();
   }
 
 }

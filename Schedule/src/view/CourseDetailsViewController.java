@@ -39,11 +39,12 @@ public class CourseDetailsViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
-    reset();
+
     System.out.println("Ects: "+model.getChosenSession().getCourse().getECTS());
     courseNameField.setText("" + model.getChosenSession().getCourse().getFullName());
     semesterField.setText("" + model.getChosenClassGroup().getSemester());
     ectsPointsField.setText("" + model.getChosenSession().getCourse().getECTS());
+    reset();
   }
 
   public Region getRoot()
@@ -60,7 +61,7 @@ public class CourseDetailsViewController
     teacherChoice.getItems().removeAll(teacherList);
     studentChoice.setValue(null);
     teacherChoice.setValue(null);
-
+    courseNameField.setText(""+model.getChosenSession().getCourse().getFullName());
     loadStudentArray();
     loadTeacherArray();
 

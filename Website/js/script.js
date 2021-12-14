@@ -490,7 +490,9 @@ function showData(xml) {
                                 hour1010[1].classList.add("pt-" + numberOfLessons);
                                 hour1010[1].rowSpan = "" + numberOfLessons;
                                 for (var ag = numberOfLessons + 1; ag > 3; ag--) {
-                                    timeList[ag][1].remove();
+                                    var temp = timeList[ag];
+                                    temp[1].remove();
+                                   // timeList[ag].remove(1);
                                 }
                             }
                             break;

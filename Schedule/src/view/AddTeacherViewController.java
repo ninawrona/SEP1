@@ -36,9 +36,9 @@ public class AddTeacherViewController
 
   /**
    * Method for initializing all the variables
-   * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this
-   * @param model A ScheduleModel object that we set the AddSessionViewController model's to
-   * @param root A Region root that we set AddSessionViewController's region to
+   * @param viewHandler A ViewHandler controlling what View we see. We are setting AddTeacherViewController's viewHandler to this
+   * @param model A ScheduleModel object that we set the AddTeacherViewController model's to
+   * @param root A Region root that we set AddTeacherViewController's region to
    */
   public void init(ViewHandler viewHandler, Region root, ScheduleModel model)
   {

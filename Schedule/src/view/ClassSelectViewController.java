@@ -47,9 +47,9 @@ public class ClassSelectViewController
 
     /**
      * Method for initializing all the variables
-     * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this.
-     * @param model A ScheduleModel object that we set the AddSessionViewController model's to.
-     * @param root A Region root that we set AddSessionViewController's Region root to.
+     * @param viewHandler A ViewHandler controlling what View we see. We are setting ClassSelectViewController's viewHandler to this.
+     * @param model A ScheduleModel object that we set the ClassSelectViewController model's to.
+     * @param root A Region root that we set ClassSelectViewController's Region root to.
      */
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {

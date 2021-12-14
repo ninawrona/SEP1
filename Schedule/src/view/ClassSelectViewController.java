@@ -17,6 +17,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+    *The ClassSelectViewController class handles the functionality of the window wherein the planner can select a class.
+    *
+    * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+    * @version 1 - 2 December 2021
+    */
 public class ClassSelectViewController
 {
     //@FXML private methods here
@@ -32,13 +38,19 @@ public class ClassSelectViewController
     ArrayList<Teacher> allTeachersArray = new ArrayList<>();
 
     /**
-     * 
+     * Constructor for ClassSelectViewController, called by FXMLLoader
      */
     public ClassSelectViewController()
     {
         // Called by FXMLLoader
     }
 
+    /**
+     * Method for initializing all the variables
+     * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this.
+     * @param model A ScheduleModel object that we set the AddSessionViewController model's to.
+     * @param root A Region root that we set AddSessionViewController's Region root to.
+     */
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
     {
         this.viewHandler = viewHandler;
@@ -49,22 +61,34 @@ public class ClassSelectViewController
         loadAllCoursesArray();
     }
 
+    /**
+     * Method for getting the Region Root.
+     * @return A Region root
+     */
     public Region getRoot()
     {
         return root;
     }
 
+    /**
+     * Method for resetting. Sets the errorLabel to empty;
+     */
     public void reset()
     {
         errorLabel.setText("");
     }
-
 
     //here we add our list of choices from an arrayList
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllCoursesArray();
     }
 
+    /**
+     * Method for loading all Classes. First it clears the AllClassesArray
+     * And then it addes all the classes from the model into it. It then
+     * loads the classes array int the classChoiceBox and sets the chosen class to the
+     * selected choiceBoxClass.
+     */
     private void loadAllCoursesArray(){
         allClassesArray.removeAll(allClassesArray);
         // Made a simple array to add
@@ -77,6 +101,11 @@ public class ClassSelectViewController
     }
 
     // @FXML methods here
+    /**
+     * Method for the confirmInChooseClassButton. sets the chosenClass to the
+     * classChoicebox value and then sets that to the models chosenClassGroup.
+     * ViewHandler opens the "schedule" view.
+     */
     @FXML
     private void confirmInChooseClassButton(){
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
@@ -95,6 +124,10 @@ public class ClassSelectViewController
         }
     }
 
+    /**
+     * method for the cancelInChooseClassButton.
+     * calls the Reset() function and then ViewHandler changes the view to "schedule".
+     */
     @FXML
     private void cancelInChooseClassButton(){
         reset();

@@ -2,6 +2,7 @@ var document, DOMParser;
 //All the variables rows with our. We are gonna get different days by->
 //hour820[1] = 8:20 Monday and hour820[5] = 8:20 Friday.
 var hour820 = document.getElementById("8:20").getElementsByTagName("td");
+console.log(hour820);
 var hour915 = document.getElementById("9:15").getElementsByTagName("td");
 var hour1010 = document.getElementById("10:10").getElementsByTagName("td");
 var hour1105 = document.getElementById("11:05").getElementsByTagName("td");
@@ -14,6 +15,7 @@ var hour1625 = document.getElementById("16:25").getElementsByTagName("td");
 var hour1720 = document.getElementById("17:20").getElementsByTagName("td");
 var timeList = [hour820, hour915, hour1010, hour1105, hour1200, hour1245, hour1340, hour1435,
     hour1530, hour1625, hour1720];
+console.log(timeList[0]);
 readXMLSessionList();
 
 
@@ -83,7 +85,8 @@ function showData(xml) {
         var course = x[p].getElementsByTagName("Course")[0].childNodes[0].nodeValue;
         var room = x[p].getElementsByTagName("Room")[0].childNodes[0].nodeValue;
         var teachers = x[p].getElementsByTagName("Teachers")[0].childNodes[0].nodeValue.split(",");
-        var numberOfLessons = x[p].getElementsByTagName("NumberOfLessons")[0].childNodes[0].nodeValue;
+        var numberOfLessonsString = x[p].getElementsByTagName("NumberOfLessons")[0].childNodes[0].nodeValue;
+        var numberOfLessons = parseInt(numberOfLessonsString);
         var startTime = x[p].getElementsByTagName("StartTime")[0].childNodes[0].nodeValue;
         var weekDay = x[p].getElementsByTagName("WeekDay")[0].childNodes[0].nodeValue;
         test.innerHTML = "I am entring it " + p + " times";
@@ -489,10 +492,19 @@ function showData(xml) {
                                 }
                                 hour1010[1].classList.add("pt-" + numberOfLessons);
                                 hour1010[1].rowSpan = "" + numberOfLessons;
-                                for (var ag = numberOfLessons + 1; ag > 3; ag--) {
+                                var numHolder = parseInt(numberOfLessons);
+//!!!!!!!!!!!!!                                console.log("Number of lessons is " + numHolder);
+                                for (var ag = (numHolder + 1); ag > 3; ag--) {
+                                    console.log(timeList[3]);
+                                    console.log(timeList[numberOfLessons + 1]);
+                                    console.log(ag);
+                                    console.log(timeList[ag]);
                                     var temp = timeList[ag];
+                                    console.log(temp);
+                                    console.log(temp[1]);
+                                    console.log(temp.length);
                                     temp[1].remove();
-                                   // timeList[ag].remove(1);
+                                   // timeList[ag][1].remove(1);
                                 }
                             }
                             break;

@@ -275,7 +275,7 @@ public class AddSessionViewController
                 model.getChosenClassGroup());
         if (sortedSessions.size() > 1)
         {
-          //SORTING BASED ON START TIME
+
           for (int i = 0; i < sortedSessions.size(); i++)
           {
             int difference =
@@ -439,7 +439,7 @@ public class AddSessionViewController
     }
     else
     {
-      errorLabel.setText("The teacher is not available! Open this window again and try again,");
+      errorLabel.setText("The teacher is not available!");
     }
   }
 

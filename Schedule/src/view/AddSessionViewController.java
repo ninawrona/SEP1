@@ -345,7 +345,7 @@ public class AddSessionViewController
   }
 
   /**
-   * 
+   * Method for the addSessionButton. It adds a session to the ScheduleViewModel
    */
   @FXML private void addSessionButton()
   {
@@ -443,6 +443,11 @@ public class AddSessionViewController
     }
   }
 
+  /**
+   * Method for the cancelInAddSessionButton. When the cancel button is clicked then
+   * everything is reset and the viewHandler for the AddSessionViewController is closed
+   * and the "schedule" view is opened.
+   */
   @FXML private void cancelInAddSessionButton()
   {
     reset();

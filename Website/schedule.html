@@ -49,13 +49,13 @@
 
     <div class=" container d-flex justify-content-center " >
         <div class="col-xs-3 d-flex justify-content-center">
-         <form class= form action="https://www.whattimeisitrightnow.com/">
+         <form class= form >
             <legend>Select the Class</legend>
             <div class="input-group d-flex justify-content-center">
                
-            <select name="classGroups" >
+            <select id="selectedClass" name="classGroups" >
                 <option value="1X">1X</option>
-                <option value="1Y" selected>1Y</option>
+                <option value="1Y" >1Y</option>
                 <option value="1Z" >1Z</option>
                 <option value="1DK">1DK</option>
                 <option value="2X">2X</option>
@@ -70,10 +70,9 @@
                 <option value="4Y" >4Y</option>
                 <option value="4Z" >4Z</option>
                 <option value="4DK">4DK</option>
-               
             </select>
              <span class="input-group-btn">
-               <button type='submit' class="btn btn-secondary" type="button">View</button>
+               <button id="classBtn" type="button" class="btn btn-secondary">View</button>
              </span>
            </div>
          </form>
@@ -86,14 +85,14 @@
          <form class=action="https://www.whattimeisitrightnow.com/">
              <legend>Select the Teacher</legend>
            <div class="input-group d-flex justify-content-center">
-            <select name="teachers" >
+            <select id="selectedTeacher" name="teachers" >
                 <option value="abc" selected>ABC</option>
                 <option value="def">DEF</option>
                 <option value="ghi">GHI</option>
                 <option value="jkl">JKLM</option></div>
             </select>
              <span class="input-group-btn">
-               <button type='submit' class="btn btn-secondary" type="button">View</button>
+               <button id="teacherBtn" type='submit' class="btn btn-secondary" type="button">View</button>
              </span>
              </form>
            </div>
@@ -250,6 +249,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

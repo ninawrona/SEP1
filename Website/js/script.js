@@ -14,8 +14,10 @@ var hour1625 = document.getElementById("16:25").getElementsByTagName("td");
 var hour1720 = document.getElementById("17:20").getElementsByTagName("td");
 var timeList = [hour820, hour915, hour1010, hour1105, hour1200, hour1245, hour1340, hour1435,
     hour1530, hour1625, hour1720];
-readXMLSessionList();
 
+
+var choosenClass;
+var choosenTeacher = null;
 
 //Write your function declarations below this line
 //example of a function getting and returning the book titles from the XML "text"
@@ -40,43 +42,111 @@ function displayTable(){
     document.getElementById("GOT").innerHTML = table;
 }
 */
-function readXMLSessionList() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            showData(xhttp);
-        }
-    };
-    xhttp.open("GET", "../../SessionList1X.xml", true);
-    xhttp.send();
-}
-function readXMLStudentList() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            showData(xhttp);
-        }
-    };
-    xhttp.open("GET", "../../StudentList.xml", true);
-    xhttp.send();
-}
-function readXMLTeacherList() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            showData(xhttp);
-        }
-    };
-    xhttp.open("GET", "../../SessionList1X.xml", true);
-    xhttp.send();
-}
+var test = document.getElementById("test");
+$("#classBtn").click(function () {
+    choosenClass = $("#selectedClass").val();
+    //console.log(choosenClass);
+    readXMLSessionListClass();
+});
+$("#teacherBtn").click(function () {
+    choosenTeacher = $("#selectedTeacher").val();
+    readXMLSessionListTeacher();
+});
 
 
+
+
+function readXMLSessionListClass() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            showData(xhttp);
+        }
+    }
+    if (choosenClass != null) {
+        switch (choosenClass) {
+            case ("1X"): xhttp.open("GET", "../../SessionList1X.xml", true);
+            xhttp.send();
+                break;
+            case ("1Y"): xhttp.open("GET", "../../SessionList1Y.xml", true);
+                break;
+            case ("1Z"): xhttp.open("GET", "../../SessionList1Z.xml", true);
+                break;
+            case ("1DK"): xhttp.open("GET", "../../SessionList1DK.xml", true);
+                break;
+            case ("2X"): xhttp.open("GET", "../../SessionList2X.xml", true);
+                break;
+            case ("2Y"): xhttp.open("GET", "../../SessionList2Y.xml", true);
+                break;
+            case ("2Z"): xhttp.open("GET", "../../SessionList2Z.xml", true);
+                break;
+            case ("2DK"): xhttp.open("GET", "../../SessionList2DK.xml", true);
+                break;
+            case ("3X"): xhttp.open("GET", "../../SessionList3X.xml", true);
+                break;
+            case ("3Y"): xhttp.open("GET", "../../SessionList3Y.xml", true);
+                break;
+            case ("3Z"): xhttp.open("GET", "../../SessionList3Z.xml", true);
+                break;
+            case ("3DK"): xhttp.open("GET", "../../SessionList3DK.xml", true);
+                break;
+            case ("4X"): xhttp.open("GET", "../../SessionList4X.xml", true);
+                break;
+            case ("4Y"): xhttp.open("GET", "../../SessionList4Y.xml", true);
+                break;
+            case ("4Z"): xhttp.open("GET", "../../SessionList4Z.xml", true);
+                break;
+            case ("4DK"): xhttp.open("GET", "../../SessionList4DK.xml", true);
+                break;
+
+
+        }
+    }
+    xhttp.send();
+}
+function readXMLSessionListTeacher() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            showData(xhttp);
+        }
+    };
+    if (choosenTeacher != null) {
+        switch (choosenTeacher) {
+            case ("ALHE"): xhttp.open("GET", "../../SessionListALHE.xml", true);
+                break;
+            case ("SVA"): xhttp.open("GET", "../../SessionListSVA.xml", true);
+                break;
+            case ("KLAB"): xhttp.open("GET", "../../SessionListKLAB.xml", true);
+                break;
+            case ("MIVI"): xhttp.open("GET", "../../SessionListMIVI.xml", true);
+                break;
+            case ("KASR"): xhttp.open("GET", "../../SessionListKASR.xml", true);
+                break;
+            case ("LILE"): xhttp.open("GET", "../../SessionListLILE.xml", true);
+                break;
+            case ("AHAN"): xhttp.open("GET", "../../SessionListAHAN.xml", true);
+                break;
+            case ("RIB"): xhttp.open("GET", "../../SessionListRIB.xml", true);
+                break;
+            case ("IOOD"): xhttp.open("GET", "../../SessionListIOOD.xml", true);
+                break;
+            case ("MWA"): xhttp.open("GET", "../../SessionListMWA.xml", true);
+                break;
+            case ("HEKP"): xhttp.open("GET", "../../SessionListHEKP.xml", true);
+                break;
+            case ("TRMO"): xhttp.open("GET", "../../SessionListTRMO.xml", true);
+                break;
+
+        }
+    }
+    xhttp.send();
+}
 function showData(xml) {
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName("Session");
     var listLength = x.length;
-    var test = document.getElementById("test");
+    
 
     for (var p = 0; p < listLength; p++) {
 
@@ -1485,7 +1555,8 @@ function showData(xml) {
                                 switch (course) {
                                     case ("SDJ"):
                                         {
-                                            hour1435[4].classList.add("bg-danger");                                        }
+                                            hour1435[4].classList.add("bg-danger");
+                                        }
                                         break;
                                     case ("DMA"):
                                         {

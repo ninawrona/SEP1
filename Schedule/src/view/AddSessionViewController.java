@@ -1,5 +1,10 @@
 package view;
-
+/**
+ *
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,11 +51,20 @@ public class AddSessionViewController
     ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
     ArrayList<Integer> roomsArray = new ArrayList<>();*/
 
+  /**
+   * Default Constructor that is called by the FXMLLoader
+   */
   public AddSessionViewController()
   {
     // Called by FXMLLoader
   }
 
+  /**
+   * Method for initializing all the variables
+   * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this
+   * @param model A ScheduleModel object that we set the AddSessionViewController model's to
+   * @param root A Region root that we set AddSessionViewController's region to
+   */
   public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
   {
     this.viewHandler = viewHandler;
@@ -69,11 +83,20 @@ public class AddSessionViewController
      */
   }
 
+  /**
+   * Method for getting the Root
+   * @return returns the root of AddSessionViewController
+   */
   public Region getRoot()
   {
     return root;
   }
 
+  /**
+   * A void method Resetting the AddSessionViewController.
+   * It clears out all the choice boxes and resets the error labels.
+   * It initializes all the choiceboxes and arrays again.
+   */
   public void reset()
   {
     // Clear old drop-downs
@@ -102,6 +125,9 @@ public class AddSessionViewController
     loadNumberOfLessonsArray();
   }
 
+  /**
+   * Method for loading all the courses into the courseChoiceBoxInAddSession
+   */
   // Load the courses into the arrayList
   // ? How will this look on the list? Will it use the toString method?
   private void loadAllCourseArray()
@@ -136,6 +162,10 @@ public class AddSessionViewController
     }
   }
 
+  /**
+   * clears the Time array of the different times.
+   * Adds the times to the time array and then loads the time array into the startTimeChoiceBox;
+   */
   private void loadTimeArray()
   {
     timeArray.removeAll(timeArray);
@@ -154,6 +184,10 @@ public class AddSessionViewController
 
   }
 
+  /**
+   * clears the numberOfLessonsArray.
+   * Creates a number array and adds each number to numberOfLessonsChoiceBox
+   */
   private void loadNumberOfLessonsArray()
   {
     numberOfLessonsArray.removeAll(numberOfLessonsArray);
@@ -166,6 +200,10 @@ public class AddSessionViewController
     numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
   }
 
+  /**
+   * clears the roomsArray.
+   * Adds rooms to the roomsArray and then adds the roomsArray to the roomsChoiceBox
+   */
   // Load rooms based on the session above
   private void loadRoomArray()
   {
@@ -179,6 +217,10 @@ public class AddSessionViewController
     System.out.println("Here are the rooms!");
   }
 
+  /**
+   * Method for getting the value of the date you picked in the GUI.
+   * @return returns the date as a localDate
+   */
   // Convert the date picker into our date class
   public Date getDateFromDatePicker()
   {
@@ -187,6 +229,11 @@ public class AddSessionViewController
         localDate.getYear());
   }
 
+  /**
+   * Method defining what should happen when the findRoomsButton is pressed.
+   * Clears the roomsChoicebox and then checks if it is a valid day and creates a session.
+   * It then loads the rooms into the roomChoiceBox
+   */
   // @FXML methods here
   // Create a session using the information above, then load rooms
   @FXML private void findRoomsButton()
@@ -228,7 +275,7 @@ public class AddSessionViewController
                 model.getChosenClassGroup());
         if (sortedSessions.size() > 1)
         {
-          //SORTING BASED ON START TIME
+
           for (int i = 0; i < sortedSessions.size(); i++)
           {
             int difference =
@@ -268,6 +315,11 @@ public class AddSessionViewController
     }
   }
 
+  /**Boolean Method for the confirmation button.
+   * Verifies if the user wants to book a room for a session with less than 45 students.
+   *
+   * @return returns true or false depending on which button the user clicks.
+   */
   private boolean confirmation()
   {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -278,6 +330,10 @@ public class AddSessionViewController
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
+  /**
+   * Method that throws an alert warning about gaps between sessions.
+   * @return returns either true or false depending on which button the user clicks
+   */
   private boolean gapConfirmation()
   {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -288,6 +344,9 @@ public class AddSessionViewController
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
+  /**
+   * 
+   */
   @FXML private void addSessionButton()
   {
     if(model.isTeacherAvailable(session))
@@ -380,7 +439,7 @@ public class AddSessionViewController
     }
     else
     {
-      errorLabel.setText("The teacher is not available! Open this window again and try again,");
+      errorLabel.setText("The teacher is not available!");
     }
   }
 

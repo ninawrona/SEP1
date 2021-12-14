@@ -75,8 +75,6 @@ public class SessionList {
         }
     }
 
-    // TODO: 09/12/2021 COMMENTS FOR THIS
-
     /**
      * A void method for removing a Session object from the SessionList. If there is no Session in the list, or the Session is null, an exception is thrown.
      *

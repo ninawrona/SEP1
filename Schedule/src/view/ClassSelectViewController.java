@@ -78,10 +78,18 @@ public class ClassSelectViewController
     private void confirmInChooseClassButton(){
         chosenClass = classChoiceBox.getSelectionModel().getSelectedItem();
         chosenClass = classChoiceBox.getValue();
-        model.setChosenClassGroup(chosenClass);
-        System.out.println(model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup().getCourses());
-        reset();
-        viewHandler.openView("schedule");
+        if(chosenClass!=null)
+        {
+            model.setChosenClassGroup(chosenClass);
+            System.out.println(model.getChosenClassGroup() + "courses: " + model
+                .getChosenClassGroup().getCourses());
+            reset();
+            viewHandler.openView("schedule");
+        }
+        else
+        {
+            errorLabel.setText("Would you kindly choose a class?");
+        }
     }
 
     @FXML

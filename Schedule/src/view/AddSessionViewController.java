@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
 
@@ -289,96 +290,98 @@ public class AddSessionViewController
 
   @FXML private void addSessionButton()
   {
-    try
+    if(model.isTeacherAvailable(session))
     {
-      session.bookRoom(roomsChoiceBox.getValue());
-      //model.addSession(session, roomsChoiceBox.getValue());
-      if (session.getRoom() == null)
+      try
       {
-        System.out.println("Hey! The room for this session is null!");
-      }
-      if (session.getRoom().getCapacity() > 100
-          && session.getCourse().getStudents().size() < 45)
-      {
-        boolean book = confirmation();
-        if (book)
+        session.bookRoom(roomsChoiceBox.getValue());
+        //model.addSession(session, roomsChoiceBox.getValue());
+        if (session.getRoom() == null)
         {
-          scheduleViewModel.addSession(session);
-          reset();
+          System.out.println("Hey! The room for this session is null!");
         }
-        else
+        if (session.getRoom().getCapacity() > 100 && session.getCourse().getStudents().size() < 45)
         {
-          session.bookRoom(null);
-        }
-        //errorLabel.setText("Are you sure you want to book the auditorium for less than 45 students?");
-      }
-      else
-      {
-        System.out.println("I put that session in room " + session.getRoom());
-      }
-
-      model.addSession(session, session.getRoom());
-      reset();
-
-      //warning for an auditorium
-      if (session.getRoom().getCapacity() > 100
-          && session.getCourse().getStudents().size() < 45)
-      {
-        boolean book = confirmation();
-        if (book)
-        {
-          scheduleViewModel.addSession(session);
-        }
-        else
-        {
-          reset();
-        }
-      }
-
-      {
-        scheduleViewModel.addSession(session);
-      }
-
-    }
-    catch (Exception e)
-    {
-      errorLabel.setText(e.getMessage());
-    }
-
-    SessionList sortedSessions = model
-        .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
-            model.getChosenClassGroup());
-    if (sortedSessions.size() > 1)
-    {
-      //SORTING BASED ON START TIME
-      for (int i = 0; i < sortedSessions.size() - 1; i++)
-      {
-        int difference =
-            sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
-                - sortedSessions.get(i).getEndTime().getTimeInSeconds();
-
-        if (difference > 600)
-        {
-          if (sortedSessions.get(i).getEndTimeString().equals("11:50")
-              && difference == 3300)
+          boolean book = confirmation();
+          if (book)
           {
-            // todo bug
-            // Loading the room array throws an illegal arg exception because the session is reset and then it tries
-            // to suggest rooms based on a null session.
-            // Should this be in the find rooms button?
-            // loadRoomArray();
+            scheduleViewModel.addSession(session);
+            reset();
           }
           else
           {
-            gapConfirmation();
+            session.bookRoom(null);
+          }
+          //errorLabel.setText("Are you sure you want to book the auditorium for less than 45 students?");
+        }
+        else
+        {
+          System.out.println("I put that session in room " + session.getRoom());
+        }
+
+        model.addSession(session, session.getRoom());
+        reset();
+
+        //warning for an auditorium
+        if (session.getRoom().getCapacity() > 100 && session.getCourse().getStudents().size() < 45)
+        {
+          boolean book = confirmation();
+          if (book)
+          {
+            scheduleViewModel.addSession(session);
+          }
+          else
+          {
+            reset();
+          }
+        }
+
+        {
+          scheduleViewModel.addSession(session);
+        }
+
+      }
+      catch (Exception e)
+      {
+        errorLabel.setText(e.getMessage());
+      }
+
+      SessionList sortedSessions = model
+          .getSessionsByDateAndClassGroup(getDateFromDatePicker(), model.getChosenClassGroup());
+      if (sortedSessions.size() > 1)
+      {
+        //SORTING BASED ON START TIME
+        for (int i = 0; i < sortedSessions.size() - 1; i++)
+        {
+          int difference =
+              sortedSessions.get(i + 1).getStartTime().getTimeInSeconds() - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+          if (difference > 600)
+          {
+            if (sortedSessions.get(i).getEndTimeString().equals("11:50") && difference == 3300)
+            {
+              // todo bug
+              // Loading the room array throws an illegal arg exception because the session is reset and then it tries
+              // to suggest rooms based on a null session.
+              // Should this be in the find rooms button?
+              // loadRoomArray();
+            }
+            else
+            {
+              gapConfirmation();
+            }
           }
         }
       }
-    }
 
-    reset();
-    System.out.println("I just added the following session: \n" + session);
-    viewHandler.openView("schedule");
+      reset();
+      System.out.println("I just added the following session: \n" + session);
+      viewHandler.openView("schedule");
+    }
+    else
+    {
+      errorLabel.setText("The teacher is not available! Open this window again and try again,");
+    }
   }
 
   @FXML private void cancelInAddSessionButton()

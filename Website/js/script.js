@@ -2,7 +2,6 @@ var document, DOMParser;
 //All the variables rows with our. We are gonna get different days by->
 //hour820[1] = 8:20 Monday and hour820[5] = 8:20 Friday.
 var hour820 = document.getElementById("8:20").getElementsByTagName("td");
-console.log(hour820);
 var hour915 = document.getElementById("9:15").getElementsByTagName("td");
 var hour1010 = document.getElementById("10:10").getElementsByTagName("td");
 var hour1105 = document.getElementById("11:05").getElementsByTagName("td");
@@ -15,7 +14,6 @@ var hour1625 = document.getElementById("16:25").getElementsByTagName("td");
 var hour1720 = document.getElementById("17:20").getElementsByTagName("td");
 var timeList = [hour820, hour915, hour1010, hour1105, hour1200, hour1245, hour1340, hour1435,
     hour1530, hour1625, hour1720];
-console.log(timeList[0]);
 readXMLSessionList();
 
 
@@ -126,7 +124,7 @@ function showData(xml) {
                                 hour820[1].classList.add("pt-" + numberOfLessons);
                                 hour820[1].rowSpan = "" + numberOfLessons;
 
-                                for (var k = numberOfLessons - 1; k > 1; k--) {
+                                for (var k = numberOfLessons - 1; k >= 1; k--) {
                                     timeList[k][1].remove();
                                 }
 
@@ -162,7 +160,7 @@ function showData(xml) {
                                 }
                                 hour820[2].classList.add("pt-" + numberOfLessons);
                                 hour820[2].rowSpan = "" + numberOfLessons;
-                                for (var m = numberOfLessons - 1; m > 1; m--) {
+                                for (var m = numberOfLessons - 1; m >= 1; m--) {
                                     timeList[m][2].remove();
                                 }
                             }
@@ -198,7 +196,7 @@ function showData(xml) {
                                 hour820[3].classList.add("pt-" + numberOfLessons);
                                 hour820[3].rowSpan = "" + numberOfLessons;
 
-                                for (var o = numberOfLessons - 1; o > 1; o--) {
+                                for (var o = numberOfLessons - 1; o >= 1; o--) {
                                     timeList[o][3].remove();
                                 }
                             }
@@ -233,7 +231,7 @@ function showData(xml) {
                                 }
                                 hour820[4].classList.add("pt-" + numberOfLessons);
                                 hour820[4].rowSpan = "" + numberOfLessons;
-                                for (var r = numberOfLessons - 1; r > 1; r--) {
+                                for (var r = numberOfLessons - 1; r >= 1; r--) {
                                     timeList[r][4].remove();
                                 }
                             }
@@ -268,7 +266,7 @@ function showData(xml) {
                                 }
                                 hour820[5].classList.add("pt-" + numberOfLessons);
                                 hour820[5].rowSpan = "" + numberOfLessons;
-                                for (var t = numberOfLessons - 1; t > 1; t--) {
+                                for (var t = numberOfLessons - 1; t >= 1; t--) {
                                     timeList[t][5].remove();
                                 }
                             } break;
@@ -309,7 +307,7 @@ function showData(xml) {
                                 hour915[1].classList.add("pt-" + numberOfLessons);
                                 hour915[1].rowSpan = "" + numberOfLessons;
 
-                                for (var v = numberOfLessons; v > 2; v--) {
+                                for (var v = numberOfLessons; v >= 2; v--) {
                                     timeList[v][1].remove();
                                 }
 
@@ -346,7 +344,7 @@ function showData(xml) {
                                 }
                                 hour915[2].classList.add("pt-" + numberOfLessons);
                                 hour915[2].rowSpan = "" + numberOfLessons;
-                                for (var y = numberOfLessons; y > 2; y--) {
+                                for (var y = numberOfLessons; y >= 2; y--) {
                                     timeList[y][2].remove();
                                 }
                             }
@@ -381,7 +379,7 @@ function showData(xml) {
                                 }
                                 hour915[3].classList.add("pt-" + numberOfLessons);
                                 hour915[3].rowSpan = "" + numberOfLessons;
-                                for (var aa = numberOfLessons; aa > 2; aa--) {
+                                for (var aa = numberOfLessons; aa >= 2; aa--) {
                                     timeList[aa][3].remove();
                                 }
                             }
@@ -416,7 +414,7 @@ function showData(xml) {
                                 }
                                 hour915[4].classList.add("pt-" + numberOfLessons);
                                 hour915[4].rowSpan = "" + numberOfLessons;
-                                for (var ac = numberOfLessons; ac > 2; ac--) {
+                                for (var ac = numberOfLessons; ac >= 2; ac--) {
                                     timeList[ac][4].remove();
                                 }
                             }
@@ -451,7 +449,7 @@ function showData(xml) {
                                 }
                                 hour915[5].classList.add("pt-" + numberOfLessons);
                                 hour915[5].rowSpan = "" + numberOfLessons;
-                                for (var ae = numberOfLessons; ae > 2; ae--) {
+                                for (var ae = numberOfLessons; ae >= 2; ae--) {
                                     timeList[ae][5].remove();
                                 }
                             }
@@ -492,19 +490,8 @@ function showData(xml) {
                                 }
                                 hour1010[1].classList.add("pt-" + numberOfLessons);
                                 hour1010[1].rowSpan = "" + numberOfLessons;
-                                var numHolder = parseInt(numberOfLessons);
-//!!!!!!!!!!!!!                                console.log("Number of lessons is " + numHolder);
-                                for (var ag = (numHolder + 1); ag > 3; ag--) {
-                                    console.log(timeList[3]);
-                                    console.log(timeList[numberOfLessons + 1]);
-                                    console.log(ag);
-                                    console.log(timeList[ag]);
-                                    var temp = timeList[ag];
-                                    console.log(temp);
-                                    console.log(temp[1]);
-                                    console.log(temp.length);
-                                    temp[1].remove();
-                                   // timeList[ag][1].remove(1);
+                                for (var ag = (numberOfLessons + 1); ag >= 3; ag--) {
+                                    timeList[ag][1].remove();
                                 }
                             }
                             break;
@@ -540,7 +527,7 @@ function showData(xml) {
                                 hour1010[2].classList.add("pt-" + numberOfLessons);
                                 hour1010[2].rowSpan = "" + numberOfLessons;
 
-                                for (var ai = numberOfLessons + 1; ai > 3; ai--) {
+                                for (var ai = numberOfLessons + 1; ai >= 3; ai--) {
                                     timeList[ai][2].remove();
                                 }
 
@@ -577,7 +564,7 @@ function showData(xml) {
                                 }
                                 hour1010[3].classList.add("pt-" + numberOfLessons);
                                 hour1010[3].rowSpan = "" + numberOfLessons;
-                                for (var ak = numberOfLessons + 1; ak > 3; ak--) {
+                                for (var ak = numberOfLessons + 1; ak >= 3; ak--) {
                                     timeList[ak][3].remove();
                                 }
                             }
@@ -612,7 +599,7 @@ function showData(xml) {
                                 }
                                 hour1010[4].classList.add("pt-" + numberOfLessons);
                                 hour1010[4].rowSpan = "" + numberOfLessons;
-                                for (var am = numberOfLessons + 1; am > 3; am--) {
+                                for (var am = numberOfLessons + 1; am >= 3; am--) {
                                     timeList[am][4].remove();
                                 }
                             }
@@ -647,7 +634,7 @@ function showData(xml) {
                                 }
                                 hour1010[5].classList.add("pt-" + numberOfLessons);
                                 hour1010[5].rowSpan = "" + numberOfLessons;
-                                for (var ao = numberOfLessons + 1; ao > 3; ao--) {
+                                for (var ao = numberOfLessons + 1; ao >= 3; ao--) {
                                     timeList[ao][5].remove();
                                 }
                             }
@@ -688,7 +675,7 @@ function showData(xml) {
                                 }
                                 hour1105[1].classList.add("pt-" + numberOfLessons);
                                 hour1105[1].rowSpan = "" + numberOfLessons;
-                                for (var aq = numberOfLessons + 2; aq > 4; aq--) {
+                                for (var aq = numberOfLessons + 2; aq >= 4; aq--) {
                                     timeList[aq][1].remove();
                                 }
                             }
@@ -723,7 +710,7 @@ function showData(xml) {
                                 }
                                 hour1105[2].classList.add("pt-" + numberOfLessons);
                                 hour1105[2].rowSpan = "" + numberOfLessons;
-                                for (var as = numberOfLessons + 2; as > 4; as--) {
+                                for (var as = numberOfLessons + 2; as >= 4; as--) {
                                     timeList[as][2].remove();
                                 }
                             }
@@ -758,7 +745,7 @@ function showData(xml) {
                                 }
                                 hour1105[3].classList.add("pt-" + numberOfLessons);
                                 hour1105[3].rowSpan = "" + numberOfLessons;
-                                for (var au = numberOfLessons + 2; au > 4; au--) {
+                                for (var au = numberOfLessons + 2; au >= 4; au--) {
                                     timeList[au][3].remove();
                                 }
                             }
@@ -793,7 +780,7 @@ function showData(xml) {
                                 }
                                 hour1105[4].classList.add("pt-" + numberOfLessons);
                                 hour1105[4].rowSpan = "" + numberOfLessons;
-                                for (var aw = numberOfLessons + 2; aw > 4; aw--) {
+                                for (var aw = numberOfLessons + 2; aw >= 4; aw--) {
                                     timeList[aw][4].remove();
                                 }
                             }
@@ -828,7 +815,7 @@ function showData(xml) {
                                 }
                                 hour1105[5].classList.add("pt-" + numberOfLessons);
                                 hour1105[5].rowSpan = "" + numberOfLessons;
-                                for (var ay = numberOfLessons + 2; ay > 4; ay--) {
+                                for (var ay = numberOfLessons + 2; ay >= 4; ay--) {
                                     timeList[ay][5].remove();
                                 }
                             }
@@ -869,7 +856,7 @@ function showData(xml) {
                                 }
                                 hour1200[1].classList.add("pt-" + numberOfLessons);
                                 hour1200[1].rowSpan = "" + numberOfLessons;
-                                for (var ba = numberOfLessons + 3; ba > 5; ba--) {
+                                for (var ba = numberOfLessons + 3; ba >= 5; ba--) {
                                     timeList[ba][1].remove();
                                 }
                             }
@@ -904,7 +891,7 @@ function showData(xml) {
                                 }
                                 hour1200[2].classList.add("pt-" + numberOfLessons);
                                 hour1200[2].rowSpan = "" + numberOfLessons;
-                                for (var bc = numberOfLessons + 3; bc > 5; bc--) {
+                                for (var bc = numberOfLessons + 3; bc >= 5; bc--) {
                                     timeList[bc][2].remove();
                                 }
                             }
@@ -939,7 +926,7 @@ function showData(xml) {
                                 }
                                 hour1200[3].classList.add("pt-" + numberOfLessons);
                                 hour1200[3].rowSpan = "" + numberOfLessons;
-                                for (var be = numberOfLessons + 3; be > 5; be--) {
+                                for (var be = numberOfLessons + 3; be >= 5; be--) {
                                     timeList[be][3].remove();
                                 }
                             }
@@ -974,7 +961,7 @@ function showData(xml) {
                                 }
                                 hour1200[4].classList.add("pt-" + numberOfLessons);
                                 hour1200[4].rowSpan = "" + numberOfLessons;
-                                for (var bg = numberOfLessons + 3; bg > 5; bg--) {
+                                for (var bg = numberOfLessons + 3; bg >= 5; bg--) {
                                     timeList[bg][4].remove();
                                 }
                             }
@@ -1009,7 +996,7 @@ function showData(xml) {
                                 }
                                 hour1200[5].classList.add("pt-" + numberOfLessons);
                                 hour1200[5].rowSpan = "" + numberOfLessons;
-                                for (var bi = numberOfLessons + 3; bi > 5; bi--) {
+                                for (var bi = numberOfLessons + 3; bi >= 5; bi--) {
                                     timeList[bi][5].remove();
                                 }
                             }
@@ -1050,7 +1037,7 @@ function showData(xml) {
                                 }
                                 hour1245[1].classList.add("pt-" + numberOfLessons);
                                 hour1245[1].rowSpan = "" + numberOfLessons;
-                                for (var bk = numberOfLessons + 4; bk > 6; bk--) {
+                                for (var bk = numberOfLessons + 4; bk >= 6; bk--) {
                                     timeList[bk][1].remove();
                                 }
                             }
@@ -1085,7 +1072,7 @@ function showData(xml) {
                                 }
                                 hour1245[2].classList.add("pt-" + numberOfLessons);
                                 hour1245[2].rowSpan = "" + numberOfLessons;
-                                for (var bm = numberOfLessons + 4; bm > 6; bm--) {
+                                for (var bm = numberOfLessons + 4; bm >= 6; bm--) {
                                     timeList[bm][2].remove();
                                 }
                             }
@@ -1120,7 +1107,7 @@ function showData(xml) {
                                 }
                                 hour1245[3].classList.add("pt-" + numberOfLessons);
                                 hour1245[3].rowSpan = "" + numberOfLessons;
-                                for (var bo = numberOfLessons + 4; bo > 6; bo--) {
+                                for (var bo = numberOfLessons + 4; bo >= 6; bo--) {
                                     timeList[bo][3].remove();
                                 }
                             }
@@ -1155,7 +1142,7 @@ function showData(xml) {
                                 }
                                 hour1245[4].classList.add("pt-" + numberOfLessons);
                                 hour1245[4].rowSpan = "" + numberOfLessons;
-                                for (var bq = numberOfLessons + 4; bq > 6; bq--) {
+                                for (var bq = numberOfLessons + 4; bq >= 6; bq--) {
                                     timeList[bq][4].remove();
                                 }
                             }
@@ -1190,7 +1177,7 @@ function showData(xml) {
                                 }
                                 hour1245[5].classList.add("pt-" + numberOfLessons);
                                 hour1245[5].rowSpan = "" + numberOfLessons;
-                                for (var bs = numberOfLessons + 4; bs > 6; bs--) {
+                                for (var bs = numberOfLessons + 4; bs >= 6; bs--) {
                                     timeList[bs][5].remove();
                                 }
                             }
@@ -1231,7 +1218,7 @@ function showData(xml) {
                                 }
                                 hour1340[1].classList.add("pt-" + numberOfLessons);
                                 hour1340[1].rowSpan = "" + numberOfLessons;
-                                for (var bu = numberOfLessons + 5; bu > 7; bu--) {
+                                for (var bu = numberOfLessons + 5; bu >= 7; bu--) {
                                     timeList[bu][1].remove();
                                 }
                             }
@@ -1266,7 +1253,7 @@ function showData(xml) {
                                 }
                                 hour1340[2].classList.add("pt-" + numberOfLessons);
                                 hour1340[2].rowSpan = "" + numberOfLessons;
-                                for (var bw = numberOfLessons + 5; bw > 7; bw--) {
+                                for (var bw = numberOfLessons + 5; bw >= 7; bw--) {
                                     timeList[bw][2].remove();
                                 }
                             }
@@ -1301,7 +1288,7 @@ function showData(xml) {
                                 }
                                 hour1340[3].classList.add("pt-" + numberOfLessons);
                                 hour1340[3].rowSpan = "" + numberOfLessons;
-                                for (var by = numberOfLessons + 5; by > 7; by--) {
+                                for (var by = numberOfLessons + 5; by >= 7; by--) {
                                     timeList[by][3].remove();
                                 }
                             }
@@ -1336,7 +1323,7 @@ function showData(xml) {
                                 }
                                 hour1340[4].classList.add("pt-" + numberOfLessons);
                                 hour1340[4].rowSpan = "" + numberOfLessons;
-                                for (var ca = numberOfLessons + 5; ca > 7; ca--) {
+                                for (var ca = numberOfLessons + 5; ca >= 7; ca--) {
                                     timeList[ca][4].remove();
                                 }
                             }
@@ -1371,7 +1358,7 @@ function showData(xml) {
                                 }
                                 hour1340[5].classList.add("pt-" + numberOfLessons);
                                 hour1340[5].rowSpan = "" + numberOfLessons;
-                                for (var cd = numberOfLessons + 5; cd > 7; cd--) {
+                                for (var cd = numberOfLessons + 5; cd >= 7; cd--) {
                                     timeList[cd][5].remove();
                                 }
                             }
@@ -1412,7 +1399,7 @@ function showData(xml) {
                                 }
                                 hour1435[1].classList.add("pt-" + numberOfLessons);
                                 hour1435[1].rowSpan = "" + numberOfLessons;
-                                for (var cf = numberOfLessons + 6; cf > 8; cf--) {
+                                for (var cf = numberOfLessons + 6; cf >= 8; cf--) {
                                     timeList[cf][1].remove();
                                 }
                             }
@@ -1447,7 +1434,7 @@ function showData(xml) {
                                 }
                                 hour1435[2].classList.add("pt-" + numberOfLessons);
                                 hour1435[2].rowSpan = "" + numberOfLessons;
-                                for (var ch = numberOfLessons + 6; ch > 8; ch--) {
+                                for (var ch = numberOfLessons + 6; ch >= 8; ch--) {
                                     timeList[ch][2].remove();
                                 }
                             }
@@ -1482,7 +1469,7 @@ function showData(xml) {
                                 }
                                 hour1435[3].classList.add("pt-" + numberOfLessons);
                                 hour1435[3].rowSpan = "" + numberOfLessons;
-                                for (var cj = numberOfLessons + 6; cj > 8; cj--) {
+                                for (var cj = numberOfLessons + 6; cj >= 8; cj--) {
                                     timeList[cj][3].remove();
                                 }
                             }
@@ -1516,7 +1503,7 @@ function showData(xml) {
                                 }
                                 hour1435[4].classList.add("pt-" + numberOfLessons);
                                 hour1435[4].rowSpan = "" + numberOfLessons;
-                                for (var cl = numberOfLessons + 6; cl > 8; cl--) {
+                                for (var cl = numberOfLessons + 6; cl >= 8; cl--) {
                                     timeList[cl][4].remove();
                                 }
                             }
@@ -1551,7 +1538,7 @@ function showData(xml) {
                                 }
                                 hour1435[5].classList.add("pt-" + numberOfLessons);
                                 hour1435[5].rowSpan = "" + numberOfLessons;
-                                for (var cn = numberOfLessons + 6; cn > 8; cn--) {
+                                for (var cn = numberOfLessons + 6; cn >= 8; cn--) {
                                     timeList[cn][5].remove();
                                 }
                             }
@@ -1592,7 +1579,7 @@ function showData(xml) {
                                 }
                                 hour1530[1].classList.add("pt-" + numberOfLessons);
                                 hour1530[1].rowSpan = "" + numberOfLessons;
-                                for (var cp = numberOfLessons + 7; cp > 9; cp--) {
+                                for (var cp = numberOfLessons + 7; cp >= 9; cp--) {
                                     timeList[cp][1].remove();
                                 }
                             }
@@ -1627,7 +1614,7 @@ function showData(xml) {
                                 }
                                 hour1530[2].classList.add("pt-" + numberOfLessons);
                                 hour1530[2].rowSpan = "" + numberOfLessons;
-                                for (var cr = numberOfLessons + 7; cr > 9; cr--) {
+                                for (var cr = numberOfLessons + 7; cr >= 9; cr--) {
                                     timeList[cr][2].remove();
                                 }
                             }
@@ -1662,7 +1649,7 @@ function showData(xml) {
                                 }
                                 hour1530[3].classList.add("pt-" + numberOfLessons);
                                 hour1530[3].rowSpan = "" + numberOfLessons;
-                                for (var ct = numberOfLessons + 7; ct > 9; ct--) {
+                                for (var ct = numberOfLessons + 7; ct >= 9; ct--) {
                                     timeList[ct][3].remove();
                                 }
                             }
@@ -1697,7 +1684,7 @@ function showData(xml) {
                                 }
                                 hour1530[4].classList.add("pt-" + numberOfLessons);
                                 hour1530[4].rowSpan = "" + numberOfLessons;
-                                for (var cv = numberOfLessons + 7; cv > 9; cv--) {
+                                for (var cv = numberOfLessons + 7; cv >= 9; cv--) {
                                     timeList[cv][4].remove();
                                 }
                             }
@@ -1732,7 +1719,7 @@ function showData(xml) {
                                 }
                                 hour1530[5].classList.add("pt-" + numberOfLessons);
                                 hour1530[5].rowSpan = "" + numberOfLessons;
-                                for (var cx = numberOfLessons + 7; cx > 9; cx--) {
+                                for (var cx = numberOfLessons + 7; cx >= 9; cx--) {
                                     timeList[cx][5].remove();
                                 }
                             }
@@ -1773,7 +1760,7 @@ function showData(xml) {
                                 }
                                 hour1625[1].classList.add("pt-" + numberOfLessons);
                                 hour1625[1].rowSpan = "" + numberOfLessons;
-                                for (var cz = numberOfLessons + 8; cz > 10; cz--) {
+                                for (var cz = numberOfLessons + 8; cz >= 10; cz--) {
                                     timeList[cz][1].remove();
                                 }
                             }
@@ -1808,7 +1795,7 @@ function showData(xml) {
                                 }
                                 hour1625[2].classList.add("pt-" + numberOfLessons);
                                 hour1625[2].rowSpan = "" + numberOfLessons;
-                                for (var db = numberOfLessons + 8; db > 10; db--) {
+                                for (var db = numberOfLessons + 8; db >= 10; db--) {
                                     timeList[db][2].remove();
                                 }
                             }
@@ -1843,7 +1830,7 @@ function showData(xml) {
                                 }
                                 hour1625[3].classList.add("pt-" + numberOfLessons);
                                 hour1625[3].rowSpan = "" + numberOfLessons;
-                                for (var df = numberOfLessons + 8; df > 10; df--) {
+                                for (var df = numberOfLessons + 8; df >= 10; df--) {
                                     timeList[df][3].remove();
                                 }
                             }
@@ -1878,7 +1865,7 @@ function showData(xml) {
                                 }
                                 hour1625[4].classList.add("pt-" + numberOfLessons);
                                 hour1625[4].rowSpan = "" + numberOfLessons;
-                                for (var dh = numberOfLessons + 8; dh > 10; dh--) {
+                                for (var dh = numberOfLessons + 8; dh >= 10; dh--) {
                                     timeList[dh][4].remove();
                                 }
                             }
@@ -1913,7 +1900,7 @@ function showData(xml) {
                                 }
                                 hour1625[5].classList.add("pt-" + numberOfLessons);
                                 hour1625[5].rowSpan = "" + numberOfLessons;
-                                for (var dj = numberOfLessons + 8; dj > 10; dj--) {
+                                for (var dj = numberOfLessons + 8; dj >= 10; dj--) {
                                     timeList[dj][5].remove();
                                 }
                             }

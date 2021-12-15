@@ -10,7 +10,12 @@ import model.list.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
-
+/**
+ *The MimicScheduleViewController class handles the functionality of the window wherein the planner can copy the week's schedule to the rest of the school year.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 1 - 2 December 2021
+ */
 public class MimicScheduleViewController
 {
     @FXML private Label errorLabel;
@@ -25,6 +30,9 @@ public class MimicScheduleViewController
   private ViewHandler viewHandler;
   private Region root;
 
+  /**
+   * Constructor for MimicScheduleViewController, called by FXMLLoader
+   */
   public MimicScheduleViewController()
   {
     // Called by FXMLLoader

@@ -55,16 +55,16 @@ public class CourseDetailsViewController
     this.root = root;
     this.model = model;
 
-    courseNameField
-        .setText("" + model.getChosenSession().getCourse().getFullName());
+    courseNameField.setText(
+        "" + model.getChosenSession().getCourse().getFullName());
     semesterField.setText("" + model.getChosenClassGroup().getSemester());
-    ectsPointsField
-        .setText("" + model.getChosenSession().getCourse().getECTS());
+    ectsPointsField.setText(
+        "" + model.getChosenSession().getCourse().getECTS());
     reset();
   }
 
   /**
-   * A getter method of Region object.
+   * A getter method returning the Region object.
    *
    * @return A Region object - 'root'.
    */
@@ -85,8 +85,8 @@ public class CourseDetailsViewController
     teacherChoice.getItems().removeAll(teacherList);
     studentChoice.setValue(null);
     teacherChoice.setValue(null);
-    courseNameField
-        .setText("" + model.getChosenSession().getCourse().getFullName());
+    courseNameField.setText(
+        "" + model.getChosenSession().getCourse().getFullName());
     loadStudentArray();
     loadTeacherArray();
 
@@ -106,8 +106,8 @@ public class CourseDetailsViewController
       for (int i = 0;
            i < model.getChosenSession().getCourse().getStudents().size(); i++)
       {
-        studentList
-            .add(model.getChosenSession().getCourse().getStudents().get(i));
+        studentList.add(
+            model.getChosenSession().getCourse().getStudents().get(i));
       }
       studentChoice.getItems().addAll(studentList);
     }

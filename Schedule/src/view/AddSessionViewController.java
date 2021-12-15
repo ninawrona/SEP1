@@ -1,6 +1,5 @@
 package view;
 
-
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +17,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
+
 /**
  * A class handling the functionality of the window wherein the user can add individual sessions.
  *
@@ -96,8 +96,8 @@ public class AddSessionViewController
     roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
-    titleLabel
-        .setText("Add a Session to " + model.getChosenClassGroup().toString());
+    titleLabel.setText(
+        "Add a Session to " + model.getChosenClassGroup().toString());
     session = null;
     model.setChosenClassGroup(model.getChosenClassGroup());
     this.classGroup = model.getChosenClassGroup();
@@ -225,8 +225,8 @@ public class AddSessionViewController
 
         for (int k = 0; k < model.getHolidayWeeks().size(); k++)
         {
-          if (model.getHolidayWeeks().get(k) == getDateFromDatePicker()
-              .getWeekNumber())
+          if (model.getHolidayWeeks().get(k)
+              == getDateFromDatePicker().getWeekNumber())
           {
             isHolidayWeek = true;
             errorLabel.setText("Chosen date is during holidays.");
@@ -243,12 +243,10 @@ public class AddSessionViewController
             getDateFromDatePicker(), startTimeChoiceBox.getValue(),
             numberOfLessonsChoiceBox.getValue());
 
-
         //GAP checker:
 
-        SessionList sortedSessions = model
-            .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
-                model.getChosenClassGroup());
+        SessionList sortedSessions = model.getSessionsByDateAndClassGroup(
+            getDateFromDatePicker(), model.getChosenClassGroup());
         if (sortedSessions.size() > 1)
         {
 
@@ -385,9 +383,8 @@ public class AddSessionViewController
         errorLabel.setText(e.getMessage());
       }
 
-      SessionList sortedSessions = model
-          .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
-              model.getChosenClassGroup());
+      SessionList sortedSessions = model.getSessionsByDateAndClassGroup(
+          getDateFromDatePicker(), model.getChosenClassGroup());
       if (sortedSessions.size() > 1)
       {
         //SORTING BASED ON START TIME

@@ -198,7 +198,7 @@ public class Date {
     }
 
     /**
-     * A String method returning a day, month, year as a String in a proper format.
+     * A String method returning the day, month and year as a String in a proper format.
      *
      * @return A String object.
      */

@@ -41,7 +41,7 @@ public class CourseList {
     }
 
     /**
-     * A void method for adding a course to the list.
+     * A void method for adding a course to the list of courses.
      *
      * @param course the Course object to be added to the list (cannot be null).
      */

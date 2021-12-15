@@ -15,7 +15,7 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 /**
- * A class which handles the choosing of a week
+ * A class handling the choosing of a week
  * that we are looking at in the displayed Schedule.
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 3-10 December 2021

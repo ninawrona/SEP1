@@ -12,7 +12,6 @@ import model.list.SessionList;
 public class Teacher {
     private String viaId;
     private CourseList coursesTaught;
-    private SessionList sessions;
 
     /**
      * One-argument constructor taking the teacher's VIA ID.
@@ -26,7 +25,6 @@ public class Teacher {
         }
 
         this.viaId = viaId;
-        this.sessions = new SessionList();
         this.coursesTaught = new CourseList();
     }
 

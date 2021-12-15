@@ -27,10 +27,6 @@ public class ScheduleModelManager implements ScheduleModel {
     private Date chosenMonday;
     private Teacher chosenTeacher;
 
-    // TODO all method javadoc
-    // TODO
-    // TODO
-
 
     /**
      * A constructor taking no arguments that initializes all the instance variables -

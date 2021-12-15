@@ -81,7 +81,7 @@ public class FileViewController
    *
    *  A void FXML method controlling the button.
    *  When clicked in GUI it opens a file browser.
-   *
+   * It sets a text field to the absolute path of the chosen file
    */
 
   @FXML private void selectStudentsFileButton()
@@ -98,7 +98,11 @@ public class FileViewController
             }
         }
     }
-
+  /**
+   * A void FXML method controlling the button.
+   * When clicked in GUI it opens a file browser.
+   * It sets a text field to the absolute path of the chosen file.
+   */
     @FXML
     void selectCoursesFileButton() {
         FileChooser fileChooser = new FileChooser();
@@ -112,7 +116,11 @@ public class FileViewController
             }
         }
     }
-
+  /**
+   * A void FXML method controlling the button.
+   * When clicked in GUI it opens a file browser.
+   * It sets a text field to the absolute path of the chosen file.
+   */
     @FXML
     void selectRoomsFileButton() {
         FileChooser fileChooser = new FileChooser();
@@ -126,7 +134,10 @@ public class FileViewController
             }
         }
     }
-
+  /**
+   * A void FXML method which confirms all the selected files
+   * and updates the model with the given data.
+   */
     @FXML
     void confirmInSelectATextFileButton() {
         if (counter == 0) {
@@ -144,7 +155,9 @@ public class FileViewController
         }
 
     }
-
+  /**
+   * A void FXML method closing the current view and opening schedule view.
+   */
     @FXML
     void cancelInSelectATextFileButton() {
         viewHandler.openView("schedule");

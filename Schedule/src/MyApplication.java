@@ -4,12 +4,10 @@ import javafx.stage.Stage;
 import model.list.*;
 import view.ViewHandler;
 
-public class MyApplication extends Application
-{
-  public void start(Stage primaryStage)
-  {
-    ScheduleModel model = new ScheduleModelManager();
-    ViewHandler view = new ViewHandler(model); // put model into ViewHandler
-    view.start(primaryStage);
-  }
+public class MyApplication extends Application {
+    public void start(Stage primaryStage) {
+        ScheduleModel model = new ScheduleModelManager();
+        ViewHandler view = new ViewHandler(model);
+        view.start(primaryStage);
+    }
 }

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
- * The ClassSelectViewController class handles the functionality of the window wherein the planner can select a class.
+ * A class handling the functionality of the window wherein the user can select a class.
  *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021
@@ -40,18 +40,18 @@ public class ClassSelectViewController {
     ArrayList<Teacher> allTeachersArray = new ArrayList<>();
 
     /**
-     * Constructor for ClassSelectViewController, called by FXMLLoader
+     * A zero-argument constructor called by FXML Loader.
      */
     public ClassSelectViewController() {
         // Called by FXMLLoader
     }
 
     /**
-     * Method for initializing all the variables
+     * A void method initializing all the non-FXML variables.
      *
-     * @param viewHandler A ViewHandler controlling what View we see. We are setting ClassSelectViewController's viewHandler to this.
-     * @param model       A ScheduleModel object that we set the ClassSelectViewController model's to.
-     * @param root        A Region root that we set ClassSelectViewController's Region root to.
+     * @param viewHandler A ViewHandler object which will be used to set this class 'viewHandler' variable.
+     * @param model       A ScheduleModel object which will be used to set this class 'model' variable.
+     * @param root        A Region object which will be used to set this class 'root' variable.
      */
     public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
         this.viewHandler = viewHandler;
@@ -63,26 +63,23 @@ public class ClassSelectViewController {
     }
 
     /**
-     * Method for getting the Region Root.
+     * A getter method of Region object.
      *
-     * @return A Region root
+     * @return A Region object - 'root'.
      */
     public Region getRoot() {
         return root;
     }
 
     /**
-     * Method for resetting. Sets the errorLabel to empty;
+     * A void method setting the error label to empty String.
      */
     public void reset() {
         errorLabel.setText("");
     }
 
     /**
-     * Method for loading all Classes. First it clears the AllClassesArray
-     * And then it addes all the classes from the model into it. It then
-     * loads the classes array int the classChoiceBox and sets the chosen class to the
-     * selected choiceBoxClass.
+     * A void method loading the course list into the teachers choice box.
      */
     private void loadAllCoursesArray() {
         allClassesArray.removeAll(allClassesArray);
@@ -98,9 +95,7 @@ public class ClassSelectViewController {
     // @FXML methods here
 
     /**
-     * Method for the confirmInChooseClassButton. sets the chosenClass to the
-     * classChoicebox value and then sets that to the models chosenClassGroup.
-     * ViewHandler opens the "schedule" view.
+     * A void FXML method which sets the chosen class inside the model and opens the schedule view.
      */
     @FXML
     private void confirmInChooseClassButton() {
@@ -118,8 +113,7 @@ public class ClassSelectViewController {
     }
 
     /**
-     * method for the cancelInChooseClassButton.
-     * calls the Reset() function and then ViewHandler changes the view to "schedule".
+     * A void FXML method closing the current view and opening schedule view.
      */
     @FXML
     private void cancelInChooseClassButton() {

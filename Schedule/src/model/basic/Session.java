@@ -411,7 +411,13 @@ public class Session implements Comparable<Session> {
 
     }
 
-    //TODO javaDoc
+
+
+    /**
+     * Method for making a copy of Session
+     * @param otherDate date of the other session
+     * @return Returns a copy of Session with another date
+     */
     public Session copySessionToDate(Date otherDate) {
         Session other = new Session(course, otherDate, startTime, numberOfLessons);
         other.bookRoom(room);

@@ -23,7 +23,7 @@ import model.basic.Date;
 import model.basic.Session;
 import model.basic.Time;
 import model.files.ReadWrite;
-import model.files.XMLParser;
+
 import model.list.*;
 
 import javax.swing.*;

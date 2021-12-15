@@ -8,7 +8,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.files.ReadWrite;
-import model.files.XMLParser;
+
 import model.list.ClassGroupList;
 import model.list.CourseList;
 import model.list.RoomList;

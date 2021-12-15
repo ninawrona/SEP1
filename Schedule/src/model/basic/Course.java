@@ -140,7 +140,6 @@ public class Course {
                     return "Semester Project";
                 }
             default:
-                System.out.println("Full name for course not found");
                 return name;
         }
     }

@@ -83,8 +83,6 @@ public class SessionViewModel
         break;
       default:
         timeHolder = 2;
-        System.out
-            .println("Could not find time for timeholder (SessionViewModel)");
         break;
     }
     startTimeIntProperty = new SimpleIntegerProperty(timeHolder);

@@ -75,7 +75,7 @@ public class ScheduleModelManager implements ScheduleModel {
      */
     public void setAllTeachers(TeacherList list) {
         this.allTeachers = list;
-        System.out.println("I set my teacherList: " + allTeachers);
+
     }
 
     /**
@@ -85,7 +85,6 @@ public class ScheduleModelManager implements ScheduleModel {
     @Override
     public void setChosenClassGroup(ClassGroup classGroup) {
         this.chosenClassGroup = classGroup;
-        System.out.println("I just set the class" + classGroup);
     }
 
     /**

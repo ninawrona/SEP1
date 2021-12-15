@@ -8,6 +8,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.files.ReadWrite;
+
 import model.list.ClassGroupList;
 import model.list.CourseList;
 import model.list.RoomList;
@@ -39,7 +40,7 @@ public class FileViewController
   private File fileRooms = null;
 
   /**
-   * A zero-argument constructor called by FXML Loader.
+   *  A zero-argument constructor called by FXML Loader.
    */
   public FileViewController()
   {

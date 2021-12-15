@@ -8,22 +8,24 @@ import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.files.ReadWrite;
-import model.files.XMLParser;
 import model.list.ClassGroupList;
 import model.list.CourseList;
 import model.list.RoomList;
 import model.list.ScheduleModel;
 
 import java.io.File;
+
 /**
  * A class allowing the user to upload text files.
+ *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 3-10 December 2021
  */
 public class FileViewController
 {
   //@FXML private methods here
-  @FXML private Label errorLabel;@FXML private TextField studentsField;
+  @FXML private Label errorLabel;
+  @FXML private TextField studentsField;
   @FXML private TextField coursesField;
   @FXML private TextField roomsField;
   private Region root;
@@ -37,7 +39,7 @@ public class FileViewController
   private File fileRooms = null;
 
   /**
-   *  A zero-argument constructor called by FXML Loader.
+   * A zero-argument constructor called by FXML Loader.
    */
   public FileViewController()
   {
@@ -58,8 +60,10 @@ public class FileViewController
     this.model = model;
     reset();
   }
+
   /**
    * A getter method of Region object.
+   *
    * @return A Region object - 'root'.
    */
   public Region getRoot()
@@ -75,93 +79,107 @@ public class FileViewController
     errorLabel.setText("");
   }
 
-    // @FXML methods here
+  // @FXML methods here
 
   /**
-   *
-   *  A void FXML method controlling the button.
-   *  When clicked in GUI it opens a file browser.
+   * A void FXML method controlling the button.
+   * When clicked in GUI it opens a file browser.
    * It sets a text field to the absolute path of the chosen file
    */
-
   @FXML private void selectStudentsFileButton()
   {
     FileChooser fileChooser = new FileChooser();
     fileStudents = fileChooser.showOpenDialog(null);
 
-        if (fileStudents != null) {
-            char[] fileNameArray = fileStudents.getName().toCharArray();
-            if (fileNameArray[fileNameArray.length - 3] == 't'
-                    && fileNameArray[fileNameArray.length - 2] == 'x'
-                    && fileNameArray[fileNameArray.length - 1] == 't') {
-                studentsField.setText(fileStudents.getAbsolutePath());
-            }
-        }
+    if (fileStudents != null)
+    {
+      char[] fileNameArray = fileStudents.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
+      {
+        studentsField.setText(fileStudents.getAbsolutePath());
+      }
     }
+  }
+
   /**
    * A void FXML method controlling the button.
    * When clicked in GUI it opens a file browser.
    * It sets a text field to the absolute path of the chosen file.
    */
-    @FXML
-    void selectCoursesFileButton() {
-        FileChooser fileChooser = new FileChooser();
-        fileCourses = fileChooser.showOpenDialog(null);
-        if (fileCourses != null) {
-            char[] fileNameArray = fileCourses.getName().toCharArray();
-            if (fileNameArray[fileNameArray.length - 3] == 't'
-                    && fileNameArray[fileNameArray.length - 2] == 'x'
-                    && fileNameArray[fileNameArray.length - 1] == 't') {
-                coursesField.setText(fileCourses.getAbsolutePath());
-            }
-        }
+  @FXML private void selectCoursesFileButton()
+  {
+    FileChooser fileChooser = new FileChooser();
+    fileCourses = fileChooser.showOpenDialog(null);
+    if (fileCourses != null)
+    {
+      char[] fileNameArray = fileCourses.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
+      {
+        coursesField.setText(fileCourses.getAbsolutePath());
+      }
     }
+  }
+
   /**
    * A void FXML method controlling the button.
    * When clicked in GUI it opens a file browser.
    * It sets a text field to the absolute path of the chosen file.
    */
-    @FXML
-    void selectRoomsFileButton() {
-        FileChooser fileChooser = new FileChooser();
-        fileRooms = fileChooser.showOpenDialog(null);
-        if (fileRooms != null) {
-            char[] fileNameArray = fileRooms.getName().toCharArray();
-            if (fileNameArray[fileNameArray.length - 3] == 't'
-                    && fileNameArray[fileNameArray.length - 2] == 'x'
-                    && fileNameArray[fileNameArray.length - 1] == 't') {
-                roomsField.setText(fileRooms.getAbsolutePath());
-            }
-        }
+  @FXML private void selectRoomsFileButton()
+  {
+    FileChooser fileChooser = new FileChooser();
+    fileRooms = fileChooser.showOpenDialog(null);
+    if (fileRooms != null)
+    {
+      char[] fileNameArray = fileRooms.getName().toCharArray();
+      if (fileNameArray[fileNameArray.length - 3] == 't'
+          && fileNameArray[fileNameArray.length - 2] == 'x'
+          && fileNameArray[fileNameArray.length - 1] == 't')
+      {
+        roomsField.setText(fileRooms.getAbsolutePath());
+      }
     }
+  }
+
   /**
    * A void FXML method which confirms all the selected files
    * and updates the model with the given data.
    */
-    @FXML
-    void confirmInSelectATextFileButton() {
-        if (counter == 0) {
-            if (fileStudents != null && fileRooms != null && fileCourses != null) {
-                model.getAllClasses().manualReadStudents(fileStudents);
-                model.getAllClasses().manualReadCourses(fileCourses);
-                model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
-                model.setAllTeachers(ReadWrite.manualReadMasterTeacherList(fileCourses));
-            }
-            viewHandler.closeView();
-            viewHandler.openView("schedule");
-            counter++;
-        } else {
-            errorLabel.setText("File already uploaded!\n If you want to upload the files then restart the program");
-        }
-
+  @FXML private void confirmInSelectATextFileButton()
+  {
+    if (counter == 0)
+    {
+      if (fileStudents != null && fileRooms != null && fileCourses != null)
+      {
+        model.getAllClasses().manualReadStudents(fileStudents);
+        model.getAllClasses().manualReadCourses(fileCourses);
+        model.setRoomList(ReadWrite.manualReadRooms(fileRooms));
+        model
+            .setAllTeachers(ReadWrite.manualReadMasterTeacherList(fileCourses));
+      }
+      viewHandler.closeView();
+      viewHandler.openView("schedule");
+      counter++;
     }
+    else
+    {
+      errorLabel.setText(
+          "File already uploaded!\n If you want to upload the files then restart the program");
+    }
+
+  }
+
   /**
    * A void FXML method closing the current view and opening schedule view.
    */
-    @FXML
-    void cancelInSelectATextFileButton() {
-        viewHandler.openView("schedule");
-    }
+  @FXML private void cancelInSelectATextFileButton()
+  {
+    viewHandler.openView("schedule");
+  }
 
 }
 

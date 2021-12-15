@@ -96,7 +96,7 @@ public class MimicScheduleViewController
   /**
    * A void FXML method confirming the choices, setting the holidays and mimicking the schedule.
    */
-  @FXML void confirmButton()
+  @FXML private void confirmButton()
   {
     // Do the holidays here
     for (int i = 0;
@@ -191,7 +191,7 @@ public class MimicScheduleViewController
   /**
    * A void FXML method closing the current view and opening schedule view.
    */
-  @FXML void cancelButton()
+  @FXML private void cancelButton()
   {
     viewHandler.openView("schedule");
   }

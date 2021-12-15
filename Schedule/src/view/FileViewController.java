@@ -32,15 +32,14 @@ public class FileViewController
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
-
-  private int counter = 0; //it is done so we dont add files twice
-
+  //Counter if the files have been already added.
+  private int counter = 0;
   private File fileStudents = null;
   private File fileCourses = null;
   private File fileRooms = null;
 
   /**
-   *  A zero-argument constructor called by FXML Loader.
+   * A zero-argument constructor called by FXML Loader.
    */
   public FileViewController()
   {

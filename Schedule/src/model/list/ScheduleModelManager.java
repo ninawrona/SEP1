@@ -55,45 +55,6 @@ public class ScheduleModelManager implements ScheduleModel
     teacherList.addTeacher(teacher);
   }
 
-  public void removeTeacher(Teacher teacher)
-  {
-    teacherList.removeTeacher(teacher);
-  }
-
-  public void addCourse(Course course)
-  {
-    courseList.addCourse(course);
-  }
-
-  public void removeCourse(Course course)
-  {
-    courseList.removeCourse(course);
-  }
-
-  public CourseList getCourseListByClassGroup(ClassGroup classGroup)
-  {
-    if (classGroup == null)
-    {
-      throw new IllegalArgumentException("Parameter cannot be null!");
-    }
-    CourseList courseListClassGroup = new CourseList();
-    for (int i = 0; i < sessionList.size(); i++)
-    {
-      if (sessionList.get(i).getCourse().getClassGroup().getClassName()
-          .equals(classGroup.getClassName())
-          && sessionList.get(i).getCourse().getClassGroup().getSemester()
-          == classGroup.getSemester())
-      {
-        courseListClassGroup.addCourse(sessionList.get(i).getCourse());
-      }
-    }
-    if (courseListClassGroup.size() > 0)
-    {
-      return courseListClassGroup;
-    }
-    throw new NullPointerException("No courses found for this class.");
-  }
-
   @Override public void setChosenClassGroup(ClassGroup classGroup)
   {
     this.chosenClassGroup = classGroup;
@@ -144,11 +105,6 @@ public class ScheduleModelManager implements ScheduleModel
   public ArrayList<Integer> getHolidayWeeks()
   {
     return holidayWeeks;
-  }
-
-  public void addClassGroupList(ClassGroupList classList)
-  {
-    this.classList = classList;
   }
 
   public void addSession(Session session, Room room)

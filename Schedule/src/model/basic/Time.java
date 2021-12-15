@@ -49,27 +49,6 @@ public class Time
   }
 
   /**
-   * A setter method for the hour
-   *
-   * @param hour
-   *            the hour
-   */
-  public void setHour(int hour)
-  {
-    this.hour = hour;
-  }
-
-  /**
-   * A setter method for the minute
-   * @param minute
-   *             the minute
-   */
-  public void setMinute(int minute)
-  {
-    this.minute = minute;
-  }
-
-  /**
    * A method checking if the time is before another time by converting both times into seconds and comparing the results.
    *
    * @param time

@@ -38,8 +38,6 @@ public class Teacher
     this.coursesTaught = new CourseList();
 
     this.viaId = viaId;
-    //coursesTaught = new CourseList();
-
   }
 
   /**

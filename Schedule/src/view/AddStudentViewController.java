@@ -64,7 +64,7 @@ public class AddStudentViewController
   }
 
   /**
-   * A getter method of Region object.
+   * A getter method returning the Region object.
    *
    * @return A Region object - 'root'.
    */

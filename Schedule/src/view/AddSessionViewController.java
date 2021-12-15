@@ -1,10 +1,5 @@
 package view;
-/**
- * A class handling the functionality of the window wherein the user can add individual sessions.
- *
- * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
- * @version 3-10 December 2021
- */
+
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -23,7 +18,12 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
-
+/**
+ * A class handling the functionality of the window wherein the user can add individual sessions.
+ *
+ * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
+ * @version 3-10 December 2021
+ */
 public class AddSessionViewController
 {
   //@FXML private methods here
@@ -50,7 +50,7 @@ public class AddSessionViewController
   // TODO Kamil review
 
   /**
-   * A zero-argument constructor called by FXML Loader.
+   * A zero-argument constructor called by the FXML Loader.
    */
   public AddSessionViewController()
   {
@@ -75,7 +75,7 @@ public class AddSessionViewController
   }
 
   /**
-   * A getter method of Region object.
+   * A getter method returning a Region object.
    *
    * @return A Region object - 'root'.
    */
@@ -195,9 +195,9 @@ public class AddSessionViewController
   }
 
   /**
-   * A getter the value of the picked date.
+   * A getter method returning the value of the picked date.
    *
-   * @return returns the date as a localDate
+   * @return returns the date as a localDate.
    */
   public Date getDateFromDatePicker()
   {

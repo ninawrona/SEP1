@@ -1,5 +1,4 @@
 package model.list;
-// TODO: 06/12/2021 CONTINUE DOCUMENTING ON TUESDAY 07/12.
 
 import model.basic.*;
 
@@ -13,7 +12,6 @@ import java.util.Collections;
  * @version 1 - 2 December 2021
  */
 public class SessionList {
-    private static Session session1;
     private ArrayList<Session> sessions;
     private RoomList roomList;
 

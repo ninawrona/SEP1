@@ -4,6 +4,8 @@ import javafx.stage.Stage;
 import model.list.*;
 import view.ViewHandler;
 
+// TODO javadoc
+
 public class MyApplication extends Application {
     public void start(Stage primaryStage) {
         ScheduleModel model = new ScheduleModelManager();

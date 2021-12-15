@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * @version 3 - December 2021
  */
 public class ScheduleModelManager implements ScheduleModel {
-    private TeacherList teacherList;
     private TeacherList allTeachers;
     private CourseList courseList;
     private SessionList sessionList;
@@ -28,13 +27,16 @@ public class ScheduleModelManager implements ScheduleModel {
     private Date chosenMonday;
     private Teacher chosenTeacher;
 
+    // TODO all method javadoc
+    // TODO
+    // TODO
+
+
     /**
      * A constructor taking no arguments that initializes all the instance variables -
      * - either creating a new list object or set the values to default.
      */
     public ScheduleModelManager() {
-        //TODO What is the difference with 'teacherList' and 'allTeachers' variables? Why do we need both?
-        this.teacherList = new TeacherList();
         this.allTeachers = new TeacherList();
         this.courseList = new CourseList();
         this.sessionList = new SessionList();
@@ -111,7 +113,6 @@ public class ScheduleModelManager implements ScheduleModel {
         this.chosenWeekNumber = chosenWeekNumber;
     }
 
-    // Bla bla
     public Date getChosenMonday() {
         return chosenMonday;
     }
@@ -156,45 +157,6 @@ public class ScheduleModelManager implements ScheduleModel {
 
     public SessionList getSessionsByClassGroup(ClassGroup classGroup) {
         return sessionList.getSessionsByClassGroup(classGroup);
-    }
-
-    public void addStudentToCourse(Student student, Course course) {
-        if (student == null || course == null) {
-            throw new IllegalArgumentException("Parameters cannot be null!");
-        }
-        for (int i = 0; i < sessionList.size(); i++) {
-            if (sessionList.get(i).getCourse().equals(course)) {
-                sessionList.get(i).getCourse().addStudent(student);
-            }
-        }
-    }
-
-    public void removeStudentFromCourse(Student student, Course course) {
-        if (student == null || course == null) {
-            throw new IllegalArgumentException("Parameters cannot be null!");
-        }
-        for (int i = 0; i < sessionList.size(); i++) {
-            if (sessionList.get(i).getCourse().equals(course)) {
-                if (sessionList.get(i).getCourse().getStudents().contains(student)) {
-                    sessionList.get(i).getCourse().addStudent(student);
-                }
-            }
-        }
-    }
-
-    public Student getStudentByViaId(int viaId) {
-        if (String.valueOf(viaId).length() < 6) {
-            throw new IllegalArgumentException("VIA ID has to have 6 digits!");
-        }
-
-        for (int i = 0; i < classList.size(); i++) {
-            for (int j = 0; j < classList.get(i).getStudents().size(); j++) {
-                if (classList.get(i).getStudents().get(j).getViaId() == viaId) {
-                    return classList.get(i).getStudents().get(j);
-                }
-            }
-        }
-        throw new NullPointerException("There are no students with this VIA ID.");
     }
 
     @Override

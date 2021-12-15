@@ -38,6 +38,8 @@ public class AddStudentViewController {
     private int viaId = 0;
     private String className = null;
 
+    // TODO Kamil review
+
     /**
      * Constructor for AddStudentViewController, called by the FXMLLoader.
      */

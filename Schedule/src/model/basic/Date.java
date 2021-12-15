@@ -10,7 +10,6 @@ import java.time.temporal.ChronoField;
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021
  */
-
 public class Date {
     private int day;
     private int month;
@@ -24,17 +23,8 @@ public class Date {
      * @param month the month of the date
      * @param year  the year of the date
      */
-
     public Date(int day, int month, int year) {
         set(day, month, year);
-
-        if (!isValid()) {
-      /*TODO the exception is a problem when we want set the chosen week to actual week
-       TODO for example when right now is Saturday then we have to create an object with the date from past
-      */
-            //throw new IllegalArgumentException(
-            //    "Date has to be today or after today.");
-        }
         if (isWeekend()) {
             throw new IllegalArgumentException(
                     "You cannot book the sessions during weekend!");
@@ -45,7 +35,6 @@ public class Date {
     /**
      * Overloaded zero-argument constructor creating a date object with today's date.
      */
-
     public Date() {
         LocalDate today = LocalDate.now();
         set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
@@ -56,7 +45,6 @@ public class Date {
      *
      * @return A String object containing the weekday name.
      */
-
     public String getWeekday() {
         LocalDate date = LocalDate.of(year, month, day);
         return date.getDayOfWeek().toString();
@@ -82,20 +70,10 @@ public class Date {
     }
 
     /**
-     * A boolean method checking if the date is not before today.
-     *
-     * @return "True" if this Date object is not before today's date. "False" if this Date is before today's date.
-     */
-    public boolean isValid() {
-        return !isBefore(new Date());
-    }
-
-    /**
      * A getter method returning the day.
      *
      * @return a day int
      */
-
     public int getDay() {
         return day;
     }
@@ -105,7 +83,6 @@ public class Date {
      *
      * @return a month int
      */
-
     public int getMonth() {
         return month;
     }
@@ -115,44 +92,8 @@ public class Date {
      *
      * @return a year int
      */
-
     public int getYear() {
         return year;
-    }
-
-    /**
-     * A String method returning a name of the month of this Date object.
-     *
-     * @return a monthName String.
-     */
-    public String getMonthName() {
-        switch (month) {
-            case 1:
-                return "January";
-            case 2:
-                return "February";
-            case 3:
-                return "March";
-            case 4:
-                return "April";
-            case 5:
-                return "May";
-            case 6:
-                return "June";
-            case 7:
-                return "July";
-            case 8:
-                return "August";
-            case 9:
-                return "September";
-            case 10:
-                return "October";
-            case 11:
-                return "November";
-            case 12:
-                return "December";
-        }
-        return "null";
     }
 
     /**
@@ -162,7 +103,6 @@ public class Date {
      * @param month a month int
      * @param year  a year int
      */
-
     public void set(int day, int month, int year) {
         if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1) {
             throw new IllegalArgumentException("Entered values are illegal.");
@@ -184,13 +124,7 @@ public class Date {
                 throw new IllegalArgumentException(
                         "There are 30 days in chosen month.");
             }
-        } else {
-            if (day > 31) {
-                throw new IllegalArgumentException(
-                        "There are 31 days in chosen month.");
-            }
         }
-
         this.day = day;
         this.month = month;
         this.year = year;
@@ -201,7 +135,6 @@ public class Date {
      *
      * @return A number of days int
      */
-
     public int numberOfDaysInMonth() {
         if (month == 2) {
             if (isLeapYear()) {
@@ -227,42 +160,8 @@ public class Date {
     }
 
     /**
-     * A boolean method checking if this Date object is before other Date object.
-     *
-     * @param date other Date object to which we want to compare this Date object.
-     * @return "True" if this Date is before other Date. "False" if this Date is after other Date.
-     */
-
-    public boolean isBefore(Date date) {
-        int years = this.year - date.year;
-        int months = this.month - date.month;
-        int days = this.day - date.day;
-
-        if (years < 0) {
-            return true;
-        } else if (years > 0) {
-            return false;
-        } else {
-            if (months < 0) {
-                return true;
-            } else if (months > 0) {
-                return false;
-            } else {
-                if (days < 0) {
-                    return true;
-                } else if (days > 0) {
-                    return false;
-                } else {
-                    return false;
-                }
-            }
-        }
-    }
-
-    /**
      * A void method increasing the value of the day for this Date object by one.
      */
-
     public void stepForwardOneDay() {
         day++;
         if (day > numberOfDaysInMonth()) {

@@ -53,6 +53,7 @@ public class AddSessionViewController {
     ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
     ArrayList<Room> roomsArray = new ArrayList<>();
 
+    // TODO Kamil review
 
     /**
      * Default Constructor that is called by the FXMLLoader
@@ -308,6 +309,7 @@ public class AddSessionViewController {
 
     /**
      * Method for the addSessionButton. It adds a session to the ScheduleViewModel
+     *  TODO expand description
      */
     @FXML
     private void addSessionButton() {

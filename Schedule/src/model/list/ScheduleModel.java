@@ -44,11 +44,6 @@ public interface ScheduleModel {
 
     public SessionList getSessionsByClassGroup(ClassGroup classGroup);
 
-    // TODO check these methods
-    public void addStudentToCourse(Student student, Course course);
-
-    public void removeStudentFromCourse(Student student, Course course);
-
     public SessionList getSessionsByDateAndClassGroup(Date date, ClassGroup classGroup);
 
     public void setChosenTeacher(Teacher chosenTeacher);

@@ -456,7 +456,10 @@ public class Session implements Comparable<Session> {
                 && numberOfLessons == other.numberOfLessons;
     }
 
-    // todo add to javadoc
+    /**
+     * A shortened toString() method
+     * @return returns a String containing course name, date, and room or "unassigned" if room is null
+     */
     public String shortString() {
         String str = "";
         str += course.getName() + "\n" + date + "\n";
@@ -468,7 +471,11 @@ public class Session implements Comparable<Session> {
         return str;
     }
 
-    // TODO javadoc
+    /**
+     * Method for comparing sessions
+     * @param obj is a Session object
+     * @return returns a different  number depending on the values of the start times in seconds
+     */
     @Override
     public int compareTo(Session obj) {
         if (startTime.getTimeInSeconds() == obj.startTime.getTimeInSeconds()) {

@@ -108,10 +108,14 @@ public class Course {
         return name;
     }
 
-    // todo javadoc
-    // This method returns the full name of the course with respect to the class group the student belongs in
-    // The classgroup is checked to see if it is a Danish class. If so, it returns the full Danish title.
-    // Currently only for 1st semester, but can be applied to first 4 semesters using doc on itslearning
+    /**
+     *
+     * This method returns the full name of the course with respect to the class group the student belongs in
+     * The classgroup is checked to see if it is a Danish class. If so, it returns the full Danish title.
+     * Currently only for 1st semester, but can be applied to first 4 semesters using doc on itslearning
+     *
+     * @return returns a String with the full name of the course.
+     */
     public String getFullName() {
         switch (name) {
             case "SDJ":

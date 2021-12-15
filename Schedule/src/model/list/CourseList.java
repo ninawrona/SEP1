@@ -68,10 +68,8 @@ public class CourseList {
         courses.remove(course);
     }
 
-    // TODO javadoc is incorrect. These are for rooms when they should be for courses
-
     /**
-     * A method returning a String representation of the ArrayList "rooms".
+     * A method returning a String representation of the ArrayList "Courses".
      *
      * @return a String containing all the rooms and their information.
      */

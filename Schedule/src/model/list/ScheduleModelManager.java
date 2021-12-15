@@ -82,70 +82,133 @@ public class ScheduleModelManager implements ScheduleModel {
         System.out.println("I set my teacherList: " + allTeachers);
     }
 
+    /**
+     * Method for setting chosenClassGroup to ClassGroup classgroup
+     * @param classGroup ClassGroup to set chosenClassGroup to
+     */
     @Override
     public void setChosenClassGroup(ClassGroup classGroup) {
         this.chosenClassGroup = classGroup;
         System.out.println("I just set the class" + classGroup);
     }
 
+    /**
+     * Method for getting the ChosenClassGroup
+     * @return Returns chosenClassGroup
+     */
     @Override
     public ClassGroup getChosenClassGroup() {
         return chosenClassGroup;
     }
 
+    /**
+     * method for getting the chosen session
+     * @return Returns the chosenSession
+     */
     @Override
     public Session getChosenSession() {
         return chosenSession;
     }
 
+    /**
+     * Method for setting the chosen Session
+     * @param session The session to set chosenSession to
+     */
     @Override
     public void setChosenSession(Session session) {
         this.chosenSession = session;
     }
 
+    /**
+     * method for getting the chosenWeekNumber
+     * @return Returns the chosenWeekNumber
+     */
     @Override
     public int getChosenWeekNumber() {
         return chosenWeekNumber;
     }
 
+    /**
+     * Method for setting the chosen week number
+     * @param chosenWeekNumber The week number to set chosenWeekNumber to
+     */
     @Override
     public void setChosenWeekNumber(int chosenWeekNumber) {
         this.chosenWeekNumber = chosenWeekNumber;
     }
 
+    /**
+     * method for getting the chosen monday
+     * @return Returns chosenMonday
+     */
     public Date getChosenMonday() {
         return chosenMonday;
     }
 
+    /**
+     * Method for setting the chosen monday
+     * @param chosenMonday The Date chosenMonday to set object chosen monday to
+     */
     @Override
     public void setChosenMonday(Date chosenMonday) {
         this.chosenMonday = chosenMonday;
     }
 
+    /**
+     * method for setting the holiday weeks
+     * @param holidayWeeks ArrayList<Integer>
+     */
     public void setHolidayWeeks(ArrayList<Integer> holidayWeeks) {
         this.holidayWeeks = holidayWeeks;
     }
 
+    /**
+     * method for getting holdiay weeks
+     * @return ArrayList<Integer> holiday weeks
+     */
     public ArrayList<Integer> getHolidayWeeks() {
         return holidayWeeks;
     }
 
+    /**
+     * method for adding session
+     * @param session session to be added
+     * @param room room the session is added to
+     */
     public void addSession(Session session, Room room) {
         sessionList.addSession(session, room);
     }
 
+    /**
+     * method for removing sessions
+     * @param session session that is being removed
+     */
     public void removeSession(Session session) {
         sessionList.removeSession(session);
     }
 
+    /**
+     * method for setting RoomList
+     * @param roomList the RoomList that sessionList's RoomList is being set to
+     */
     public void setRoomList(RoomList roomList) {
         sessionList.setRoomList(roomList);
     }
 
+    /**
+     * Method suggesting rooms to book
+     * @param session A Session object for which we are suggesting rooms for
+     * @return RoomList of suggested rooms
+     */
     public RoomList suggestRooms(Session session) {
         return sessionList.suggestRooms(session);
     }
 
+    /**
+     * Method for checking if the teacher is available for a specific session
+     * @param session A session object that we want to check if the teacher is available to teach
+     * @return returns a Boolean true or false depending on whether or not the teacher is available to teach that session
+     */
     public boolean isTeacherAvailable(Session session) {
         return sessionList.isTeacherAvailable(session);
     }
@@ -155,21 +218,40 @@ public class ScheduleModelManager implements ScheduleModel {
         return sessionList.getSessionsByTeacher(teacher, date);
     }
 
+    /**
+     * Method for gettign sessions by classGroup
+     * @param classGroup A classGroup object that we are using to search for sessions
+     * @return A SessionList containing the sessions for a specific classGroup
+     */
     public SessionList getSessionsByClassGroup(ClassGroup classGroup) {
         return sessionList.getSessionsByClassGroup(classGroup);
     }
 
+    /**
+     * Method for getting sessions by date and classGroup
+     * @param date When the sessions should be taking place
+     * @param classGroup Which classGroup you want sessions for
+     * @return
+     */
     @Override
     public SessionList getSessionsByDateAndClassGroup(Date date,
                                                       ClassGroup classGroup) {
         return sessionList.getSessionsByDateAndClassGroup(date, classGroup);
     }
 
+    /**
+     * Method for setting the chosen Teacher
+     * @param chosenTeacher The teacher that chosenTeacher is set to
+     */
     @Override
     public void setChosenTeacher(Teacher chosenTeacher) {
         this.chosenTeacher = chosenTeacher;
     }
 
+    /**
+     * method for getting the chosen teacher
+     * @return Returns the chosen teacher
+     */
     @Override
     public Teacher getChosenTeacher() {
         return chosenTeacher;

@@ -34,7 +34,11 @@ public class Student {
         this.viaId = viaId;
     }
 
-    // TODO javadoc
+    /**
+     * Constructor for Student object, taking in String name and int viaId
+     * @param name String with the student's name
+     * @param viaId int with the student's via ID
+     */
     public Student(String name, int viaId) {
         if (name == null) {
             throw new IllegalArgumentException("Name cannot be null!");

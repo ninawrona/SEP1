@@ -25,11 +25,8 @@ public class Auditorium extends Room {
     /**
      * A method returning the String representation of the Auditorium object.
      *
-     * @return A string containing the block, the floor, the number and the capacity of the auditorium.
+     * @return A string containing the block, the floor, and the number.
      */
-    // Changed to print better on the list
-    // If there is only one auditorium, can we predefine all values?
-    // todo change javadoc to reflect
     public String toString() {
         return "Auditorium: " + super.getBlock() + super.getFloor()
                 + super.getNumber();

@@ -10,12 +10,11 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class ReadWrite {
-    // TODO all javadoc
-    // TODO
-    // TODO
-    //Parser would not work so I made a manual write.
-    //Reads in a SessionList and turns it into xml format.
-    //Takes in a sessionList and a ClassGroup to print a sessionList for that specific classGroup.
+    /**
+     * Method reading in a SessionList and a String for chosen classGroup and turning it into and xml file
+     * @param sessions A SessionList object
+     * @param chosenClassGroup A String of the chosenClassGroup
+     */
     public static void manualWriteSessionList(SessionList sessions, String chosenClassGroup)//put Semester+ClassName.
     {
         File file = new File("SessionList" + chosenClassGroup + ".xml");
@@ -70,8 +69,11 @@ public class ReadWrite {
         }
     }
 
-    // Used in test branch ("Chris")
-    //Reads in a File with students and turns it into a ClassGroupList
+    /**
+     * Method reading in a File file and turning it into a ClassGroupList
+     * @param file File object with students
+     * @return returns a ClassGroupList
+     */
     public static ClassGroupList manualReadStudents(File file) {
 
         ClassGroupList classGroupList = new ClassGroupList();
@@ -291,8 +293,11 @@ public class ReadWrite {
         return classGroupList;
     }
 
-    // Called in test branch
-    //Reads in a file of Courses and turns it into a CourseList
+    /**
+     * Method reading in a File file and turning it into a CourseList
+     * @param file File object with courses
+     * @return returns a Courselist
+     */
     public static CourseList manualReadCourses(File file) {
 
         CourseList courses = new CourseList();
@@ -378,7 +383,11 @@ public class ReadWrite {
         return courses;
     }
 
-    //Reads in a file of Courses and turns it into a teacherList
+    /**
+     * Method reading in a file of courses and turns it into a TeacherList
+     * @param file File with courses and teachers
+     * @return Returns a TeacherList
+     */
     public static TeacherList manualReadMasterTeacherList(File file) {
         CourseList courses = new CourseList();
         TeacherList masterTeacherList = new TeacherList();
@@ -457,6 +466,11 @@ public class ReadWrite {
         return masterTeacherList;
     }
 
+    /**
+     * Method reading in a File file and creating a RoomList
+     * @param file File containing rooms
+     * @return Returns a RoomList
+     */
     public static RoomList manualReadRooms(File file) {
 
         RoomList rooms = new RoomList();

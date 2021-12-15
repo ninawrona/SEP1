@@ -88,7 +88,6 @@ public class SelectTeacherViewController
     {
       allTeachersArray.add(model.getAllTeachers().get(i));
     }
-    System.out.println("My teachers array" + allTeachersArray);
     teacherChoiceBox.getItems().addAll(allTeachersArray);
     chosenTeacher = teacherChoiceBox.getSelectionModel().getSelectedItem();
 

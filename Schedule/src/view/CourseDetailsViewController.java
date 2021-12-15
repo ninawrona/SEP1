@@ -55,8 +55,6 @@ public class CourseDetailsViewController
     this.root = root;
     this.model = model;
 
-    System.out
-        .println("Ects: " + model.getChosenSession().getCourse().getECTS());
     courseNameField
         .setText("" + model.getChosenSession().getCourse().getFullName());
     semesterField.setText("" + model.getChosenClassGroup().getSemester());
@@ -194,9 +192,6 @@ public class CourseDetailsViewController
     {
       errorLabel.setText(e.getMessage());
     }
-    System.out.println("List of current students");
-    System.out
-        .println(model.getChosenSession().getCourse().getStudents().toString());
   }
 
   /**

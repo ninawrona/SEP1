@@ -331,13 +331,9 @@ public class ReadWrite {
                         if (courses.size() == 0) {
                             course = new Course(courseName, classGroup, teacherList,
                                     semesterTaught, ECTS);
-                            System.out.println("Size is 0, New Course Made:\n" + course);
                             for (int j = 0; j < teacherList.size(); j++) {
                                 if (!(teacherList.get(j) == null)) {
                                     teacherList.get(j).assignToCourseTaught(course);
-                                    System.out.println(
-                                            "Courses taught: " + teacherList.get(j).getCoursesTaught()
-                                                    + "\n--------------");
 
                                 }
                             }
@@ -349,9 +345,7 @@ public class ReadWrite {
                                         .get(i).getName().equals(courseName) && !(courses.get(i)
                                         .getTeachers().contains(new Teacher(parts[3])))) {
                                     courses.get(i).addTeacher(new Teacher(parts[3]));
-                                    System.out.println("I added a teacher to an existing course"
-                                            + "\nEXISTING CLASS: " + courses.get(i)
-                                            + "----------------");
+
 
                                     teacherFound = true;
 
@@ -360,8 +354,7 @@ public class ReadWrite {
                             if (!teacherFound) {
                                 course = new Course(courseName, classGroup, teacherList,
                                         semesterTaught, ECTS);
-                                System.out.println("New Course being printed: \n" + course
-                                        + "\n-----------------");
+
 
                                 for (int j = 0; j < teacherList.size(); j++) {
                                     if (!(teacherList.get(j) == null)) {

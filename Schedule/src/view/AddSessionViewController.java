@@ -1,9 +1,9 @@
 package view;
 /**
- * The AddSessionViewController class handles the functionality of the window wherein the planner can add individual sessions
+ * A class handling the functionality of the window wherein the user can add individual sessions.
  *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
- * @version 1 - 2 December 2021
+ * @version 3-10 December 2021
  */
 
 import javafx.collections.FXCollections;
@@ -24,368 +24,406 @@ import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
 
-public class AddSessionViewController {
-    //@FXML private methods here
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private Label titleLabel;
-    @FXML
-    private ChoiceBox<Course> courseChoiceBoxInAddSession;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private ChoiceBox<Time> startTimeChoiceBox;
-    @FXML
-    private ChoiceBox<Integer> numberOfLessonsChoiceBox;
-    @FXML
-    private ChoiceBox<Room> roomsChoiceBox;
+public class AddSessionViewController
+{
+  //@FXML private methods here
+  @FXML private Label errorLabel;
+  @FXML private Label titleLabel;
+  @FXML private ChoiceBox<Course> courseChoiceBoxInAddSession;
+  @FXML private DatePicker datePicker;
+  @FXML private ChoiceBox<Time> startTimeChoiceBox;
+  @FXML private ChoiceBox<Integer> numberOfLessonsChoiceBox;
+  @FXML private ChoiceBox<Room> roomsChoiceBox;
 
-    private Region root;
-    private ViewHandler viewHandler;
-    private ScheduleModel model;
-    private ScheduleViewModel scheduleViewModel;
-    private ClassGroup classGroup;
-    private Session session;
+  private Region root;
+  private ViewHandler viewHandler;
+  private ScheduleModel model;
+  private ScheduleViewModel scheduleViewModel;
+  private ClassGroup classGroup;
+  private Session session;
 
-    ArrayList<Course> allCoursesArray = new ArrayList<>();
-    ArrayList<Time> timeArray = new ArrayList<>();
-    ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
-    ArrayList<Room> roomsArray = new ArrayList<>();
+  ArrayList<Course> allCoursesArray = new ArrayList<>();
+  ArrayList<Time> timeArray = new ArrayList<>();
+  ArrayList<Integer> numberOfLessonsArray = new ArrayList<>();
+  ArrayList<Room> roomsArray = new ArrayList<>();
 
-    // TODO Kamil review
+  // TODO Kamil review
 
-    /**
-     * Default Constructor that is called by the FXMLLoader
-     */
-    public AddSessionViewController() {
-        // Called by FXMLLoader
+  /**
+   * A zero-argument constructor called by FXML Loader.
+   */
+  public AddSessionViewController()
+  {
+    // Called by FXMLLoader
+  }
+
+  /**
+   * A void method initializing all the non-FXML variables.
+   *
+   * @param viewHandler A ViewHandler object which will be used to set this class 'viewHandler' variable.
+   * @param model       A ScheduleModel object which will be used to set this class 'model' variable.
+   * @param root        A Region object which will be used to set this class 'root' variable.
+   */
+  public void init(ViewHandler viewHandler, ScheduleModel model, Region root)
+  {
+    this.viewHandler = viewHandler;
+    this.root = root;
+    this.model = model;
+    this.scheduleViewModel = new ScheduleViewModel(model);
+    this.classGroup = model.getChosenClassGroup();
+    reset();
+  }
+
+  /**
+   * A getter method of Region object.
+   *
+   * @return A Region object - 'root'.
+   */
+  public Region getRoot()
+  {
+    return root;
+  }
+
+  /**
+   * A void method setting labels to empty String objects and loading the lists.
+   */
+  public void reset()
+  {
+    // Clear old drop-downs
+    courseChoiceBoxInAddSession.getItems().removeAll(allCoursesArray);
+    startTimeChoiceBox.getItems().removeAll(timeArray);
+    numberOfLessonsChoiceBox.getItems().removeAll(numberOfLessonsArray);
+    roomsChoiceBox.getItems().removeAll(roomsArray);
+    // set text to ""
+    errorLabel.setText("");
+    titleLabel
+        .setText("Add a Session to " + model.getChosenClassGroup().toString());
+    session = null;
+    model.setChosenClassGroup(model.getChosenClassGroup());
+    this.classGroup = model.getChosenClassGroup();
+    courseChoiceBoxInAddSession.setValue(null);
+    startTimeChoiceBox.setValue(null);
+    numberOfLessonsChoiceBox.setValue(null);
+    roomsChoiceBox.setValue(null);
+    loadAllCourseArray();
+    loadTimeArray();
+    loadNumberOfLessonsArray();
+  }
+
+  /**
+   * A void method that is loading all the courses into the course choice box.
+   */
+  private void loadAllCourseArray()
+  {
+    allCoursesArray.removeAll(allCoursesArray);
+    // Only load the courses relevant to the selected class group
+    try
+    {
+      ClassGroup classGroupx = classGroup;
+      CourseList courseListx = new CourseList();
+      for (int i = 0; i < classGroupx.getCourses().size(); i++)
+      {
+        courseListx.addCourse(classGroupx.getCourses().get(i));
+      }
+      for (int i = 0; i < courseListx.size(); i++)
+      {
+        Course coursex = courseListx.get(i);
+        allCoursesArray.add(coursex);
+      }
+      courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
     }
-
-    /**
-     * Method for initializing all the variables
-     *
-     * @param viewHandler A ViewHandler controlling what View we see. We are setting AddSessionViewController's viewHandler to this
-     * @param model       A ScheduleModel object that we set the AddSessionViewController model's to
-     * @param root        A Region root that we set AddSessionViewController's region to
-     */
-    public void init(ViewHandler viewHandler, ScheduleModel model, Region root) {
-        this.viewHandler = viewHandler;
-        this.root = root;
-        this.model = model;
-        this.scheduleViewModel = new ScheduleViewModel(model);
-        this.classGroup = model.getChosenClassGroup();
-        reset();
+    catch (NullPointerException e)
+    {
+      errorLabel.setText("Class not selected!");
     }
-
-    /**
-     * Method for getting the Root
-     *
-     * @return returns the root of AddSessionViewController
-     */
-    public Region getRoot() {
-        return root;
+    catch (Exception e)
+    {
+      e.printStackTrace();
     }
+  }
 
-    /**
-     * A void method Resetting the AddSessionViewController.
-     * It clears out all the choice boxes and resets the error labels.
-     * It initializes all the choiceboxes and arrays again.
-     */
-    public void reset() {
-        // Clear old drop-downs
-        courseChoiceBoxInAddSession.getItems().removeAll(allCoursesArray);
-        startTimeChoiceBox.getItems().removeAll(timeArray);
-        numberOfLessonsChoiceBox.getItems().removeAll(numberOfLessonsArray);
-        roomsChoiceBox.getItems().removeAll(roomsArray);
-        // set text to ""
-        errorLabel.setText("");
-        titleLabel
-                .setText("Add a Session to " + model.getChosenClassGroup().toString());
-        session = null;
-        model.setChosenClassGroup(model.getChosenClassGroup());
-        this.classGroup = model.getChosenClassGroup();
-        System.out.println(
-                model.getChosenClassGroup() + "courses: " + model.getChosenClassGroup()
-                        .getCourses());
-        System.out.println("I just reset the add session window!");
-        courseChoiceBoxInAddSession.setValue(null);
-        startTimeChoiceBox.setValue(null);
-        numberOfLessonsChoiceBox.setValue(null);
-        roomsChoiceBox.setValue(null);
-        loadAllCourseArray();
-        loadTimeArray();
-        loadNumberOfLessonsArray();
+  /**
+   * A void method that first clears the list of Time objects
+   * and then adds the legal start Time object.
+   */
+  private void loadTimeArray()
+  {
+    timeArray.removeAll(timeArray);
+    timeArray.add(new Time(8, 20));
+    timeArray.add(new Time(9, 15));
+    timeArray.add(new Time(10, 10));
+    timeArray.add(new Time(11, 5));
+    timeArray.add(new Time(12, 0));
+    timeArray.add(new Time(12, 45));
+    timeArray.add(new Time(13, 40));
+    timeArray.add(new Time(14, 35));
+    timeArray.add(new Time(15, 30));
+    timeArray.add(new Time(16, 25));
+    timeArray.add(new Time(17, 20));
+    startTimeChoiceBox.getItems().addAll(timeArray);
+
+  }
+
+  /**
+   * A void method that first clears the list of number of lessons
+   * and then adds the number of lessons to the list.
+   */
+  private void loadNumberOfLessonsArray()
+  {
+    numberOfLessonsArray.removeAll(numberOfLessonsArray);
+    // Made a simple array to add
+    int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    for (int i = 0; i < numbers.length; i++)
+    {
+      numberOfLessonsArray.add(numbers[i]);
     }
+    numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
+  }
 
-    /**
-     * Method for loading all the courses into the courseChoiceBoxInAddSession
-     */
-    // Load the courses into the arrayList
-    private void loadAllCourseArray() {
-        // Clear the current arrayList
-        allCoursesArray.removeAll(allCoursesArray);
-
-        // Only load the courses relevant to the selected class group
-        try {
-            ClassGroup classGroupx = classGroup;
-            System.out.println(classGroup);
-            CourseList courseListx = new CourseList();
-            for (int i = 0; i < classGroupx.getCourses().size(); i++) {
-                courseListx.addCourse(classGroupx.getCourses().get(i));
-            }
-            for (int i = 0; i < courseListx.size(); i++) {
-                Course coursex = courseListx.get(i);
-                allCoursesArray.add(coursex);
-            }
-            courseChoiceBoxInAddSession.getItems().addAll(allCoursesArray);
-        } catch (NullPointerException e) {
-            errorLabel.setText("Class not selected!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+  /**
+   * A void method that first clears the list of room objects
+   * and then adds the list of room objects.
+   */
+  private void loadRoomArray()
+  {
+    roomsArray.removeAll(roomsArray);
+    for (int i = 0; i < model.suggestRooms(session).size(); i++)
+    {
+      roomsArray.add(model.suggestRooms(session).get(i));
     }
+    roomsChoiceBox.getItems().addAll(roomsArray);
+  }
 
-    /**
-     * clears the Time array of the different times.
-     * Adds the times to the time array and then loads the time array into the startTimeChoiceBox;
-     */
-    private void loadTimeArray() {
-        timeArray.removeAll(timeArray);
-        timeArray.add(new Time(8, 20));
-        timeArray.add(new Time(9, 15));
-        timeArray.add(new Time(10, 10));
-        timeArray.add(new Time(11, 5));
-        timeArray.add(new Time(12, 0));
-        timeArray.add(new Time(12, 45));
-        timeArray.add(new Time(13, 40));
-        timeArray.add(new Time(14, 35));
-        timeArray.add(new Time(15, 30));
-        timeArray.add(new Time(16, 25));
-        timeArray.add(new Time(17, 20));
-        startTimeChoiceBox.getItems().addAll(timeArray);
+  /**
+   * A getter the value of the picked date.
+   *
+   * @return returns the date as a localDate
+   */
+  public Date getDateFromDatePicker()
+  {
+    LocalDate localDate = datePicker.getValue();
+    return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(),
+        localDate.getYear());
+  }
 
-    }
+  // @FXML methods here
 
-    /**
-     * clears the numberOfLessonsArray.
-     * Creates a number array and adds each number to numberOfLessonsChoiceBox
-     */
-    private void loadNumberOfLessonsArray() {
-        numberOfLessonsArray.removeAll(numberOfLessonsArray);
-        // Made a simple array to add
-        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-        for (int i = 0; i < numbers.length; i++) {
-            numberOfLessonsArray.add(numbers[i]);
-        }
-        numberOfLessonsChoiceBox.getItems().addAll(numberOfLessonsArray);
-    }
-
-    /**
-     * clears the roomsArray.
-     * Adds rooms to the roomsArray and then adds the roomsArray to the roomsChoiceBox
-     */
-    // Load rooms based on the session above
-    private void loadRoomArray() {
-        roomsArray.removeAll(roomsArray);
-        for (int i = 0; i < model.suggestRooms(session).size(); i++) {
-            roomsArray.add(model.suggestRooms(session).get(i));
-        }
-        roomsChoiceBox.getItems().addAll(roomsArray);
-        System.out.println("Those are the rooms displayed:" + "\n" + roomsArray);
-        System.out.println("Here are the rooms!");
-    }
-
-    /**
-     * Method for getting the value of the date you picked in the GUI.
-     *
-     * @return returns the date as a localDate
-     */
-    // Convert the date picker into our date class
-    public Date getDateFromDatePicker() {
-        LocalDate localDate = datePicker.getValue();
-        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(),
-                localDate.getYear());
-    }
-
-    /**
-     * Method defining what should happen when the findRoomsButton is pressed.
-     * Clears the roomsChoiceBox and then checks if it is a valid day and creates a session.
-     * It then loads the rooms into the roomChoiceBox
-     */
-    // @FXML methods here
-
+  /**
+   * A void FXML method that creates a Session object and finds a room for this session.
+   * Afterwards it loads found rooms inside the room choice box.
+   */
+  @FXML private void findRoomsButton()
+  {
     // Create a session using the information above, then load rooms
-    @FXML
-    private void findRoomsButton() {
-        errorLabel.setText("");
-        roomsChoiceBox.getItems().removeAll(roomsArray);
-        boolean isHolidayWeek = false;
-        if (model.getHolidayWeeks() != null) {
-            if (model.getHolidayWeeks().size() != 0) {
+    errorLabel.setText("");
+    roomsChoiceBox.getItems().removeAll(roomsArray);
+    boolean isHolidayWeek = false;
+    if (model.getHolidayWeeks() != null)
+    {
+      if (model.getHolidayWeeks().size() != 0)
+      {
 
-                for (int k = 0; k < model.getHolidayWeeks().size(); k++) {
-                    if (model.getHolidayWeeks().get(k) == getDateFromDatePicker()
-                            .getWeekNumber()) {
-                        isHolidayWeek = true;
-                        errorLabel.setText("Chosen date is during holidays.");
-                    }
-                }
-
-            }
+        for (int k = 0; k < model.getHolidayWeeks().size(); k++)
+        {
+          if (model.getHolidayWeeks().get(k) == getDateFromDatePicker()
+              .getWeekNumber())
+          {
+            isHolidayWeek = true;
+            errorLabel.setText("Chosen date is during holidays.");
+          }
         }
-        if (!isHolidayWeek) {
-            try {
-                session = new Session(courseChoiceBoxInAddSession.getValue(),
-                        getDateFromDatePicker(), startTimeChoiceBox.getValue(),
-                        numberOfLessonsChoiceBox.getValue());
-                System.out.println("I just created the following session:\n");
-                System.out.println(session);
 
-                //GAP checker:
+      }
+    }
+    if (!isHolidayWeek)
+    {
+      try
+      {
+        session = new Session(courseChoiceBoxInAddSession.getValue(),
+            getDateFromDatePicker(), startTimeChoiceBox.getValue(),
+            numberOfLessonsChoiceBox.getValue());
 
-                SessionList sortedSessions = model
-                        .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
-                                model.getChosenClassGroup());
-                if (sortedSessions.size() > 1) {
 
-                    for (int i = 0; i < sortedSessions.size(); i++) {
-                        int difference =
-                                sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
-                                        - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+        //GAP checker:
 
-                        if (difference > 10) {
-                            if (sortedSessions.get(i).getEndTimeString().equals("11:50")
-                                    && difference == 55) {
-                                loadRoomArray();
-                            }
-                            boolean gap = gapConfirmation();
-                            if (gapConfirmation()) {
-                                loadRoomArray();
-                            } else {
-                                reset();
-                            }
-                        }
-                    }
-                }
+        SessionList sortedSessions = model
+            .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+                model.getChosenClassGroup());
+        if (sortedSessions.size() > 1)
+        {
 
+          for (int i = 0; i < sortedSessions.size(); i++)
+          {
+            int difference =
+                sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                    - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+            if (difference > 10)
+            {
+              if (sortedSessions.get(i).getEndTimeString().equals("11:50")
+                  && difference == 55)
+              {
                 loadRoomArray();
-            } catch (IllegalArgumentException a) {
-                errorLabel.setText("The last lesson has to end before 18:00.");
-            } catch (Exception e) {
-                errorLabel.setText(e.getMessage());
-            }
-        }
-    }
-
-    /**
-     * Boolean Method for the confirmation button.
-     * Verifies if the user wants to book a room for a session with less than 45 students.
-     *
-     * @return returns true or false depending on which button the user clicks.
-     */
-    private boolean confirmation() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Are you sure you want to book: " + session.getRoom()
-                + " for less than 45 students?");
-        Optional<ButtonType> result = alert.showAndWait();
-        return (result.isPresent()) && (result.get() == ButtonType.OK);
-    }
-
-    /**
-     * Method that throws an alert warning about gaps between sessions.
-     *
-     * @return returns either true or false depending on which button the user clicks
-     */
-    private boolean gapConfirmation() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(
-                "You have a gap between the sessions. Do you want to continue?");
-        Optional<ButtonType> result = alert.showAndWait();
-        return (result.isPresent()) && (result.get() == ButtonType.OK);
-    }
-
-    /**
-     * Method for the addSessionButton. It adds a session to the ScheduleViewModel
-     *  TODO expand description
-     */
-    @FXML
-    private void addSessionButton() {
-        if (model.isTeacherAvailable(session)) {
-            try {
-                session.bookRoom(roomsChoiceBox.getValue());
-                //model.addSession(session, roomsChoiceBox.getValue());
-                if (session.getRoom() == null) {
-                    System.out.println("Hey! The room for this session is null!");
-                }
-                if (session.getRoom().getCapacity() > 100 && session.getCourse().getStudents().size() < 45) {
-                    boolean book = confirmation();
-                    if (book) {
-                        scheduleViewModel.addSession(session);
-                        reset();
-                    } else {
-                        session.bookRoom(null);
-                    }
-                } else {
-                    System.out.println("I put that session in room " + session.getRoom());
-                }
-
-                model.addSession(session, session.getRoom());
+              }
+              boolean gap = gapConfirmation();
+              if (gapConfirmation())
+              {
+                loadRoomArray();
+              }
+              else
+              {
                 reset();
-
-                //warning for an auditorium
-                if (session.getRoom().getCapacity() > 100 && session.getCourse().getStudents().size() < 45) {
-                    boolean book = confirmation();
-                    if (book) {
-                        scheduleViewModel.addSession(session);
-                    } else {
-                        reset();
-                    }
-                }
-
-                {
-                    scheduleViewModel.addSession(session);
-                }
-
-            } catch (Exception e) {
-                errorLabel.setText(e.getMessage());
+              }
             }
-
-            SessionList sortedSessions = model
-                    .getSessionsByDateAndClassGroup(getDateFromDatePicker(), model.getChosenClassGroup());
-            if (sortedSessions.size() > 1) {
-                //SORTING BASED ON START TIME
-                for (int i = 0; i < sortedSessions.size() - 1; i++) {
-                    int difference =
-                            sortedSessions.get(i + 1).getStartTime().getTimeInSeconds() - sortedSessions.get(i).getEndTime().getTimeInSeconds();
-
-                    if (difference > 600) {
-                        if (!(sortedSessions.get(i).getEndTimeString().equals("11:50")) && !(difference == 3300)) {
-                            gapConfirmation();
-                        }
-                    }
-                }
-            }
-
-            reset();
-            System.out.println("I just added the following session: \n" + session);
-            viewHandler.openView("schedule");
-        } else {
-            errorLabel.setText("The teacher is not available!");
+          }
         }
-    }
 
-    /**
-     * Method for the cancelInAddSessionButton. When the cancel button is clicked then
-     * everything is reset and the viewHandler for the AddSessionViewController is closed
-     * and the "schedule" view is opened.
-     */
-    @FXML
-    private void cancelInAddSessionButton() {
-        reset();
-        viewHandler.closeView();
-        viewHandler.openView("schedule");
+        loadRoomArray();
+      }
+      catch (IllegalArgumentException a)
+      {
+        errorLabel.setText("The last lesson has to end before 18:00.");
+      }
+      catch (Exception e)
+      {
+        errorLabel.setText(e.getMessage());
+      }
     }
+  }
+
+  /**
+   * A boolean method asking the user to confirm.
+   * It also verifies if the user wants to book a room for a session with less than 45 students.
+   *
+   * @return "True" when "OK" button pressed, "False" when it is not pressed.
+   */
+  private boolean confirmation()
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText("Are you sure you want to book: " + session.getRoom()
+        + " for less than 45 students?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
+  /**
+   * A void method that throws an alert warning about gaps between sessions.
+   *
+   * @return "True" when "OK" button pressed, "False" when it is not pressed.
+   */
+  private boolean gapConfirmation()
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "You have a gap between the sessions. Do you want to continue?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
+  /**
+   * A void FXML method that adds a Session object to the model
+   * for the chosen class if all the properties are legal.
+   */
+  @FXML private void addSessionButton()
+  {
+    if (model.isTeacherAvailable(session))
+    {
+      try
+      {
+        session.bookRoom(roomsChoiceBox.getValue());
+        //model.addSession(session, roomsChoiceBox.getValue());
+        if (session.getRoom() == null)
+        {
+          System.out.println("Hey! The room for this session is null!");
+        }
+        if (session.getRoom().getCapacity() > 100
+            && session.getCourse().getStudents().size() < 45)
+        {
+          boolean book = confirmation();
+          if (book)
+          {
+            scheduleViewModel.addSession(session);
+            reset();
+          }
+          else
+          {
+            session.bookRoom(null);
+          }
+        }
+        else
+        {
+          System.out.println("I put that session in room " + session.getRoom());
+        }
+
+        model.addSession(session, session.getRoom());
+        reset();
+
+        //warning for an auditorium
+        if (session.getRoom().getCapacity() > 100
+            && session.getCourse().getStudents().size() < 45)
+        {
+          boolean book = confirmation();
+          if (book)
+          {
+            scheduleViewModel.addSession(session);
+          }
+          else
+          {
+            reset();
+          }
+        }
+
+        {
+          scheduleViewModel.addSession(session);
+        }
+
+      }
+      catch (Exception e)
+      {
+        errorLabel.setText(e.getMessage());
+      }
+
+      SessionList sortedSessions = model
+          .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+              model.getChosenClassGroup());
+      if (sortedSessions.size() > 1)
+      {
+        //SORTING BASED ON START TIME
+        for (int i = 0; i < sortedSessions.size() - 1; i++)
+        {
+          int difference =
+              sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                  - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+          if (difference > 600)
+          {
+            if (!(sortedSessions.get(i).getEndTimeString().equals("11:50"))
+                && !(difference == 3300))
+            {
+              gapConfirmation();
+            }
+          }
+        }
+      }
+
+      reset();
+      viewHandler.openView("schedule");
+    }
+    else
+    {
+      errorLabel.setText("The teacher is not available!");
+    }
+  }
+
+  /**
+   * A void FXML method closing the current view and opening schedule view.
+   */
+  @FXML private void cancelInAddSessionButton()
+  {
+    reset();
+    viewHandler.closeView();
+    viewHandler.openView("schedule");
+  }
 }

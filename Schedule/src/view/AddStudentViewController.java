@@ -57,9 +57,9 @@ public class AddStudentViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
-    this.name=null;
-    this.viaId=0;
-    this.className=null;
+    this.name = null;
+    this.viaId = 0;
+    this.className = null;
     reset();
   }
 
@@ -85,9 +85,9 @@ public class AddStudentViewController
   }
 
   /**
-   * Boolean Method for whether the user confirms.
+   * A boolean method asking the user to confirm.
    *
-   * @return returns either true or false depending on what button picked.
+   * @return "True" when "OK" button pressed, "False" when it is not pressed.
    */
   private boolean confirmation()
   {
@@ -105,9 +105,8 @@ public class AddStudentViewController
   // @FXML methods here
 
   /**
-   * Method for what to do when the confirmAddAStudentButton is pressed.
-   * A Student is made out of the Students VIA ID field, studentsNameField, and model's chosenClassGroup and it is then added to the model's course.
-   * The viewHandler closes the view and then opens the view for "courseDetails".
+   * A void FXML method that adds a student with entered values to the course.
+   * Afterwards it opens a schedule view.
    */
   @FXML private void confirmAddAStudentButton()
   {
@@ -137,8 +136,7 @@ public class AddStudentViewController
   }
 
   /**
-   * Method for the cancelAddAStudentButton. calls the Reset() method
-   * ViewHandler closes the view and then opens the view for "courseDetails"
+   * A void FXML method closing the current view and opening schedule view.
    */
   @FXML private void cancelAddAStudentButton()
   {

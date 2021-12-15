@@ -14,10 +14,7 @@ import java.util.ArrayList;
  */
 public interface ScheduleModel
 {
-  /**
-   * A getter method for the all classes.
-   * @return A ClassGroupList object.
-   */
+  
   public ClassGroupList getAllClasses();
 
   public ClassGroup getChosenClassGroup();

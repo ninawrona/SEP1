@@ -211,22 +211,27 @@ public class SessionList
     {
       for (int i = 0; i < sessions.size(); i++)
       // "=" takes 1, size() takes 1 and the for loop takes O(N).
-        //The whole loop takes 2 + (N*9)
-        //Dropping constants and coefficients, the time complexity is O(N).
+      //The whole loop takes 2 + (N*9)
+      //Dropping constants and coefficients, the time complexity is O(N).
       {
         if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
-            .equals(date)) // The comparison takes 1, get(i) takes 1, getRoom() takes 1, get(i) takes 1, getDate() takes 1, equals(date) takes 1.
+            .equals(
+                date)) // The comparison takes 1, get(i) takes 1, getRoom() takes 1,
+        // get(i) takes 1, getDate() takes 1, equals(date) takes 1.
         {
-          list.addSession(sessions.get(i), sessions.get(i).getRoom()); // addSession() takes 1, get(i) takes 1, getRoom() takes 1.
+          list.addSession(sessions.get(i), sessions.get(i).getRoom());
+          // addSession() takes 1, get(i) takes 1, getRoom() takes 1.
         }
       }
       for (int i = 0; i < list.size(); i++)
       //"=" takes 1, size() takes 1 and the for loop takes O(N).
-        //The whole loop takes 2 + (N*3) + 1.
-        //Dropping constants and coefficients, the time complexity is O(N).
+      //The whole loop takes 2 + (N*3) + 1.
+      //Dropping constants and coefficients, the time complexity is O(N).
       {
-        if (list.get(i).isOverlapped(timeStart, numberOfLessons)) // the comparison takes 1, get(i) takes 1, isOverlapped takes 1 because it only contains if statements.
-           {
+        if (list.get(i).isOverlapped(timeStart,
+            numberOfLessons)) // the comparison takes 1, get(i) takes 1,
+        // isOverlapped takes 1 because it only contains if statements.
+        {
           return false;
           // takes 1
         }
@@ -237,7 +242,6 @@ public class SessionList
   // We chose this method because it contains two for loops and calls different methods.
   // T(O)= 3 + N + N = 2*N + 3.
   // Dropping constants and coefficients the time complexity of this method id O(N).
-
 
   /**
    * A method that checks if a ClassGroup could have a session without overlaps. The method takes all the sessions from
@@ -292,10 +296,11 @@ public class SessionList
 
           {
             for (int j = 0; j < session.getTeachers().size(); j++)
-              //"=" takes 1. The for loop takes N, where N is the size of the TeacherList.
-              // For each iteration the if statement takes 1 for the comparison, 1 for get(i), 1 for getCourse(), 1 for getTeachers(), N for contains(), 1 for getTeachers(), 1 for get(j) and 1 for returning.
-              //For this loop T(0)= 1 + N*(N+7) = N^(2)+ 7 * N + 1. Dropping coefficients and constants we get O(N)=N^2.
-              //
+            //"=" takes 1. The for loop takes N, where N is the size of the TeacherList.
+            // For each iteration the if statement takes 1 for the comparison, 1 for get(i), 1 for getCourse(), 1 for getTeachers(),
+            // N for contains(), 1 for getTeachers(), 1 for get(j) and 1 for returning.
+
+            //For this loop T(0)= 1 + N*(N+7) = N^(2)+ 7 * N + 1. Dropping coefficients and constants we get O(N)=N^2.
 
             {
               if ((sessions.get(i).getCourse().getTeachers()

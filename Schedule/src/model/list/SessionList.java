@@ -24,7 +24,7 @@ public class SessionList {
     }
 
     /**
-     * A method returning the size of the SessionList
+     * A method returning the size of the SessionList.
      *
      * @return an int representing how many Session objects the list contains.
      */

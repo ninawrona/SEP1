@@ -1,7 +1,7 @@
 package model.basic;
 
 /**
- * A subclass representing the foldable rooms by adding the letter 'a' or 'b' to the end of the room's identifier.
+ * A subclass representing the foldable rooms.
  *
  * @author Christian Foyer, Kamil Fischbach, Martin Rosendahl, Nina Wrona, Robert Barta
  * @version 1 - 2 December 2021
@@ -11,7 +11,7 @@ public class FoldableRoom extends Room {
     private char letter;
 
     /**
-     * Five-argument constructor with the same exceptions as its superclass for the same instance variables. The letter must be either 'a' or 'b'.
+     * Five-argument constructor with the same exceptions as its superclass for the same instance variables, adding the letter 'a' or 'b' to the end of the room's identifier.
      *
      * @param floor    the floor on which the room is.
      * @param block    the block in which the room is.
@@ -31,7 +31,7 @@ public class FoldableRoom extends Room {
     }
 
     /**
-     * A getter method.
+     * A getter method returning the letter of the room.
      *
      * @return the letter of the room.
      */

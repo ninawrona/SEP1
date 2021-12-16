@@ -208,13 +208,12 @@ public class ScheduleModelManager implements ScheduleModel {
         return sessionList.isTeacherAvailable(session);
     }
 
-    // TODO check method in grid view
     public SessionList getSessionsByTeacher(Teacher teacher, Date date) {
         return sessionList.getSessionsByTeacher(teacher, date);
     }
 
     /**
-     * Method for gettign sessions by classGroup
+     * Method for getting sessions by classGroup
      * @param classGroup A classGroup object that we are using to search for sessions
      * @return A SessionList containing the sessions for a specific classGroup
      */

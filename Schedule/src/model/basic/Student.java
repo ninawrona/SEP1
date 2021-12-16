@@ -35,7 +35,7 @@ public class Student {
     }
 
     /**
-     * Constructor for Student object, taking in String name and int viaId
+     * Two-argument Constructor for Student object.
      * @param name String with the student's name
      * @param viaId int with the student's via ID
      */

@@ -11,9 +11,9 @@ import java.util.Scanner;
 
 public class ReadWrite {
     /**
-     * Method reading in a SessionList and a String for chosen classGroup and turning it into and xml file
-     * @param sessions A SessionList object
-     * @param chosenClassGroup A String of the chosenClassGroup
+     * Method reading in a SessionList and a String for chosen classGroup and converting it into an xml file.
+     * @param sessions A SessionList object.
+     * @param chosenClassGroup A String representation of the chosenClassGroup.
      */
     public static void manualWriteSessionList(SessionList sessions, String chosenClassGroup)//put Semester+ClassName.
     {
@@ -70,9 +70,9 @@ public class ReadWrite {
     }
 
     /**
-     * Method reading in a File file and turning it into a ClassGroupList
-     * @param file File object with students
-     * @return returns a ClassGroupList
+     * A method reading in a file and turning it into a ClassGroupList.
+     * @param file file object with students.
+     * @return a ClassGroupList.
      */
     public static ClassGroupList manualReadStudents(File file) {
 
@@ -294,9 +294,9 @@ public class ReadWrite {
     }
 
     /**
-     * Method reading in a File file and turning it into a CourseList
-     * @param file File object with courses
-     * @return returns a Courselist
+     * A method reading in a file and turning it into a CourseList.
+     * @param file file object with courses.
+     * @return a Courselist.
      */
     public static CourseList manualReadCourses(File file) {
 
@@ -377,9 +377,9 @@ public class ReadWrite {
     }
 
     /**
-     * Method reading in a file of courses and turns it into a TeacherList
-     * @param file File with courses and teachers
-     * @return Returns a TeacherList
+     * A method reading in a file of courses and turning it into a TeacherList.
+     * @param file file with courses and teachers.
+     * @return a TeacherList.
      */
     public static TeacherList manualReadMasterTeacherList(File file) {
         CourseList courses = new CourseList();
@@ -460,9 +460,9 @@ public class ReadWrite {
     }
 
     /**
-     * Method reading in a File file and creating a RoomList
-     * @param file File containing rooms
-     * @return Returns a RoomList
+     * A method reading in a file and creating a RoomList.
+     * @param file file containing the rooms.
+     * @return a RoomList.
      */
     public static RoomList manualReadRooms(File file) {
 

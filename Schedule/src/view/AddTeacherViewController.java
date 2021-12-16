@@ -103,8 +103,8 @@ public class AddTeacherViewController
       if (add)
       {
         model.getChosenSession().getCourse().addTeacher(teacherToBeAdded);
-        teacherToBeAdded
-            .assignToCourseTaught(model.getChosenSession().getCourse());
+        teacherToBeAdded.assignToCourseTaught(
+            model.getChosenSession().getCourse());
       }
     }
     catch (Exception e)
@@ -116,9 +116,9 @@ public class AddTeacherViewController
     viewHandler.openView("schedule");
   }
 
-    /**
-     * A void FXML method closing the current view and opening schedule view.
-     */
+  /**
+   * A void FXML method closing the current view and opening schedule view.
+   */
   @FXML private void cancelAddATeacherButton()
   {
     viewHandler.closeView();

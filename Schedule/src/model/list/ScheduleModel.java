@@ -59,4 +59,7 @@ public interface ScheduleModel
   public void setAllTeachers(TeacherList list);
 
   public TeacherList getAllTeachers();
+
+  public SessionList getSessionsByDateAndTeacher(Date date,
+      Teacher teacher);
 }

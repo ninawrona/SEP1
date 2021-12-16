@@ -1,7 +1,8 @@
 import javafx.application.Application;
 
-// TODO javadoc
-
+/**
+ * A class which launches our application and opens a first view - Schedule.
+ */
 public class Main {
     public static void main(String[] args) {
         Application.launch(MyApplication.class);

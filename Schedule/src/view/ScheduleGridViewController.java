@@ -272,13 +272,13 @@ public class ScheduleGridViewController
     {
       try
       {
-        for (int i = 0; i < scheduleViewModel.getList().size(); i++)
+        for (int i = 0; i < scheduleViewModel.getListByTeacher().size(); i++)
         {
-          if (scheduleViewModel.getList().get(i).getTeacher()
-              .contains(model.getChosenTeacher().toString()))
-          {
-            StringProperty courseName = scheduleViewModel.getList().get(i)
+
+            StringProperty courseName = scheduleViewModel.getListByTeacher().get(i)
                 .getCourseProperty();
+            System.out.println("SOUT The property is "+scheduleViewModel.getListByTeacher().get(i)
+                .getCourseProperty());
             Label labelTest = new Label();
             labelTest.setText(courseName.get());
             labelTest.setId("session" + i);
@@ -286,7 +286,7 @@ public class ScheduleGridViewController
             // Adds a background color to the session on the grid
             String backColor = "lavender";
             String courseHolder =
-                "" + scheduleViewModel.getList().get(i).getCourseProperty();
+                "" + scheduleViewModel.getListByTeacher().get(i).getCourseProperty();
             if (courseHolder.contains("RWD"))
             {
               backColor = "lightblue";
@@ -306,11 +306,11 @@ public class ScheduleGridViewController
             labelTest.setBackground(new Background(
                 new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
-            int startTimeInt = scheduleViewModel.getList().get(i)
+            int startTimeInt = scheduleViewModel.getListByTeacher().get(i)
                 .getStartTimeIntProperty();
-            int numberOfLessonsInt = scheduleViewModel.getList().get(i)
+            int numberOfLessonsInt = scheduleViewModel.getListByTeacher().get(i)
                 .getNumberOfLessonsProperty().intValue();
-            int dayOfWeek = scheduleViewModel.getList().get(i)
+            int dayOfWeek = scheduleViewModel.getListByTeacher().get(i)
                 .getDayOfWeekProperty().getValue();
 
             labelTest.setMinHeight(
@@ -326,7 +326,7 @@ public class ScheduleGridViewController
 
             // Move the label like 1 pixel to the right to make it centered
             labelTest.setTranslateX(0.7);
-          }
+
 
         }
       }
@@ -523,7 +523,7 @@ public class ScheduleGridViewController
   }
 
   /**
-   * A void FXML method opening the view of selecting a teacher.s
+   * A void FXML method opening the view of selecting a teacher.
    */
   @FXML private void chooseTeacherButton()
   {

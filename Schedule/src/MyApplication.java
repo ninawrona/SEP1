@@ -4,8 +4,10 @@ import javafx.stage.Stage;
 import model.list.*;
 import view.ViewHandler;
 
-// TODO javadoc
-
+/**
+ * A class in which both new ScheduleModel and ViewHandler objects are created.
+ * Afterwards the view is started.
+ */
 public class MyApplication extends Application {
     public void start(Stage primaryStage) {
         ScheduleModel model = new ScheduleModelManager();

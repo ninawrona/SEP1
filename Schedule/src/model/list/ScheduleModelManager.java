@@ -69,6 +69,18 @@ public class ScheduleModelManager implements ScheduleModel {
     }
 
     /**
+     *A getter method returning the sessions by a given teacher
+     * @param date a Date object representing the date.
+     * @param teacher a Teacher object representing the teacher
+     * @return a SessionList with the same teachers and date.
+     */
+    @Override public SessionList getSessionsByDateAndTeacher(Date date,
+        Teacher teacher)
+    {
+        return sessionList.getSessionsByDateAndTeacher(date, teacher);
+    }
+
+    /**
      * A setter method assigning the given TeacherList object to the 'allTeachers' variable.
      *
      * @param list a TeacherList object which will be used to set.

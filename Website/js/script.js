@@ -21,8 +21,8 @@ var d = 4;//thursday
 var e = 5;//friday
 var noShift = true;
 
-var choosenClass;
-var choosenTeacher = null;
+var chosenClass;
+var chosenTeacher;
 
 //Write your function declarations below this line
 //example of a function getting and returning the book titles from the XML "text"
@@ -48,13 +48,14 @@ function displayTable(){
 }
 */
 var test = document.getElementById("test");
+
+
 $("#classBtn").click(function () {
-    choosenClass = $("#selectedClass").val();
-    //console.log(choosenClass);
+    chosenClass = $("#selectedClass").val();
     readXMLSessionListClass();
 });
 $("#teacherBtn").click(function () {
-    choosenTeacher = $("#selectedTeacher").val();
+    chosenTeacher = $("#selectedTeacher").val();
     readXMLSessionListTeacher();
 });
 
@@ -68,10 +69,9 @@ function readXMLSessionListClass() {
             showData(xhttp);
         }
     }
-    if (choosenClass != null) {
-        switch (choosenClass) {
+    if (chosenClass != null) {
+        switch (chosenClass) {
             case ("1X"): xhttp.open("GET", "../../SessionList1X.xml", true);
-            xhttp.send();
                 break;
             case ("1Y"): xhttp.open("GET", "../../SessionList1Y.xml", true);
                 break;
@@ -103,8 +103,6 @@ function readXMLSessionListClass() {
                 break;
             case ("4DK"): xhttp.open("GET", "../../SessionList4DK.xml", true);
                 break;
-
-
         }
     }
     xhttp.send();
@@ -116,8 +114,8 @@ function readXMLSessionListTeacher() {
             showData(xhttp);
         }
     };
-    if (choosenTeacher != null) {
-        switch (choosenTeacher) {
+    if (chosenTeacher != null) {
+        switch (chosenTeacher) {
             case ("ALHE"): xhttp.open("GET", "../../SessionListALHE.xml", true);
                 break;
             case ("SVA"): xhttp.open("GET", "../../SessionListSVA.xml", true);

@@ -281,6 +281,8 @@ public class SessionList
    */
   public boolean isTeacherAvailable(Session session)
   {
+    boolean teacherAvailable = true;
+
     if (sessions.size() >= 1) //This takes 1
     {
       for (int i = 0; i
@@ -307,26 +309,26 @@ public class SessionList
                   .contains(session.getTeachers().get(j))))
 
               {
-                return false;
+                teacherAvailable = false;
               }
               else
               {
-                return true;
+                teacherAvailable = true;
               }
             }
           }
           else
           {
-            return true;
+            return teacherAvailable;
           }
         }
         else
         {
-          return true;
+          return teacherAvailable;
         }
       }
     }
-    return true; // O(1)
+    return teacherAvailable; // O(1)
     //Returns take 1
   }
   // We chose this method because it contains two loops and multiple if statements,

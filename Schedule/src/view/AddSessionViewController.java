@@ -247,7 +247,6 @@ public class AddSessionViewController
         if (!(model.getSessionsByClassGroup(model.getChosenClassGroup())
             .isClassGroupAvailable(model.getChosenClassGroup(), session)))
         {
-          System.out.println("The session would overlap.");
           errorLabel.setText("The session would overlap.");
         }
         else

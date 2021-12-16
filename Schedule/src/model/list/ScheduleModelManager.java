@@ -163,15 +163,15 @@ public class ScheduleModelManager implements ScheduleModel {
 
     /**
      * method for setting the holiday weeks
-     * @param holidayWeeks ArrayList<Integer>
+     * @param holidayWeeks ArrayList
      */
     public void setHolidayWeeks(ArrayList<Integer> holidayWeeks) {
         this.holidayWeeks = holidayWeeks;
     }
 
     /**
-     * method for getting holdiay weeks
-     * @return ArrayList<Integer> holiday weeks
+     * method for getting holiday weeks
+     * @return holidayWeeks ArrayList
      */
     public ArrayList<Integer> getHolidayWeeks() {
         return holidayWeeks;
@@ -253,7 +253,7 @@ public class ScheduleModelManager implements ScheduleModel {
      * Method for getting sessions by date and classGroup
      * @param date When the sessions should be taking place
      * @param classGroup Which classGroup you want sessions for
-     * @return
+     * @return SessionList object with sessions of the same date and class
      */
     @Override
     public SessionList getSessionsByDateAndClassGroup(Date date,

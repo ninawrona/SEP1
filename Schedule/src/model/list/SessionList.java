@@ -408,7 +408,6 @@ public class SessionList
    * @param teacher a Teacher object representing the teacher
    * @return a SessionList with the same teachers and date.
    */
-
   public SessionList getSessionsByDateAndTeacher(Date date, Teacher teacher)
   {
     SessionList list = new SessionList();

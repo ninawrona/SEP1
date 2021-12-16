@@ -386,9 +386,9 @@ function showData(xml) {
                             break;
                         case ("TUESDAY"):
                             {
-                                hour915[2].innerHTML = course + "<br>" + room + "<br>";
+                                hour915[1].innerHTML = course + "<br>" + room + "<br>";
                                 for (var w = 0; w < teachers.length; w++) {
-                                    hour915[2].innerHTML += teachers[w] + "  ";
+                                    hour915[1].innerHTML += teachers[w] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -408,14 +408,14 @@ function showData(xml) {
                                         break;
                                     case ("SEP"):
                                         {
-                                            hour915[2].classList.add("bg-warning");
+                                            hour915[1].classList.add("bg-warning");
                                         }
                                         break;
                                 }
-                                hour915[2].classList.add("pt-" + numberOfLessons);
-                                hour915[2].rowSpan = "" + numberOfLessons;
+                                hour915[1].classList.add("pt-" + numberOfLessons);
+                                hour915[1].rowSpan = "" + numberOfLessons;
                                 for (var y = numberOfLessons; y >= 2; y--) {
-                                    timeList[y][2].remove();
+                                    timeList[y][1].remove();
                                 }
                             }
                             break;
@@ -606,9 +606,9 @@ function showData(xml) {
                         case ("WEDNESDAY"):
                             {
 
-                                hour1010[3].innerHTML = course + "<br>" + room + "<br>";
+                                hour1010[2].innerHTML = course + "<br>" + room + "<br>";
                                 for (var aj = 0; aj < teachers.length; aj++) {
-                                    hour1010[3].innerHTML += teachers[aj] + "  ";
+                                    hour1010[2].innerHTML += teachers[aj] + "  ";
                                 }
                                 switch (course) {
                                     case ("SDJ"):
@@ -623,7 +623,7 @@ function showData(xml) {
                                         break;
                                     case ("RWD"):
                                         {
-                                            hour1010[3].classList.add("bg-primary");
+                                            hour1010[2].classList.add("bg-primary");
                                         }
                                         break;
                                     case ("SEP"):
@@ -632,11 +632,12 @@ function showData(xml) {
                                         }
                                         break;
                                 }
-                                hour1010[3].classList.add("pt-" + numberOfLessons);
-                                hour1010[3].rowSpan = "" + numberOfLessons;
+                                hour1010[2].classList.add("pt-" + numberOfLessons);
+                                hour1010[2].rowSpan = "" + numberOfLessons;
                                 for (var ak = numberOfLessons + 1; ak >= 3; ak--) {
-                                    timeList[ak][3].remove();
+                                    timeList[ak][2].remove();
                                 }
+                                
                             }
                             break;
                         case ("THURSDAY"):

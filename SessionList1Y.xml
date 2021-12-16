@@ -2,14 +2,14 @@
 
 <SessionList>
 <Session>
-    <Course>DMA</Course>
+    <Course>SDJ</Course>
     <Class>1Y</Class>
-    <Teachers>RIB,</Teachers>
-    <Date>15/12/2021</Date>
-    <WeekDay>WEDNESDAY</WeekDay>
-    <StartTime>10:10</StartTime>
+    <Teachers>SVA,</Teachers>
+    <Date>20/12/2021</Date>
+    <WeekDay>MONDAY</WeekDay>
+    <StartTime>8:20</StartTime>
     <NumberOfLessons>6</NumberOfLessons>
-    <EndTime>16:15</EndTime>
-    <Room>C05.16a</Room>
+    <EndTime>14:25</EndTime>
+    <Room>C05.15</Room>
 </Session>
 </SessionList>

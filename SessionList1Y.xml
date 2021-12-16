@@ -45,15 +45,5 @@
     <EndTime>17:10</EndTime>
     <Room>C05.15</Room>
 </Session>
-<Session>
-    <Course>RWD</Course>
-    <Class>1Y</Class>
-    <Teachers>LILE,</Teachers>
-    <Date>24/12/2021</Date>
-    <WeekDay>FRIDAY</WeekDay>
-    <StartTime>10:10</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>13:20</EndTime>
-    <Room>C05.15</Room>
-</Session>
+
 </SessionList>

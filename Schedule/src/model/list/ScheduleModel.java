@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Interface class
+ * Methods explained in ScheduleModelManager
  */
 public interface ScheduleModel {
     public ClassGroupList getAllClasses();

@@ -35,7 +35,7 @@ public class ScheduleViewModel
   /**
    * A method which gets all the sessions from Monday until Friday for the chosen class from the model.
    *
-   * @return An ObservableList<SessionViewModel> object containing all the sessions by this date and ClassGroup.
+   * @return An ObservableList object containing all the sessions by this date and ClassGroup.
    */
   public ObservableList<SessionViewModel> getListByDateAndClassGroup()
   {
@@ -65,7 +65,7 @@ public class ScheduleViewModel
 
   /**
    * A method which gets all the sessions from Monday until Friday for the chosen teacher from the model.
-   * @return an ObservableList<SessionViewModel> object containing all the sessions by this teacher.
+   * @return an ObservableList object containing all the sessions by this teacher.
    */
   public ObservableList<SessionViewModel> getListByTeacher()
   {
@@ -118,7 +118,7 @@ public class ScheduleViewModel
   /**
    * A getter method for the list.
    *
-   * @return An ObservableList<SessionViewModel> object.
+   * @return An ObservableList object.
    */
   public ObservableList<SessionViewModel> getList()
   {

@@ -68,6 +68,56 @@ public class ReadWrite {
             e.printStackTrace();
         }
     }
+    /**
+     * Method reading in a SessionList and a String for the chosen teacher's VIA ID and converting it into an xml file.
+     * @param sessions A SessionList object.
+     * @param viaId A String representation of the teacher's VIA ID.
+     */
+    public static void manualWriteSessionListTeacher(SessionList sessions, String viaId)//put Semester+Teacher's VIA ID.
+    {
+        File file = new File("SessionList" + viaId + ".xml");
+        try {
+            PrintWriter out = new PrintWriter(file);
+
+            String xml = "";
+            xml +=
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"" + "standalone=\"no\"?>\n";
+
+            xml += "\n<SessionList>";
+            for (int i = 0; i < sessions.size(); i++) {
+
+                xml += "\n<Session>";
+                xml += "\n    <Course>" + sessions.get(i).getCourse() + "</Course>";
+                xml += "\n    <Teacher>" + sessions.get(i).getCourse().getTeachers()
+                    + "</Teacher>";
+                xml += "\n    <Date>" + sessions.get(i).getDate() + "</Date>";
+
+                xml += "\n    <WeekDay>" + sessions.get(i).getDate().getWeekday()
+                    + "</WeekDay>";
+                xml += "\n    <StartTime>" + sessions.get(i).getStartTime()
+                    + "</StartTime>";
+                xml += "\n    <NumberOfLessons>" + sessions.get(i).getNumberOfLessons()
+                    + "</NumberOfLessons>";
+
+                xml += "\n    <EndTime>" + sessions.get(i).getEndTime() + "</EndTime>";
+
+                if (sessions.get(i).getRoom() == null) {
+                    xml += "\n   <Room>unassigned</Room>";
+                } else {
+                    xml += "\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
+                }
+
+                xml += "\n</Session>";
+
+            }
+            xml += "\n</SessionList>";
+            out.println(xml);
+            out.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * A method reading in a file and turning it into a ClassGroupList.

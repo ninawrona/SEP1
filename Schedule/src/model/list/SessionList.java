@@ -306,22 +306,20 @@ public class SessionList
    * A getter method returning a session with a specified teacher.
    *
    * @param teacher a Teacher object representing the teacher to search the sessions by.
-   * @param date    a Date object representing the date to search the session by.
    * @return A list of Sessions (if there are any) that take place on the specified date with the given teacher.
    */
-  public SessionList getSessionsByTeacher(Teacher teacher, Date date)
+  public SessionList getSessionsByTeacher(Teacher teacher)
   {
     SessionList sessionsByTeacher = new SessionList();
     for (int i = 0; i < sessions.size(); i++)
     {
-      if (sessions.get(i).getDate().equals(date))
-      {
+
         if (sessions.get(i).getCourse().getTeachers().contains(teacher))
         {
           sessionsByTeacher
               .addSession(sessions.get(i), sessions.get(i).getRoom());
         }
-      }
+
     }
     if (sessionsByTeacher.size() > 0)
     {
@@ -431,4 +429,6 @@ public class SessionList
     Collections.sort(list.sessions);
     return list;
   }
+
+
 }

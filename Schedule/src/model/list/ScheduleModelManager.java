@@ -220,8 +220,24 @@ public class ScheduleModelManager implements ScheduleModel {
         return sessionList.isTeacherAvailable(session);
     }
 
-    public SessionList getSessionsByTeacher(Teacher teacher, Date date) {
-        return sessionList.getSessionsByTeacher(teacher, date);
+    /**
+     * A method that returns a list of sessions by a selected teacher.
+     * @param teacher a Teacher object representing the teacher to sort the list by.
+     * @return a SessionList with Session taught by the same teacher.
+     */
+    public SessionList getSessionsByTeacher(Teacher teacher) {
+        return sessionList.getSessionsByTeacher(teacher);
+    }
+
+    /**
+     * A method that returns a list of sessions by date and teacher.
+     * @param sessionsByTeacher a list of sessions sorted by the teachers.
+     * @return a list of sessions by a chosen teacher.
+     */
+    @Override public SessionList getSessionsByDateAndTeacher(
+        SessionList sessionsByTeacher)
+    {
+        return null;
     }
 
     /**

@@ -578,7 +578,6 @@ public class Session implements Comparable<Session>
     }
     else
       return -1;
-
   }
 }
 

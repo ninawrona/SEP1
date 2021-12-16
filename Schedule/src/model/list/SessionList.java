@@ -343,4 +343,28 @@ public class SessionList {
         }
         return false;
     }
+
+    /**
+     *A getter method returning the sessions by a given teacher
+     * @param date a Date object representing the date.
+     * @param teacher a Teacher object representing the teacher
+     * @return a SessionList with the same teachers and date.
+     */
+
+    public SessionList getSessionsByDateAndTeacher(Date date, Teacher teacher){
+        SessionList list = new SessionList();
+        for (int i = 0; i < sessions.size(); i++) {
+            if (sessions.get(i).getDate().equals(date)) {
+                for(int j = 0; j<sessions.get(i).getCourse()
+                    .getTeachers().size(); j++){
+                    if(sessions.get(i).getCourse()
+                        .getTeachers().get(j).equals(teacher)){
+                        list.addSession(sessions.get(i), sessions.get(i).getRoom());
+                    }
+                }
+            }
+        }
+        Collections.sort(list.sessions);
+        return list;
+    }
 }

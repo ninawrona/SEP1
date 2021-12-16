@@ -63,6 +63,32 @@ public class ScheduleViewModel
     return holder;
   }
 
+  public ObservableList<SessionViewModel> getListByTeacher()
+  {
+    // The goal is to find all sessions from monday to Friday for a given teacher
+    ObservableList<SessionViewModel> holder = FXCollections
+        .observableArrayList();
+    Date dateHolder = model.getChosenMonday().copy();
+    // Advance the day from Monday
+    for (int i = 0; i < 5; i++)
+    {
+      // Loop through list by date and classGroup
+      if (model.getSessionsByDateAndTeacher(dateHolder,
+          model.getChosenTeacher()) != null)
+      {
+        for (int j = 0; j < model.getSessionsByDateAndTeacher(dateHolder,
+            model.getChosenTeacher()).size(); j++)
+        {
+          holder.add(new SessionViewModel(model
+              .getSessionsByDateAndTeacher(dateHolder,
+                  model.getChosenTeacher()).get(j)));
+        }
+      }
+      dateHolder.stepForward(1);
+    }
+    return holder;
+  }
+
   /**
    * A void method clearing and updating the list.
    */

@@ -102,12 +102,25 @@ public class SelectTeacherViewController
   {
     chosenTeacher = teacherChoiceBox.getSelectionModel().getSelectedItem();
     chosenTeacher = teacherChoiceBox.getValue();
-    if (chosenTeacher != null)
+   /* if (chosenTeacher != null)
     {
       model.setChosenTeacher(chosenTeacher);
       reset();
     }
     viewHandler.openView("schedule");
+    */
+    if (chosenTeacher != null)
+    {
+      model.setChosenTeacher(chosenTeacher);
+      System.out.println(model.getChosenTeacher() + "courses: "
+          + model.getChosenTeacher().getCoursesTaught());
+      reset();
+      viewHandler.openView("schedule");
+    }
+    else
+    {
+      errorLabel.setText("Would you kindly choose a class?");
+    }
   }
 
   /**

@@ -207,33 +207,34 @@ public class SessionList
   {
     SessionList list = new SessionList(); //Creation of a SessionList object takes 1.
     if (sessions.size() != 0) //Comparison takes 1, size() takes 1.
-    //
     {
-      for (int i = 0; i < sessions.size(); i++)
       // "=" takes 1, size() takes 1 and the for loop takes O(N).
       //The whole loop takes 2 + (N*9)
       //Dropping constants and coefficients, the time complexity is O(N).
+      for (int i = 0; i < sessions.size(); i++)
+
       {
-        if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
-            .equals(
-                date)) // The comparison takes 1, get(i) takes 1, getRoom() takes 1,
+        // The comparison takes 1, get(i) takes 1, getRoom() takes 1,
         // get(i) takes 1, getDate() takes 1, equals(date) takes 1.
+        if (sessions.get(i).getRoom().equals(room) && sessions.get(i).getDate()
+            .equals(date))
         {
-          list.addSession(sessions.get(i), sessions.get(i).getRoom());
           // addSession() takes 1, get(i) takes 1, getRoom() takes 1.
+          list.addSession(sessions.get(i), sessions.get(i).getRoom());
         }
       }
-      for (int i = 0; i < list.size(); i++)
       //"=" takes 1, size() takes 1 and the for loop takes O(N).
       //The whole loop takes 2 + (N*3) + 1.
       //Dropping constants and coefficients, the time complexity is O(N).
+      for (int i = 0; i < list.size(); i++)
+
       {
-        if (list.get(i).isOverlapped(timeStart,
-            numberOfLessons)) // the comparison takes 1, get(i) takes 1,
+        // the comparison takes 1, get(i) takes 1,
         // isOverlapped takes 1 because it only contains if statements.
+        if (list.get(i).isOverlapped(timeStart, numberOfLessons))
         {
-          return false;
           // takes 1
+          return false;
         }
       }
     }
@@ -285,22 +286,21 @@ public class SessionList
       for (int i = 0; i
           < sessions.size(); i++)   //"=" takes 1, and the for loop takes O(N) where N is the size of the sessions.
       {
-        if (sessions.get(i).getDate().equals(
-            // The comparison takes 1, get(i) takes 1, getDate() takes 1, equals() takes 1, the second getDate() takes 1.
-            // This operation takes a total of 5.
-            session.getDate()))
+        // The comparison takes 1, get(i) takes 1, getDate() takes 1, equals() takes 1, the second getDate() takes 1.
+        // This operation takes a total of 5.
+        if (sessions.get(i).getDate().equals(session.getDate()))
         {
-          if (sessions.get(i).isOverlapped(session))
           //This comparison takes 1, get(i) takes 1, the method isOverlapped() which only
           // contains if statements also takes 1, the whole operation totaling 3.
+          if (sessions.get(i).isOverlapped(session))
 
           {
-            for (int j = 0; j < session.getTeachers().size(); j++)
             //"=" takes 1. The for loop takes N, where N is the size of the TeacherList.
             // For each iteration the if statement takes 1 for the comparison, 1 for get(i), 1 for getCourse(), 1 for getTeachers(),
             // N for contains(), 1 for getTeachers(), 1 for get(j) and 1 for returning.
 
             //For this loop T(0)= 1 + N*(N+7) = N^(2)+ 7 * N + 1. Dropping coefficients and constants we get O(N)=N^2.
+            for (int j = 0; j < session.getTeachers().size(); j++)
 
             {
               if ((sessions.get(i).getCourse().getTeachers()

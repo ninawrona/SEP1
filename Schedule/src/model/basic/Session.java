@@ -130,20 +130,12 @@ public class Session implements Comparable<Session>
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
 
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
+    if (startTime.getHour() <= 12 && startTime.getMinute() != 45
+        && endHour >= 12)
+    { //If the lunch session is also booked, the session will be 10 minutes shorter.
+      endMinute -= 10;
     }
-    if ((startTime.getHour() <= 11 && endHour > 11))
-    {
-      endMinute = endMinute + 45;
-    }
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
-    }
+ 
     return new Time(endHour, endMinute);
   }
 
@@ -168,21 +160,6 @@ public class Session implements Comparable<Session>
         && endHour >= 12)
     { //If the lunch session is also booked, the session will be 10 minutes shorter.
       endMinute -= 10;
-    }
-
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
-    }
-    if ((startTime.getHour() <= 11 && endHour > 11))
-    {
-      endMinute = endMinute + 45;
-    }
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
     }
 
     return new Time(endHour, endMinute);
@@ -453,21 +430,6 @@ public class Session implements Comparable<Session>
       endMinute -= 10;
     }
 
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
-    }
-    if ((startTime.getHour() <= 11 && endHour > 11))
-    {
-      endMinute = endMinute + 45;
-    }
-    if (endMinute > 59)
-    {
-      endMinute = endMinute % 60;
-      endHour++;
-    }
-
     String s = "";
     if (endHour < 10)
     {
@@ -579,6 +541,9 @@ public class Session implements Comparable<Session>
     else
       return -1;
   }
+
 }
+
+
 
 

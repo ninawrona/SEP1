@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+
+<SessionList>
+<Session>
+    <Course>RWD</Course>
+    <Class>1Z</Class>
+    <Teachers>LILE,</Teachers>
+    <Date>21/12/2021</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>10:10</StartTime>
+    <NumberOfLessons>3</NumberOfLessons>
+    <EndTime>13:20</EndTime>
+    <Room>C03.12</Room>
+</Session>
+<Session>
+    <Course>DMA</Course>
+    <Class>1Z</Class>
+    <Teachers>IOOD,</Teachers>
+    <Date>22/12/2021</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>11:05</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>15:10</EndTime>
+    <Room>C05.16a</Room>
+</Session>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1Z</Class>
+    <Teachers>SVA,KLAB,</Teachers>
+    <Date>24/12/2021</Date>
+    <WeekDay>FRIDAY</WeekDay>
+    <StartTime>11:05</StartTime>
+    <NumberOfLessons>5</NumberOfLessons>
+    <EndTime>16:05</EndTime>
+    <Room>C05.16a</Room>
+</Session>
+</SessionList>

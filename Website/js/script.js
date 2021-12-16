@@ -19,6 +19,7 @@ var b = 2;//tuesday
 var c = 3;//wednesday
 var d = 4;//thursday
 var e = 5;//friday
+var noShift = true;
 
 var choosenClass;
 var choosenTeacher = null;
@@ -202,10 +203,15 @@ function showData(xml) {
                                     timeList[k][a].remove();
                                    
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
+                                
+                        
 
                             }
                             break;
@@ -242,9 +248,13 @@ function showData(xml) {
                                 for (var m = numberOfLessons - 1; m >= 1; m--) {
                                     timeList[m][b].remove();
                                 }
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -281,9 +291,12 @@ function showData(xml) {
                                 for (var o = numberOfLessons - 1; o >= 1; o--) {
                                     timeList[o][c].remove();
                                 }
-            
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -319,7 +332,10 @@ function showData(xml) {
                                 for (var r = numberOfLessons - 1; r >= 1; r--) {
                                     timeList[r][d].remove();
                                 }
-                                e--;
+                                if (noShift){
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -396,10 +412,13 @@ function showData(xml) {
                                 for (var v = numberOfLessons; v >= 2; v--) {
                                     timeList[v][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
 
 
                             }
@@ -438,9 +457,13 @@ function showData(xml) {
                                     timeList[y][b].remove();
                                 }
                             
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                  
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -477,8 +500,12 @@ function showData(xml) {
                                     timeList[aa][c].remove();
                                 }
                                 
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -514,8 +541,10 @@ function showData(xml) {
                                 for (var ac = numberOfLessons; ac >= 2; ac--) {
                                     timeList[ac][d].remove();
                                 }
-                                
-                                e --;
+                                if (noShift){
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -593,10 +622,14 @@ function showData(xml) {
                                 for (var ag = (numberOfLessons + 1); ag >= 3; ag--) {
                                     timeList[ag][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                //    c --;
+                                    d --;
+                                //    e --;
+                                    noShift = false;
+                                }
+                                
                             }
                             break;
                         case ("TUESDAY"):
@@ -635,9 +668,15 @@ function showData(xml) {
                                     timeList[ai][b].remove();
                                 }
                             
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                 //   c--;
+                                 //   d--;
+                                    e--;
+                                    d--;
+                                    //e--;
+                                    noShift = false;
+                                }
+                            
 
                             }
                             break;
@@ -675,9 +714,12 @@ function showData(xml) {
                                 for (var ak = numberOfLessons + 1; ak >= 3; ak--) {
                                     timeList[ak][c].remove();
                                 }
-                               
-                                d --;
-                                e --;
+                               if (noShift){
+                                   d--;
+                                  // e--;
+                                  
+                                   noShift = true;
+                               }
                                 
                             }
                             break;
@@ -714,8 +756,12 @@ function showData(xml) {
                                 for (var am = numberOfLessons + 1; am >= 3; am--) {
                                     timeList[am][d].remove();
                                 }
-                               
-                                e --;
+                                
+                               if (noShift){
+                                //   e--;
+                                   noShift = false;
+                               }
+                                
                             }
                             break;
                         case ("FRIDAY"):
@@ -749,7 +795,7 @@ function showData(xml) {
                                 hour1010[e].classList.add("pt-" + numberOfLessons);
                                 hour1010[e].rowSpan = "" + numberOfLessons;
                                 for (var ao = numberOfLessons + 1; ao >= 3; ao--) {
-                                    timeList[ao][e].remove();
+                                    timeList[ao][1].remove();
                                 }
                             }
                             break;
@@ -792,10 +838,13 @@ function showData(xml) {
                                 for (var aq = numberOfLessons + 2; aq >= 4; aq--) {
                                     timeList[aq][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -832,9 +881,13 @@ function showData(xml) {
                                     timeList[as][b].remove();
                                 }
                             
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -870,9 +923,11 @@ function showData(xml) {
                                 for (var au = numberOfLessons + 2; au >= 4; au--) {
                                     timeList[au][c].remove();
                                 }
-                               
-                                d --;
-                                e --;
+                                if (noShift){
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -908,8 +963,10 @@ function showData(xml) {
                                 for (var aw = numberOfLessons + 2; aw >= 4; aw--) {
                                     timeList[aw][d].remove();
                                 }
-                            
-                                e --;
+                                if (noShift){
+                                  //  e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -942,9 +999,11 @@ function showData(xml) {
                                 }
                                 hour1105[e].classList.add("pt-" + numberOfLessons);
                                 hour1105[e].rowSpan = "" + numberOfLessons;
+                                
                                 for (var ay = numberOfLessons + 2; ay >= 4; ay--) {
-                                    timeList[ay][e].remove();
+                                    timeList[ay][2].remove();
                                 }
+                                
                             }
                             break;
                     }
@@ -986,10 +1045,13 @@ function showData(xml) {
                                 for (var ba = numberOfLessons + 3; ba >= 5; ba--) {
                                     timeList[ba][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -1026,9 +1088,13 @@ function showData(xml) {
                                     timeList[bc][b].remove();
                                 }
                               
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -1064,9 +1130,12 @@ function showData(xml) {
                                 for (var be = numberOfLessons + 3; be >= 5; be--) {
                                     timeList[be][c].remove();
                                 }
-                            
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    d --;
+                                  //  e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -1102,8 +1171,11 @@ function showData(xml) {
                                 for (var bg = numberOfLessons + 3; bg >= 5; bg--) {
                                     timeList[bg][d].remove();
                                 }
-                               
-                                e --;
+                                if (noShift){
+                                   
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -1180,10 +1252,13 @@ function showData(xml) {
                                 for (var bk = numberOfLessons + 4; bk >= 6; bk--) {
                                     timeList[bk][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -1220,9 +1295,13 @@ function showData(xml) {
                                     timeList[bm][b].remove();
                                 }
                             
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -1259,8 +1338,12 @@ function showData(xml) {
                                     timeList[bo][c].remove();
                                 }
                                 
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -1296,8 +1379,11 @@ function showData(xml) {
                                 for (var bq = numberOfLessons + 4; bq >= 6; bq--) {
                                     timeList[bq][d].remove();
                                 }
-                               
-                                e --;
+                                if (noShift){
+                                   
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -1376,10 +1462,13 @@ function showData(xml) {
                                 for (var bu = numberOfLessons + 5; bu >= 7; bu--) {
                                     timeList[bu][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -1416,9 +1505,13 @@ function showData(xml) {
                                     timeList[bw][b].remove();
                                 }
                                
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -1454,9 +1547,12 @@ function showData(xml) {
                                 for (var by = numberOfLessons + 5; by >= 7; by--) {
                                     timeList[by][c].remove();
                                 }
-                        
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -1492,8 +1588,11 @@ function showData(xml) {
                                 for (var ca = numberOfLessons + 5; ca >= 7; ca--) {
                                     timeList[ca][d].remove();
                                 }
-                                
-                                e --;
+                                if (noShift){
+                                  
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -1571,10 +1670,13 @@ function showData(xml) {
                                 for (var cf = numberOfLessons + 6; cf >= 8; cf--) {
                                     timeList[cf][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -1611,9 +1713,13 @@ function showData(xml) {
                                     timeList[ch][b].remove();
                                 }
                             
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                  
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -1650,8 +1756,12 @@ function showData(xml) {
                                     timeList[cj][c].remove();
                                 }
                                 
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -1687,8 +1797,11 @@ function showData(xml) {
                                 for (var cl = numberOfLessons + 6; cl >= 8; cl--) {
                                     timeList[cl][d].remove();
                                 }
-                            
-                                e --;
+                                if (noShift){
+                                    
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -1766,10 +1879,13 @@ function showData(xml) {
                                 for (var cp = numberOfLessons + 7; cp >= 9; cp--) {
                                     timeList[cp][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -1806,9 +1922,13 @@ function showData(xml) {
                                     timeList[cr][b].remove();
                                 }
                                 
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -1844,9 +1964,12 @@ function showData(xml) {
                                 for (var ct = numberOfLessons + 7; ct >= 9; ct--) {
                                     timeList[ct][c].remove();
                                 }
-                                
-                                d --;
-                                e --;
+                                if (noShift){
+                                  
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -1882,8 +2005,11 @@ function showData(xml) {
                                 for (var cv = numberOfLessons + 7; cv >= 9; cv--) {
                                     timeList[cv][d].remove();
                                 }
-                               
-                                e --;
+                                if (noShift){
+                                
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):
@@ -1960,10 +2086,13 @@ function showData(xml) {
                                 for (var cz = numberOfLessons + 8; cz >= 10; cz--) {
                                     timeList[cz][a].remove();
                                 }
-                                b --;
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                    b --;
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("TUESDAY"):
@@ -2000,9 +2129,13 @@ function showData(xml) {
                                     timeList[db][b].remove();
                                 }
                                 
-                                c --;
-                                d --;
-                                e --;
+                                if (noShift){
+                                   
+                                    c --;
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("WEDNESDAY"):
@@ -2038,9 +2171,12 @@ function showData(xml) {
                                 for (var df = numberOfLessons + 8; df >= 10; df--) {
                                     timeList[df][c].remove();
                                 }
-                                
-                                d --;
-                                e --;
+                                if (noShift){
+                                  
+                                    d --;
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("THURSDAY"):
@@ -2076,8 +2212,11 @@ function showData(xml) {
                                 for (var dh = numberOfLessons + 8; dh >= 10; dh--) {
                                     timeList[dh][d].remove();
                                 }
-                                
-                                e --;
+                                if (noShift){
+                                   
+                                    e--;
+                                    noShift = false;
+                                }
                             }
                             break;
                         case ("FRIDAY"):

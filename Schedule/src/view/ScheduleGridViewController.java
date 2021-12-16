@@ -424,14 +424,9 @@ public class ScheduleGridViewController
    */
   @FXML private void chooseClassButton()
   {
-    if (model.getChosenTeacher() == null)
-    {
+    model.setChosenTeacher(null);
       viewHandler.openView("classSelect");
-    }
-    else
-    {
-      errorLabel.setText("You cannot select both class and a teacher.");
-    }
+
   }
 
   /**
@@ -532,7 +527,7 @@ public class ScheduleGridViewController
    */
   @FXML private void chooseTeacherButton()
   {
-
+    model.setChosenClassGroup(null);
     viewHandler.openView("selectTeacher");
   }
 }

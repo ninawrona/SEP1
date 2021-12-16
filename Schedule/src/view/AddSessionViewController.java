@@ -96,8 +96,8 @@ public class AddSessionViewController
     roomsChoiceBox.getItems().removeAll(roomsArray);
     // set text to ""
     errorLabel.setText("");
-    titleLabel.setText(
-        "Add a Session to " + model.getChosenClassGroup().toString());
+    titleLabel
+        .setText("Add a Session to " + model.getChosenClassGroup().toString());
     session = null;
     model.setChosenClassGroup(model.getChosenClassGroup());
     this.classGroup = model.getChosenClassGroup();
@@ -191,6 +191,7 @@ public class AddSessionViewController
     {
       roomsArray.add(model.suggestRooms(session).get(i));
     }
+    roomsArray.add(new Room());
     roomsChoiceBox.getItems().addAll(roomsArray);
   }
 
@@ -225,8 +226,8 @@ public class AddSessionViewController
 
         for (int k = 0; k < model.getHolidayWeeks().size(); k++)
         {
-          if (model.getHolidayWeeks().get(k)
-              == getDateFromDatePicker().getWeekNumber())
+          if (model.getHolidayWeeks().get(k) == getDateFromDatePicker()
+              .getWeekNumber())
           {
             isHolidayWeek = true;
             errorLabel.setText("Chosen date is during holidays.");
@@ -239,38 +240,48 @@ public class AddSessionViewController
     {
       try
       {
+
         session = new Session(courseChoiceBoxInAddSession.getValue(),
             getDateFromDatePicker(), startTimeChoiceBox.getValue(),
             numberOfLessonsChoiceBox.getValue());
-
-        //GAP checker:
-
-        SessionList sortedSessions = model.getSessionsByDateAndClassGroup(
-            getDateFromDatePicker(), model.getChosenClassGroup());
-        if (sortedSessions.size() > 1)
+        if (!(model.getSessionsByClassGroup(model.getChosenClassGroup())
+            .isClassGroupAvailable(model.getChosenClassGroup(), session)))
         {
+          System.out.println("The session would overlap.");
+          errorLabel.setText("The session would overlap.");
+        }
+        else
+        {
+          //GAP checker:
 
-          for (int i = 0; i < sortedSessions.size(); i++)
+          SessionList sortedSessions = model
+              .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+                  model.getChosenClassGroup());
+          if (sortedSessions.size() > 1)
           {
-            int difference =
-                sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
-                    - sortedSessions.get(i).getEndTime().getTimeInSeconds();
 
-            if (difference > 10)
+            for (int i = 0; i < sortedSessions.size(); i++)
             {
-              if (sortedSessions.get(i).getEndTimeString().equals("11:50")
-                  && difference == 55)
+              int difference =
+                  sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                      - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+              if (difference > 10)
               {
-                loadRoomArray();
-              }
-              boolean gap = gapConfirmation();
-              if (gapConfirmation())
-              {
-                loadRoomArray();
-              }
-              else
-              {
-                reset();
+                if (sortedSessions.get(i).getEndTimeString().equals("11:50")
+                    && difference == 55)
+                {
+                  loadRoomArray();
+                }
+                boolean gap = gapConfirmation();
+                if (gapConfirmation())
+                {
+                  loadRoomArray();
+                }
+                else
+                {
+                  reset();
+                }
               }
             }
           }
@@ -356,7 +367,6 @@ public class AddSessionViewController
         }
 
         model.addSession(session, session.getRoom());
-        reset();
 
         //warning for an auditorium
         if (session.getRoom().getCapacity() > 100
@@ -377,40 +387,58 @@ public class AddSessionViewController
           scheduleViewModel.addSession(session);
         }
 
+        SessionList sortedSessions = model
+            .getSessionsByDateAndClassGroup(getDateFromDatePicker(),
+                model.getChosenClassGroup());
+        if (sortedSessions.size() > 1)
+        {
+          //SORTING BASED ON START TIME
+          for (int i = 0; i < sortedSessions.size() - 1; i++)
+          {
+            int difference =
+                sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
+                    - sortedSessions.get(i).getEndTime().getTimeInSeconds();
+
+            if (difference > 600)
+            {
+              if (!(sortedSessions.get(i).getEndTimeString().equals("11:50"))
+                  && !(difference == 3300))
+              {
+                gapConfirmation();
+              }
+            }
+          }
+        }
+
+        reset();
+        viewHandler.openView("schedule");
       }
       catch (Exception e)
       {
         errorLabel.setText(e.getMessage());
-      }
-
-      SessionList sortedSessions = model.getSessionsByDateAndClassGroup(
-          getDateFromDatePicker(), model.getChosenClassGroup());
-      if (sortedSessions.size() > 1)
-      {
-        //SORTING BASED ON START TIME
-        for (int i = 0; i < sortedSessions.size() - 1; i++)
+        try
         {
-          int difference =
-              sortedSessions.get(i + 1).getStartTime().getTimeInSeconds()
-                  - sortedSessions.get(i).getEndTime().getTimeInSeconds();
-
-          if (difference > 600)
-          {
-            if (!(sortedSessions.get(i).getEndTimeString().equals("11:50"))
-                && !(difference == 3300))
-            {
-              gapConfirmation();
-            }
-          }
+          Thread.sleep(5000);
         }
+        catch (InterruptedException interruptedException)
+        {
+          interruptedException.printStackTrace();
+        }
+        reset();
       }
-
-      reset();
-      viewHandler.openView("schedule");
     }
     else
     {
       errorLabel.setText("The teacher is not available!");
+      try
+      {
+        Thread.sleep(5000);
+      }
+      catch (InterruptedException e)
+      {
+        e.printStackTrace();
+      }
+      reset();
     }
   }
 

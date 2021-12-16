@@ -145,6 +145,7 @@ function readXMLSessionListTeacher() {
     }
     xhttp.send();
 }
+
 function showData(xml) {
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName("Session");
@@ -160,7 +161,6 @@ function showData(xml) {
         var numberOfLessons = parseInt(numberOfLessonsString);
         var startTime = x[p].getElementsByTagName("StartTime")[0].childNodes[0].nodeValue;
         var weekDay = x[p].getElementsByTagName("WeekDay")[0].childNodes[0].nodeValue;
-        test.innerHTML = "I am entring it " + p + " times";
 
         switch (startTime) {
             case ("8:20"):

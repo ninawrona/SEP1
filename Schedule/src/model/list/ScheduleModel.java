@@ -62,4 +62,8 @@ public interface ScheduleModel
 
   public SessionList getSessionsByDateAndTeacher(Date date,
       Teacher teacher);
+
+  public SessionList getSessionsByTeacher(Teacher teacher);
+
+  SessionList getSessionsByDateAndTeacher(SessionList sessionsByTeacher);
 }

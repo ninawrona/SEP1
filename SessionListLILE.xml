@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+
+<SessionList>
+<Session>
+    <Course>RWD</Course>
+    <Class>1Y</Class>
+    <Teachers>LILE,</Teachers>
+    <Date>17/12/2021</Date>
+    <WeekDay>FRIDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>10</NumberOfLessons>
+    <EndTime>17:55</EndTime>
+    <Room>C05.15</Room>
+</Session>
+<Session>
+    <Course>RWD</Course>
+    <Class>1Z</Class>
+    <Teachers>LILE,</Teachers>
+    <Date>16/12/2021</Date>
+    <WeekDay>THURSDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>10</NumberOfLessons>
+    <EndTime>17:55</EndTime>
+    <Room>C05.15</Room>
+</Session>
+</SessionList>

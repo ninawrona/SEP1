@@ -130,8 +130,8 @@ public class ScheduleGridViewController
       friday.stepForward(4);
       weekLabel.setText(
           "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
-              .getMonth());
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/"
+              + friday.getMonth());
     }
     else
     {
@@ -146,8 +146,8 @@ public class ScheduleGridViewController
       {
         today.stepForwardOneDay();
       }
-      LocalDate date = LocalDate
-          .of(today.getYear(), today.getMonth(), today.getDay());
+      LocalDate date = LocalDate.of(today.getYear(), today.getMonth(),
+          today.getDay());
       chosenWeekNumber = date.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
       model.setChosenWeekNumber(chosenWeekNumber);
       // Holder
@@ -164,8 +164,8 @@ public class ScheduleGridViewController
       friday.stepForward(4);
       weekLabel.setText(
           "Week " + model.getChosenWeekNumber() + ": " + " " + monday.getDay()
-              + "/" + monday.getMonth() + " - " + friday.getDay() + "/" + friday
-              .getMonth());
+              + "/" + monday.getMonth() + " - " + friday.getDay() + "/"
+              + friday.getMonth());
 
     }
     errorLabel.setText("Please upload the text files.");
@@ -174,14 +174,14 @@ public class ScheduleGridViewController
       errorLabel.setText("Please select a Class or a Teacher.");
       if (model.getChosenClassGroup() != null)
       {
-        classNameLabel
-            .setText("Class: " + model.getChosenClassGroup().toString());
+        classNameLabel.setText(
+            "Class: " + model.getChosenClassGroup().toString());
         errorLabel.setText("");
       }
       else if (model.getChosenTeacher() != null)
       {
-        classNameLabel
-            .setText("Teacher: " + model.getChosenTeacher().getViaId());
+        classNameLabel.setText(
+            "Teacher: " + model.getChosenTeacher().getViaId());
         errorLabel.setText("");
       }
 
@@ -210,8 +210,8 @@ public class ScheduleGridViewController
         for (int i = 0;
              i < scheduleViewModel.getListByDateAndClassGroup().size(); i++)
         {
-          StringProperty courseName = scheduleViewModel
-              .getListByDateAndClassGroup().get(i).getCourseProperty();
+          StringProperty courseName = scheduleViewModel.getListByDateAndClassGroup()
+              .get(i).getCourseProperty();
           Label labelTest = new Label();
           labelTest.setText(courseName.get());
           labelTest.setId("session" + i);
@@ -242,9 +242,8 @@ public class ScheduleGridViewController
 
           int startTimeInt = scheduleViewModel.getListByDateAndClassGroup()
               .get(i).getStartTimeIntProperty();
-          int numberOfLessonsInt = scheduleViewModel
-              .getListByDateAndClassGroup().get(i).getNumberOfLessonsProperty()
-              .intValue();
+          int numberOfLessonsInt = scheduleViewModel.getListByDateAndClassGroup()
+              .get(i).getNumberOfLessonsProperty().intValue();
           int dayOfWeek = scheduleViewModel.getListByDateAndClassGroup().get(i)
               .getDayOfWeekProperty().getValue();
 
@@ -256,8 +255,8 @@ public class ScheduleGridViewController
           labelTest.setTextAlignment(TextAlignment.CENTER);
           labelTest.setAlignment(Pos.CENTER);
 
-          gridPane
-              .add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+          gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+              numberOfLessonsInt);
 
           // Move the label like 1 pixel to the right to make it centered
           labelTest.setTranslateX(0.7);
@@ -275,58 +274,58 @@ public class ScheduleGridViewController
         for (int i = 0; i < scheduleViewModel.getListByTeacher().size(); i++)
         {
 
-            StringProperty courseName = scheduleViewModel.getListByTeacher().get(i)
-                .getCourseProperty();
-            System.out.println("SOUT The property is "+scheduleViewModel.getListByTeacher().get(i)
-                .getCourseProperty());
-            Label labelTest = new Label();
-            labelTest.setText(courseName.get());
-            labelTest.setId("session" + i);
+          StringProperty courseName = scheduleViewModel.getListByTeacher()
+              .get(i).getCourseProperty();
+          System.out.println(
+              "SOUT The property is " + scheduleViewModel.getListByTeacher()
+                  .get(i).getCourseProperty());
+          Label labelTest = new Label();
+          labelTest.setText(courseName.get());
+          labelTest.setId("session" + i);
 
-            // Adds a background color to the session on the grid
-            String backColor = "lavender";
-            String courseHolder =
-                "" + scheduleViewModel.getListByTeacher().get(i).getCourseProperty();
-            if (courseHolder.contains("RWD"))
-            {
-              backColor = "lightblue";
-            }
-            if (courseHolder.contains("DMA"))
-            {
-              backColor = "lightseagreen";
-            }
-            if (courseHolder.contains("SDJ"))
-            {
-              backColor = "burlywood";
-            }
-            if (courseHolder.contains("SEP"))
-            {
-              backColor = "indianred";
-            }
-            labelTest.setBackground(new Background(
-                new BackgroundFill(Paint.valueOf(backColor), null, null)));
+          // Adds a background color to the session on the grid
+          String backColor = "lavender";
+          String courseHolder = "" + scheduleViewModel.getListByTeacher().get(i)
+              .getCourseProperty();
+          if (courseHolder.contains("RWD"))
+          {
+            backColor = "lightblue";
+          }
+          if (courseHolder.contains("DMA"))
+          {
+            backColor = "lightseagreen";
+          }
+          if (courseHolder.contains("SDJ"))
+          {
+            backColor = "burlywood";
+          }
+          if (courseHolder.contains("SEP"))
+          {
+            backColor = "indianred";
+          }
+          labelTest.setBackground(new Background(
+              new BackgroundFill(Paint.valueOf(backColor), null, null)));
 
-            int startTimeInt = scheduleViewModel.getListByTeacher().get(i)
-                .getStartTimeIntProperty();
-            int numberOfLessonsInt = scheduleViewModel.getListByTeacher().get(i)
-                .getNumberOfLessonsProperty().intValue();
-            int dayOfWeek = scheduleViewModel.getListByTeacher().get(i)
-                .getDayOfWeekProperty().getValue();
+          int startTimeInt = scheduleViewModel.getListByTeacher().get(i)
+              .getStartTimeIntProperty();
+          int numberOfLessonsInt = scheduleViewModel.getListByTeacher().get(i)
+              .getNumberOfLessonsProperty().intValue();
+          int dayOfWeek = scheduleViewModel.getListByTeacher().get(i)
+              .getDayOfWeekProperty().getValue();
 
-            labelTest.setMinHeight(
-                (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt
-                    - 5));
-            labelTest.setTextOverrun(OverrunStyle.CLIP);
-            labelTest.setMinWidth(98.5);
-            labelTest.setTextAlignment(TextAlignment.CENTER);
-            labelTest.setAlignment(Pos.CENTER);
+          labelTest.setMinHeight(
+              (double) (numberOfLessonsInt * 21) + (4.6 * numberOfLessonsInt
+                  - 5));
+          labelTest.setTextOverrun(OverrunStyle.CLIP);
+          labelTest.setMinWidth(98.5);
+          labelTest.setTextAlignment(TextAlignment.CENTER);
+          labelTest.setAlignment(Pos.CENTER);
 
-            gridPane
-                .add(labelTest, dayOfWeek, startTimeInt, 1, numberOfLessonsInt);
+          gridPane.add(labelTest, dayOfWeek, startTimeInt, 1,
+              numberOfLessonsInt);
 
-            // Move the label like 1 pixel to the right to make it centered
-            labelTest.setTranslateX(0.7);
-
+          // Move the label like 1 pixel to the right to make it centered
+          labelTest.setTranslateX(0.7);
 
         }
       }
@@ -425,7 +424,7 @@ public class ScheduleGridViewController
   @FXML private void chooseClassButton()
   {
     model.setChosenTeacher(null);
-      viewHandler.openView("classSelect");
+    viewHandler.openView("classSelect");
 
   }
 
@@ -498,20 +497,39 @@ public class ScheduleGridViewController
   {
     SessionList allAddedSessions = new SessionList();
 
-    for (int j = 0;
-         j < model.getSessionsByClassGroup(model.getChosenClassGroup())
-             .size(); j++)
+    if (model.getChosenClassGroup() != null && model.getChosenTeacher() == null)
     {
+      for (int j = 0;
+           j < model.getSessionsByClassGroup(model.getChosenClassGroup())
+               .size(); j++)
+      {
 
-      allAddedSessions.addSession(
-          model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
-          model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
-              .getRoom());
+        allAddedSessions.addSession(
+            model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j),
+            model.getSessionsByClassGroup(model.getChosenClassGroup()).get(j)
+                .getRoom());
+      }
+
+      ReadWrite.manualWriteSessionList(allAddedSessions, new String(
+          model.getChosenClassGroup().getSemester()
+              + model.getChosenClassGroup().getClassName()));
     }
+    else if (model.getChosenClassGroup() == null
+        && model.getChosenTeacher() != null)
+    {
+      for (int j = 0;
+           j < model.getSessionsByTeacher(model.getChosenTeacher()).size(); j++)
+      {
 
-    ReadWrite.manualWriteSessionList(allAddedSessions, new String(
-        model.getChosenClassGroup().getSemester() + model.getChosenClassGroup()
-            .getClassName()));
+        allAddedSessions.addSession(
+            model.getSessionsByTeacher(model.getChosenTeacher()).get(j),
+            model.getSessionsByTeacher(model.getChosenTeacher()).get(j)
+                .getRoom());
+      }
+
+      ReadWrite.manualWriteSessionList(allAddedSessions,
+          new String(model.getChosenTeacher().getViaId()));
+    }
   }
 
   /**

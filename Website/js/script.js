@@ -70,40 +70,42 @@ function readXMLSessionListClass() {
         }
     }
     if (chosenClass != null) {
-        switch (chosenClass) {
-            case ("1X"): xhttp.open("GET", "../../SessionList1X.xml", true);
-                break;
-            case ("1Y"): xhttp.open("GET", "../../SessionList1Y.xml", true);
-                break;
-            case ("1Z"): xhttp.open("GET", "../../SessionList1Z.xml", true);
-                break;
-            case ("1DK"): xhttp.open("GET", "../../SessionList1DK.xml", true);
-                break;
-            case ("2X"): xhttp.open("GET", "../../SessionList2X.xml", true);
-                break;
-            case ("2Y"): xhttp.open("GET", "../../SessionList2Y.xml", true);
-                break;
-            case ("2Z"): xhttp.open("GET", "../../SessionList2Z.xml", true);
-                break;
-            case ("2DK"): xhttp.open("GET", "../../SessionList2DK.xml", true);
-                break;
-            case ("3X"): xhttp.open("GET", "../../SessionList3X.xml", true);
-                break;
-            case ("3Y"): xhttp.open("GET", "../../SessionList3Y.xml", true);
-                break;
-            case ("3Z"): xhttp.open("GET", "../../SessionList3Z.xml", true);
-                break;
-            case ("3DK"): xhttp.open("GET", "../../SessionList3DK.xml", true);
-                break;
-            case ("4X"): xhttp.open("GET", "../../SessionList4X.xml", true);
-                break;
-            case ("4Y"): xhttp.open("GET", "../../SessionList4Y.xml", true);
-                break;
-            case ("4Z"): xhttp.open("GET", "../../SessionList4Z.xml", true);
-                break;
-            case ("4DK"): xhttp.open("GET", "../../SessionList4DK.xml", true);
-                break;
-        }
+        const url = `../../SessionList${chosenClass}.xml`;
+        xhttp.open("GET", url);
+        // switch (chosenClass) {
+        //     case ("1X"): xhttp.open("GET", "../../SessionList1X.xml", true);
+        //         break;
+        //     case ("1Y"): xhttp.open("GET", "../../SessionList1Y.xml", true);
+        //         break;
+        //     case ("1Z"): xhttp.open("GET", "../../SessionList1Z.xml", true);
+        //         break;
+        //     case ("1DK"): xhttp.open("GET", "../../SessionList1DK.xml", true);
+        //         break;
+        //     case ("2X"): xhttp.open("GET", "../../SessionList2X.xml", true);
+        //         break;
+        //     case ("2Y"): xhttp.open("GET", "../../SessionList2Y.xml", true);
+        //         break;
+        //     case ("2Z"): xhttp.open("GET", "../../SessionList2Z.xml", true);
+        //         break;
+        //     case ("2DK"): xhttp.open("GET", "../../SessionList2DK.xml", true);
+        //         break;
+        //     case ("3X"): xhttp.open("GET", "../../SessionList3X.xml", true);
+        //         break;
+        //     case ("3Y"): xhttp.open("GET", "../../SessionList3Y.xml", true);
+        //         break;
+        //     case ("3Z"): xhttp.open("GET", "../../SessionList3Z.xml", true);
+        //         break;
+        //     case ("3DK"): xhttp.open("GET", "../../SessionList3DK.xml", true);
+        //         break;
+        //     case ("4X"): xhttp.open("GET", "../../SessionList4X.xml", true);
+        //         break;
+        //     case ("4Y"): xhttp.open("GET", "../../SessionList4Y.xml", true);
+        //         break;
+        //     case ("4Z"): xhttp.open("GET", "../../SessionList4Z.xml", true);
+        //         break;
+        //     case ("4DK"): xhttp.open("GET", "../../SessionList4DK.xml", true);
+        //         break;
+        // }
     }
     xhttp.send();
 }

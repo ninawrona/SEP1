@@ -102,10 +102,12 @@ public class AddTeacherViewController
       boolean add = confirmation();
       if (add)
       {
+
         model.getChosenSession().getCourse().addTeacher(teacherToBeAdded);
         teacherToBeAdded.assignToCourseTaught(
             model.getChosenSession().getCourse());
         System.out.println(teacherToBeAdded + " to a course: " + teacherToBeAdded.getCoursesTaught());
+        model.getAllTeachers().addTeacher(teacherToBeAdded);
       }
     }
     catch (Exception e)

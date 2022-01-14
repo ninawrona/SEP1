@@ -1,15 +1,14 @@
 package view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import model.basic.ClassGroup;
 import model.basic.Student;
 import model.basic.Teacher;
 import model.list.ScheduleModel;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
@@ -27,13 +26,15 @@ public class AddStudentViewController
   @FXML private Label errorLabel;
   @FXML private TextField studentsNameField;
   @FXML private TextField studentsViaIdField;
-  @FXML private TextField classField;
+  @FXML private ChoiceBox<ClassGroup> classGroupChoiceBox;
   private Region root;
   private ViewHandler viewHandler;
   private ScheduleModel model;
   private String name;
   private int viaId;
-  private String className;
+  private ClassGroup chosenClass;
+
+  ArrayList<ClassGroup> allClassesArray = new ArrayList<>();
 
   // TODO Kamil review
 
@@ -59,10 +60,26 @@ public class AddStudentViewController
     this.model = model;
     this.name = null;
     this.viaId = 0;
-    this.className = null;
+    this.chosenClass = null;
     reset();
+    loadAllCoursesArray();
   }
 
+  /**
+   * A void method loading the course list into the teachers choice box.
+   */
+  private void loadAllCoursesArray()
+  {
+    allClassesArray.removeAll(allClassesArray);
+
+    for (int i = 0; i < model.getAllClasses().size(); i++)
+    {
+      allClassesArray.add(model.getAllClasses().get(i));
+    }
+    classGroupChoiceBox.getItems().addAll(allClassesArray);
+    chosenClass = classGroupChoiceBox.getSelectionModel().getSelectedItem();
+
+  }
   /**
    * A getter method returning the Region object.
    *
@@ -81,7 +98,6 @@ public class AddStudentViewController
     errorLabel.setText("");
     studentsNameField.setText("");
     studentsViaIdField.setText("");
-    classField.setText("");
   }
 
   /**
@@ -117,13 +133,12 @@ public class AddStudentViewController
       viaId = parseInt(studentsViaIdField.getText());
       Student student = new Student(model.getChosenClassGroup().getSemester(),
           name, viaId);
-      if (name != null && !name.equals("") && viaId != 0 && className != null
-          && className.length() == 2)
+      if (name != null && !name.equals("") && viaId != 0 && add)
       {
-        if (add)
-        {
-          model.getChosenSession().getCourse().addStudent(student);
-        }
+        ClassGroup holder = model.getChosenClassGroup();
+          model.setChosenClassGroup(classGroupChoiceBox.getValue());
+          model.getChosenClassGroup().addStudent(student);
+          model.setChosenClassGroup(holder);
       }
     }
     catch (Exception e)

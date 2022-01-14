@@ -105,6 +105,7 @@ public class AddTeacherViewController
         model.getChosenSession().getCourse().addTeacher(teacherToBeAdded);
         teacherToBeAdded.assignToCourseTaught(
             model.getChosenSession().getCourse());
+        System.out.println(teacherToBeAdded + " to a course: " + teacherToBeAdded.getCoursesTaught());
       }
     }
     catch (Exception e)

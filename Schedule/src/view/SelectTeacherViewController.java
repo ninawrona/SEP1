@@ -71,8 +71,10 @@ public class SelectTeacherViewController
   public void reset()
   {
     errorLabel.setText("");
-    allTeachersArray.removeAll(allTeachersArray);
-    teacherChoiceBox.getItems().remove(allTeachersArray);
+    // todo remove comments
+    // Redundant lines
+    // allTeachersArray.clear();
+    // teacherChoiceBox.getItems().removeAll(allTeachersArray);
     loadAllTeachersArray();
   }
 
@@ -81,8 +83,8 @@ public class SelectTeacherViewController
    */
   private void loadAllTeachersArray()
   {
-    allTeachersArray.removeAll(allTeachersArray);
-    teacherChoiceBox.getItems().remove(allTeachersArray);
+    teacherChoiceBox.getItems().removeAll(allTeachersArray);
+    allTeachersArray.clear();
 
     for (int i = 0; i < model.getAllTeachers().size(); i++)
     {

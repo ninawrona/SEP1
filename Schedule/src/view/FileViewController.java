@@ -58,6 +58,12 @@ public class FileViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    fileStudents = new File("Students.txt");
+    fileCourses = new File("Courses.txt");
+    fileRooms = new File("Rooms.txt");
+    studentsField.setText(fileStudents.getAbsolutePath());
+    coursesField.setText(fileCourses.getAbsolutePath());
+    roomsField.setText(fileRooms.getAbsolutePath());
     reset();
   }
 

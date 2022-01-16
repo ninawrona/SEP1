@@ -169,10 +169,15 @@ public class ScheduleGridViewController
 
     }
     errorLabel.setText("Please upload the text files.");
+    // Set the classNameLabel text or change the error label
     if (model.getAllTeachers().size() > 0)
     {
-      errorLabel.setText("Please select a Class or a Teacher.");
-      if (model.getChosenClassGroup() != null)
+      if (model.getChosenClassGroup() == null
+          && model.getChosenTeacher() == null)
+      {
+        errorLabel.setText("Please choose a class or teacher");
+      }
+      else if (model.getChosenClassGroup() != null)
       {
         classNameLabel.setText(
             "Class: " + model.getChosenClassGroup().toString());
@@ -545,7 +550,9 @@ public class ScheduleGridViewController
    */
   @FXML private void chooseTeacherButton()
   {
-    model.setChosenClassGroup(null);
+    // todo consider removal of comments below
+    // Below line caused issues when choice was cancelled
+    // model.setChosenClassGroup(null);
     viewHandler.openView("selectTeacher");
   }
 }

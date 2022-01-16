@@ -109,11 +109,14 @@ public class SelectTeacherViewController
       System.out.println(model.getChosenTeacher() + "courses: "
           + model.getChosenTeacher().getCoursesTaught());
       reset();
+
+      // Only remove selected class group when choice is confirmed
+      model.setChosenClassGroup(null);
       viewHandler.openView("schedule");
     }
     else
     {
-      errorLabel.setText("Would you kindly choose a class?");
+      errorLabel.setText("Would you kindly choose a teacher?");
     }
   }
 

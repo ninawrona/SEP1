@@ -111,9 +111,9 @@
             <form class='form-inline' >
                 <legend class="d-flex justify-content-center">Select the Week</legend>
               <div class="input-group d-flex justify-content-center">
-                <input type="week" name="week" class="form-control">
+                <input type="week" name="week" class="form-control" id="inputWeek">
                 <span class="input-group-btn">
-                  <button type='submit' class="btn btn-secondary" type="button">View</button>
+                  <button id="weekBtn" class="btn btn-secondary" type="button">View</button>
                 </span>
 
               </div>
@@ -128,7 +128,7 @@
     <!--8:20, 9:15, 10:10, 11:05, 12:00, 12:45, 13:40, 14:35, 15:30, 16:25 and 17:20.-->
 
     <div class="container-fluid w-100">
-        <table class="table table-dark text-center table-striped table-hover table-bordered">
+        <table class="table table-dark text-center table-striped table-hover table-bordered" id="myTable">
             <tr>
                 <th>Monday</th>
                 <th>Tuesday</th>

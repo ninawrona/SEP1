@@ -103,3 +103,7 @@ h2#hall_sub {
     position: absolute;
 }
 
+td
+{
+    height: 120px;
+}

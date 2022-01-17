@@ -68,47 +68,12 @@ function readXMLSessionListClass() {
         if (this.readyState == 4 && this.status == 200) {
             showData(xhttp);
         }
-    }
-    if (chosenClass != null) {
-        const url = `../../SessionList${chosenClass}.xml`;
-        xhttp.open("GET", url);
-        // switch (chosenClass) {
-        //     case ("1X"): xhttp.open("GET", "../../SessionList1X.xml", true);
-        //         break;
-        //     case ("1Y"): xhttp.open("GET", "../../SessionList1Y.xml", true);
-        //         break;
-        //     case ("1Z"): xhttp.open("GET", "../../SessionList1Z.xml", true);
-        //         break;
-        //     case ("1DK"): xhttp.open("GET", "../../SessionList1DK.xml", true);
-        //         break;
-        //     case ("2X"): xhttp.open("GET", "../../SessionList2X.xml", true);
-        //         break;
-        //     case ("2Y"): xhttp.open("GET", "../../SessionList2Y.xml", true);
-        //         break;
-        //     case ("2Z"): xhttp.open("GET", "../../SessionList2Z.xml", true);
-        //         break;
-        //     case ("2DK"): xhttp.open("GET", "../../SessionList2DK.xml", true);
-        //         break;
-        //     case ("3X"): xhttp.open("GET", "../../SessionList3X.xml", true);
-        //         break;
-        //     case ("3Y"): xhttp.open("GET", "../../SessionList3Y.xml", true);
-        //         break;
-        //     case ("3Z"): xhttp.open("GET", "../../SessionList3Z.xml", true);
-        //         break;
-        //     case ("3DK"): xhttp.open("GET", "../../SessionList3DK.xml", true);
-        //         break;
-        //     case ("4X"): xhttp.open("GET", "../../SessionList4X.xml", true);
-        //         break;
-        //     case ("4Y"): xhttp.open("GET", "../../SessionList4Y.xml", true);
-        //         break;
-        //     case ("4Z"): xhttp.open("GET", "../../SessionList4Z.xml", true);
-        //         break;
-        //     case ("4DK"): xhttp.open("GET", "../../SessionList4DK.xml", true);
-        //         break;
-        // }
-    }
+    };
+    const url = `../../SessionList${chosenClass}.xml`;
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
+
 function readXMLSessionListTeacher() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -116,35 +81,8 @@ function readXMLSessionListTeacher() {
             showData(xhttp);
         }
     };
-    if (chosenTeacher != null) {
-        switch (chosenTeacher) {
-            case ("ALHE"): xhttp.open("GET", "../../SessionListALHE.xml", true);
-                break;
-            case ("SVA"): xhttp.open("GET", "../../SessionListSVA.xml", true);
-                break;
-            case ("KLAB"): xhttp.open("GET", "../../SessionListKLAB.xml", true);
-                break;
-            case ("MIVI"): xhttp.open("GET", "../../SessionListMIVI.xml", true);
-                break;
-            case ("KASR"): xhttp.open("GET", "../../SessionListKASR.xml", true);
-                break;
-            case ("LILE"): xhttp.open("GET", "../../SessionListLILE.xml", true);
-                break;
-            case ("AHAN"): xhttp.open("GET", "../../SessionListAHAN.xml", true);
-                break;
-            case ("RIB"): xhttp.open("GET", "../../SessionListRIB.xml", true);
-                break;
-            case ("IOOD"): xhttp.open("GET", "../../SessionListIOOD.xml", true);
-                break;
-            case ("MWA"): xhttp.open("GET", "../../SessionListMWA.xml", true);
-                break;
-            case ("HEKP"): xhttp.open("GET", "../../SessionListHEKP.xml", true);
-                break;
-            case ("TRMO"): xhttp.open("GET", "../../SessionListTRMO.xml", true);
-                break;
-
-        }
-    }
+    const urlSecond = `../../SessionList${chosenTeacher}.xml`;
+    xhttp.open("GET", urlSecond, true);
     xhttp.send();
 }
 
@@ -152,7 +90,7 @@ function showData(xml) {
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName("Session");
     var listLength = x.length;
-    
+
 
     for (var p = 0; p < listLength; p++) {
 
@@ -201,17 +139,17 @@ function showData(xml) {
 
                                 for (var k = numberOfLessons - 1; k >= 1; k--) {
                                     timeList[k][a].remove();
-                                   
+
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
-                                
-                        
+
+
 
                             }
                             break;
@@ -248,10 +186,10 @@ function showData(xml) {
                                 for (var m = numberOfLessons - 1; m >= 1; m--) {
                                     timeList[m][b].remove();
                                 }
-                                if (noShift){
-                                    
-                                    c --;
-                                    d --;
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -291,9 +229,9 @@ function showData(xml) {
                                 for (var o = numberOfLessons - 1; o >= 1; o--) {
                                     timeList[o][c].remove();
                                 }
-                                if (noShift){
-                                    
-                                    d --;
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -332,7 +270,7 @@ function showData(xml) {
                                 for (var r = numberOfLessons - 1; r >= 1; r--) {
                                     timeList[r][d].remove();
                                 }
-                                if (noShift){
+                                if (noShift) {
                                     e--;
                                     noShift = false;
                                 }
@@ -412,10 +350,10 @@ function showData(xml) {
                                 for (var v = numberOfLessons; v >= 2; v--) {
                                     timeList[v][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -456,11 +394,11 @@ function showData(xml) {
                                 for (var y = numberOfLessons; y >= 2; y--) {
                                     timeList[y][b].remove();
                                 }
-                            
-                                if (noShift){
-                                  
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -499,10 +437,10 @@ function showData(xml) {
                                 for (var aa = numberOfLessons; aa >= 2; aa--) {
                                     timeList[aa][c].remove();
                                 }
-                                
-                                if (noShift){
-                                    
-                                    d --;
+
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -541,7 +479,7 @@ function showData(xml) {
                                 for (var ac = numberOfLessons; ac >= 2; ac--) {
                                     timeList[ac][d].remove();
                                 }
-                                if (noShift){
+                                if (noShift) {
                                     e--;
                                     noShift = false;
                                 }
@@ -580,7 +518,7 @@ function showData(xml) {
                                 for (var ae = numberOfLessons; ae >= 2; ae--) {
                                     timeList[ae][e].remove();
                                 }
-                            
+
                             }
                             break;
                     }
@@ -622,14 +560,14 @@ function showData(xml) {
                                 for (var ag = (numberOfLessons + 1); ag >= 3; ag--) {
                                     timeList[ag][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                //    c --;
-                                    d --;
-                                //    e --;
+                                if (noShift) {
+                                    b--;
+                                    //    c --;
+                                    d--;
+                                    //    e --;
                                     noShift = false;
                                 }
-                                
+
                             }
                             break;
                         case ("TUESDAY"):
@@ -667,16 +605,16 @@ function showData(xml) {
                                 for (var ai = numberOfLessons + 1; ai >= 3; ai--) {
                                     timeList[ai][b].remove();
                                 }
-                            
-                                if (noShift){
-                                 //   c--;
-                                 //   d--;
+
+                                if (noShift) {
+                                    //   c--;
+                                    //   d--;
                                     e--;
                                     d--;
                                     //e--;
                                     noShift = false;
                                 }
-                            
+
 
                             }
                             break;
@@ -714,13 +652,13 @@ function showData(xml) {
                                 for (var ak = numberOfLessons + 1; ak >= 3; ak--) {
                                     timeList[ak][c].remove();
                                 }
-                               if (noShift){
-                                   d--;
-                                  // e--;
-                                  
-                                   noShift = true;
-                               }
-                                
+                                if (noShift) {
+                                    d--;
+                                    // e--;
+
+                                    noShift = true;
+                                }
+
                             }
                             break;
                         case ("THURSDAY"):
@@ -756,12 +694,12 @@ function showData(xml) {
                                 for (var am = numberOfLessons + 1; am >= 3; am--) {
                                     timeList[am][d].remove();
                                 }
-                                
-                               if (noShift){
-                                //   e--;
-                                   noShift = false;
-                               }
-                                
+
+                                if (noShift) {
+                                    //   e--;
+                                    noShift = false;
+                                }
+
                             }
                             break;
                         case ("FRIDAY"):
@@ -838,10 +776,10 @@ function showData(xml) {
                                 for (var aq = numberOfLessons + 2; aq >= 4; aq--) {
                                     timeList[aq][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -880,11 +818,11 @@ function showData(xml) {
                                 for (var as = numberOfLessons + 2; as >= 4; as--) {
                                     timeList[as][b].remove();
                                 }
-                            
-                                if (noShift){
-                                   
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -923,8 +861,8 @@ function showData(xml) {
                                 for (var au = numberOfLessons + 2; au >= 4; au--) {
                                     timeList[au][c].remove();
                                 }
-                                if (noShift){
-                                    d --;
+                                if (noShift) {
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -963,8 +901,8 @@ function showData(xml) {
                                 for (var aw = numberOfLessons + 2; aw >= 4; aw--) {
                                     timeList[aw][d].remove();
                                 }
-                                if (noShift){
-                                  //  e--;
+                                if (noShift) {
+                                    //  e--;
                                     noShift = false;
                                 }
                             }
@@ -999,11 +937,11 @@ function showData(xml) {
                                 }
                                 hour1105[e].classList.add("pt-" + numberOfLessons);
                                 hour1105[e].rowSpan = "" + numberOfLessons;
-                                
+
                                 for (var ay = numberOfLessons + 2; ay >= 4; ay--) {
                                     timeList[ay][2].remove();
                                 }
-                                
+
                             }
                             break;
                     }
@@ -1045,10 +983,10 @@ function showData(xml) {
                                 for (var ba = numberOfLessons + 3; ba >= 5; ba--) {
                                     timeList[ba][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1087,11 +1025,11 @@ function showData(xml) {
                                 for (var bc = numberOfLessons + 3; bc >= 5; bc--) {
                                     timeList[bc][b].remove();
                                 }
-                              
-                                if (noShift){
-                                   
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1130,10 +1068,10 @@ function showData(xml) {
                                 for (var be = numberOfLessons + 3; be >= 5; be--) {
                                     timeList[be][c].remove();
                                 }
-                                if (noShift){
-                                    
-                                    d --;
-                                  //  e--;
+                                if (noShift) {
+
+                                    d--;
+                                    //  e--;
                                     noShift = false;
                                 }
                             }
@@ -1171,8 +1109,8 @@ function showData(xml) {
                                 for (var bg = numberOfLessons + 3; bg >= 5; bg--) {
                                     timeList[bg][d].remove();
                                 }
-                                if (noShift){
-                                   
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }
@@ -1252,10 +1190,10 @@ function showData(xml) {
                                 for (var bk = numberOfLessons + 4; bk >= 6; bk--) {
                                     timeList[bk][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1294,11 +1232,11 @@ function showData(xml) {
                                 for (var bm = numberOfLessons + 4; bm >= 6; bm--) {
                                     timeList[bm][b].remove();
                                 }
-                            
-                                if (noShift){
-                                   
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1337,10 +1275,10 @@ function showData(xml) {
                                 for (var bo = numberOfLessons + 4; bo >= 6; bo--) {
                                     timeList[bo][c].remove();
                                 }
-                                
-                                if (noShift){
-                                    
-                                    d --;
+
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1379,8 +1317,8 @@ function showData(xml) {
                                 for (var bq = numberOfLessons + 4; bq >= 6; bq--) {
                                     timeList[bq][d].remove();
                                 }
-                                if (noShift){
-                                   
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }
@@ -1417,7 +1355,7 @@ function showData(xml) {
                                 hour1245[e].classList.add("pt-" + numberOfLessons);
                                 hour1245[e].rowSpan = "" + numberOfLessons;
                                 for (var bs = numberOfLessons + 4; bs >= 6; bs--) {
-   // Problem here                                 console.log(bs);
+                                    // Problem here                                 console.log(bs);
                                     console.log(timeList[bs]);
                                     timeList[bs][e].remove();
                                 }
@@ -1462,10 +1400,10 @@ function showData(xml) {
                                 for (var bu = numberOfLessons + 5; bu >= 7; bu--) {
                                     timeList[bu][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1504,11 +1442,11 @@ function showData(xml) {
                                 for (var bw = numberOfLessons + 5; bw >= 7; bw--) {
                                     timeList[bw][b].remove();
                                 }
-                               
-                                if (noShift){
-                                   
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1547,9 +1485,9 @@ function showData(xml) {
                                 for (var by = numberOfLessons + 5; by >= 7; by--) {
                                     timeList[by][c].remove();
                                 }
-                                if (noShift){
-                                    
-                                    d --;
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1588,8 +1526,8 @@ function showData(xml) {
                                 for (var ca = numberOfLessons + 5; ca >= 7; ca--) {
                                     timeList[ca][d].remove();
                                 }
-                                if (noShift){
-                                  
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }
@@ -1628,7 +1566,7 @@ function showData(xml) {
                                 for (var cd = numberOfLessons + 5; cd >= 7; cd--) {
                                     timeList[cd][e].remove();
                                 }
-                                
+
                             }
                             break;
                     }
@@ -1670,10 +1608,10 @@ function showData(xml) {
                                 for (var cf = numberOfLessons + 6; cf >= 8; cf--) {
                                     timeList[cf][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1712,11 +1650,11 @@ function showData(xml) {
                                 for (var ch = numberOfLessons + 6; ch >= 8; ch--) {
                                     timeList[ch][b].remove();
                                 }
-                            
-                                if (noShift){
-                                  
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1755,10 +1693,10 @@ function showData(xml) {
                                 for (var cj = numberOfLessons + 6; cj >= 8; cj--) {
                                     timeList[cj][c].remove();
                                 }
-                                
-                                if (noShift){
-                                   
-                                    d --;
+
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1797,8 +1735,8 @@ function showData(xml) {
                                 for (var cl = numberOfLessons + 6; cl >= 8; cl--) {
                                     timeList[cl][d].remove();
                                 }
-                                if (noShift){
-                                    
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }
@@ -1837,7 +1775,7 @@ function showData(xml) {
                                 for (var cn = numberOfLessons + 6; cn >= 8; cn--) {
                                     timeList[cn][e].remove();
                                 }
-                            
+
                             }
                             break;
                     }
@@ -1879,10 +1817,10 @@ function showData(xml) {
                                 for (var cp = numberOfLessons + 7; cp >= 9; cp--) {
                                     timeList[cp][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1921,11 +1859,11 @@ function showData(xml) {
                                 for (var cr = numberOfLessons + 7; cr >= 9; cr--) {
                                     timeList[cr][b].remove();
                                 }
-                                
-                                if (noShift){
-                                    
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -1964,9 +1902,9 @@ function showData(xml) {
                                 for (var ct = numberOfLessons + 7; ct >= 9; ct--) {
                                     timeList[ct][c].remove();
                                 }
-                                if (noShift){
-                                  
-                                    d --;
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -2005,8 +1943,8 @@ function showData(xml) {
                                 for (var cv = numberOfLessons + 7; cv >= 9; cv--) {
                                     timeList[cv][d].remove();
                                 }
-                                if (noShift){
-                                
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }
@@ -2086,10 +2024,10 @@ function showData(xml) {
                                 for (var cz = numberOfLessons + 8; cz >= 10; cz--) {
                                     timeList[cz][a].remove();
                                 }
-                                if (noShift){
-                                    b --;
-                                    c --;
-                                    d --;
+                                if (noShift) {
+                                    b--;
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -2128,11 +2066,11 @@ function showData(xml) {
                                 for (var db = numberOfLessons + 8; db >= 10; db--) {
                                     timeList[db][b].remove();
                                 }
-                                
-                                if (noShift){
-                                   
-                                    c --;
-                                    d --;
+
+                                if (noShift) {
+
+                                    c--;
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -2171,9 +2109,9 @@ function showData(xml) {
                                 for (var df = numberOfLessons + 8; df >= 10; df--) {
                                     timeList[df][c].remove();
                                 }
-                                if (noShift){
-                                  
-                                    d --;
+                                if (noShift) {
+
+                                    d--;
                                     e--;
                                     noShift = false;
                                 }
@@ -2212,8 +2150,8 @@ function showData(xml) {
                                 for (var dh = numberOfLessons + 8; dh >= 10; dh--) {
                                     timeList[dh][d].remove();
                                 }
-                                if (noShift){
-                                   
+                                if (noShift) {
+
                                     e--;
                                     noShift = false;
                                 }

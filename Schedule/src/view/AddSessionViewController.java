@@ -244,6 +244,9 @@ public class AddSessionViewController
         session = new Session(courseChoiceBoxInAddSession.getValue(),
             getDateFromDatePicker(), startTimeChoiceBox.getValue(),
             numberOfLessonsChoiceBox.getValue());
+        // todo remove debug comment
+        System.out.println("I just created the following session to find rooms");
+        System.out.println(session);
         if (!(model.getSessionsByClassGroup(model.getChosenClassGroup())
             .isClassGroupAvailable(model.getChosenClassGroup(), session)))
         {
@@ -291,6 +294,7 @@ public class AddSessionViewController
       catch (IllegalArgumentException a)
       {
         errorLabel.setText("The last lesson has to end before 18:00.");
+        a.printStackTrace();
       }
       catch (Exception e)
       {

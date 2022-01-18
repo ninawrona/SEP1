@@ -130,6 +130,12 @@ public class Session implements Comparable<Session>
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
 
+    if (endMinute > 59)
+    {
+      endMinute = endMinute - 60;
+      endHour++;
+    }
+
     if (startTime.getHour() <= 12 && startTime.getMinute() != 45
         && endHour >= 12)
     { //If the lunch session is also booked, the session will be 10 minutes shorter.
@@ -155,6 +161,12 @@ public class Session implements Comparable<Session>
 
     int endHour = startTime.getHour() + hours;
     int endMinute = startTime.getMinute() + minutes;
+
+    if (endMinute > 59)
+    {
+      endMinute = endMinute - 60;
+      endHour++;
+    }
 
     if (startTime.getHour() <= 12 && startTime.getMinute() != 45
         && endHour >= 12)

@@ -244,9 +244,6 @@ public class AddSessionViewController
         session = new Session(courseChoiceBoxInAddSession.getValue(),
             getDateFromDatePicker(), startTimeChoiceBox.getValue(),
             numberOfLessonsChoiceBox.getValue());
-        // todo remove debug comment
-        System.out.println("I just created the following session to find rooms");
-        System.out.println(session);
         if (!(model.getSessionsByClassGroup(model.getChosenClassGroup())
             .isClassGroupAvailable(model.getChosenClassGroup(), session)))
         {

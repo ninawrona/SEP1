@@ -71,10 +71,6 @@ public class SelectTeacherViewController
   public void reset()
   {
     errorLabel.setText("");
-    // todo remove comments
-    // Redundant lines
-    // allTeachersArray.clear();
-    // teacherChoiceBox.getItems().removeAll(allTeachersArray);
     loadAllTeachersArray();
   }
 

@@ -550,9 +550,6 @@ public class ScheduleGridViewController
    */
   @FXML private void chooseTeacherButton()
   {
-    // todo consider removal of comments below
-    // Below line caused issues when choice was cancelled
-    // model.setChosenClassGroup(null);
     viewHandler.openView("selectTeacher");
   }
 }

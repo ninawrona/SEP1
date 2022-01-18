@@ -205,7 +205,7 @@ public class ScheduleGridViewController
       }
     }
 
-    // The goal is to find all sessions from monday to Friday for a given class
+    // The goal is to find all sessions from Monday to Friday for a given class
     scheduleViewModel.update();
     // Populate the grid
     if (model.getChosenTeacher() == null)

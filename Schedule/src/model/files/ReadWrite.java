@@ -6,6 +6,8 @@ import model.list.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -56,6 +58,12 @@ public class ReadWrite {
                 } else {
                     xml += "\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
                 }
+
+                LocalDate dateTemp = LocalDate.of(sessions.get(i).getDate().getYear(),
+                    sessions.get(i).getDate().getMonth(),
+                    sessions.get(i).getDate().getDay());
+                int weekNumber = dateTemp.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+                xml += "\n    <WeekNumber>" + weekNumber + "</WeekNumber>";
 
                 xml += "\n</Session>";
 

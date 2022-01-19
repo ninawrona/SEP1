@@ -104,7 +104,7 @@ function showData(xml) {
                     if (chosenWeek == weekNumberInt) {
                         row[counterMondayRow].getElementsByTagName("td")[MondayData].innerHTML = "<b>" + course + "</b><br>" + room + "<br>";
                         for (var aa = 0; aa < teachers.length; aa++) {
-                            row[counterMondayRow].getElementsByTagName("td")[MondayData].innerHTML += "" + teachers[aa];
+                            row[counterMondayRow].getElementsByTagName("td")[MondayData].innerHTML += " " + teachers[aa];
                         }
                         row[counterMondayRow].getElementsByTagName("td")[MondayData].innerHTML += "<br><b>" + startTime + "-" + endTime+"<b>";
                         counterMondayRow++;
@@ -116,7 +116,7 @@ function showData(xml) {
                     if (chosenWeek == weekNumberInt) {
                         row[counterTuesdayRow].getElementsByTagName("td")[TuesdayData].innerHTML = "<b>" + course + "</b><br>" + room + "<br>";
                         for (var aa = 0; aa < teachers.length; aa++) {
-                            row[counterTuesdayRow].getElementsByTagName("td")[TuesdayData].innerHTML += "" + teachers[aa];
+                            row[counterTuesdayRow].getElementsByTagName("td")[TuesdayData].innerHTML += " " + teachers[aa];
                         }
                         row[counterTuesdayRow].getElementsByTagName("td")[TuesdayData].innerHTML += "<br><b>" + startTime + "-" + endTime+"<b>";
                         counterTuesdayRow++;
@@ -128,7 +128,7 @@ function showData(xml) {
                     if (chosenWeek == weekNumberInt) {
                         row[counterWednesdayRow].getElementsByTagName("td")[WednesdayData].innerHTML = "<b>" + course + "</b><br>" + room + "<br>";
                         for (var aa = 0; aa < teachers.length; aa++) {
-                            row[counterWednesdayRow].getElementsByTagName("td")[WednesdayData].innerHTML += "" + teachers[aa];
+                            row[counterWednesdayRow].getElementsByTagName("td")[WednesdayData].innerHTML += " " + teachers[aa];
                         }
                         row[counterWednesdayRow].getElementsByTagName("td")[WednesdayData].innerHTML += "<br><b>" + startTime + "-" + endTime+"<b>";
                         counterWednesdayRow++;
@@ -140,7 +140,7 @@ function showData(xml) {
                     if (chosenWeek == weekNumberInt) {
                         row[counterThursdayRow].getElementsByTagName("td")[ThursdayData].innerHTML = "<b>" + course + "</b><br>" + room + "<br>";
                         for (var aa = 0; aa < teachers.length; aa++) {
-                            row[counterThursdayRow].getElementsByTagName("td")[ThursdayData].innerHTML += "" + teachers[aa];
+                            row[counterThursdayRow].getElementsByTagName("td")[ThursdayData].innerHTML += " " + teachers[aa];
                         }
                         row[counterThursdayRow].getElementsByTagName("td")[ThursdayData].innerHTML += "<br><b>" + startTime + "-" + endTime+"<b>";
                         counterThursdayRow++;
@@ -152,7 +152,7 @@ function showData(xml) {
                     if (chosenWeek == weekNumberInt) {
                         row[counterFridayRow].getElementsByTagName("td")[FridayData].innerHTML = "<b>" + course + "</b><br>" + room + "<br>";
                         for (var aa = 0; aa < teachers.length; aa++) {
-                            row[counterFridayRow].getElementsByTagName("td")[FridayData].innerHTML += "" + teachers[aa];
+                            row[counterFridayRow].getElementsByTagName("td")[FridayData].innerHTML += " " + teachers[aa];
                         }
                         row[counterFridayRow].getElementsByTagName("td")[FridayData].innerHTML += "<br><b>" + startTime + "-" + endTime+"<b>";
                         counterFridayRow++;

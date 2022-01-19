@@ -110,6 +110,7 @@ public class ClassSelectViewController
       model.setChosenClassGroup(chosenClass);
       System.out.println(model.getChosenClassGroup() + "courses: "
           + model.getChosenClassGroup().getCourses());
+      model.setChosenTeacher(null);
       reset();
       viewHandler.openView("schedule");
     }
@@ -124,6 +125,14 @@ public class ClassSelectViewController
    */
   @FXML private void cancelInChooseClassButton()
   {
+    if(model.getChosenClassGroup()!=null && model.getChosenTeacher()==null)
+    {
+      model.setChosenClassGroup(model.getChosenClassGroup());
+    }
+    else
+    {
+      model.setChosenTeacher(model.getChosenTeacher());
+    }
     reset();
     viewHandler.openView("schedule");
   }

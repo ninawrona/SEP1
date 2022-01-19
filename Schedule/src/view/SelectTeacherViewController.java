@@ -123,6 +123,10 @@ public class SelectTeacherViewController
    */
   @FXML private void cancelInSelectTeacherButton()
   {
+    if (chosenTeacher != null && model.getChosenClassGroup()==null)
+    {
+      model.setChosenTeacher(chosenTeacher);
+    }
     reset();
     viewHandler.openView("schedule");
   }

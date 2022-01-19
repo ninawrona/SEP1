@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+
+<SessionList>
+<Session>
+    <Course>SEP</Course>
+    <Class>1Y</Class>
+    <Teachers>SVA,MWA,</Teachers>
+    <Date>17/01/2022</Date>
+    <WeekDay>MONDAY</WeekDay>
+    <StartTime>12:45</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>3</WeekNumber>
+</Session>
+</SessionList>

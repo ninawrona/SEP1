@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"standalone="no"?>
+
+<SessionList>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1Y</Class>
+    <Teachers>SVA,</Teachers>
+    <Date>21/01/2022</Date>
+    <WeekDay>FRIDAY</WeekDay>
+    <StartTime>12:45</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>3</WeekNumber>
+</Session>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1Y</Class>
+    <Teachers>SVA,</Teachers>
+    <Date>18/01/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>10:00</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>3</WeekNumber>
+</Session>
+<Session>
+    <Course>SEP</Course>
+    <Class>1Y</Class>
+    <Teachers>SVA,MWA,</Teachers>
+    <Date>17/01/2022</Date>
+    <WeekDay>MONDAY</WeekDay>
+    <StartTime>12:45</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>3</WeekNumber>
+</Session>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1Y</Class>
+    <Teachers>SVA,</Teachers>
+    <Date>20/01/2022</Date>
+    <WeekDay>THURSDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>11:50</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>3</WeekNumber>
+</Session>
+</SessionList>

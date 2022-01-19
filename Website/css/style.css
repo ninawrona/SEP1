@@ -13,6 +13,10 @@ html, body{
     margin: 5px;
 }
 
+td {
+    height: 120px;
+}
+
 .navigationBar{
     margin-bottom: 15px;
 }

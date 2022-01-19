@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Schedule</title>
+    <title>Skema</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="css/bootstrap.min.css" type="text/css" rel=stylesheet>
     <script src="js/bootstrap.bundle.js"></script>
@@ -20,7 +20,7 @@
     <div class="barPlusLogo">
         <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Hjemmeside</a>
+                <a class="navbar-brand" href="index.html">Home Page</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavBar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,92 +43,88 @@
     </div>
     <br>
 
-      
-          
-      
 
-    <div class=" container d-flex justify-content-center " >
+
+
+
+    <div class=" container d-flex justify-content-center ">
         <div class="col-xs-3 d-flex justify-content-center">
-         <form class= form >
-            <legend>Select the Class</legend>
-            <div class="input-group d-flex justify-content-center">
-               
-            <select id="selectedClass" name="classGroups" >
-                <option value="1X">1X</option>
-                <option value="1Y" >1Y</option>
-                <option value="1Z" >1Z</option>
-                <option value="1DK">1DK</option>
-                <option value="2X">2X</option>
-                <option value="2Y" >2Y</option>
-                <option value="2Z" >2Z</option>
-                <option value="2DK">2DK</option>
-                <option value="3X">3X</option>
-                <option value="3Y" >3Y</option>
-                <option value="3Z" >3Z</option>
-                <option value="3DK">3DK</option>
-                <option value="4X">4X</option>
-                <option value="4Y" >4Y</option>
-                <option value="4Z" >4Z</option>
-                <option value="4DK">4DK</option>
-            </select>
-             <span class="input-group-btn">
-               <button id="classBtn" type="button" class="btn btn-secondary">View</button>
-             </span>
-           </div>
-         </form>
-         
-       </div>
-       </div>
-       
-        <div class="container  justify-content-center" >
+            <form class=form>
+                <legend>Select the Class</legend>
+                <div class="input-group d-flex justify-content-center">
+
+                    <select id="selectedClass" name="classGroups">
+                        <option value="1X">1X</option>
+                        <option value="1Y">1Y</option>
+                        <option value="1Z">1Z</option>
+                        <option value="1DK">1DK</option>
+                        <option value="2X">2X</option>
+                        <option value="2Y">2Y</option>
+                        <option value="2Z">2Z</option>
+                        <option value="2DK">2DK</option>
+                        <option value="3X">3X</option>
+                        <option value="3Y">3Y</option>
+                        <option value="3Z">3Z</option>
+                        <option value="3DK">3DK</option>
+                        <option value="4X">4X</option>
+                        <option value="4Y">4Y</option>
+                        <option value="4Z">4Z</option>
+                        <option value="4DK">4DK</option>
+                    </select>
+                    <span class="input-group-btn">
+                        <button id="classBtn" type="button" class="btn btn-secondary">View</button>
+                    </span>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="container  justify-content-center">
         <div class="col-xs-3 d-flex justify-content-center">
-        <form class=form>
-             <legend>Select the Teacher</legend>
-                    <div class="input-group d-flex justify-content-center">
-                        <select id="selectedTeacher" name="teachers" >
-                            <option value="ALHE" selected>ALHE</option>
-                            <option value="SVA">SVA</option>
-                            <option value="MIVI">MIVI</option>
-                            <option value="LILE">LILE</option>
-                            <option value="AHAN">AHAN</option>
-                            <option value="RIB">RIB</option>
-                            <option value="IOOD">IOOD</option>
-                            <option value="MWA">MWA</option>
-                            <option value="HEKP">HEKP</option>
-                            <option value="TRMO">TRMO</option>
-                        </div>
-                        </select> 
-                      
+            <form class=form>
+                <legend>Select the Teacher</legend>
+                <div class="input-group d-flex justify-content-center">
+                    <select id="selectedTeacher" name="teachers">
+                        <option value="ALHE" selected>ALHE</option>
+                        <option value="SVA">SVA</option>
+                        <option value="MIVI">MIVI</option>
+                        <option value="LILE">LILE</option>
+                        <option value="AHAN">AHAN</option>
+                        <option value="RIB">RIB</option>
+                        <option value="IOOD">IOOD</option>
+                        <option value="MWA">MWA</option>
+                        <option value="HEKP">HEKP</option>
+                        <option value="TRMO">TRMO</option>
+                </div>
+                </select>
+
                 <span class="input-group-btn">
                     <button id="teacherBtn" class="btn btn-secondary" type="button">View</button>
                 </span>
-        </form>
-        </div>
-        </div>
-          
-        <div class="container d-flex justify-content-center">
-          <div class="col-xs-3 d-flex justify-content-center">
-            <form class='form-inline' >
-                <legend class="d-flex justify-content-center">Select the Week</legend>
-              <div class="input-group d-flex justify-content-center">
-                <input type="week" name="week" class="form-control">
-                <span class="input-group-btn">
-                  <button type='submit' class="btn btn-secondary" type="button">View</button>
-                </span>
-
-              </div>
             </form>
-            </div>
         </div>
     </div>
-    <br>
-       
-   
 
-    <!--8:20, 9:15, 10:10, 11:05, 12:00, 12:45, 13:40, 14:35, 15:30, 16:25 and 17:20.-->
+    <div class="container d-flex justify-content-center">
+        <div class="col-xs-3 d-flex justify-content-center">
+            <form class='form-inline'>
+                <legend class="d-flex justify-content-center">Select the Week</legend>
+                <div class="input-group d-flex justify-content-center">
+                    <input type="week" name="week" class="form-control" id="inputWeek">
+                    <span class="input-group-btn">
+                        <button id="weekBtn" class="btn btn-secondary" type="button">Choose</button>
+                    </span>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <br>
 
     <div class="container-fluid w-100">
-        <table class="table table-dark text-center table-striped table-hover table-bordered">
+        <table class="table table-dark text-center table-striped table-hover table-bordered" id="myTable">
             <tr>
                 <th>Monday</th>
                 <th>Tuesday</th>
@@ -137,7 +133,7 @@
                 <th>Friday</th>
             </tr>
             <tr>
-                <td>RWD<br>C.05.16a<br>LILE<br>8:20-11:50</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -173,110 +169,7 @@
             </tr>
         </table>
     </div>
-    <!--
-    <div class="container-fluid w-100 m-2">
-        <table class="table d-xs-table text-center ">
-            <tr>
-                <th class="table-secondary w-table">Time </th>
-                <th class="table-secondary ">Monday</th>
-                <th class="table-secondary ">Tuesday</th>
-                <th class="table-secondary ">Wednesday</th>
-                <th class="table-secondary ">Thursday</th>
-                <th class="table-secondary ">Friday</th>
-            </tr>
-            <tr id="8:20">
-                <td class="table-secondary w-table"><b>08:20-09:05</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="9:15">
-                <td class="table-secondary w-table"><b>09:15-10:00</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="10:10">
-                <td class="table-secondary w-table"><b>10:10-11:00</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="11:05">
-                <td class="table-secondary w-table"><b>11:05-11:50</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="12:00">
-                <td class="table-secondary w-table"><b>12:00-12:45</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="12:45">
-                <td class="table-secondary w-table"><b>12:45-13:30</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="13:40">
-                <td class="table-secondary w-table"><b>13:40-14:25</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="14:35">
-                <td class="table-secondary w-table"><b>14:35-15:20</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-            <tr id="15:30">
-                <td class="table-secondary w-table"><b>15:30-16:15</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
 
-            </tr>
-            <tr id="16:25">
-                <td class="table-secondary w-table"><b>16:25-17:10</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-
-            </tr>
-            <tr id="17:20">
-                <td class="table-secondary w-table"><b>17:20-18:05</b></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-                <td class="table-light"></td>
-            </tr>
-        </table>
-    </div>
--->
     <footer class="bg-danger p-2">
         <div class="container" id="footer1">
             <div class="row d-flex justify-content-center">
@@ -284,7 +177,7 @@
                 <div class="col-md-4 d-flex justify-content-center">
                     <a href="https://www.youtube.com/user/viauc" class="bar" title="VIA Youtube Channel"
                         target="_blank"><img src="images/Youtube2.png" title="Youtube Logo" alt="Youtube Logo"> </a>
-                    <p id="test">TEST HERE</p>
+                    <p id="test"></p>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center">
                     <a href="https://www.facebook.com/VIASoftwareEng" class="bar"

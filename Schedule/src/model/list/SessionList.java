@@ -60,14 +60,25 @@ public class SessionList
     {
       throw new IllegalArgumentException("Session cannot be null!");
     }
+
     if (!(isTeacherAvailable(session)))
     {
-      throw new IllegalCallerException("Teacher not available!");
+      if (session.getRoom().getNumber()!=room.getNumber()&&
+          session.getRoom().getFloor()!=room.getFloor()&&
+          session.getRoom().getBlock()!=room.getBlock())
+      {
+        throw new IllegalCallerException("Teacher not available!");
+      }
     }
     if (!(isClassGroupAvailable(session.getCourse().getClassGroup(), session)))
     {
-      throw new IllegalCallerException(
-          "This would overlap one of the ClassGroup's existing Sessions!");
+     if (session.getRoom().getNumber()!=room.getNumber()&&
+      session.getRoom().getFloor()!=room.getFloor()&&
+      session.getRoom().getBlock()!=room.getBlock())
+     {
+       throw new IllegalCallerException(
+           "This would overlap one of the ClassGroup's existing Sessions!");
+     }
     }
     bookRoomForASession(room, session);
     sessions.add(session);

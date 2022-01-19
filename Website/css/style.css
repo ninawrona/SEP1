@@ -17,6 +17,16 @@ td {
     height: 120px;
 }
 
+/* Styling language flags */
+div.flags {
+    min-width: 5%;
+    max-width: 15%;
+    position: relative;
+    float: right;
+    bottom: 185px;
+    padding: 15px;
+}
+
 .navigationBar{
     margin-bottom: 15px;
 }

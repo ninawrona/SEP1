@@ -17,10 +17,20 @@
         <div class="logo col-md-12 d-flex justify-content-center"><img src="images/SecondLogo.png" title="Logo"
                 alt="Logo"></div>
     </div>
+
+    <div class="flags">
+        <a href="schedule.html">
+            <img src="images/uk_flag_64.png" title="English" alt="English">
+        </a>
+        <a href="schedule-dk.html">
+            <img src="images/dk_flag_64.png" title="Dansk" alt="Dansk">
+        </a>
+    </div>
+
     <div class="barPlusLogo">
-        <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-danger navbar-dark w-100">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Home Page</a>
+                <a class="navbar-brand" href="index-dk.html">Hjemmeside</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavBar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,12 +40,12 @@
 
                 <div class="collapse navbar-collapse" id="myNavBar">
                     <ul class="navbar-nav ms-auto me-auto">
-                        <li class="nav-item"><a class="nav-link" href="DMA.html">DMA</a></li>
-                        <li class="nav-item"><a class="nav-link" href="RWD.html">RWD</a></li>
-                        <li class="nav-item"><a class="nav-link" href="SDJ.html">SDJ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="SEP.html">SEP</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="schedule.html">Skema</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ContactUs.html">Kontakt</a></li>
+                        <li class="nav-item"><a class="nav-link" href="DMA-dk.html">DMA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="RWD-dk.html">RWD</a></li>
+                        <li class="nav-item"><a class="nav-link" href="SDJ-dk.html">SDJ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="SEP-dk.html">SEP</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="schedule-dk.html">Skema</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ContactUs-dk.html">Kontakt</a></li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +60,7 @@
     <div class=" container d-flex justify-content-center ">
         <div class="col-xs-3 d-flex justify-content-center">
             <form class=form>
-                <legend>Select the Class</legend>
+                <legend>Vælge Klassen</legend>
                 <div class="input-group d-flex justify-content-center">
 
                     <select id="selectedClass" name="classGroups">
@@ -72,7 +82,7 @@
                         <option value="4DK">4DK</option>
                     </select>
                     <span class="input-group-btn">
-                        <button id="classBtn" type="button" class="btn btn-secondary">View</button>
+                        <button id="classBtn" type="button" class="btn btn-secondary">Se</button>
                     </span>
                 </div>
             </form>
@@ -83,7 +93,7 @@
     <div class="container  justify-content-center">
         <div class="col-xs-3 d-flex justify-content-center">
             <form class=form>
-                <legend>Select the Teacher</legend>
+                <legend>Vælge Læreren</legend>
                 <div class="input-group d-flex justify-content-center">
                     <select id="selectedTeacher" name="teachers">
                         <option value="ALHE" selected>ALHE</option>
@@ -100,7 +110,7 @@
                 </select>
 
                 <span class="input-group-btn">
-                    <button id="teacherBtn" class="btn btn-secondary" type="button">View</button>
+                    <button id="teacherBtn" class="btn btn-secondary" type="button">Se</button>
                 </span>
             </form>
         </div>
@@ -109,11 +119,11 @@
     <div class="container d-flex justify-content-center">
         <div class="col-xs-3 d-flex justify-content-center">
             <form class='form-inline'>
-                <legend class="d-flex justify-content-center">Select the Week</legend>
+                <legend class="d-flex justify-content-center">Vælge Ugen</legend>
                 <div class="input-group d-flex justify-content-center">
                     <input type="week" name="week" class="form-control" id="inputWeek">
                     <span class="input-group-btn">
-                        <button id="weekBtn" class="btn btn-secondary" type="button">Choose</button>
+                        <button id="weekBtn" class="btn btn-secondary" type="button">Vælge</button>
                     </span>
 
                 </div>
@@ -126,11 +136,11 @@
     <div class="container-fluid w-100">
         <table class="table table-dark text-center table-striped table-hover table-bordered" id="myTable">
             <tr>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
+                <th>Mandag</th>
+                <th>Tirsdag</th>
+                <th>Onsdag</th>
+                <th>Torsdag</th>
+                <th>Fredag</th>
             </tr>
             <tr>
                 <td></td>
@@ -175,26 +185,28 @@
             <div class="row d-flex justify-content-center">
 
                 <div class="col-md-4 d-flex justify-content-center">
-                    <a href="https://www.youtube.com/user/viauc" class="bar" title="VIA Youtube Channel"
-                        target="_blank"><img src="images/Youtube2.png" title="Youtube Logo" alt="Youtube Logo"> </a>
-                    <p id="test"></p>
+                    <a href="https://www.youtube.com/user/viauc" class="bar" title="VIA Youtube" target="_blank"><img
+                            src="images/Youtube2.png" title="Youtube Logo" alt="Youtube Logo"> </a>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center">
-                    <a href="https://www.facebook.com/VIASoftwareEng" class="bar"
-                        title="VIA Software Engineering Facebook" target="_blank"><img src="images/Facebook2.png"
-                            title="Facebook logo" alt="Facebook Logo"></a>
+                    <a href="https://www.facebook.com/VIASoftwareEng" class="bar" title="VIA Softwareingeniør Facebook"
+                        target="_blank"><img src="images/Facebook2.png" title="Facebook logo" alt="Facebook Logo"></a>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center">
                     <a href="https://en.via.dk/programmes/bachelor/software-technology-engineering" class="bar"
-                        title="Via Univeristy Website" target="_blank"><img src="images/Via2.png" title="VIA logo"
-                            alt="Youtube Logo"></a>
+                        title="Via Univeristy Softwareingeniør" target="_blank"><img src="images/Via2.png"
+                            title="VIA logo" alt="VIA Logo"></a>
                 </div>
+
+
             </div>
+
             <div class="row">
 
                 <div class="footer-copyright text-center">
-                    © Copyright 2021
+                    © Ophavsret 2021
                 </div>
+
             </div>
         </div>
     </footer>

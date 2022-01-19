@@ -114,6 +114,11 @@ public class ReadWrite {
                 } else {
                     xml += "\n    <Room>" + sessions.get(i).getRoom() + "</Room>";
                 }
+                LocalDate dateTemp = LocalDate.of(sessions.get(i).getDate().getYear(),
+                    sessions.get(i).getDate().getMonth(),
+                    sessions.get(i).getDate().getDay());
+                int weekNumber = dateTemp.get(ChronoField.ALIGNED_WEEK_OF_YEAR);
+                xml += "\n    <WeekNumber>" + weekNumber + "</WeekNumber>";
 
                 xml += "\n</Session>";
 

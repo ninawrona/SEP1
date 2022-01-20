@@ -3,6 +3,9 @@ var chosenClass;
 var chosenTeacher;
 var chosenWeek = 0;
 
+var path = window.location.pathname;
+var page = path.split("/").pop();
+ 
 $("#weekBtn").click(function () {
     var chosenWeekTemp = $("#inputWeek").val();
     var charLast = chosenWeekTemp.charAt(chosenWeekTemp.length - 1);
@@ -67,8 +70,12 @@ function showData(xml) {
 
     var table = document.getElementById("myTable");
 
-    table.innerHTML = "<tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
-
+    if (page.includes("-dk")) {
+        table.innerHTML = "<tr><th>Mandag</th><th>Tirsdag</th><th>Onsdag</th><th>Torsdag</th><th>Fredag</th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
+    }
+    else {
+        table.innerHTML = "<tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
+    }
     var row = table.getElementsByTagName("tr");
 
     //Counters helping to keep track to which td and tr to put the lesson.

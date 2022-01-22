@@ -116,7 +116,7 @@ public class AddTeacherViewController
     }
     //
     viewHandler.closeView();
-    viewHandler.openView("schedule");
+    viewHandler.openView("courseDetails");
   }
 
   /**

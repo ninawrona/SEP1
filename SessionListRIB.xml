@@ -5,12 +5,36 @@
     <Course>DMA</Course>
     <Class>1X</Class>
     <Teachers>RIB,</Teachers>
-    <Date>19/01/2022</Date>
-    <WeekDay>WEDNESDAY</WeekDay>
-    <StartTime>12:45</StartTime>
-    <NumberOfLessons>2</NumberOfLessons>
-    <EndTime>14:25</EndTime>
+    <Date>25/01/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>5</NumberOfLessons>
+    <EndTime>12:35</EndTime>
     <Room>C05.15</Room>
-    <WeekNumber>3</WeekNumber>
+    <WeekNumber>4</WeekNumber>
+</Session>
+<Session>
+    <Course>DMA</Course>
+    <Class>1X</Class>
+    <Teachers>RIB,</Teachers>
+    <Date>08/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>5</NumberOfLessons>
+    <EndTime>12:35</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>6</WeekNumber>
+</Session>
+<Session>
+    <Course>DMA</Course>
+    <Class>1X</Class>
+    <Teachers>RIB,</Teachers>
+    <Date>15/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>5</NumberOfLessons>
+    <EndTime>12:35</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>7</WeekNumber>
 </Session>
 </SessionList>

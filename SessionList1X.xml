@@ -5,44 +5,44 @@
     <Course>SDJ</Course>
     <Class>1X</Class>
     <Teachers>ALHE,</Teachers>
-    <Date>24/01/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
-    <StartTime>8:20</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>10:55</EndTime>
-    <Room>C05.15</Room>
-    <WeekNumber>4</WeekNumber>
-</Session>
-<Session>
-    <Course>RWD</Course>
-    <Class>1X</Class>
-    <Teachers>KASR,</Teachers>
-    <Date>24/01/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
-    <StartTime>12:45</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>15:20</EndTime>
-    <Room>C05.15</Room>
-    <WeekNumber>4</WeekNumber>
-</Session>
-<Session>
-    <Course>DMA</Course>
-    <Class>1X</Class>
-    <Teachers>RIB,</Teachers>
     <Date>25/01/2022</Date>
     <WeekDay>TUESDAY</WeekDay>
-    <StartTime>12:00</StartTime>
-    <NumberOfLessons>5</NumberOfLessons>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>3</NumberOfLessons>
+    <EndTime>10:55</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>4</WeekNumber>
+</Session>
+<Session>
+    <Course>RWD</Course>
+    <Class>1X</Class>
+    <Teachers>KASR,</Teachers>
+    <Date>25/01/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
     <EndTime>16:15</EndTime>
-    <Room>C05.16a</Room>
+    <Room>C05.15</Room>
+    <WeekNumber>4</WeekNumber>
+</Session>
+<Session>
+    <Course>DMA</Course>
+    <Class>1X</Class>
+    <Teachers>RIB,</Teachers>
+    <Date>26/01/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>9:15</StartTime>
+    <NumberOfLessons>5</NumberOfLessons>
+    <EndTime>13:30</EndTime>
+    <Room>C05.15</Room>
     <WeekNumber>4</WeekNumber>
 </Session>
 <Session>
     <Course>SDJ</Course>
     <Class>1X</Class>
     <Teachers>ALHE,</Teachers>
-    <Date>07/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
+    <Date>08/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
     <StartTime>8:20</StartTime>
     <NumberOfLessons>3</NumberOfLessons>
     <EndTime>10:55</EndTime>
@@ -53,11 +53,11 @@
     <Course>RWD</Course>
     <Class>1X</Class>
     <Teachers>KASR,</Teachers>
-    <Date>07/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
-    <StartTime>12:45</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>15:20</EndTime>
+    <Date>08/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
     <Room>C05.15</Room>
     <WeekNumber>6</WeekNumber>
 </Session>
@@ -65,20 +65,20 @@
     <Course>DMA</Course>
     <Class>1X</Class>
     <Teachers>RIB,</Teachers>
-    <Date>08/02/2022</Date>
-    <WeekDay>TUESDAY</WeekDay>
-    <StartTime>12:00</StartTime>
+    <Date>09/02/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>9:15</StartTime>
     <NumberOfLessons>5</NumberOfLessons>
-    <EndTime>16:15</EndTime>
-    <Room>C05.16a</Room>
+    <EndTime>13:30</EndTime>
+    <Room>C05.15</Room>
     <WeekNumber>6</WeekNumber>
 </Session>
 <Session>
     <Course>SDJ</Course>
     <Class>1X</Class>
     <Teachers>ALHE,</Teachers>
-    <Date>14/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
+    <Date>15/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
     <StartTime>8:20</StartTime>
     <NumberOfLessons>3</NumberOfLessons>
     <EndTime>10:55</EndTime>
@@ -89,11 +89,11 @@
     <Course>RWD</Course>
     <Class>1X</Class>
     <Teachers>KASR,</Teachers>
-    <Date>14/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
-    <StartTime>12:45</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>15:20</EndTime>
+    <Date>15/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
     <Room>C05.15</Room>
     <WeekNumber>7</WeekNumber>
 </Session>
@@ -101,12 +101,12 @@
     <Course>DMA</Course>
     <Class>1X</Class>
     <Teachers>RIB,</Teachers>
-    <Date>15/02/2022</Date>
-    <WeekDay>TUESDAY</WeekDay>
-    <StartTime>12:00</StartTime>
+    <Date>16/02/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>9:15</StartTime>
     <NumberOfLessons>5</NumberOfLessons>
-    <EndTime>16:15</EndTime>
-    <Room>C05.16a</Room>
+    <EndTime>13:30</EndTime>
+    <Room>C05.15</Room>
     <WeekNumber>7</WeekNumber>
 </Session>
 </SessionList>

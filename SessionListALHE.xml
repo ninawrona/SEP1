@@ -5,36 +5,96 @@
     <Course>SDJ</Course>
     <Class>1X</Class>
     <Teachers>ALHE,</Teachers>
-    <Date>24/01/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
+    <Date>08/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
     <StartTime>8:20</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>10:55</EndTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>11:50</EndTime>
     <Room>C05.15</Room>
-    <WeekNumber>4</WeekNumber>
+    <WeekNumber>6</WeekNumber>
 </Session>
 <Session>
-    <Course>SDJ</Course>
+    <Course>SEP</Course>
     <Class>1X</Class>
-    <Teachers>ALHE,</Teachers>
-    <Date>07/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
-    <StartTime>8:20</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>10:55</EndTime>
-    <Room>C05.15</Room>
+    <Teachers>ALHE,MWA,</Teachers>
+    <Date>09/02/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C03.12</Room>
     <WeekNumber>6</WeekNumber>
 </Session>
 <Session>
     <Course>SDJ</Course>
     <Class>1X</Class>
     <Teachers>ALHE,</Teachers>
-    <Date>14/02/2022</Date>
-    <WeekDay>MONDAY</WeekDay>
+    <Date>15/02/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
     <StartTime>8:20</StartTime>
-    <NumberOfLessons>3</NumberOfLessons>
-    <EndTime>10:55</EndTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>11:50</EndTime>
     <Room>C05.15</Room>
     <WeekNumber>7</WeekNumber>
+</Session>
+<Session>
+    <Course>SEP</Course>
+    <Class>1X</Class>
+    <Teachers>ALHE,MWA,</Teachers>
+    <Date>16/02/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C03.12</Room>
+    <WeekNumber>7</WeekNumber>
+</Session>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1X</Class>
+    <Teachers>ALHE,</Teachers>
+    <Date>01/03/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>11:50</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>9</WeekNumber>
+</Session>
+<Session>
+    <Course>SEP</Course>
+    <Class>1X</Class>
+    <Teachers>ALHE,MWA,</Teachers>
+    <Date>02/03/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C03.12</Room>
+    <WeekNumber>9</WeekNumber>
+</Session>
+<Session>
+    <Course>SDJ</Course>
+    <Class>1X</Class>
+    <Teachers>ALHE,</Teachers>
+    <Date>08/03/2022</Date>
+    <WeekDay>TUESDAY</WeekDay>
+    <StartTime>8:20</StartTime>
+    <NumberOfLessons>4</NumberOfLessons>
+    <EndTime>11:50</EndTime>
+    <Room>C05.15</Room>
+    <WeekNumber>10</WeekNumber>
+</Session>
+<Session>
+    <Course>SEP</Course>
+    <Class>1X</Class>
+    <Teachers>ALHE,MWA,</Teachers>
+    <Date>09/03/2022</Date>
+    <WeekDay>WEDNESDAY</WeekDay>
+    <StartTime>14:35</StartTime>
+    <NumberOfLessons>2</NumberOfLessons>
+    <EndTime>16:15</EndTime>
+    <Room>C03.12</Room>
+    <WeekNumber>10</WeekNumber>
 </Session>
 </SessionList>
